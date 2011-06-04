@@ -18,7 +18,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-__version__ = '0.01'
+__version__ = '0.03'
 
 
 from cmindicator import main
