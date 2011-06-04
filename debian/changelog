@@ -1,0 +1,21 @@
+
+classicmenu-indicator (0.03) natty; urgency=low
+
+   * cmindicator.py:
+     - create_menu_item: set always_show_image to True
+     - create_indicator: use miono style icon (LP: #792780). Thanks to Sander van Noort
+	
+ -- Florian Diesch <debian@florian-diesch.de>  Sat, 04 Jun 2011 16:32:01 +0200
+
+classicmenu-indicator (0.02) natty; urgency=low
+
+  * cmindicator.py:
+    - on_menuitem_activate: don't wait for the command to finish (LP: #792760)
+
+ -- Florian Diesch <devel@florian-diesch.de>  Sat, 04 Jun 2011 15:24:26 +0200
+
+classicmenu-indicator (0.01) natty; urgency=low
+
+  * Initial release.
+
+ -- Florian Diesch <devel@florian-diesch.de>  Thu, 02 Jun 2011 20:26:40 +0200

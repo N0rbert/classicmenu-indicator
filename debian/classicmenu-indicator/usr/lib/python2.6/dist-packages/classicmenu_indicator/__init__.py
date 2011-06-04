@@ -1,0 +1,1 @@
+../../../../share/pyshared/classicmenu_indicator/__init__.py

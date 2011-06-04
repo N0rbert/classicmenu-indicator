@@ -1,0 +1,1 @@
+../../../../share/pyshared/classicmenu_indicator/cmindicator.py

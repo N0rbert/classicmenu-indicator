@@ -1,0 +1,10 @@
+#!/usr/bin/python
+# EASY-INSTALL-ENTRY-SCRIPT: 'classicmenu-indicator==0.03','console_scripts','classicmenu-indicator'
+__requires__ = 'classicmenu-indicator==0.03'
+import sys
+from pkg_resources import load_entry_point
+
+if __name__ == '__main__':
+    sys.exit(
+        load_entry_point('classicmenu-indicator==0.03', 'console_scripts', 'classicmenu-indicator')()
+    )

@@ -1,0 +1,12 @@
+54dfa8dd82547f24ab28d1b572537212  usr/bin/classicmenu-indicator
+d12a85264c53752daf4da3e783d1662e  usr/share/applications/classicmenu-indicator.desktop
+cb4997ead9609a476c590d179c5598eb  usr/share/doc/classicmenu-indicator/NEWS.txt.gz
+e28243b5d4288346fbaff5aa92d00e02  usr/share/doc/classicmenu-indicator/changelog.gz
+f27defe1e96c2e1ecd4e0c9be8967949  usr/share/doc/classicmenu-indicator/copyright
+6c5cb829316577e3b5db4e4816992b27  usr/share/pyshared/classicmenu_indicator-0.03.egg-info/PKG-INFO
+674112214626531e9b89976eb83a0051  usr/share/pyshared/classicmenu_indicator-0.03.egg-info/SOURCES.txt
+68b329da9893e34099c7d8ad5cb9c940  usr/share/pyshared/classicmenu_indicator-0.03.egg-info/dependency_links.txt
+065f275f0c8f622af0443c838d5c9812  usr/share/pyshared/classicmenu_indicator-0.03.egg-info/entry_points.txt
+f9cf4e9220190b3c92b57e124e0b7fe1  usr/share/pyshared/classicmenu_indicator-0.03.egg-info/top_level.txt
+ad14e58d7128c647165dd5880f3d342f  usr/share/pyshared/classicmenu_indicator/__init__.py
+46c7948c407ef58cec0f2826c0907897  usr/share/pyshared/classicmenu_indicator/cmindicator.py
