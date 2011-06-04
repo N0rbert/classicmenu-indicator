@@ -42,7 +42,7 @@ def on_menuitem_activate(menuitem, entry):
         command=re_command.sub('', command)
         if entry.get_launch_in_terminal():
             command = '%s %s' % (cmd_terminal, command)
-        subprocess.call(command, shell=True)
+        subprocess.Popen(command, shell=True)
 
 
 def create_menu_item(entry):
@@ -61,7 +61,8 @@ def create_menu_item(entry):
         else:
             img.set_from_icon_name(icon, 64)
 
-        menu_item.set_image(img)    
+        menu_item.set_image(img)
+        menu_item.set_always_show_image(True)
     else:
        menu_item = gtk.MenuItem(name) 
            
@@ -122,7 +123,7 @@ def create_tree(ind):
 
 def create_indicator():
     ind = appindicator.Indicator ("classicmenu-indicator",
-                                  "gnome-main-menu",
+                                  "start-here",
                                   appindicator.CATEGORY_SYSTEM_SERVICES)
     ind.set_status (appindicator.STATUS_ACTIVE)
     return ind;
