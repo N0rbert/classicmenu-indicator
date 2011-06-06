@@ -28,9 +28,11 @@ import gtk
 import appindicator
 import re
 import subprocess
-
+from optparse import OptionParser
+import xdg.IconTheme as xdgicon
 
 APP_NAME = 'ClassicMenu Indicator'
+APP_VERSION = "0.03"
 
 re_command = re.compile('%[UFuf]')
 cmd_terminal = 'gnome-terminal -e'
@@ -55,11 +57,14 @@ def create_menu_item(entry):
     if (icon):
         menu_item = gtk.ImageMenuItem(name)
         img =  gtk.Image()
+        
+        icon_path = xdgicon.getIconPath(icon)
 
-        if icon.startswith('/'):
-            img.set_from_file(icon)
+        if icon_path:
+            img.set_from_file(icon_path)
         else:
             img.set_from_icon_name(icon, 64)
+
 
         menu_item.set_image(img)
         menu_item.set_always_show_image(True)
@@ -128,8 +133,13 @@ def create_indicator():
     ind.set_status (appindicator.STATUS_ACTIVE)
     return ind;
 
+def parse_args():
+    parser = OptionParser(version="%s %s"%(APP_NAME, APP_VERSION))
+    (options, args) = parser.parse_args()
+    
 
 def main():
+    parse_args()
     ind = create_indicator()    
     tree = create_tree(ind)
     menu = create_menu(tree)
