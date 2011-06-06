@@ -1,3 +1,0 @@
-[console_scripts]
-classicmenu-indicator = classicmenu_indicator:main
-

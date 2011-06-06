@@ -1,3 +1,4 @@
 .pc
 build
 classicmenu_indicator.egg-info
+debian/classicmenu-indicator
