@@ -27,3 +27,6 @@ deb: sdeb
 ppa: sdeb
 	dput ppa:${PPA} ../${NAME}_${DEBVERSION}_source.changes
 
+
+install: deb
+	sudo dpkg -i ..//classicmenu-indicator_${DEBVERSION}_all.deb
