@@ -18,10 +18,9 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-__version__ = '0.03'
-
-
 from cmindicator import main
+
+__version__ = '0.03'
 
 
 if __name__ == '__main__':
