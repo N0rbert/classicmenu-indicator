@@ -41,8 +41,8 @@ setup(
         'NEWS.txt',
         ),
     license='GPLv3',
-    url='http://www.florian-diesch.de/software/classicmenu-indicator',
-    download_url='http://www.florian-diesch.de/software/classicmenu-indicator',
+    url='http://www.florian-diesch.de/software/classicmenu-indicator/',
+    download_url='http://www.florian-diesch.de/software/classicmenu-indicator/',
     install_requires = [
         ],
     entry_points = {
