@@ -2,7 +2,18 @@
 NEWS for classicmenu-indicator
 ==============================
 
+0.03  (2011-06-15)
+==================
+ * Aways show icons
+ * Added "Settings" and "System Administration" menus
+ * Using mono style icon
+ * Added ``--help`` and ``--version`` command line options
 
-0.1  (2011-06-01)
+0.02  (2011-06-04)
+==================
+ * Bugfix: Don't wait for a started program to finish before start the 
+   next one
+
+0.01  (2011-06-02)
 =================
  * Initial release

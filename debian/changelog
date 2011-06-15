@@ -1,9 +1,10 @@
-
 classicmenu-indicator (0.03) natty; urgency=low
 
    * cmindicator.py:
      - create_menu_item: set always_show_image to True
-     - create_indicator: use miono style icon (LP: #792780). Thanks to Sander van Noort
+     - create_indicator: use mono style icon (LP: #792780). Thanks to Sander van Noort
+     - create_menu: Added "Settings" and "System Administration" menus
+     - main: Added ``--help`` and ``--version`` command line options
 	
  -- Florian Diesch <debian@florian-diesch.de>  Sat, 04 Jun 2011 16:32:01 +0200
 
