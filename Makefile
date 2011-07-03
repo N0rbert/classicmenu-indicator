@@ -1,6 +1,6 @@
 NAME=classicmenu-indicator
-VERSION=0.03
-DEBVERSION=0.03
+VERSION=0.04
+DEBVERSION=0.04
 PPA=diesch/testing
 
 .PHONY: clean deb sdist ppa deb
@@ -23,6 +23,9 @@ sdeb: sdist
 
 deb: sdeb
 	debuild -b -sa -v${DEBVERSION} -kB57F5641
+
+pypi:
+	python setup.py register
 
 ppa: sdeb
 	dput ppa:${PPA} ../${NAME}_${DEBVERSION}_source.changes
