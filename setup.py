@@ -35,10 +35,11 @@ setup(
     include_package_data=True,
     maintainer='Florian Diesch',
     maintainer_email='devel@florian-diesch.de',
-    description=description('README.txt'),
+    author = "Florian Diesch",
+    author_email = "devel@florian-diesch.de",    
+    description='An Unity indicator applet that provides the classic GNOME application menu',
     long_description=long_description(
-        'README.txt',
-        'NEWS.txt',
+        'README.txt'       
         ),
     license='GPLv3',
     url='http://www.florian-diesch.de/software/classicmenu-indicator/',
@@ -48,4 +49,17 @@ setup(
     entry_points = {
         'console_scripts': ['classicmenu-indicator=classicmenu_indicator:main'],
         },
+    keywords = "Ubuntu, Unity, Indicator, Applet, Gnome, Classic Menu", 
+    classifiers=[
+        'Development Status :: 3 - Alpha',
+        'Environment :: X11 Applications :: Gnome',
+        'Intended Audience :: End Users/Desktop',
+        'License :: OSI Approved :: GNU General Public License (GPL)',
+        'Natural Language :: English',
+        'Natural Language :: German',
+        'Operating System :: POSIX :: Linux',
+        'Programming Language :: Python :: 2.7',
+        'Topic :: Desktop Environment :: Gnome',
+        'Topic :: Utilities',
+        ]
     )
