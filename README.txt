@@ -19,11 +19,15 @@ ClassicMenu Indicator ist available at `<http://www.florian-diesch.de/software/c
  Status
 ========
 
-ClassicMenu Indicator is alpha software. It works for me but still may have some bugs.  **Use it at your own risk.**
+ClassicMenu Indicator is beta software. It works for me and a lot of other users but may still have some bugs.  **Use it at your own risk.**
 
-=================
-Requirements
-=================
+If you find a bug in ClassicMenu Indicator please report it at the `bugtracker at Launchapd <https://bugs.launchpad.net/classicmenu-indicator/+filebug>`_
+so that I can fix it. Thank you.
+
+
+==============
+ Requirements
+==============
 
 ClassicMenu Indicator is developed and tested on Ubuntu 11.04 "Natty Narwhal"
 
@@ -37,6 +41,13 @@ ClassicMenu Indicator needs the following packages from the software sources:
 If you install the .deb package this packages will be automatically
 installed if needed.
 
+=========
+ Project
+=========
+
+For bug reports or feature requests please use the `bugtracker at Launchapd <https://bugs.launchpad.net/classicmenu-indicator/+filebug>`_
+
+The `project page at Launchpad <https://launchpad.net/classicmenu-indicator>`_ ofers some other services, too.
 
 
 =========
