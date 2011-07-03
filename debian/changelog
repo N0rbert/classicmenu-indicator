@@ -1,3 +1,11 @@
+classicmenu-indicator (0.04) natty; urgency=low
+
+  * cmindicator.py:
+    - create_menu_item: fixed size for img.set_from_icon_name
+    - fixed monitor for menu files
+
+ -- Florian Diesch <debian@florian-diesch.de>  Sun, 26 Jun 2011 13:33:14 +0200
+
 classicmenu-indicator (0.03) natty; urgency=low
 
    * cmindicator.py:
