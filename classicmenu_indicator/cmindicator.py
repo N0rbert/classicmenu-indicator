@@ -24,7 +24,6 @@
 
 
 import gmenu
-import gobject
 import gtk
 import appindicator
 import re
@@ -34,7 +33,7 @@ from optparse import OptionParser
 import xdg.IconTheme as xdgicon
 
 APP_NAME = 'ClassicMenu Indicator'
-APP_VERSION = "0.03"
+APP_VERSION = "0.04"
 
 re_command = re.compile('%[UFuf]')
 cmd_terminal = 'gnome-terminal -e'
@@ -48,8 +47,11 @@ class ClassicMenuIndicator(object):
                                                 appindicator.CATEGORY_SYSTEM_SERVICES)
         self.indicator.set_status (appindicator.STATUS_ACTIVE)
 
-        self.menu = self.create_menu()
-        self.indicator.set_menu(self.menu)
+        self.trees = []
+        self.trees.append(self.create_tree('applications.menu'))
+        self.trees.append(self.create_tree('settings.menu'))
+
+        self.indicator.set_menu(self.create_menu())
 
     def run(self):
         try:
@@ -74,7 +76,7 @@ class ClassicMenuIndicator(object):
             if icon_path:
                 img.set_from_file(icon_path)
             else:
-                img.set_from_icon_name(icon, 64)
+                img.set_from_icon_name(icon, gtk.ICON_SIZE_MENU)
 
 
             menu_item.set_image(img)
@@ -120,21 +122,17 @@ class ClassicMenuIndicator(object):
                     print >> sys.stderr, 'Unsupported item type: %s' % type
 
 
-    def add_to_menu(self, menu, name):
-        tree = self.create_tree(name)
+    def add_to_menu(self, menu, tree):
         root = tree.get_root_directory()    
         self.process_directory(menu, root)
 
-
     def create_menu(self):
         menu = gtk.Menu()
-        self.add_to_menu(menu, 'applications.menu')
-        menu_item = gtk.SeparatorMenuItem()
-        menu.append(menu_item)
-        self.add_to_menu(menu, 'settings.menu')
 
-        menu_item = gtk.SeparatorMenuItem()
-        menu.append(menu_item)
+        for t in self.trees:
+            self.add_to_menu(menu, t)
+            menu_item = gtk.SeparatorMenuItem()
+            menu.append(menu_item)
 
         menu_item = gtk.MenuItem('%s'%APP_NAME)
         menu.append(menu_item)
@@ -159,11 +157,13 @@ class ClassicMenuIndicator(object):
         flags = gmenu.FLAGS_NONE
         if include_nodisplay:
             flags = flags | gmenu.FLAGS_INCLUDE_NODISPLAY
-        tree = gmenu.lookup_tree(name, flags)
-        tree.add_monitor(self.on_menu_changed, self.indicator)
+        tree = gmenu.lookup_tree(name, flags)        
+        tree.add_monitor(self.on_menu_file_changed)
         return tree
 
 
+    def quit(self):
+        gtk.main_quit()
 
 #####################
 ## Signal-Behandlung
@@ -178,11 +178,11 @@ class ClassicMenuIndicator(object):
             subprocess.Popen(command, shell=True)
 
 
-    def on_menu_changed(self, tree, ind):
-        ind.set_menu(create_menu(tree))
+    def on_menu_file_changed(self, tree):
+        self.indicator.set_menu(self.create_menu())
 
     def on_menuitem_quit_activate(self, menuitem):
-        quit()
+        self.quit()
 
     def on_menuitem_about_activate(self, menuitem):
         dlg = gtk.AboutDialog()
