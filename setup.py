@@ -25,7 +25,7 @@ from setuptools import setup, find_packages
 
 
 require_python(0x20600f0)
-__version__ = get_version('classicmenu_indicator/__init__.py', r'(?P<version>\d+\.\d+(?:\.\d+)?)')
+__version__ = get_version('classicmenu_indicator/cmindicator.py', r'(?P<version>\d+\.\d+(?:\.\d+)?)')
 
 
 setup(

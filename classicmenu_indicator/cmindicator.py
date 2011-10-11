@@ -24,7 +24,7 @@
 
 
 import gmenu
-import gtk
+import gtk, glib
 import appindicator
 import re
 import textwrap
@@ -32,8 +32,10 @@ import subprocess
 from optparse import OptionParser
 import xdg.IconTheme as xdgicon
 
+__version__ = "0.05"
+
 APP_NAME = 'ClassicMenu Indicator'
-APP_VERSION = "0.04"
+APP_VERSION = __version__
 
 re_command = re.compile('%[UFuf]')
 cmd_terminal = 'gnome-terminal -e'
@@ -45,11 +47,15 @@ class ClassicMenuIndicator(object):
         self.indicator = appindicator.Indicator("classicmenu-indicator",
                                                 "start-here",
                                                 appindicator.CATEGORY_SYSTEM_SERVICES)
+
+        self.icon_size = 22  #like in libindicator:indicator_image_helper.c:refresh_image()
+
         self.indicator.set_status (appindicator.STATUS_ACTIVE)
 
         self.trees = []
         self.trees.append(self.create_tree('applications.menu'))
         self.trees.append(self.create_tree('settings.menu'))
+
 
         self.indicator.set_menu(self.create_menu())
 
@@ -67,16 +73,42 @@ class ClassicMenuIndicator(object):
 
         menu_item = gtk.ImageMenuItem(name)
 
+        default_theme = gtk.icon_theme_get_default()
+
         if (icon):
             menu_item = gtk.ImageMenuItem(name)
-            img =  gtk.Image()
-        
-            icon_path = xdgicon.getIconPath(icon)
 
-            if icon_path:
-                img.set_from_file(icon_path)
+
+            if default_theme.lookup_icon(icon, self.icon_size, 
+                                         gtk.ICON_LOOKUP_USE_BUILTIN):
+                pixbuf = default_theme.load_icon(icon, self.icon_size, 
+                                                 gtk.ICON_LOOKUP_USE_BUILTIN)
+                if pixbuf.get_height() > self.icon_size:
+                    scale = pixbuf.get_height() / float(self.icon_size)
+                    width = int(pixbuf.get_width() * scale)
+                    pixbuf.scale_simple(width, self.icon_size, gtk.gdk.INTERP_BILINEAR)
+                img = gtk.image_new_from_pixbuf(pixbuf)
             else:
-                img.set_from_icon_name(icon, gtk.ICON_SIZE_MENU)
+                try:
+                    icon_path = xdgicon.getIconPath(icon)
+                    if icon_path:
+                        pixbuf = gtk.gdk.pixbuf_new_from_file_at_size(icon_path, 
+                                                                      self.icon_size,
+                                                                      self.icon_size)
+                        img = gtk.image_new_from_pixbuf(pixbuf)
+                    else:
+                        img = gtk.Image()                    
+                        img.set_from_icon_name(icon, self.icon_size)
+
+                except glib.GError, e:
+                    print '%s: %s'%(APP_NAME, e)
+                    img = gtk.Image()
+            # icon_path = xdgicon.getIconPath(icon, theme=theme)
+
+            # if icon_path:
+            #     img.set_from_file(icon_path)
+            # else:
+            #     img.set_from_icon_name(icon, gtk.ICON_SIZE_MENU)
 
 
             menu_item.set_image(img)
@@ -197,7 +229,7 @@ class ClassicMenuIndicator(object):
             that provides the main menu of Gnome2/Gnome Classic. 
 
            
-            Copyright © 2011 Florian Diesch <devel@florian-diesch.de>
+            Copyright (c) 2011 Florian Diesch <devel@florian-diesch.de>
            
             Homepage: http://www.florian-diesch.de/software/classicmenu-indicator/
            

@@ -20,8 +20,6 @@
 
 from cmindicator import main
 
-__version__ = '0.04'
-
 
 if __name__ == '__main__':
     try:

@@ -1,6 +1,6 @@
 NAME=classicmenu-indicator
-VERSION=0.04
-DEBVERSION=0.04
+VERSION=0.05
+DEBVERSION=${VERSION}
 PPA=diesch/testing
 
 .PHONY: clean deb sdist ppa deb
