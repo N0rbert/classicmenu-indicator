@@ -1,3 +1,18 @@
+classicmenu-indicator (0.06) natty; urgency=low
+
+  * cmdindicator.py: 
+    -  Fixed bug that caused an infitite loop after menu file update 
+       under some circumstances
+
+
+ -- Florian Diesch <debian@florian-diesch.de>  Fri, 14 Oct 2011 23:28:57 +0200
+
+classicmenu-indicator (0.05) natty; urgency=low
+  * cmdindicator.py:
+    - Fixed icon size when run in an environment other than Unity
+
+ -- Florian Diesch <debian@florian-diesch.de>  Tue, 11 Oct 2011 21:52:11 +0200
+
 classicmenu-indicator (0.04) natty; urgency=low
 
   * cmindicator.py:

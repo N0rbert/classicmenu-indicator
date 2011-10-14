@@ -24,7 +24,7 @@
 
 
 import gmenu
-import gtk, glib
+import gtk, glib, gobject
 import appindicator
 import re
 import textwrap
@@ -32,7 +32,7 @@ import subprocess
 from optparse import OptionParser
 import xdg.IconTheme as xdgicon
 
-__version__ = "0.05"
+__version__ = "0.06"
 
 APP_NAME = 'ClassicMenu Indicator'
 APP_VERSION = __version__
@@ -49,6 +49,8 @@ class ClassicMenuIndicator(object):
                                                 appindicator.CATEGORY_SYSTEM_SERVICES)
 
         self.icon_size = 22  #like in libindicator:indicator_image_helper.c:refresh_image()
+
+        self.update_requested = False
 
         self.indicator.set_status (appindicator.STATUS_ACTIVE)
 
@@ -103,14 +105,7 @@ class ClassicMenuIndicator(object):
                 except glib.GError, e:
                     print '%s: %s'%(APP_NAME, e)
                     img = gtk.Image()
-            # icon_path = xdgicon.getIconPath(icon, theme=theme)
-
-            # if icon_path:
-            #     img.set_from_file(icon_path)
-            # else:
-            #     img.set_from_icon_name(icon, gtk.ICON_SIZE_MENU)
-
-
+ 
             menu_item.set_image(img)
             menu_item.set_always_show_image(True)
         else:
@@ -194,6 +189,16 @@ class ClassicMenuIndicator(object):
         return tree
 
 
+    def update_menu(self):
+        print "  UPDATE"
+        self.update_requested = False
+        self.indicator.set_menu(self.create_menu())        
+        # result = self.update_requested
+        # self.update_requested = False
+        print "  UPDATE DONE"
+        # return result
+        return False    # Don't run again
+
     def quit(self):
         gtk.main_quit()
 
@@ -211,7 +216,15 @@ class ClassicMenuIndicator(object):
 
 
     def on_menu_file_changed(self, tree):
-        self.indicator.set_menu(self.create_menu())
+        print "CHANGED"
+        if not self.update_requested:
+            print " ADD"
+            self.update_requested = True
+            gobject.timeout_add(5000, self.update_menu)
+            print " ADD DONE"                        
+        print "CHANGED DONE"
+   
+
 
     def on_menuitem_quit_activate(self, menuitem):
         self.quit()
