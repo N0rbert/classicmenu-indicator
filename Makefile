@@ -1,7 +1,9 @@
 NAME=classicmenu-indicator
 VERSION=0.06
 DEBVERSION=${VERSION}
-PPA=diesch/testing
+PPA=diesch/test2
+
+DEBUILD=debuild -sa  -v${DEBVERSION} -kB57F5641 -i'icon|.bzr'
 
 .PHONY: clean deb sdist ppa deb
 
@@ -19,10 +21,10 @@ egg:
 sdeb: sdist
 	cp dist/${NAME}-${VERSION}.tar.gz ../${NAME}_${VERSION}.orig.tar.gz
 	rm -r dist
-	debuild -S -sa  -v${DEBVERSION} -kB57F5641
+	${DEBUILD} -S
 
 deb: sdeb
-	debuild -b -sa -v${DEBVERSION} -kB57F5641
+	${DEBUILD} -b
 
 pypi:
 	python setup.py register
