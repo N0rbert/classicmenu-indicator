@@ -45,7 +45,7 @@ installed if needed.
  Project
 =========
 
-For bug reports or feature requests please use the `bugtracker at Launchapd <https://bugs.launchpad.net/classicmenu-indicator/+filebug>`_
+For bug reports or feature requests please use the `bugtracker at Launchpad <https://bugs.launchpad.net/classicmenu-indicator/+filebug>`_
 
 The `project page at Launchpad <https://launchpad.net/classicmenu-indicator>`_ ofers some other services, too.
 
