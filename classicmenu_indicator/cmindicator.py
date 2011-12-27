@@ -57,6 +57,8 @@ class ClassicMenuIndicator(object):
         self.trees = []
         self.trees.append(self.create_tree('applications.menu'))
         self.trees.append(self.create_tree('settings.menu'))
+        self.trees.append(self.create_tree('gnomecc.menu'))
+
 
 
         self.indicator.set_menu(self.create_menu())
@@ -80,18 +82,17 @@ class ClassicMenuIndicator(object):
         if (icon):
             menu_item = gtk.ImageMenuItem(name)
 
-
-            if default_theme.lookup_icon(icon, self.icon_size, 
-                                         gtk.ICON_LOOKUP_USE_BUILTIN):
-                pixbuf = default_theme.load_icon(icon, self.icon_size, 
-                                                 gtk.ICON_LOOKUP_USE_BUILTIN)
-                if pixbuf.get_height() > self.icon_size:
-                    scale = pixbuf.get_height() / float(self.icon_size)
-                    width = int(pixbuf.get_width() * scale)
-                    pixbuf.scale_simple(width, self.icon_size, gtk.gdk.INTERP_BILINEAR)
-                img = gtk.image_new_from_pixbuf(pixbuf)
-            else:
-                try:
+            try:
+                if default_theme.lookup_icon(icon, self.icon_size, 
+                                             gtk.ICON_LOOKUP_USE_BUILTIN):
+                    pixbuf = default_theme.load_icon(icon, self.icon_size, 
+                                                     gtk.ICON_LOOKUP_USE_BUILTIN)
+                    if pixbuf.get_height() > self.icon_size:
+                        scale = pixbuf.get_height() / float(self.icon_size)
+                        width = int(pixbuf.get_width() * scale)
+                        pixbuf.scale_simple(width, self.icon_size, gtk.gdk.INTERP_BILINEAR)
+                    img = gtk.image_new_from_pixbuf(pixbuf)
+                else:
                     icon_path = xdgicon.getIconPath(icon)
                     if icon_path:
                         pixbuf = gtk.gdk.pixbuf_new_from_file_at_size(icon_path, 
@@ -102,9 +103,10 @@ class ClassicMenuIndicator(object):
                         img = gtk.Image()                    
                         img.set_from_icon_name(icon, self.icon_size)
 
-                except glib.GError, e:
-                    print '%s: %s'%(APP_NAME, e)
-                    img = gtk.Image()
+            except glib.GError, e:
+                print '[%s] %s: %s'%(APP_NAME, icon , e)
+                img = gtk.Image()
+                img.set_from_icon_name('', self.icon_size)
  
             menu_item.set_image(img)
             menu_item.set_always_show_image(True)
@@ -190,13 +192,8 @@ class ClassicMenuIndicator(object):
 
 
     def update_menu(self):
-        print "  UPDATE"
         self.update_requested = False
         self.indicator.set_menu(self.create_menu())        
-        # result = self.update_requested
-        # self.update_requested = False
-        print "  UPDATE DONE"
-        # return result
         return False    # Don't run again
 
     def quit(self):
@@ -216,16 +213,11 @@ class ClassicMenuIndicator(object):
 
 
     def on_menu_file_changed(self, tree):
-        print "CHANGED"
         if not self.update_requested:
-            print " ADD"
             self.update_requested = True
             gobject.timeout_add(5000, self.update_menu)
-            print " ADD DONE"                        
-        print "CHANGED DONE"
+
    
-
-
     def on_menuitem_quit_activate(self, menuitem):
         self.quit()
 
