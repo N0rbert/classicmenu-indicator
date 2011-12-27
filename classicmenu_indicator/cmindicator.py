@@ -55,10 +55,15 @@ class ClassicMenuIndicator(object):
         self.indicator.set_status (appindicator.STATUS_ACTIVE)
 
         self.trees = []
-        self.trees.append(self.create_tree('applications.menu'))
-        self.trees.append(self.create_tree('settings.menu'))
-        self.trees.append(self.create_tree('gnomecc.menu'))
-
+        tree = self.create_tree('applications.menu')
+        self.trees.append(tree)
+        tree = self.create_tree('settings.menu')
+        print dir(tree)
+        if tree:
+            self.trees.append(tree)
+        else:
+            tree = self.create_tree('gnomecc.menu')
+            self.trees.append(tree)
 
 
         self.indicator.set_menu(self.create_menu())
@@ -159,9 +164,10 @@ class ClassicMenuIndicator(object):
         menu = gtk.Menu()
 
         for t in self.trees:
-            self.add_to_menu(menu, t)
-            menu_item = gtk.SeparatorMenuItem()
-            menu.append(menu_item)
+            if t:
+                self.add_to_menu(menu, t)
+                menu_item = gtk.SeparatorMenuItem()
+                menu.append(menu_item)
 
         menu_item = gtk.MenuItem('%s'%APP_NAME)
         menu.append(menu_item)
@@ -186,9 +192,12 @@ class ClassicMenuIndicator(object):
         flags = gmenu.FLAGS_NONE
         if include_nodisplay:
             flags = flags | gmenu.FLAGS_INCLUDE_NODISPLAY
-        tree = gmenu.lookup_tree(name, flags)        
-        tree.add_monitor(self.on_menu_file_changed)
-        return tree
+        tree = gmenu.lookup_tree(name, flags)
+        if tree.get_root_directory():
+            tree.add_monitor(self.on_menu_file_changed)
+            return tree
+        else:
+            return None
 
 
     def update_menu(self):
