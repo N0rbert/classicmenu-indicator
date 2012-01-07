@@ -58,11 +58,10 @@ class ClassicMenuIndicator(object):
         tree = self.create_tree('applications.menu')
         self.trees.append(tree)
         tree = self.create_tree('settings.menu')
-        print dir(tree)
         if tree:
             self.trees.append(tree)
         else:
-            tree = self.create_tree('gnomecc.menu')
+            tree = self.create_tree('classicmenuindicatorsystem.menu')
             self.trees.append(tree)
 
 
