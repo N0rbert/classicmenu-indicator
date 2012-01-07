@@ -1,3 +1,11 @@
+classicmenu-indicator (0.07) oneiric; urgency=low
+
+  * cmdindicator.py:
+    - Fixed bug in handling of missing/unusable icons
+    - Added own menu if settings.menu doesn't exist 
+
+ -- Florian Diesch <debian@florian-diesch.de>  Sat, 07 Jan 2012 13:26:09 +0100
+
 classicmenu-indicator (0.06) natty; urgency=low
 
   * cmdindicator.py: 

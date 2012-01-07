@@ -32,7 +32,7 @@ import subprocess
 from optparse import OptionParser
 import xdg.IconTheme as xdgicon
 
-__version__ = "0.06"
+__version__ = "0.07"
 
 APP_NAME = 'ClassicMenu Indicator'
 APP_VERSION = __version__
