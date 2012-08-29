@@ -1,7 +1,7 @@
 NAME=classicmenu-indicator
 VERSION=0.07
 DEBVERSION=${VERSION}
-PPA=diesch/test2
+PPA=diesch/testing
 
 DEBUILD=debuild -sa  -v${DEBVERSION} -kB57F5641 -i'icon|.bzr'
 

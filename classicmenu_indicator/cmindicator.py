@@ -32,10 +32,9 @@ import subprocess
 from optparse import OptionParser
 import xdg.IconTheme as xdgicon
 
-__version__ = "0.07"
-
-APP_NAME = 'ClassicMenu Indicator'
-APP_VERSION = __version__
+import settings, about
+from gettext import gettext as _
+import gettext
 
 re_command = re.compile('%[UFuf]')
 cmd_terminal = 'gnome-terminal -e'
@@ -44,9 +43,13 @@ include_nodisplay = False
 
 class ClassicMenuIndicator(object):
     def __init__(self):
-        self.indicator = appindicator.Indicator("classicmenu-indicator",
-                                                "start-here",
-                                                appindicator.CATEGORY_SYSTEM_SERVICES)
+        self.indicator = appindicator.Indicator(settings.app_name,
+                                                settings.ICON,
+                                                settings.category)
+
+        gettext.bindtextdomain(settings.GETTEXT_DOMAIN)
+        gettext.textdomain(settings.GETTEXT_DOMAIN)
+        gettext.bind_textdomain_codeset(settings.GETTEXT_DOMAIN, 'UTF-8')
 
         self.icon_size = 22  #like in libindicator:indicator_image_helper.c:refresh_image()
 
@@ -108,7 +111,7 @@ class ClassicMenuIndicator(object):
                         img.set_from_icon_name(icon, self.icon_size)
 
             except glib.GError, e:
-                print '[%s] %s: %s'%(APP_NAME, icon , e)
+                print '[%s] %s: %s'%(settings.APP_NAME, icon , e)
                 img = gtk.Image()
                 img.set_from_icon_name('', self.icon_size)
  
@@ -168,7 +171,7 @@ class ClassicMenuIndicator(object):
                 menu_item = gtk.SeparatorMenuItem()
                 menu.append(menu_item)
 
-        menu_item = gtk.MenuItem('%s'%APP_NAME)
+        menu_item = gtk.MenuItem('%s' % settings.APP_NAME)
         menu.append(menu_item)
 
         submenu = gtk.Menu()
@@ -178,9 +181,18 @@ class ClassicMenuIndicator(object):
         menu_item.connect('activate', self.on_menuitem_about_activate)
         submenu.append(menu_item)
         
+        menu_item = gtk.ImageMenuItem(_('Web page'))
+        menu_item.connect('activate', self.on_menuitem_goto_webpage)
+        submenu.append(menu_item)
+        
+        menu_item = gtk.ImageMenuItem(_('Donate'))
+        menu_item.connect('activate', self.on_menuitem_donate)
+        submenu.append(menu_item)
+
         menu_item = gtk.SeparatorMenuItem()
         submenu.append(menu_item)
-        menu_item = gtk.ImageMenuItem(gtk.STOCK_QUIT)
+
+        menu_item = gtk.ImageMenuItem(settings.APP_NAME)
         menu_item.connect('activate', self.on_menuitem_quit_activate)
         submenu.append(menu_item)
 
@@ -217,55 +229,31 @@ class ClassicMenuIndicator(object):
             command=re_command.sub('', command)
             if entry.get_launch_in_terminal():
                 command = '%s %s' % (cmd_terminal, command)
-            subprocess.Popen(command, shell=True)
-
+            p=subprocess.Popen(command, shell=False)
 
     def on_menu_file_changed(self, tree):
         if not self.update_requested:
             self.update_requested = True
             gobject.timeout_add(5000, self.update_menu)
-
    
     def on_menuitem_quit_activate(self, menuitem):
         self.quit()
 
     def on_menuitem_about_activate(self, menuitem):
-        dlg = gtk.AboutDialog()
-        dlg.set_name(APP_NAME)
-        dlg.set_version(APP_VERSION)
-        dlg.set_website('http://www.florian-diesch.de/software/classicmenu-indicator/')
-        dlg.set_authors(['Florian Diesch <devel@florian-diesch.de>'])
-        dlg.set_copyright('Copyright (c) 2011 Florian Diesch')
-        dlg.set_license(textwrap.dedent(
-            """
-            ClassicMenu Indicator - an indicator applet for Unity, 
-            that provides the main menu of Gnome2/Gnome Classic. 
+        about.show_about_dialog()
 
-           
-            Copyright (c) 2011 Florian Diesch <devel@florian-diesch.de>
-           
-            Homepage: http://www.florian-diesch.de/software/classicmenu-indicator/
-           
-            This program is free software: you can redistribute it and/or modify
-            it under the terms of the GNU General Public License as published by
-            the Free Software Foundation, either version 3 of the License, or
-            (at your option) any later version.
-           
-            This program is distributed in the hope that it will be useful,
-            but WITHOUT ANY WARRANTY; without even the implied warranty of
-            MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-            GNU General Public License for more details.
-           
-            You should have received a copy of the GNU General Public License
-            along with this program.  If not, see <http://www.gnu.org/licenses/>.
-            """))
+    def on_menuitem_goto_webpage(self, menuitem):
+        url = settings.WEB_URL
+        command = 'xdg-open %s' % (url)
+        p=subprocess.Popen(command, shell=True)
 
-        dlg.run()
-        dlg.destroy()
-
+    def on_menuitem_donate(self, menuitem):
+        command = "xdg-open '%s'" % (settings.PAYPAL_URL)
+        p=subprocess.Popen(command, shell=True)
 
 def parse_args():
-    parser = OptionParser(version="%s %s"%(APP_NAME, APP_VERSION))
+    parser = OptionParser(version="%s %s"%(settings.APP_NAME, 
+                                           settings.APP_VERSION))
     (options, args) = parser.parse_args()
     
 
