@@ -1,3 +1,4 @@
+#-*- coding: utf-8 -*-
 # classicmenu-indicator - an indicator showing the main menu from Gnome Classic
 #
 # Copyright (C) 2011 Florian Diesch <devel@florian-diesch.de>
@@ -21,8 +22,4 @@
 from cmindicator import main
 
 
-if __name__ == '__main__':
-    try:
-      main()
-    except KeyboardInterrupt:
-      pass
+

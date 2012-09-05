@@ -1,16 +1,35 @@
 NAME=classicmenu-indicator
-VERSION=0.07
-DEBVERSION=${VERSION}
+PYNAME=classicmenu_indicator
+
+DEBVERSION=$(shell awk -F '[()]' '/^${NAME}/ {print $$2}'  debian/changelog|head -1)
+
+VERSION=$(shell echo '${DEBVERSION}' | egrep -o '[0-9.-]{3,}')
+
+WEBDIR=/home/diesch/florian-diesch.de/sphinx/neu/source/software/${NAME}/dist
+
+PREFIX_FILE=.install_prefix
+
 PPA=diesch/testing
 
-DEBUILD=debuild -sa  -v${DEBVERSION} -kB57F5641 -i'icon|.bzr'
+DEBUILD=debuild -sa -v${DEBVERSION} -kB57F5641 -i'icon|.bzr'
 
-.PHONY: clean deb sdist ppa deb
+.PHONY: clean deb sdist ppa deb clear_prefix app_prefix
 
 
 clean:
-	rm -rf *.pyc build dist  ../${NAME}_${DEBVERSION}* classicmenu_indicator.egg-info
+	rm -rf *.pyc build dist ../*.deb ../*.changes ../*.build ../${NAME}_${DEBVERSION}* ${PYNAME}.egg-info
 
+potfiles:
+	find ${PYNAME} -type f -name \*.py > po/POTFILES.in
+	find data -type f -name \*.desktop.in >> po/POTFILES.in
+	find data -type f -name \*.ui -printf '[type: gettext/glade]%p\n'  >> po/POTFILES.in
+
+
+clear_prefix:
+	rm "${PREFIX_FILE}"
+
+app_prefix:
+	echo '/opt/extras.ubuntu.com/${NAME}' > "${PREFIX_FILE}"
 
 sdist:
 	python setup.py sdist
@@ -21,9 +40,10 @@ egg:
 sdeb: sdist
 	cp dist/${NAME}-${VERSION}.tar.gz ../${NAME}_${VERSION}.orig.tar.gz
 	rm -r dist
+	python setup.py build_i18n
 	${DEBUILD} -S
 
-deb: sdeb
+deb: 
 	${DEBUILD} -b
 
 pypi:
@@ -35,3 +55,10 @@ ppa: sdeb
 
 install: deb
 	sudo dpkg -i ..//classicmenu-indicator_${DEBVERSION}_all.deb
+
+share: deb
+	cp ../${NAME}_${DEBVERSION}_all.deb ~/Shared/
+
+web: deb sdist
+	mkdir -p ${WEBDIR}
+	cp ../${NAME}_${DEBVERSION}_all.deb dist/${NAME}-${VERSION}.tar.gz ${WEBDIR}

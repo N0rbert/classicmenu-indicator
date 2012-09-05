@@ -126,7 +126,7 @@ def find_doctests(start='.', extension='.txt'):
     return doctests
 
 
-
+
 def long_description(*filenames):
     """Provide a long description."""
     res = []

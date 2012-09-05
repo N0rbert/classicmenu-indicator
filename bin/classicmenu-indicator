@@ -1,0 +1,35 @@
+#!/usr/bin/env python2
+#-*- coding: utf-8-*-
+
+import sys, os, os.path
+
+PROJECT_ROOT_DIRECTORY = os.path.abspath(
+    os.path.dirname(os.path.dirname(os.path.realpath(sys.argv[0]))))
+
+def add_to_syspath():
+    python_path = []
+    syspath = sys.path[:] # copy to avoid infinite loop in pending objects
+    for path in syspath:
+        opt_path = path.replace('/usr', PROJECT_ROOT_DIRECTORY)
+        if os.path.isdir(opt_path):
+            python_path.insert(0, opt_path)
+            sys.path.insert(0, opt_path)        
+
+try:
+    import classicmenu_indicator
+except ImportError:
+    add_to_syspath()
+    try:
+        import classicmenu_indicator
+    except ImportError:
+        print "Python module for ClassicMenu Indicator not found."
+        sys.exit(1)
+
+
+classicmenu_indicator.main()
+
+
+
+### Local Variables: 
+### mode: python
+### End: 

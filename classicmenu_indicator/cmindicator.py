@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-#-*- coding: utf-8-*-
+#-*- coding: utf-8 -*-
 #
 # ClassicMenu Indicator - an indicator applet for Unity, that 
 #                         provides the main menu of Gnome2/Gnome Classic. 
@@ -181,18 +181,29 @@ class ClassicMenuIndicator(object):
         menu_item.connect('activate', self.on_menuitem_about_activate)
         submenu.append(menu_item)
         
-        menu_item = gtk.ImageMenuItem(_('Web page'))
+        menu_item = gtk.ImageMenuItem(_('Go to Web Page'))
         menu_item.connect('activate', self.on_menuitem_goto_webpage)
         submenu.append(menu_item)
+
+        menu_item = gtk.SeparatorMenuItem()
+        submenu.append(menu_item)
         
-        menu_item = gtk.ImageMenuItem(_('Donate'))
+        menu_item = gtk.ImageMenuItem(_('Report a Bug'))
+        menu_item.connect('activate', self.on_menuitem_bug)
+        submenu.append(menu_item)
+
+        menu_item = gtk.ImageMenuItem(_('Help with Translations'))
+        menu_item.connect('activate', self.on_menuitem_translations)
+        submenu.append(menu_item)
+
+        menu_item = gtk.ImageMenuItem(_('Donate via PayPal'))
         menu_item.connect('activate', self.on_menuitem_donate)
         submenu.append(menu_item)
 
         menu_item = gtk.SeparatorMenuItem()
         submenu.append(menu_item)
 
-        menu_item = gtk.ImageMenuItem(settings.APP_NAME)
+        menu_item = gtk.ImageMenuItem(gtk.STOCK_QUIT)
         menu_item.connect('activate', self.on_menuitem_quit_activate)
         submenu.append(menu_item)
 
@@ -243,13 +254,20 @@ class ClassicMenuIndicator(object):
         about.show_about_dialog()
 
     def on_menuitem_goto_webpage(self, menuitem):
-        url = settings.WEB_URL
-        command = 'xdg-open %s' % (url)
-        p=subprocess.Popen(command, shell=True)
+        command = ("xdg-open", settings.WEB_URL)
+        p=subprocess.Popen(command, shell=False)
 
     def on_menuitem_donate(self, menuitem):
-        command = "xdg-open '%s'" % (settings.PAYPAL_URL)
-        p=subprocess.Popen(command, shell=True)
+        command = ("xdg-open", settings.PAYPAL_URL)
+        p=subprocess.Popen(command, shell=False)
+
+    def on_menuitem_translations(self, menuitem):
+        command = ("xdg-open", settings.TRANSLATIONS_URL)
+        p=subprocess.Popen(command, shell=False)
+
+    def on_menuitem_bug(self, menuitem):
+        command = ("xdg-open", settings.BUGREPORT_URL)
+        p=subprocess.Popen(command, shell=False)
 
 def parse_args():
     parser = OptionParser(version="%s %s"%(settings.APP_NAME, 
@@ -262,6 +280,3 @@ def main():
     indicator = ClassicMenuIndicator()
     indicator.run()   
 
-if __name__ == '__main__':
-    main ()
-    

@@ -1,4 +1,4 @@
-#-*- coding: utf-8-*-
+#-*- coding: utf-8 -*-
 
 import gtk, glib, gobject
 from gettext import gettext as _

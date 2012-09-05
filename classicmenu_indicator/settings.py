@@ -1,3 +1,5 @@
+#-*- coding: utf-8 -*-
+
 import os, os.path
 import appindicator
 
@@ -18,6 +20,10 @@ UI_DIR = os.path.join(DATA_DIR, 'ui')
 ICON = 'start-here'
 category = appindicator.CATEGORY_SYSTEM_SERVICES
 
-GETTEXT_DOMAIN='classcimenu-indicator'
+GETTEXT_DOMAIN='classicmenu-indicator'
 
 PAYPAL_URL = 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=DJCGEPS4746PU'
+
+TRANSLATIONS_URL = 'https://translations.launchpad.net/classicmenu-indicator'
+
+BUGREPORT_URL = 'https://bugs.launchpad.net/classicmenu-indicator/+filebug'

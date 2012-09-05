@@ -1,0 +1,6 @@
+classicmenu_indicator/__init__.py
+classicmenu_indicator/settings.py
+classicmenu_indicator/about.py
+classicmenu_indicator/cmindicator.py
+data/desktop/classicmenu-indicator.desktop.in
+data/autostart/classicmenu-indicator.desktop.in

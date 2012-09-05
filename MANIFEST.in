@@ -1,6 +1,10 @@
 include *.py
 include COPYING
 include *.txt
+recursive-include bin *
+recursive-include po *.po *.pot *.in
+recursive-include data *.in *.png *.svg *.ui
+
 
 
 
