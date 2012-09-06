@@ -195,6 +195,10 @@ class ClassicMenuIndicator(object):
         menu_item = gtk.ImageMenuItem(_('Help with Translations'))
         menu_item.connect('activate', self.on_menuitem_translations)
         submenu.append(menu_item)
+        
+        menu_item = gtk.ImageMenuItem(_('Donate via Flattr'))
+        menu_item.connect('activate', self.on_menuitem_flattr)
+        submenu.append(menu_item)
 
         menu_item = gtk.ImageMenuItem(_('Donate via PayPal'))
         menu_item.connect('activate', self.on_menuitem_donate)
@@ -259,6 +263,10 @@ class ClassicMenuIndicator(object):
 
     def on_menuitem_donate(self, menuitem):
         command = ("xdg-open", settings.PAYPAL_URL)
+        p=subprocess.Popen(command, shell=False)
+
+    def on_menuitem_flattr(self, menuitem):
+        command = ("xdg-open", settings.FLATTR_URL)
         p=subprocess.Popen(command, shell=False)
 
     def on_menuitem_translations(self, menuitem):

@@ -1,6 +1,6 @@
 #-*- coding: utf-8 -*-
 
-import gtk, glib, gobject
+import gtk, glib
 from gettext import gettext as _
 import textwrap
 

@@ -5,12 +5,12 @@ Priority: optional
 Build-Depends: python-setuptools (>= 0.6b3), python-all (>= 2.6.6-3), debhelper (>= 7.4.3)
 Standards-Version: 3.9.1
 Homepage: http://www.florian-diesch.de/software/classicmenu-indicator/
-
+X-Python-Version: 2.7
 
 Package: classicmenu-indicator
 Architecture: all
-Depends: ${misc:Depends}, ${python:Depends}, python-gmenu, python-appindicator, python-gtk2, python-gobject 
-Breaks: ${python:Breaks}
+Depends: ${python:Depends}, python-gmenu, python-appindicator, python-gobject, python-xdg 
 Description: indicator showing the main menu from Gnome Classic
  classicmenu-indicator displays the main menu from Gnome2/Gnome Classic
 Homepage: http://www.florian-diesch.de/software/classicmenu-indicator/
+X-Python-Version: 2.7
