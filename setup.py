@@ -60,8 +60,6 @@ setup(
          glob.glob('data/desktop/classicmenu-indicator.desktop')),
         ('/etc/xdg/menus',
          glob.glob('data/menu/*.menu')),
-        ('/usr/share/icons/hicolor/22x22/apps',
-         ('data/icons/classicmenu-indicator.png',)),
         ],
     license='GPLv3',
     url='http://www.florian-diesch.de/software/classicmenu-indicator/',

@@ -30,11 +30,12 @@ import re
 import textwrap
 import subprocess
 from optparse import OptionParser
-import xdg.IconTheme as xdgicon
+from urlparse import urlparse
 
 import settings, about
 from gettext import gettext as _
 import gettext
+import xdg.IconTheme as xdgicon
 
 
 class ClassicMenuIndicator(object):
@@ -236,6 +237,12 @@ class ClassicMenuIndicator(object):
     def quit(self):
         gtk.main_quit()
 
+
+    def open_url(self, url):
+        u = urlparse(url)
+        appinfo=gio.app_info_get_default_for_uri_scheme(u.scheme)
+        appinfo.launch_uris([url])
+
 #####################
 ## Signal-Behandlung
 #####################
@@ -257,24 +264,19 @@ class ClassicMenuIndicator(object):
         about.show_about_dialog()
 
     def on_menuitem_goto_webpage(self, menuitem):
-        command = ("xdg-open", settings.WEB_URL)
-        p=subprocess.Popen(command, shell=False)
+        self.open_url(settings.WEB_URL)
 
     def on_menuitem_donate(self, menuitem):
-        command = ("xdg-open", settings.PAYPAL_URL)
-        p=subprocess.Popen(command, shell=False)
+        self.open_url(settings.PAYPAL_URL)
 
     def on_menuitem_flattr(self, menuitem):
-        command = ("xdg-open", settings.FLATTR_URL)
-        p=subprocess.Popen(command, shell=False)
+        self.open_url(settings.FLATTR_URL)
 
     def on_menuitem_translations(self, menuitem):
-        command = ("xdg-open", settings.TRANSLATIONS_URL)
-        p=subprocess.Popen(command, shell=False)
+        self.open_url(settings.TRANSLATIONS_URL)
 
     def on_menuitem_bug(self, menuitem):
-        command = ("xdg-open", settings.BUGREPORT_URL)
-        p=subprocess.Popen(command, shell=False)
+        self.open_url(settings.BUGREPORT_URL)
 
 def parse_args():
     parser = OptionParser(version="%s %s"%(settings.APP_NAME, 
