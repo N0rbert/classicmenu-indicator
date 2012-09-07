@@ -3,3 +3,8 @@ build
 classicmenu_indicator.egg-info
 debian/classicmenu-indicator
 debian/patches
+debian/classicmenu-indicator.debhelper.log
+debian/classicmenu-indicator.postinst.debhelper
+debian/classicmenu-indicator.prerm.debhelper
+debian/classicmenu-indicator.substvars
+debian/files
