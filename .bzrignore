@@ -8,3 +8,4 @@ debian/classicmenu-indicator.postinst.debhelper
 debian/classicmenu-indicator.prerm.debhelper
 debian/classicmenu-indicator.substvars
 debian/files
+classicmenu_indicator/_version.py

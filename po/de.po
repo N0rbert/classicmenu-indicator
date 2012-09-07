@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: classicmenu_indicator\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-07 22:08+0200\n"
+"POT-Creation-Date: 2012-09-08 00:19+0200\n"
 "PO-Revision-Date: 2012-06-30 00:41+0000\n"
 "Last-Translator: Florian Diesch <diesch@spamfence.net>\n"
 "Language-Team: German <de@li.org>\n"
@@ -20,23 +20,23 @@ msgstr ""
 msgid "translator-credits"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:187
+#: ../classicmenu_indicator/cmindicator.py:191
 msgid "Go to Web Page"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:194
+#: ../classicmenu_indicator/cmindicator.py:198
 msgid "Report a Bug"
 msgstr "Fehlerbericht verfassen"
 
-#: ../classicmenu_indicator/cmindicator.py:198
+#: ../classicmenu_indicator/cmindicator.py:202
 msgid "Help with Translations"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:202
+#: ../classicmenu_indicator/cmindicator.py:206
 msgid "Donate via Flattr"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:206
+#: ../classicmenu_indicator/cmindicator.py:210
 msgid "Donate via PayPal"
 msgstr ""
 

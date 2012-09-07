@@ -83,7 +83,8 @@ class ClassicMenuIndicator(object):
     def create_menu_item(self, entry):    
         icon = entry.get_icon()
         name = entry.get_name()
-        
+        comment = entry.get_comment() 
+
         menu_item = gtk.ImageMenuItem(name)
 
         if (icon):
@@ -124,6 +125,9 @@ class ClassicMenuIndicator(object):
            
         if entry.get_type() ==  gmenu.TYPE_ENTRY:
             menu_item.connect('activate', self.on_menuitem_activate, entry)
+
+        menu_item.set_use_underline(False)
+        menu_item.set_tooltip_text(comment)
 
         menu_item.show()
         return menu_item

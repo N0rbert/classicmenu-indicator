@@ -1,3 +1,12 @@
+classicmenu-indicator (0.08pre1) precise; urgency=low
+
+  * code cleanup
+  * prepared to be released as App
+  * improved icon handling
+  * minor bugfixes
+
+ -- Florian Diesch <devel@florian-diesch.de>  Sat, 08 Sep 2012 00:16:13 +0200
+
 classicmenu-indicator (0.07) oneiric; urgency=low
 
   * cmdindicator.py:
