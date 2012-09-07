@@ -24,7 +24,7 @@
 
 
 import gmenu
-import gtk, glib, gobject
+import gtk, glib, gobject, gio, gtk.gdk
 import appindicator
 import re
 import textwrap
@@ -36,10 +36,6 @@ import settings, about
 from gettext import gettext as _
 import gettext
 
-re_command = re.compile('%[UFuf]')
-cmd_terminal = 'gnome-terminal -e'
-
-include_nodisplay = False
 
 class ClassicMenuIndicator(object):
     def __init__(self):
@@ -51,7 +47,8 @@ class ClassicMenuIndicator(object):
         gettext.textdomain(settings.GETTEXT_DOMAIN)
         gettext.bind_textdomain_codeset(settings.GETTEXT_DOMAIN, 'UTF-8')
 
-        self.icon_size = 22  #like in libindicator:indicator_image_helper.c:refresh_image()
+        screen = gtk.gdk.screen_get_default()
+        self.theme = gtk.icon_theme_get_for_screen(screen)
 
         self.update_requested = False
 
@@ -60,13 +57,17 @@ class ClassicMenuIndicator(object):
         self.trees = []
         tree = self.create_tree('applications.menu')
         self.trees.append(tree)
-        tree = self.create_tree('settings.menu')
-        if tree:
-            self.trees.append(tree)
-        else:
-            tree = self.create_tree('classicmenuindicatorsystem.menu')
-            self.trees.append(tree)
 
+        for m in settings.SYSTEM_MENUS:
+            tree = self.create_tree(m)
+            if tree:
+                self.trees.append(tree)
+                break
+
+        for m in settings.EXTRA_MENUS:
+            tree = self.create_tree(m)
+            if tree:
+                self.trees.append(tree)
 
         self.indicator.set_menu(self.create_menu())
 
@@ -81,39 +82,39 @@ class ClassicMenuIndicator(object):
     def create_menu_item(self, entry):    
         icon = entry.get_icon()
         name = entry.get_name()
-
+        
         menu_item = gtk.ImageMenuItem(name)
-
-        default_theme = gtk.icon_theme_get_default()
 
         if (icon):
             menu_item = gtk.ImageMenuItem(name)
 
             try:
-                if default_theme.lookup_icon(icon, self.icon_size, 
-                                             gtk.ICON_LOOKUP_USE_BUILTIN):
-                    pixbuf = default_theme.load_icon(icon, self.icon_size, 
-                                                     gtk.ICON_LOOKUP_USE_BUILTIN)
-                    if pixbuf.get_height() > self.icon_size:
-                        scale = pixbuf.get_height() / float(self.icon_size)
+                if self.theme.lookup_icon(icon, settings.ICON_SIZE, 
+                                          gtk.ICON_LOOKUP_USE_BUILTIN):
+                    pixbuf = self.theme.load_icon(icon, settings.ICON_SIZE, 
+                                                  gtk.ICON_LOOKUP_USE_BUILTIN)
+                    if pixbuf.get_height() > settings.ICON_SIZE:
+                        scale = pixbuf.get_height() / float(settings.ICON_SIZE)
                         width = int(pixbuf.get_width() * scale)
-                        pixbuf.scale_simple(width, self.icon_size, gtk.gdk.INTERP_BILINEAR)
+                        pixbuf.scale_simple(width, settings.ICON_SIZE, 
+                                            gtk.gdk.INTERP_BILINEAR)
                     img = gtk.image_new_from_pixbuf(pixbuf)
                 else:
                     icon_path = xdgicon.getIconPath(icon)
                     if icon_path:
-                        pixbuf = gtk.gdk.pixbuf_new_from_file_at_size(icon_path, 
-                                                                      self.icon_size,
-                                                                      self.icon_size)
+                        pixbuf = gtk.gdk.pixbuf_new_from_file_at_size(
+                            icon_path, 
+                            settings.ICON_SIZE,
+                            settings.ICON_SIZE)
                         img = gtk.image_new_from_pixbuf(pixbuf)
                     else:
                         img = gtk.Image()                    
-                        img.set_from_icon_name(icon, self.icon_size)
+                        img.set_from_icon_name(icon, settings.ICON_SIZE)
 
             except glib.GError, e:
                 print '[%s] %s: %s'%(settings.APP_NAME, icon , e)
                 img = gtk.Image()
-                img.set_from_icon_name('', self.icon_size)
+                img.set_from_icon_name('', settings.ICON_SIZE)
  
             menu_item.set_image(img)
             menu_item.set_always_show_image(True)
@@ -125,6 +126,7 @@ class ClassicMenuIndicator(object):
 
         menu_item.show()
         return menu_item
+
 
 
     def process_entry(self, menu, entry):
@@ -216,7 +218,7 @@ class ClassicMenuIndicator(object):
 
     def create_tree(self, name):
         flags = gmenu.FLAGS_NONE
-        if include_nodisplay:
+        if settings.INCLUDE_NODISPLAY:
             flags = flags | gmenu.FLAGS_INCLUDE_NODISPLAY
         tree = gmenu.lookup_tree(name, flags)
         if tree.get_root_directory():
@@ -239,12 +241,9 @@ class ClassicMenuIndicator(object):
 #####################
 
     def on_menuitem_activate(self, menuitem, entry):
-        command = entry.get_exec()
-        if command:        
-            command=re_command.sub('', command)
-            if entry.get_launch_in_terminal():
-                command = '%s %s' % (cmd_terminal, command)
-            p=subprocess.Popen(command, shell=False)
+        path = entry.get_desktop_file_path()
+        appinfo = gio.unix.desktop_app_info_new_from_filename(path)
+        appinfo.launch()
 
     def on_menu_file_changed(self, tree):
         if not self.update_requested:

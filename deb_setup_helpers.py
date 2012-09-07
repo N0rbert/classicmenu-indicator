@@ -48,6 +48,9 @@ def get_deb_description(control=None):
                  return match.group('description')
      raise AssertionError('No description found in %s' % control)
 
-    
-    
+def create_version_module(dir, name='_version.py'):
+    path = os.path.join(dir, name)
+    with open(path, 'w') as file:
+        file.writelines(['VERSION="%s"\n' %  get_deb_version(full=True)])
+
 

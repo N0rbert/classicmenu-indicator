@@ -29,9 +29,13 @@ from setuptools import setup, find_packages
 
 from DistUtilsExtra.command import *
 
-from deb_setup_helpers import (get_deb_version, get_deb_description)
+from deb_setup_helpers import (get_deb_version, get_deb_description, 
+                               create_version_module)
 
 require_python(0x20600f0)
+
+
+create_version_module('classicmenu_indicator')
 
 
 setup(
@@ -53,7 +57,11 @@ setup(
         ('/usr/share/applications',
          glob.glob('data/desktop/*.desktop')),
         ('/etc/xdg/autostart',
-         glob.glob('data/autostart/*.desktop')),
+         glob.glob('data/desktop/classicmenu-indicator.desktop')),
+        ('/etc/xdg/menus',
+         glob.glob('data/menu/*.menu')),
+        ('/usr/share/icons/hicolor/22x22/apps',
+         ('data/icons/classicmenu-indicator.png',)),
         ],
     license='GPLv3',
     url='http://www.florian-diesch.de/software/classicmenu-indicator/',

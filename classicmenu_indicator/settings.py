@@ -3,10 +3,17 @@
 import os, os.path
 import appindicator
 
+import config
+import _version
+
+
 APP_NAME = 'ClassicMenu Indicator'
-APP_VERSION  = '0.07'
+APP_VERSION  = _version.VERSION
 app_name = 'classicmenu-indicator'
 
+
+
+cfg = config.Config(os.path.expanduser('~/.config/%s/config' % app_name))
 
 WEB_URL = 'http://www.florian-diesch.de/software/classicmenu-indicator/'
 
@@ -17,7 +24,16 @@ else:
 
 UI_DIR = os.path.join(DATA_DIR, 'ui')
 
-ICON = 'start-here'
+ICON = cfg.get('icon', 'distributor-logo')
+ICON_SIZE = cfg.get('icon_size', 22, int)
+
+INCLUDE_NODISPLAY=cfg.get('include_nodisplay', False)
+
+SYSTEM_MENUS = ['settings.menu',  
+                'classicmenuindicatorsystem.menu']
+
+EXTRA_MENUS = []
+
 category = appindicator.CATEGORY_SYSTEM_SERVICES
 
 GETTEXT_DOMAIN='classicmenu-indicator'

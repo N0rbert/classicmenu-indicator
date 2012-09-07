@@ -19,12 +19,10 @@ def show_about_dialog():
     dlg.set_license(textwrap.dedent(
             """
             ClassicMenu Indicator - an indicator showing an app menu like in Gnome Classic
-
-
             Copyright (c) 2011 Florian Diesch <devel@florian-diesch.de>
            
             Homepage: http://www.florian-diesch.de/software/classicmenu-indicator/
-           
+                       
             This program is free software: you can redistribute it and/or modify
             it under the terms of the GNU General Public License as published by
             the Free Software Foundation, either version 3 of the License, or

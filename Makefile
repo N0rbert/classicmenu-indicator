@@ -17,7 +17,7 @@ DEBUILD=debuild -sa -v${DEBVERSION} -kB57F5641 -i'icon|.bzr'
 
 
 clean:
-	rm -rf *.pyc build dist ../*.deb ../*.changes ../*.build ../${NAME}_${DEBVERSION}* ${PYNAME}.egg-info
+	rm -rf *.pyc build dist ../*.deb ../*.changes ../*.build ../${NAME}_${DEBVERSION}* ${PYNAME}.egg-info debian/${NAME}
 
 potfiles:
 	find ${PYNAME} -type f -name \*.py > po/POTFILES.in
@@ -54,7 +54,7 @@ ppa: sdeb
 
 
 install: deb
-	sudo dpkg -i ..//classicmenu-indicator_${DEBVERSION}_all.deb
+	sudo dpkg -i ../${NAME}_${DEBVERSION}_all.deb
 
 share: deb
 	cp ../${NAME}_${DEBVERSION}_all.deb ~/Shared/
