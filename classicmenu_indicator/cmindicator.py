@@ -189,6 +189,8 @@ class ClassicMenuIndicator(object):
         submenu.append(menu_item)
         
         menu_item = gtk.ImageMenuItem(_('Go to Web Page'))
+        menu_item.set_image(gtk.image_new_from_stock(gtk.STOCK_JUMP_TO, 
+                                                     settings.ICON_SIZE))
         menu_item.connect('activate', self.on_menuitem_goto_webpage)
         submenu.append(menu_item)
 
@@ -196,18 +198,26 @@ class ClassicMenuIndicator(object):
         submenu.append(menu_item)
         
         menu_item = gtk.ImageMenuItem(_('Report a Bug'))
+        menu_item.set_image(gtk.image_new_from_stock(gtk.STOCK_JUMP_TO, 
+                                                     settings.ICON_SIZE))
         menu_item.connect('activate', self.on_menuitem_bug)
         submenu.append(menu_item)
 
         menu_item = gtk.ImageMenuItem(_('Help with Translations'))
+        menu_item.set_image(gtk.image_new_from_stock(gtk.STOCK_JUMP_TO, 
+                                                     settings.ICON_SIZE))
         menu_item.connect('activate', self.on_menuitem_translations)
         submenu.append(menu_item)
         
         menu_item = gtk.ImageMenuItem(_('Donate via Flattr'))
+        menu_item.set_image(gtk.image_new_from_stock(gtk.STOCK_JUMP_TO, 
+                                                     settings.ICON_SIZE))
         menu_item.connect('activate', self.on_menuitem_flattr)
         submenu.append(menu_item)
 
         menu_item = gtk.ImageMenuItem(_('Donate via PayPal'))
+        menu_item.set_image(gtk.image_new_from_stock(gtk.STOCK_JUMP_TO, 
+                                                     settings.ICON_SIZE))
         menu_item.connect('activate', self.on_menuitem_donate)
         submenu.append(menu_item)
 

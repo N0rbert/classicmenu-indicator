@@ -56,9 +56,37 @@ ppa: sdeb
 install: deb
 	sudo dpkg -i ../${NAME}_${DEBVERSION}_all.deb
 
+
+unpackpo:
+	tar xzvf launchpad-export.tar.gz && \
+	cd po && \
+	mmv '${NAME}-*.po' '#1.po' && \
+	cd .. && \
+	rm launchpad-export.tar.gz
+
 share: deb
 	cp ../${NAME}_${DEBVERSION}_all.deb ~/Shared/
 
 web: deb sdist
 	mkdir -p ${WEBDIR}
 	cp ../${NAME}_${DEBVERSION}_all.deb dist/${NAME}-${VERSION}.tar.gz ${WEBDIR}
+
+
+pbuilder-natty: sdeb
+	 sudo pbuilder --create  --distribution natty
+	 sudo pbuilder --build ../${NAME}_${DEBVERSION}.dsc
+
+pbuilder-oneiric: sdeb
+	 sudo pbuilder --create  --distribution oneiric
+	 sudo pbuilder --build ../${NAME}_${DEBVERSION}.dsc
+
+pbuilder-precise: sdeb
+	 sudo pbuilder --create  --distribution precise
+	 sudo pbuilder --build ../${NAME}_${DEBVERSION}.dsc
+
+pbuilder-quantal: sdeb
+	 sudo pbuilder --create  --distribution quantal
+	 sudo pbuilder --build ../${NAME}_${DEBVERSION}.dsc
+
+
+pbuilder: pbuilder-natty  pbuilder-oneiric pbuilder-precise pbuilder-quantal
