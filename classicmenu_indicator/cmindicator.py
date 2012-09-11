@@ -37,7 +37,6 @@ from gettext import gettext as _
 import gettext
 import xdg.IconTheme as xdgicon
 
-
 class ClassicMenuIndicator(object):
     def __init__(self):
         self.indicator = appindicator.Indicator(settings.app_name,
@@ -184,10 +183,13 @@ class ClassicMenuIndicator(object):
         submenu = gtk.Menu()
         menu_item.set_submenu(submenu)
 
+        menu_item = gtk.SeparatorMenuItem()
+        submenu.append(menu_item)
+        
         menu_item = gtk.ImageMenuItem(gtk.STOCK_ABOUT)
         menu_item.connect('activate', self.on_menuitem_about_activate)
         submenu.append(menu_item)
-        
+
         menu_item = gtk.ImageMenuItem(_('Go to Web Page'))
         menu_item.set_image(gtk.image_new_from_stock(gtk.STOCK_JUMP_TO, 
                                                      settings.ICON_SIZE))
@@ -220,6 +222,7 @@ class ClassicMenuIndicator(object):
                                                      settings.ICON_SIZE))
         menu_item.connect('activate', self.on_menuitem_donate)
         submenu.append(menu_item)
+
 
         menu_item = gtk.SeparatorMenuItem()
         submenu.append(menu_item)
@@ -276,6 +279,9 @@ class ClassicMenuIndicator(object):
 
     def on_menuitem_about_activate(self, menuitem):
         about.show_about_dialog()
+
+    def on_menuitem_docs(self, menuitem):
+        self.open_url(settings.LOCAL_DOCS_URL)
 
     def on_menuitem_goto_webpage(self, menuitem):
         self.open_url(settings.WEB_URL)

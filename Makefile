@@ -6,10 +6,12 @@ DEBVERSION=$(shell awk -F '[()]' '/^${NAME}/ {print $$2}'  debian/changelog|head
 VERSION=$(shell echo '${DEBVERSION}' | egrep -o '[0-9.-]{3,}')
 
 WEBDIR=/home/diesch/florian-diesch.de/sphinx/neu/source/software/${NAME}/dist
+DESKTOP_DIR=data/desktop
 
 PREFIX_FILE=.install_prefix
 
-PPA=diesch/testing
+#PPA=diesch/testing
+PPA=diesch/experimental
 
 DEBUILD=debuild -sa -v${DEBVERSION} -kB57F5641 -i'icon|.bzr'
 
@@ -25,16 +27,22 @@ potfiles:
 	find data -type f -name \*.ui -printf '[type: gettext/glade]%p\n'  >> po/POTFILES.in
 
 
+tranlate:
+	for src in ${DESKTOP_DIR}/*.desktop.in; do \
+	  dest="$$(basename "$$src" .in)"; \
+	  intltool-merge -d po "$$src" "${DESKTOP_DIR}/$$dest"; \
+	done
+
 clear_prefix:
 	rm "${PREFIX_FILE}"
 
 app_prefix:
 	echo '/opt/extras.ubuntu.com/${NAME}' > "${PREFIX_FILE}"
 
-sdist:
+sdist: tranlate
 	python setup.py sdist
 
-egg:
+egg: tranlate
 	python setup.py bdist_egg
 
 sdeb: sdist
@@ -43,7 +51,7 @@ sdeb: sdist
 	python setup.py build_i18n
 	${DEBUILD} -S
 
-deb: 
+deb: tranlate
 	${DEBUILD} -b
 
 pypi:

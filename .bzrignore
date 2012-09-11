@@ -9,3 +9,4 @@ debian/classicmenu-indicator.prerm.debhelper
 debian/classicmenu-indicator.substvars
 debian/files
 classicmenu_indicator/_version.py
+data/desktop/classicmenu-indicator.desktop

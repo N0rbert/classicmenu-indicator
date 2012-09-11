@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-09 01:36+0200\n"
+"POT-Creation-Date: 2012-09-11 08:30+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,23 +21,23 @@ msgstr ""
 msgid "translator-credits"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:191
+#: ../classicmenu_indicator/cmindicator.py:193
 msgid "Go to Web Page"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:200
+#: ../classicmenu_indicator/cmindicator.py:202
 msgid "Report a Bug"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:206
+#: ../classicmenu_indicator/cmindicator.py:208
 msgid "Help with Translations"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:212
+#: ../classicmenu_indicator/cmindicator.py:214
 msgid "Donate via Flattr"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:218
+#: ../classicmenu_indicator/cmindicator.py:220
 msgid "Donate via PayPal"
 msgstr ""
 

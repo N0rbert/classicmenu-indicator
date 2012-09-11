@@ -2,6 +2,7 @@
 
 import os, os.path
 import appindicator
+import xdg.BaseDirectory
 
 import config
 import _version
@@ -12,10 +13,15 @@ APP_VERSION  = _version.VERSION
 app_name = 'classicmenu-indicator'
 
 
+USER_CONFIG_HOME = xdg.BaseDirectory.xdg_config_home
 
-cfg = config.Config(os.path.expanduser('~/.config/%s/config' % app_name))
+APP_CONFIG_HOME = os.path.join(USER_CONFIG_HOME, app_name)
 
-WEB_URL = 'http://www.florian-diesch.de/software/classicmenu-indicator/'
+CFG_FILE =  os.path.join(APP_CONFIG_HOME, 'config')
+
+cfg = config.Config(CFG_FILE)
+
+WEB_URL = 'http://www.florian-diesch.de/software/%s/' % app_name
 
 if os.path.isfile('.is-devel-dir'):
     DATA_DIR = 'data'
@@ -38,6 +44,7 @@ category = appindicator.CATEGORY_SYSTEM_SERVICES
 
 GETTEXT_DOMAIN='classicmenu-indicator'
 
+LOCAL_DOCS_URL = 'man:X'
 PAYPAL_URL = 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=DJCGEPS4746PU'
 FLATTR_URL = 'http://flattr.com/thing/420221/ClassicMenu-Indicator'
 

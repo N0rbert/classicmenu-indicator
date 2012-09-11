@@ -18,16 +18,22 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-import glob
+import glob, sys
 
 import distribute_setup
 distribute_setup.use_setuptools()
 
 from setup_helpers import (
     description, find_doctests, get_version, long_description, require_python)
+
 from setuptools import setup, find_packages
 
-from DistUtilsExtra.command import *
+try:
+    from DistUtilsExtra.command import *
+except ImportError:
+    print >> sys.stderr, 'To build ClassicMenu Indicator you need https://launchpad.net/python-distutils-extra'
+    sys.exit(1)
+
 
 from deb_setup_helpers import (get_deb_version, get_deb_description, 
                                create_version_module)
@@ -57,7 +63,7 @@ setup(
         ('/usr/share/applications',
          glob.glob('data/desktop/*.desktop')),
         ('/etc/xdg/autostart',
-         glob.glob('data/desktop/classicmenu-indicator.desktop')),
+         glob.glob('data/desktop/*.desktop')),
         ('/etc/xdg/menus',
          glob.glob('data/menu/*.menu')),
         ],
