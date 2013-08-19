@@ -1,0 +1,33 @@
+# -*- makefile -*-
+
+PYTHON_DIR=${PYTHONNAME}
+
+
+
+update_meta:
+	echo update_meta:${PYTHON_DIR}/_meta.py 
+	( \
+	  echo "#-*- coding: utf-8 -*-" ;\
+	  echo "# This file is generated. All changes will be lost" ;\
+	  echo ;\
+	  echo 'VERSION="${VERSION}"' ;\
+	  echo 'TITLE="${TITLE}"' ;\
+	  echo 'NAME="${NAME}"' ;\
+	  echo 'AUTHOR_NAME="${AUTHOR_NAME}"' ;\
+	  echo 'AUTHOR_EMAIL="${AUTHOR_EMAIL}"' ;\
+	  echo 'WEB_URL="${WEB_URL}"' ;\
+	  echo 'TIMESTAMP="${TIMESTAMP}"' ;\
+	) > ${PYTHON_DIR}/_meta.py 
+
+pypi:
+	python setup.py register
+
+sdist: ${PRE_BUILD_TARGETS}
+	python setup.py sdist
+
+
+potfiles:
+	mkdir -p po
+	find ${PYTHON_DIR} -type f -name \*.py > po/POTFILES.in
+	find data -type f -name \*.desktop.in >> po/POTFILES.in
+	find data -type f -name \*.ui -printf '[type: gettext/glade]%p\n' >> po/POTFILES.in

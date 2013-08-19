@@ -5,13 +5,17 @@ import appindicator
 import xdg.BaseDirectory
 
 import config
-import _version
+import _meta
 
 
-APP_NAME = 'ClassicMenu Indicator'
-APP_VERSION  = _version.VERSION
-app_name = 'classicmenu-indicator'
+APP_NAME = _meta.TITLE
+APP_VERSION  = _meta.VERSION
+app_name = _meta.NAME
 
+WEB_URL = _meta.WEB_URL
+
+AUTHOR_EMAIL = _meta.AUTHOR_EMAIL
+AUTHOR_NAME = _meta.AUTHOR_NAME
 
 USER_CONFIG_HOME = xdg.BaseDirectory.xdg_config_home
 
@@ -21,7 +25,6 @@ CFG_FILE =  os.path.join(APP_CONFIG_HOME, 'config')
 
 cfg = config.Config(CFG_FILE)
 
-WEB_URL = 'http://www.florian-diesch.de/software/%s/' % app_name
 
 if os.path.isfile('.is-devel-dir'):
     DATA_DIR = 'data'
@@ -30,8 +33,10 @@ else:
 
 UI_DIR = os.path.join(DATA_DIR, 'ui')
 
-ICON = cfg.get('icon', 'distributor-logo')
+ICON = cfg.get('my_icon', 'classicmenu-indicator')
 ICON_SIZE = cfg.get('icon_size', 22, int)
+
+USE_MENU_ICONS = cfg.get('menu_icons', True)
 
 INCLUDE_NODISPLAY=cfg.get('include_nodisplay', False)
 
@@ -42,9 +47,9 @@ EXTRA_MENUS = []
 
 category = appindicator.CATEGORY_SYSTEM_SERVICES
 
-GETTEXT_DOMAIN='classicmenu-indicator'
+GETTEXT_DOMAIN = app_name
 
-LOCAL_DOCS_URL = 'man:X'
+LOCAL_DOCS_URL = None
 PAYPAL_URL = 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=DJCGEPS4746PU'
 FLATTR_URL = 'http://flattr.com/thing/420221/ClassicMenu-Indicator'
 

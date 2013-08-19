@@ -80,15 +80,14 @@ class ClassicMenuIndicator(object):
 
 
     def create_menu_item(self, entry):    
-        icon = entry.get_icon()
         name = entry.get_name()
         comment = entry.get_comment() 
 
         menu_item = gtk.ImageMenuItem(name)
-
-        if (icon):
-            menu_item = gtk.ImageMenuItem(name)
-
+        
+        icon = entry.get_icon()            
+        img = None
+        if icon:
             try:
                 if self.theme.lookup_icon(icon, settings.ICON_SIZE, 
                                           gtk.ICON_LOOKUP_USE_BUILTIN):
@@ -113,14 +112,16 @@ class ClassicMenuIndicator(object):
                         img.set_from_icon_name(icon, settings.ICON_SIZE)
 
             except glib.GError, e:
-                print '[%s] %s: %s'%(settings.APP_NAME, icon , e)
+                print '[%s] "%s": %s: %s'%(settings.APP_NAME, name, icon , e)
+
+        if settings.USE_MENU_ICONS:      
+            if img is None:
                 img = gtk.Image()
-                img.set_from_icon_name('', settings.ICON_SIZE)
+                img.set_from_icon_name('gtk-execute', settings.ICON_SIZE)
  
             menu_item.set_image(img)
+            menu_item.set_label(name)
             menu_item.set_always_show_image(True)
-        else:
-            menu_item = gtk.MenuItem(name) 
            
         if entry.get_type() ==  gmenu.TYPE_ENTRY:
             menu_item.connect('activate', self.on_menuitem_activate, entry)

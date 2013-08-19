@@ -1,0 +1,7 @@
+NAME={{projectname}}
+TITLE={{projecttitle}}
+VERSION={{version}}
+AUTHOR_NAME={{author_name}}
+AUTHOR_EMAIL={{author_email}}
+WEB_URL={{web_url}}
+TIMESTAMP={{ISODATETIME}}

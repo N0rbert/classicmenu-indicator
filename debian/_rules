@@ -8,3 +8,7 @@
 
 
 
+{% if prefix %}
+override_dh_auto_install:
+        dh_auto_install -- --prefix="{{prefix}}"
+{% endif %}

@@ -1,4 +1,4 @@
-# German translation for classicmenu-indicator
+# Estonian translation for classicmenu-indicator
 # Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
 # This file is distributed under the same license as the classicmenu-indicator package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: classicmenu-indicator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-08-19 22:33+0200\n"
-"PO-Revision-Date: 2012-09-08 00:07+0000\n"
-"Last-Translator: Florian Diesch <diesch@spamfence.net>\n"
-"Language-Team: German <de@li.org>\n"
-"Language: de\n"
+"PO-Revision-Date: 2012-09-09 11:14+0000\n"
+"Last-Translator: Jalakas <Unknown>\n"
+"Language-Team: Estonian <et@li.org>\n"
+"Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -22,32 +22,32 @@ msgstr ""
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
-"  Florian Diesch https://launchpad.net/~diesch"
+"  Jalakas https://launchpad.net/~jalakas"
 
 #: ../classicmenu_indicator/cmindicator.py:194
 msgid "Go to Web Page"
-msgstr "Webseite besuchen"
+msgstr "Mine veebilehele"
 
 #: ../classicmenu_indicator/cmindicator.py:203
 msgid "Report a Bug"
-msgstr "Einen Fehler melden"
+msgstr "Teata veast"
 
 #: ../classicmenu_indicator/cmindicator.py:209
 msgid "Help with Translations"
-msgstr "Bei der Übersetzung helfen"
+msgstr "Aita tõlkida"
 
 #: ../classicmenu_indicator/cmindicator.py:215
 msgid "Donate via Flattr"
-msgstr "Spenden (Flattr)"
+msgstr "Anneta läbi Flattri"
 
 #: ../classicmenu_indicator/cmindicator.py:221
 msgid "Donate via PayPal"
-msgstr "Spenden (PayPal)"
+msgstr "Anneta läbi PayPali"
 
 #: ../data/desktop/classicmenu-indicator.desktop.in.h:1
 msgid "ClassicMenu Indicator"
-msgstr "ClassicMenu Indicator"
+msgstr "ClassicMenu indikaator"
 
 #: ../data/desktop/classicmenu-indicator.desktop.in.h:2
 msgid "Indicator applet to show the Gnome Classic main menu"
-msgstr "Indikator, der ein Anwendungsmenü wie in Gnome Classic anzeigt"
+msgstr "Gnome klassikalise peamenüü indikaator"

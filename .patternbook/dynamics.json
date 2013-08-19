@@ -1,0 +1,6 @@
+{
+    "debian/_rules": "debian/rules", 
+    "make/debian.inc_": "make/debian.inc", 
+    "make/project.inc_": "make/project.inc", 
+    "make/python.inc_": "make/python.inc"
+}

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-11 08:30+0200\n"
+"POT-Creation-Date: 2013-08-19 22:33+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,32 +21,30 @@ msgstr ""
 msgid "translator-credits"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:193
+#: ../classicmenu_indicator/cmindicator.py:194
 msgid "Go to Web Page"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:202
+#: ../classicmenu_indicator/cmindicator.py:203
 msgid "Report a Bug"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:208
+#: ../classicmenu_indicator/cmindicator.py:209
 msgid "Help with Translations"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:214
+#: ../classicmenu_indicator/cmindicator.py:215
 msgid "Donate via Flattr"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:220
+#: ../classicmenu_indicator/cmindicator.py:221
 msgid "Donate via PayPal"
 msgstr ""
 
 #: ../data/desktop/classicmenu-indicator.desktop.in.h:1
-#: ../data/autostart/classicmenu-indicator.desktop.in.h:1
 msgid "ClassicMenu Indicator"
 msgstr ""
 
 #: ../data/desktop/classicmenu-indicator.desktop.in.h:2
-#: ../data/autostart/classicmenu-indicator.desktop.in.h:2
 msgid "Indicator applet to show the Gnome Classic main menu"
 msgstr ""

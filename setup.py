@@ -1,8 +1,10 @@
 #!/usr/bin/env python
 #-*- coding: utf-8 -*-
-# classicmenu-indicator - an indicator showing the main menu from Gnome Classic
 #
-# Copyright (C) 2011 Florian Diesch <devel@florian-diesch.de>
+# ClassicMenu Indicator - classicmenu-indicator
+#                    http://www.florian-diesch.de/software/classicmenu-indicator/
+#
+# Copyright (C) 2013 Florian Diesch <devel@florian-diesch.de>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -20,12 +22,6 @@
 
 import glob, sys
 
-import distribute_setup
-distribute_setup.use_setuptools()
-
-from setup_helpers import (
-    description, find_doctests, get_version, long_description, require_python)
-
 from setuptools import setup, find_packages
 
 try:
@@ -35,53 +31,58 @@ except ImportError:
     sys.exit(1)
 
 
-from deb_setup_helpers import (get_deb_version, get_deb_description, 
-                               create_version_module)
+def read_from_file(path):
+    with open(path) as input:
+        return input.read()
 
-require_python(0x20600f0)
-
-
-create_version_module('classicmenu_indicator')
-
+import classicmenu_indicator._meta as _meta
+    
 
 setup(
     name='classicmenu-indicator',
-    version=get_deb_version(full=False),
+    version=_meta.VERSION,
     packages=find_packages(),
     include_package_data=True,
     maintainer='Florian Diesch',
     maintainer_email='devel@florian-diesch.de',
     author = "Florian Diesch",
     author_email = "devel@florian-diesch.de",    
-    description=get_deb_description(),
-    long_description=long_description(
-        'README.txt'       
-        ),
+    description='classicmenu-indicator',
+    long_description=read_from_file('README.txt'),
     data_files=[
-        ('bin',
-         glob.glob('bin/*')),
         ('/usr/share/applications',
          glob.glob('data/desktop/*.desktop')),
-        ('/etc/xdg/autostart',
-         glob.glob('data/desktop/*.desktop')),
-        ('/etc/xdg/menus',
-         glob.glob('data/menu/*.menu')),
+        ('share/classicmenu-indicator/ui/',
+         glob.glob('data/ui/*.ui')),
+        ('/usr/share/icons/hicolor/scalable/apps',
+         glob.glob('icons/hicolor/scalable/apps/*.svg')),
+        ('/usr/share/icons/ubuntu-mono-light/status/22',
+           glob.glob('icons/ubuntu-mono-light/status/22/*.svg')),
+        ('/usr/share/icons/ubuntu-mono-light/status/24',
+           glob.glob('icons/ubuntu-mono-light/status/24/*.svg')),
+        ('/usr/share/icons/ubuntu-mono-light/status/16',
+           glob.glob('icons/ubuntu-mono-light/status/16/*.svg')),
+        ('/usr/share/icons/ubuntu-mono-dark/status/22',
+           glob.glob('icons/ubuntu-mono-dark/status/22/*.svg')),
+        ('/usr/share/icons/ubuntu-mono-dark/status/24',
+           glob.glob('icons/ubuntu-mono-dark/status/24/*.svg')),
+        ('/usr/share/icons/ubuntu-mono-dark/status/16',
+           glob.glob('icons/ubuntu-mono-dark/status/16/*.svg')),
         ],
+    entry_points = {
+        'console_scripts': ['classicmenu-indicator=classicmenu_indicator:main'],
+        },
     license='GPLv3',
     url='http://www.florian-diesch.de/software/classicmenu-indicator/',
     download_url='http://www.florian-diesch.de/software/classicmenu-indicator/',
-    keywords = "Ubuntu, Unity, Indicator, Applet, Gnome, menu, Classic Menu", 
+    keywords = "", 
     classifiers=[
-        'Development Status :: 4 - Beta',
-        'Environment :: X11 Applications :: Gnome',
-        'Intended Audience :: End Users/Desktop',
+        'Development Status :: 3 - Alpha',
         'License :: OSI Approved :: GNU General Public License (GPL)',
         'Natural Language :: English',
         'Natural Language :: German',
         'Operating System :: POSIX :: Linux',
         'Programming Language :: Python :: 2.7',
-        'Topic :: Desktop Environment :: Gnome',
-        'Topic :: Utilities',
         ],
     cmdclass = { "build" : build_extra.build_extra,
                  "build_i18n" :  build_i18n.build_i18n,

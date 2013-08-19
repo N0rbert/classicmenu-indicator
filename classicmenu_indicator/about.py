@@ -12,9 +12,9 @@ def show_about_dialog():
     dlg.set_program_name(settings.APP_NAME)
     dlg.set_version(settings.APP_VERSION)
     dlg.set_website(settings.WEB_URL)
-    dlg.set_authors(['Florian Diesch <devel@florian-diesch.de>'])
+    dlg.set_authors([settings.AUTHOR_EMAIL])
     dlg.set_wrap_license(True)
-    dlg.set_copyright('Copyright (c) 2012 Florian Diesch')
+    dlg.set_copyright('Copyright (c) 2011 %s' %settings.AUTHOR_NAME)
     dlg.set_translator_credits(_("translator-credits"));
     dlg.set_license(textwrap.dedent(
             """

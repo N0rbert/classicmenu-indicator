@@ -1,16 +1,22 @@
 Source: classicmenu-indicator
-Maintainer: Florian Diesch <devel@florian-diesch.de>
 Section: gnome
 Priority: optional
-Build-Depends: python-setuptools (>= 0.6b3), python-all (>= 2.7), debhelper (>= 7.4.3), python-distutils-extra
-Standards-Version: 3.9.1
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+XSBC-Original-Maintainer: Florian Diesch <devel@florian-diesch.de>
+Build-Depends: debhelper (>= 7.4.3),
+               python-all (>= 2.6.6-3),
+               python-setuptools (>= 0.6b3)
+Standards-Version: 3.9.4
 Homepage: http://www.florian-diesch.de/software/classicmenu-indicator/
-X-Python-Version: 2.7
 
 Package: classicmenu-indicator
 Architecture: all
-Depends: ${python:Depends}, python-gmenu, python-appindicator, python-gobject, python-xdg 
+Depends: python-appindicator,
+         python-gmenu,
+         python-gobject,
+         python-gtk2,
+         ${misc:Depends},
+         ${python:Depends}
+Breaks: ${python:Breaks}
 Description: indicator showing the main menu from Gnome Classic
  classicmenu-indicator displays the main menu from Gnome2/Gnome Classic
-Homepage: http://www.florian-diesch.de/software/classicmenu-indicator/
-X-Python-Version: 2.7

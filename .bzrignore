@@ -1,12 +1,8 @@
-.pc
 build
 classicmenu_indicator.egg-info
 debian/classicmenu-indicator
-debian/patches
+classicmenu_indicator/_meta.py
 debian/classicmenu-indicator.debhelper.log
 debian/classicmenu-indicator.postinst.debhelper
 debian/classicmenu-indicator.prerm.debhelper
 debian/classicmenu-indicator.substvars
-debian/files
-classicmenu_indicator/_version.py
-data/desktop/classicmenu-indicator.desktop

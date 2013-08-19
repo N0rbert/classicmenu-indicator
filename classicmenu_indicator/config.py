@@ -15,14 +15,16 @@ class Config(object):
         except ConfigParser.Error as e:
             print e
     
-    def get(self, key, default, _type=str):
+    def get(self, key, default, _type=None):
+        if _type is None:            
+            _type=type(default)
         try:
             if _type == int:
                 return self.parser.getint(self.section, key)
             elif _type == float:
                 return self.parser.getfloat(self.section, key)
-            elif type == bool:
-                return self.parser.getbool(self.section, key)
+            elif _type == bool:
+                return self.parser.getboolean(self.section, key)
             else:
                 return self.parser.get(self.section, key, raw=True)
 
