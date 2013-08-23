@@ -2,6 +2,45 @@
 NEWS for classicmenu-indicator
 ==============================
 
+
+
+0.08  (2013-08-24)
+==================
+
+* ClassicMenu Indicator has its own icon now
+* added support for some configuration options
+* improved handling of missing/unusable icons
+* extended "ClassicMenu Indicator" submenu
+* added Estonian, French, Croatian, Japanese, Malay, Brazilian
+  Portuguese, Russian, Chinese (Simplified) language support
+* changed the way commands are run
+ 
+
+0.07  (2012-01-07)
+==================
+
+* Fixed bug in handling of missing/unusable icons
+* Added own menu if settings.menu doesn't exist 
+
+
+0.06   (2011-10-14)
+===================
+
+* Fixed a bug that under some circumstances could lead to an infinite
+  loop after updating the menu file
+
+0.05  (2011-10-11)
+==================
+
+* Fixed bug with icon size when used in environment other than Unity
+
+
+0.04  (2011-07-03)
+==================
+
+* Bugfix: Don't require restart after menu updates
+
+
 0.03  (2011-06-15)
 ==================
  * Aways show icons
