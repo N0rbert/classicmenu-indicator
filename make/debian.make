@@ -3,7 +3,7 @@
 
 DEBUILD=debuild -sa -v${DEBVERSION} -k${GPG_KEY} -i'.bzr'
 
-GARBAGE:=${GARBAGE} ../*.deb ../*.changes ../*.build ../${NAME}_${DEBVERSION}*
+GARBAGE:=${GARBAGE} ../*.deb ../*.changes ../*.build ../${NAME}_${DEBVERSION}* debian/${NAME}
 
 
 update_version:

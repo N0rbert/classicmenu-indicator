@@ -1,8 +1,7 @@
 Source: classicmenu-indicator
 Section: gnome
 Priority: optional
-Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
-XSBC-Original-Maintainer: Florian Diesch <devel@florian-diesch.de>
+Maintainer: Florain Diesch <devel@florian-diesch.de>
 Build-Depends: debhelper (>= 7.4.3),
                python-all (>= 2.6.6-3),
                python-setuptools (>= 0.6b3)

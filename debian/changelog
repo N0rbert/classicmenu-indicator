@@ -1,9 +1,14 @@
-classicmenu-indicator (0.08~pre1) precise; urgency=low
+classicmenu-indicator (0.08) precise; urgency=low
 
   * code cleanup
-  * prepared to be released as App
-  * improved icon handling
-  * minor bugfixes
+  * ClassicMenu Indicator has its own icon now
+  * added support for some configuration options
+  * improved handling of missing/unusable icons
+  * extended "ClassicMenu Indicator" submenu
+  * added Estonian, French, Croatian, Japanese, Malay, Brazilian
+    Portuguese, Russian, Chinese (Simplified) language support
+  * changed the way commands are run
+   
 
  -- Florian Diesch <devel@florian-diesch.de>  Sat, 08 Sep 2012 00:16:13 +0200
 

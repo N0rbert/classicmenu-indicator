@@ -41,7 +41,8 @@ License: custom
 
 
 Files: debian/*
-Copyright: 2011-2013 Florian Diesch <debian@florian-diesch.de>
+Copyright: 2011-2013 Florian Diesch <debian@florian-diesch.de>, 
+                     Graham Inggs <graham@nerve.org.za>
 License: GPL-3+
 
 License: GPL-3+
