@@ -1,7 +1,7 @@
 # -*- makefile -*-
 
 
-DEBUILD=debuild -sa -v${DEBVERSION} -k${GPG_KEY} -i'.bzr'
+DEBUILD=debuild-pbuilder -sa -v${DEBVERSION} -k${GPG_KEY} -i'.bzr|.patternbook'
 
 GARBAGE:=${GARBAGE} ../*.deb ../*.changes ../*.build ../${NAME}_${DEBVERSION}* debian/${NAME}
 

@@ -35,7 +35,7 @@ def read_from_file(path):
     with open(path) as input:
         return input.read()
 
-import classicmenu_indicator._meta as _meta
+import  _meta
     
 
 setup(
@@ -47,13 +47,11 @@ setup(
     maintainer_email='devel@florian-diesch.de',
     author = "Florian Diesch",
     author_email = "devel@florian-diesch.de",    
-    description='classicmenu-indicator',
+    description='An Unity indicator applet that provides the classic GNOME application menu',
     long_description=read_from_file('README.txt'),
     data_files=[
         ('/usr/share/applications',
          glob.glob('data/desktop/*.desktop')),
-        ('share/classicmenu-indicator/ui/',
-         glob.glob('data/ui/*.ui')),
         ('/usr/share/icons/hicolor/scalable/apps',
          glob.glob('icons/hicolor/scalable/apps/*.svg')),
         ('/usr/share/icons/ubuntu-mono-light/status/22',
@@ -75,14 +73,18 @@ setup(
     license='GPLv3',
     url='http://www.florian-diesch.de/software/classicmenu-indicator/',
     download_url='http://www.florian-diesch.de/software/classicmenu-indicator/',
-    keywords = "", 
+    keywords = "Ubuntu, Unity, Indicator, Applet, Gnome, Classic Menu", 
     classifiers=[
-        'Development Status :: 3 - Alpha',
+        'Development Status :: 4 - Beta',
+        'Environment :: X11 Applications :: Gnome',
+        'Intended Audience :: End Users/Desktop',
         'License :: OSI Approved :: GNU General Public License (GPL)',
         'Natural Language :: English',
         'Natural Language :: German',
         'Operating System :: POSIX :: Linux',
         'Programming Language :: Python :: 2.7',
+        'Topic :: Desktop Environment :: Gnome',
+        'Topic :: Utilities',
         ],
     cmdclass = { "build" : build_extra.build_extra,
                  "build_i18n" :  build_i18n.build_i18n,

@@ -1,3 +1,15 @@
+classicmenu-indicator (0.08ubuntu2) precise; urgency=low
+
+  * added symlink for _meta.py
+
+ -- Florian Diesch <devel@florian-diesch.de>  Sat, 24 Aug 2013 19:01:12 +0200
+
+classicmenu-indicator (0.08ubuntu1) precise; urgency=low
+
+  * added  python-distutils-extra to build dependencies
+
+ -- Florian Diesch <devel@florian-diesch.de>  Sat, 24 Aug 2013 16:14:40 +0200
+
 classicmenu-indicator (0.08) precise; urgency=low
 
   * code cleanup
