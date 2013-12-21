@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: classicmenu-indicator\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-08-24 22:07+0200\n"
+"POT-Creation-Date: 2013-12-21 00:54+0100\n"
 "PO-Revision-Date: 2012-09-09 11:14+0000\n"
 "Last-Translator: Jalakas <Unknown>\n"
 "Language-Team: Estonian <et@li.org>\n"
@@ -18,36 +18,38 @@ msgstr ""
 "X-Launchpad-Export-Date: 2013-08-19 23:31+0000\n"
 "X-Generator: Launchpad (build 16723)\n"
 
+#: ../classicmenu_indicator/cmindicator.py:202
+msgid "Go to Web Page"
+msgstr "Mine veebilehele"
+
+#: ../classicmenu_indicator/cmindicator.py:211
+msgid "Report a Bug"
+msgstr "Teata veast"
+
+#: ../classicmenu_indicator/cmindicator.py:217
+msgid "Help with Translations"
+msgstr "Aita tõlkida"
+
+#: ../classicmenu_indicator/cmindicator.py:223
+msgid "Donate via Flattr"
+msgstr "Anneta läbi Flattri"
+
+#: ../classicmenu_indicator/cmindicator.py:229
+msgid "Donate via PayPal"
+msgstr "Anneta läbi PayPali"
+
 #: ../classicmenu_indicator/about.py:18
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
 "  Jalakas https://launchpad.net/~jalakas"
 
-#: ../classicmenu_indicator/cmindicator.py:194
-msgid "Go to Web Page"
-msgstr "Mine veebilehele"
-
-#: ../classicmenu_indicator/cmindicator.py:203
-msgid "Report a Bug"
-msgstr "Teata veast"
-
-#: ../classicmenu_indicator/cmindicator.py:209
-msgid "Help with Translations"
-msgstr "Aita tõlkida"
-
-#: ../classicmenu_indicator/cmindicator.py:215
-msgid "Donate via Flattr"
-msgstr "Anneta läbi Flattri"
-
-#: ../classicmenu_indicator/cmindicator.py:221
-msgid "Donate via PayPal"
-msgstr "Anneta läbi PayPali"
-
+#: ../data/autostart/classicmenu-indicator.desktop.in.h:1
 #: ../data/desktop/classicmenu-indicator.desktop.in.h:1
 msgid "ClassicMenu Indicator"
 msgstr "ClassicMenu indikaator"
 
+#: ../data/autostart/classicmenu-indicator.desktop.in.h:2
 #: ../data/desktop/classicmenu-indicator.desktop.in.h:2
 msgid "Indicator applet to show the Gnome Classic main menu"
 msgstr "Gnome klassikalise peamenüü indikaator"

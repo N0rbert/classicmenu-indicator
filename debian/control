@@ -1,13 +1,15 @@
 Source: classicmenu-indicator
 Section: gnome
 Priority: optional
-Maintainer: Florain Diesch <devel@florian-diesch.de>
+Maintainer: Florian Diesch <devel@florian-diesch.de>
 Build-Depends: debhelper (>= 7.4.3),
                python-all (>= 2.6.6-3),
                python-setuptools (>= 0.6b3),
 	       python-distutils-extra
 Standards-Version: 3.9.4
+X-Python-Version: 2.7
 Homepage: http://www.florian-diesch.de/software/classicmenu-indicator/
+
 
 Package: classicmenu-indicator
 Architecture: all

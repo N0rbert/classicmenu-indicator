@@ -52,7 +52,9 @@ setup(
     data_files=[
         ('/usr/share/applications',
          glob.glob('data/desktop/*.desktop')),
-        ('/usr/share/icons/hicolor/scalable/apps',
+        ('/etc/xdg/menus',
+         glob.glob('data/menu/*.menu')),
+         ('/usr/share/icons/hicolor/scalable/apps',
          glob.glob('icons/hicolor/scalable/apps/*.svg')),
         ('/usr/share/icons/ubuntu-mono-light/status/22',
            glob.glob('icons/ubuntu-mono-light/status/22/*.svg')),
@@ -92,3 +94,5 @@ setup(
                  "build_icons" :  build_icons.build_icons }
 
     )
+
+print 'END'

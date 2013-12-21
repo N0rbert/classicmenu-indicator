@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-08-24 22:07+0200\n"
+"POT-Creation-Date: 2013-12-21 00:54+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,34 +17,36 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#: ../classicmenu_indicator/cmindicator.py:202
+msgid "Go to Web Page"
+msgstr ""
+
+#: ../classicmenu_indicator/cmindicator.py:211
+msgid "Report a Bug"
+msgstr ""
+
+#: ../classicmenu_indicator/cmindicator.py:217
+msgid "Help with Translations"
+msgstr ""
+
+#: ../classicmenu_indicator/cmindicator.py:223
+msgid "Donate via Flattr"
+msgstr ""
+
+#: ../classicmenu_indicator/cmindicator.py:229
+msgid "Donate via PayPal"
+msgstr ""
+
 #: ../classicmenu_indicator/about.py:18
 msgid "translator-credits"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:194
-msgid "Go to Web Page"
-msgstr ""
-
-#: ../classicmenu_indicator/cmindicator.py:203
-msgid "Report a Bug"
-msgstr ""
-
-#: ../classicmenu_indicator/cmindicator.py:209
-msgid "Help with Translations"
-msgstr ""
-
-#: ../classicmenu_indicator/cmindicator.py:215
-msgid "Donate via Flattr"
-msgstr ""
-
-#: ../classicmenu_indicator/cmindicator.py:221
-msgid "Donate via PayPal"
-msgstr ""
-
+#: ../data/autostart/classicmenu-indicator.desktop.in.h:1
 #: ../data/desktop/classicmenu-indicator.desktop.in.h:1
 msgid "ClassicMenu Indicator"
 msgstr ""
 
+#: ../data/autostart/classicmenu-indicator.desktop.in.h:2
 #: ../data/desktop/classicmenu-indicator.desktop.in.h:2
 msgid "Indicator applet to show the Gnome Classic main menu"
 msgstr ""

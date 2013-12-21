@@ -26,7 +26,7 @@
 import gmenu
 import gtk, glib, gobject, gio, gtk.gdk
 import appindicator
-import re
+import re, os
 import textwrap
 import subprocess
 from optparse import OptionParser
@@ -36,6 +36,8 @@ import settings, about
 from gettext import gettext as _
 import gettext
 import xdg.IconTheme as xdgicon
+
+settings.WEB_PAGE_ICON = gtk.STOCK_JUMP_TO
 
 class ClassicMenuIndicator(object):
     def __init__(self):
@@ -55,8 +57,14 @@ class ClassicMenuIndicator(object):
         self.indicator.set_status (appindicator.STATUS_ACTIVE)
 
         self.trees = []
-        tree = self.create_tree('applications.menu')
-        self.trees.append(tree)
+        if os.getenv('XDG_CURRENT_DESKTOP', '') == 'Unity':
+            tree = self.create_tree('unity-lens-applications.menu')
+            self.trees.append(tree)
+        else:
+            menu_prefix = os.getenv('XDG_MENU_PREFIX', '')  
+            tree = self.create_tree('%sapplications.menu' % menu_prefix)
+            self.trees.append(tree)
+
 
         for m in settings.SYSTEM_MENUS:
             tree = self.create_tree(m)
@@ -192,7 +200,7 @@ class ClassicMenuIndicator(object):
         submenu.append(menu_item)
 
         menu_item = gtk.ImageMenuItem(_('Go to Web Page'))
-        menu_item.set_image(gtk.image_new_from_stock(gtk.STOCK_JUMP_TO, 
+        menu_item.set_image(gtk.image_new_from_icon_name(settings.WEB_PAGE_ICON, 
                                                      settings.ICON_SIZE))
         menu_item.connect('activate', self.on_menuitem_goto_webpage)
         submenu.append(menu_item)
@@ -201,25 +209,25 @@ class ClassicMenuIndicator(object):
         submenu.append(menu_item)
         
         menu_item = gtk.ImageMenuItem(_('Report a Bug'))
-        menu_item.set_image(gtk.image_new_from_stock(gtk.STOCK_JUMP_TO, 
+        menu_item.set_image(gtk.image_new_from_icon_name(settings.WEB_PAGE_ICON, 
                                                      settings.ICON_SIZE))
         menu_item.connect('activate', self.on_menuitem_bug)
         submenu.append(menu_item)
 
         menu_item = gtk.ImageMenuItem(_('Help with Translations'))
-        menu_item.set_image(gtk.image_new_from_stock(gtk.STOCK_JUMP_TO, 
+        menu_item.set_image(gtk.image_new_from_icon_name(settings.WEB_PAGE_ICON, 
                                                      settings.ICON_SIZE))
         menu_item.connect('activate', self.on_menuitem_translations)
         submenu.append(menu_item)
         
         menu_item = gtk.ImageMenuItem(_('Donate via Flattr'))
-        menu_item.set_image(gtk.image_new_from_stock(gtk.STOCK_JUMP_TO, 
+        menu_item.set_image(gtk.image_new_from_icon_name(settings.WEB_PAGE_ICON, 
                                                      settings.ICON_SIZE))
         menu_item.connect('activate', self.on_menuitem_flattr)
         submenu.append(menu_item)
 
         menu_item = gtk.ImageMenuItem(_('Donate via PayPal'))
-        menu_item.set_image(gtk.image_new_from_stock(gtk.STOCK_JUMP_TO, 
+        menu_item.set_image(gtk.image_new_from_icon_name(settings.WEB_PAGE_ICON, 
                                                      settings.ICON_SIZE))
         menu_item.connect('activate', self.on_menuitem_donate)
         submenu.append(menu_item)
