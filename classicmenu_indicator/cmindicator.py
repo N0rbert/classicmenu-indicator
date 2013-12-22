@@ -37,7 +37,6 @@ from gettext import gettext as _
 import gettext
 import xdg.IconTheme as xdgicon
 
-settings.WEB_PAGE_ICON = gtk.STOCK_JUMP_TO
 
 class ClassicMenuIndicator(object):
     def __init__(self):
@@ -87,13 +86,14 @@ class ClassicMenuIndicator(object):
 
 
 
-    def create_menu_item(self, entry):    
+    def create_menu_item(self, entry):
         name = entry.get_name()
         comment = entry.get_comment() 
 
         menu_item = gtk.ImageMenuItem(name)
         
-        icon = entry.get_icon()            
+        icon = entry.get_icon()
+ 
         img = None
         if icon:
             try:
@@ -115,18 +115,20 @@ class ClassicMenuIndicator(object):
                             settings.ICON_SIZE,
                             settings.ICON_SIZE)
                         img = gtk.image_new_from_pixbuf(pixbuf)
-                    else:
-                        img = gtk.Image()                    
-                        img.set_from_icon_name(icon, settings.ICON_SIZE)
+                    # else:
+                    #     img = gtk.Image()
+                    #     print 'FROM NAME'
+                    #     img.set_from_icon_name(icon, settings.ICON_SIZE)
 
             except glib.GError, e:
                 print '[%s] "%s": %s: %s'%(settings.APP_NAME, name, icon , e)
 
-        if settings.USE_MENU_ICONS:      
+                
+        if settings.USE_MENU_ICONS:
             if img is None:
                 img = gtk.Image()
                 img.set_from_icon_name('gtk-execute', settings.ICON_SIZE)
- 
+
             menu_item.set_image(img)
             menu_item.set_label(name)
             menu_item.set_always_show_image(True)
@@ -200,7 +202,7 @@ class ClassicMenuIndicator(object):
         submenu.append(menu_item)
 
         menu_item = gtk.ImageMenuItem(_('Go to Web Page'))
-        menu_item.set_image(gtk.image_new_from_icon_name(settings.WEB_PAGE_ICON, 
+        menu_item.set_image(gtk.image_new_from_icon_name(settings.WEB_PAGE_ICON,
                                                      settings.ICON_SIZE))
         menu_item.connect('activate', self.on_menuitem_goto_webpage)
         submenu.append(menu_item)
@@ -218,6 +220,7 @@ class ClassicMenuIndicator(object):
         menu_item.set_image(gtk.image_new_from_icon_name(settings.WEB_PAGE_ICON, 
                                                      settings.ICON_SIZE))
         menu_item.connect('activate', self.on_menuitem_translations)
+        
         submenu.append(menu_item)
         
         menu_item = gtk.ImageMenuItem(_('Donate via Flattr'))

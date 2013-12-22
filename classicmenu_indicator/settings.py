@@ -25,6 +25,7 @@ CFG_FILE =  os.path.join(APP_CONFIG_HOME, 'config')
 
 cfg = config.Config(CFG_FILE)
 
+WEB_PAGE_ICON = 'go-jump'
 
 if os.path.isfile('.is-devel-dir'):
     DATA_DIR = 'data'
