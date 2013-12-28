@@ -4,7 +4,7 @@ import gtk, glib
 from gettext import gettext as _
 import textwrap
 
-import settings
+from settings import vars as settings
 
 
 def show_about_dialog():

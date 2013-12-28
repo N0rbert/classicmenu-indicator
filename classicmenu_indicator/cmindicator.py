@@ -32,7 +32,10 @@ import subprocess
 from optparse import OptionParser
 from urlparse import urlparse
 
-import settings, about
+import about
+
+from settings import vars as settings
+
 from gettext import gettext as _
 import gettext
 import xdg.IconTheme as xdgicon
@@ -55,29 +58,12 @@ class ClassicMenuIndicator(object):
 
         self.indicator.set_status (appindicator.STATUS_ACTIVE)
 
-        self.trees = []
-        if os.getenv('XDG_CURRENT_DESKTOP', '') == 'Unity':
-            tree = self.create_tree('unity-lens-applications.menu')
-            self.trees.append(tree)
-        else:
-            menu_prefix = os.getenv('XDG_MENU_PREFIX', '')  
-            tree = self.create_tree('%sapplications.menu' % menu_prefix)
-            self.trees.append(tree)
-
-
-        for m in settings.SYSTEM_MENUS:
-            tree = self.create_tree(m)
-            if tree:
-                self.trees.append(tree)
-                break
-
-        for m in settings.EXTRA_MENUS:
-            tree = self.create_tree(m)
-            if tree:
-                self.trees.append(tree)
-
+        self.create_all_trees()
+        
         self.indicator.set_menu(self.create_menu())
 
+        settings.cfg.set_callback(self.on_config_changed)
+        
     def run(self):
         try:
             gtk.main()
@@ -246,6 +232,30 @@ class ClassicMenuIndicator(object):
         menu.show_all()
         return menu;
 
+    def create_all_trees(self):
+        self.trees = []
+        if settings.USE_LENS_MENU and \
+            os.getenv('XDG_CURRENT_DESKTOP', '') == 'Unity':
+            tree = self.create_tree('unity-lens-applications.menu')
+            self.trees.append(tree)
+        else:
+            menu_prefix = os.getenv('XDG_MENU_PREFIX', '')  
+            tree = self.create_tree('%sapplications.menu' % menu_prefix)
+            self.trees.append(tree)
+
+
+        for m in settings.SYSTEM_MENUS:
+            tree = self.create_tree(m)
+            if tree:
+                self.trees.append(tree)
+                break
+
+        for m in settings.EXTRA_MENUS:
+            tree = self.create_tree(m)
+            if tree:
+                self.trees.append(tree)
+
+    
     def create_tree(self, name):
         flags = gmenu.FLAGS_NONE
         if settings.INCLUDE_NODISPLAY:
@@ -258,11 +268,20 @@ class ClassicMenuIndicator(object):
             return None
 
 
-    def update_menu(self):
+    def update_menu(self, recreate_trees=False):
         self.update_requested = False
-        self.indicator.set_menu(self.create_menu())        
+        if recreate_trees:
+            self.create_all_trees()
+        self.indicator.set_menu(self.create_menu())
+        print 'DONE'
         return False    # Don't run again
 
+    def request_update(self, recreate_trees=False):
+        if not self.update_requested:
+            self.update_requested = True
+            gobject.timeout_add(settings.UPDATE_DELAY,
+                                lambda: self.update_menu(recreate_trees))
+            
     def quit(self):
         gtk.main_quit()
 
@@ -271,21 +290,23 @@ class ClassicMenuIndicator(object):
         u = urlparse(url)
         appinfo=gio.app_info_get_default_for_uri_scheme(u.scheme)
         appinfo.launch_uris([url])
-
+        
 #####################
 ## Signal-Behandlung
 #####################
 
+    def on_config_changed(self):
+        self.indicator.set_icon(settings.ICON)
+        self.request_update(recreate_trees=True)
+        
     def on_menuitem_activate(self, menuitem, entry):
         path = entry.get_desktop_file_path()
         appinfo = gio.unix.desktop_app_info_new_from_filename(path)
         appinfo.launch()
 
     def on_menu_file_changed(self, tree):
-        if not self.update_requested:
-            self.update_requested = True
-            gobject.timeout_add(5000, self.update_menu)
-   
+        self.request_update()
+        
     def on_menuitem_quit_activate(self, menuitem):
         self.quit()
 

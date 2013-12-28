@@ -3,18 +3,36 @@
 
 import ConfigParser
 import xdg.BaseDirectory
-
+import gio
 
 class Config(object):
 
-    def __init__(self, *files):
+    def __init__(self,  *files):
+        self.files = files
+        self.callback = None
         self.section = 'config'
+        self.monitors = [self.create_monitor(f) for f in files]
+        self.load()
+
+    def set_callback(self, callback):
+        self.callback = callback
+        
+    def create_monitor(self, path):
+        gfile = gio.File(path)
+        monitor = gfile.monitor(0, None)
+        monitor.connect('changed', self.on_file_changed)
+        return monitor
+        
+    def load(self):
         try:
             self.parser = ConfigParser.SafeConfigParser()
-            self.parser.read(*files)
+            self.parser.read(*self.files)
         except ConfigParser.Error as e:
             print e
-    
+            
+        if self.callback is not None:
+            self.callback()
+        
     def get(self, key, default, _type=None):
         if _type is None:            
             _type=type(default)
@@ -36,8 +54,10 @@ class Config(object):
             print e, type(e)
             return default
 
-
-
+    def on_file_changed(self, monitor, gfile, other, event):
+        if event in (gio.FILE_MONITOR_EVENT_CHANGES_DONE_HINT,
+                     gio.FILE_MONITOR_EVENT_DELETED):                
+            self.load()
     
 if __name__ == '__main__':
     import os.path
