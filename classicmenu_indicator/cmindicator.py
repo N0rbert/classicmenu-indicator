@@ -193,7 +193,7 @@ class ClassicMenuIndicator(object):
         menu_item.connect('toggled', callback)        
         menu.append(menu_item)
         
-        menu_item = gtk.CheckMenuItem(_('Use notify'))
+        menu_item = gtk.CheckMenuItem(_('Show notifications'))
         menu_item.set_active(settings.USE_NOTIFY)
         def callback(item, *args):
             settings.set_use_notify(item.get_active())
@@ -201,7 +201,7 @@ class ClassicMenuIndicator(object):
         menu.append(menu_item)
 
         if self.is_unity():
-            menu_item = gtk.CheckMenuItem(_('Use lens menu'))
+            menu_item = gtk.CheckMenuItem(_('Use alternate menu'))
             menu_item.set_active(settings.USE_LENS_MENU)
             def callback(item, *args):
                 settings.set_use_lens_menu(item.get_active())

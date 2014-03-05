@@ -24,6 +24,7 @@ pypi:
 
 sdist: ${PRE_BUILD_TARGETS}
 	python setup.py sdist
+	mv dist/${NAME}-${PYTHON_VERSION}.tar.gz dist/${NAME}-${VERSION}.tar.gz || true
 
 
 potfiles:

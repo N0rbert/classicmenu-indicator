@@ -55,7 +55,7 @@ class Vars(object):
 
     @property
     def UPDATE_DELAY(self):
-        return self.cfg.get('update_delay', 5000)
+        return self.cfg.get('update_delay', 3000)
 
     @property
     def USE_LENS_MENU(self):
@@ -67,7 +67,7 @@ class Vars(object):
 
     @property
     def USE_NOTIFY(self):
-        return self.cfg.get('use_notify', True)
+        return self.cfg.get('use_notify', False)
     
     SYSTEM_MENUS = ['settings.menu',  
                     'classicmenuindicatorsystem.menu']
