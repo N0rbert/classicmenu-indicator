@@ -52,9 +52,9 @@ class ClassicMenuIndicator(object):
         gettext.textdomain(settings.GETTEXT_DOMAIN)
         gettext.bind_textdomain_codeset(settings.GETTEXT_DOMAIN, 'UTF-8')
 
-        self.use_notify = True
+        self.have_notify = True
         if not pynotify.init(settings.APP_NAME):
-            self.use_notify = False
+            self.have_notify = False
 
         screen = gtk.gdk.screen_get_default()
         self.theme = gtk.icon_theme_get_for_screen(screen)
@@ -77,7 +77,8 @@ class ClassicMenuIndicator(object):
 
 
     def notify(self, msg, type='Information'):
-        if self.use_notify:
+        print 'NOTIFY:',  self.have_notify, settings.USE_NOTIFY
+        if self.have_notify and settings.USE_NOTIFY:
             n = pynotify.Notification(type, msg)
             if not n.show():
                 print "Failed to send notification"
@@ -190,6 +191,13 @@ class ClassicMenuIndicator(object):
         def callback(item, *args):
             settings.set_use_menu_icons(item.get_active())
         menu_item.connect('toggled', callback)        
+        menu.append(menu_item)
+        
+        menu_item = gtk.CheckMenuItem(_('Use notify'))
+        menu_item.set_active(settings.USE_NOTIFY)
+        def callback(item, *args):
+            settings.set_use_notify(item.get_active())
+        menu_item.connect('toggled', callback)
         menu.append(menu_item)
 
         if self.is_unity():
@@ -308,7 +316,7 @@ class ClassicMenuIndicator(object):
 
 
     def update_menu(self, recreate_trees=False):
-        self.notify(_('Updating %s menu. Please wait ...') % settings.APP_NAME) 
+        self.notify(_('Updating %s menu. Please wait ...') % settings.APP_NAME)
         self.update_requested = False
         if recreate_trees:
             self.create_all_trees()

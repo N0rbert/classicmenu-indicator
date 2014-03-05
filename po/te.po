@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: classicmenu-indicator\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-05 04:09+0100\n"
+"POT-Creation-Date: 2014-03-05 05:30+0100\n"
 "PO-Revision-Date: 2014-01-31 05:54+0000\n"
 "Last-Translator: Launchpad Translations Administrators <Unknown>\n"
 "Language-Team: Telugu <te@li.org>\n"
@@ -22,49 +22,53 @@ msgstr ""
 msgid "translator-credits"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:181
+#: ../classicmenu_indicator/cmindicator.py:182
 msgid "Use old icon"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:188
+#: ../classicmenu_indicator/cmindicator.py:189
 msgid "Show menu icons"
 msgstr ""
 
 #: ../classicmenu_indicator/cmindicator.py:196
+msgid "Use notify"
+msgstr ""
+
+#: ../classicmenu_indicator/cmindicator.py:204
 msgid "Use lens menu"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:227
+#: ../classicmenu_indicator/cmindicator.py:235
 msgid "Go to Web Page"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:236
+#: ../classicmenu_indicator/cmindicator.py:244
 msgid "Report a Bug"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:242
+#: ../classicmenu_indicator/cmindicator.py:250
 msgid "Help with Translations"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:249
+#: ../classicmenu_indicator/cmindicator.py:257
 msgid "Donate via Flattr"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:255
+#: ../classicmenu_indicator/cmindicator.py:263
 msgid "Donate via PayPal"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:311
+#: ../classicmenu_indicator/cmindicator.py:319
 #, python-format
 msgid "Updating %s menu. Please wait ..."
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:317
+#: ../classicmenu_indicator/cmindicator.py:325
 #, python-format
 msgid "%s is ready now."
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:322
+#: ../classicmenu_indicator/cmindicator.py:330
 #, python-format
 msgid "Menu update for %s requested."
 msgstr ""

@@ -7,3 +7,4 @@ debian/classicmenu-indicator.postinst.debhelper
 debian/classicmenu-indicator.prerm.debhelper
 debian/classicmenu-indicator.substvars
 debian/classicmenu-indicator.postrm.debhelper
+classicmenu_indicator/__pycache__

@@ -65,6 +65,10 @@ class Vars(object):
     def INCLUDE_NODISPLAY(self):
         return self.cfg.get('include_nodisplay', False)
 
+    @property
+    def USE_NOTIFY(self):
+        return self.cfg.get('use_notify', True)
+    
     SYSTEM_MENUS = ['settings.menu',  
                     'classicmenuindicatorsystem.menu']
 
@@ -97,6 +101,10 @@ class Vars(object):
         
     def set_use_lens_menu(self, use_lens_menu):
         self.cfg.set('use_lens_menu', use_lens_menu)        
+        self.cfg.store()
+
+    def set_use_notify(self, use_notify):
+        self.cfg.set('use_notify', use_notify)        
         self.cfg.store()
         
 vars = Vars()

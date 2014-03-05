@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: classicmenu-indicator\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-05 04:09+0100\n"
+"POT-Creation-Date: 2014-03-05 05:30+0100\n"
 "PO-Revision-Date: 2012-09-18 08:06+0000\n"
 "Last-Translator: gogo <trebelnik2@gmail.com>\n"
 "Language-Team: Croatian <hr@li.org>\n"
@@ -24,49 +24,53 @@ msgstr ""
 "Launchpad Contributions:\n"
 "  gogo https://launchpad.net/~trebelnik-stefina"
 
-#: ../classicmenu_indicator/cmindicator.py:181
+#: ../classicmenu_indicator/cmindicator.py:182
 msgid "Use old icon"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:188
+#: ../classicmenu_indicator/cmindicator.py:189
 msgid "Show menu icons"
 msgstr ""
 
 #: ../classicmenu_indicator/cmindicator.py:196
+msgid "Use notify"
+msgstr ""
+
+#: ../classicmenu_indicator/cmindicator.py:204
 msgid "Use lens menu"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:227
+#: ../classicmenu_indicator/cmindicator.py:235
 msgid "Go to Web Page"
 msgstr "Idi na web stranicu"
 
-#: ../classicmenu_indicator/cmindicator.py:236
+#: ../classicmenu_indicator/cmindicator.py:244
 msgid "Report a Bug"
 msgstr "Prijavite grešku"
 
-#: ../classicmenu_indicator/cmindicator.py:242
+#: ../classicmenu_indicator/cmindicator.py:250
 msgid "Help with Translations"
 msgstr "Pomognite prevesti"
 
-#: ../classicmenu_indicator/cmindicator.py:249
+#: ../classicmenu_indicator/cmindicator.py:257
 msgid "Donate via Flattr"
 msgstr "Donirajte putem Flattra"
 
-#: ../classicmenu_indicator/cmindicator.py:255
+#: ../classicmenu_indicator/cmindicator.py:263
 msgid "Donate via PayPal"
 msgstr "Donirajte putem PayPala"
 
-#: ../classicmenu_indicator/cmindicator.py:311
+#: ../classicmenu_indicator/cmindicator.py:319
 #, python-format
 msgid "Updating %s menu. Please wait ..."
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:317
+#: ../classicmenu_indicator/cmindicator.py:325
 #, python-format
 msgid "%s is ready now."
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:322
+#: ../classicmenu_indicator/cmindicator.py:330
 #, python-format
 msgid "Menu update for %s requested."
 msgstr ""
