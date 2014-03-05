@@ -31,6 +31,7 @@ import textwrap
 import subprocess
 from optparse import OptionParser
 from urlparse import urlparse
+import pynotify
 
 import about
 
@@ -50,6 +51,10 @@ class ClassicMenuIndicator(object):
         gettext.bindtextdomain(settings.GETTEXT_DOMAIN)
         gettext.textdomain(settings.GETTEXT_DOMAIN)
         gettext.bind_textdomain_codeset(settings.GETTEXT_DOMAIN, 'UTF-8')
+
+        self.use_notify = True
+        if not pynotify.init(settings.APP_NAME):
+            self.use_notify = False
 
         screen = gtk.gdk.screen_get_default()
         self.theme = gtk.icon_theme_get_for_screen(screen)
@@ -71,6 +76,12 @@ class ClassicMenuIndicator(object):
             pass
 
 
+    def notify(self, msg, type='Information'):
+        if self.use_notify:
+            n = pynotify.Notification(type, msg)
+            if not n.show():
+                print "Failed to send notification"
+            
 
     def create_menu_item(self, entry):
         name = entry.get_name()
@@ -181,7 +192,13 @@ class ClassicMenuIndicator(object):
         menu_item.connect('toggled', callback)        
         menu.append(menu_item)
 
-        
+        if self.is_unity():
+            menu_item = gtk.CheckMenuItem(_('Use lens menu'))
+            menu_item.set_active(settings.USE_LENS_MENU)
+            def callback(item, *args):
+                settings.set_use_lens_menu(item.get_active())
+            menu_item.connect('toggled', callback)        
+            menu.append(menu_item) 
         
     def create_menu(self):
         menu = gtk.Menu()
@@ -252,10 +269,12 @@ class ClassicMenuIndicator(object):
         menu.show_all()
         return menu;
 
+    def is_unity(self):
+        return os.getenv('XDG_CURRENT_DESKTOP', '') == 'Unity'
+    
     def create_all_trees(self):
         self.trees = []
-        if settings.USE_LENS_MENU and \
-            os.getenv('XDG_CURRENT_DESKTOP', '') == 'Unity':
+        if settings.USE_LENS_MENU and self.is_unity():
             tree = self.create_tree('unity-lens-applications.menu')
             self.trees.append(tree)
         else:
@@ -289,24 +308,18 @@ class ClassicMenuIndicator(object):
 
 
     def update_menu(self, recreate_trees=False):
-        old_icon = settings.ICON
-        self.indicator.set_icon(settings.BUSY_ICON)
-        print 'BUSY:', settings.BUSY_ICON
-        while gtk.events_pending():
-            gtk.main_iteration ()
-            print 'EVENT'
-        
+        self.notify(_('Updating %s menu. Please wait ...') % settings.APP_NAME) 
         self.update_requested = False
         if recreate_trees:
             self.create_all_trees()
         self.indicator.set_menu(self.create_menu())
         print 'DONE'
-        self.indicator.set_icon(old_icon)
-        print 'OLD:', old_icon
+        self.notify(_('%s is ready now.') % settings.APP_NAME)
         return False    # Don't run again
 
-    def request_update(self, recreate_trees=False):
+    def request_update(self, recreate_trees=False):        
         if not self.update_requested:
+            self.notify(_('Menu update for %s requested.') % settings.APP_NAME) 
             self.update_requested = True
             gobject.timeout_add(settings.UPDATE_DELAY,
                                 lambda: self.update_menu(recreate_trees))

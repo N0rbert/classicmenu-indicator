@@ -43,6 +43,8 @@ class Config(object):
                 
     def set(self, key, value):
         value = str(value)
+        if not self.parser.has_section(self.section):
+            self.parser.add_section(self.section)
         self.parser.set(self.section, key, value)
         
     def get(self, key, default, _type=None):

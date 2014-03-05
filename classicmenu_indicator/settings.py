@@ -31,7 +31,6 @@ class Vars(object):
 
     OLD_ICON = 'start-here'
     NEW_ICON = 'classicmenu-indicator'
-    BUSY_ICON = 'classicmenu-indicator-is-busy'
     
     WEB_PAGE_ICON = 'go-jump'
 
@@ -94,6 +93,10 @@ class Vars(object):
 
     def set_use_menu_icons(self, use_icons):
         self.cfg.set('menu_icons', use_icons)
+        self.cfg.store()
+        
+    def set_use_lens_menu(self, use_lens_menu):
+        self.cfg.set('use_lens_menu', use_lens_menu)        
         self.cfg.store()
         
 vars = Vars()
