@@ -1,3 +1,11 @@
+classicmenu-indicator (0.09~pre1) UNRELEASED; urgency=low
+
+  * use $XDG_MENU_PREFIX (LP: #1228053)
+  * use unity-lens-applications.menu for Unity
+  * don't use gtk.image_new_from_stock (LP: #1220961)
+
+ -- Florian Diesch <devel@florian-diesch.de>  Fri, 17 Jan 2014 22:58:59 +0100
+
 classicmenu-indicator (0.08ubuntu2) precise; urgency=low
 
   * added symlink for _meta.py

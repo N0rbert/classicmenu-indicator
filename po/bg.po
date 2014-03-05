@@ -1,4 +1,4 @@
-# Japanese translation for classicmenu-indicator
+# Bulgarian translation for classicmenu-indicator
 # Copyright (c) 2013 Rosetta Contributors and Canonical Ltd 2013
 # This file is distributed under the same license as the classicmenu-indicator package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2013.
@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: classicmenu-indicator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-03-05 02:03+0100\n"
-"PO-Revision-Date: 2013-07-17 04:53+0000\n"
-"Last-Translator: ub <xenolith0bytetestcomgreen@gmail.com>\n"
-"Language-Team: Japanese <ja@li.org>\n"
-"Language: ja\n"
+"PO-Revision-Date: 2013-12-01 16:46+0000\n"
+"Last-Translator: Atanas Kovachki <Unknown>\n"
+"Language-Team: Bulgarian <bg@li.org>\n"
+"Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -22,7 +22,7 @@ msgstr ""
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
-"  ub https://launchpad.net/~xenolith0bytetestcomgreen"
+"  Atanas Kovachki https://launchpad.net/~zdar"
 
 #: ../classicmenu_indicator/cmindicator.py:170
 msgid "Use old icon"
@@ -34,30 +34,30 @@ msgstr ""
 
 #: ../classicmenu_indicator/cmindicator.py:210
 msgid "Go to Web Page"
-msgstr "ウェブページへ"
+msgstr "Перемини към сайта"
 
 #: ../classicmenu_indicator/cmindicator.py:219
 msgid "Report a Bug"
-msgstr "バグ報告"
+msgstr "Съобщи за грешка"
 
 #: ../classicmenu_indicator/cmindicator.py:225
 msgid "Help with Translations"
-msgstr "翻訳を手伝う"
+msgstr "Помогнете с превода"
 
 #: ../classicmenu_indicator/cmindicator.py:232
 msgid "Donate via Flattr"
-msgstr "Flattrで寄付"
+msgstr "Направи дарение чрез Flattr"
 
 #: ../classicmenu_indicator/cmindicator.py:238
 msgid "Donate via PayPal"
-msgstr "PayPalで寄付"
+msgstr "Направи дарение чрез PayPal"
 
 #: ../data/desktop/classicmenu-indicator.desktop.in.h:1
 #: ../data/autostart/classicmenu-indicator.desktop.in.h:1
 msgid "ClassicMenu Indicator"
-msgstr "クラシックメニュー・インジケーター"
+msgstr "ClassicMenu индикатор"
 
 #: ../data/desktop/classicmenu-indicator.desktop.in.h:2
 #: ../data/autostart/classicmenu-indicator.desktop.in.h:2
 msgid "Indicator applet to show the Gnome Classic main menu"
-msgstr "Gnomeクラシックメニューを表示するアプレット"
+msgstr "Мини програма, показваща главното меню в класически стил Gnome Classic"

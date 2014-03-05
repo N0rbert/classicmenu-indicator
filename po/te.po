@@ -1,17 +1,17 @@
-# Japanese translation for classicmenu-indicator
-# Copyright (c) 2013 Rosetta Contributors and Canonical Ltd 2013
+# Telugu translation for classicmenu-indicator
+# Copyright (c) 2014 Rosetta Contributors and Canonical Ltd 2014
 # This file is distributed under the same license as the classicmenu-indicator package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2013.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: classicmenu-indicator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-03-05 02:03+0100\n"
-"PO-Revision-Date: 2013-07-17 04:53+0000\n"
-"Last-Translator: ub <xenolith0bytetestcomgreen@gmail.com>\n"
-"Language-Team: Japanese <ja@li.org>\n"
-"Language: ja\n"
+"PO-Revision-Date: 2014-01-31 05:54+0000\n"
+"Last-Translator: Launchpad Translations Administrators <Unknown>\n"
+"Language-Team: Telugu <te@li.org>\n"
+"Language: te\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -21,8 +21,6 @@ msgstr ""
 #: ../classicmenu_indicator/about.py:18
 msgid "translator-credits"
 msgstr ""
-"Launchpad Contributions:\n"
-"  ub https://launchpad.net/~xenolith0bytetestcomgreen"
 
 #: ../classicmenu_indicator/cmindicator.py:170
 msgid "Use old icon"
@@ -34,30 +32,30 @@ msgstr ""
 
 #: ../classicmenu_indicator/cmindicator.py:210
 msgid "Go to Web Page"
-msgstr "ウェブページへ"
+msgstr ""
 
 #: ../classicmenu_indicator/cmindicator.py:219
 msgid "Report a Bug"
-msgstr "バグ報告"
+msgstr ""
 
 #: ../classicmenu_indicator/cmindicator.py:225
 msgid "Help with Translations"
-msgstr "翻訳を手伝う"
+msgstr ""
 
 #: ../classicmenu_indicator/cmindicator.py:232
 msgid "Donate via Flattr"
-msgstr "Flattrで寄付"
+msgstr ""
 
 #: ../classicmenu_indicator/cmindicator.py:238
 msgid "Donate via PayPal"
-msgstr "PayPalで寄付"
+msgstr ""
 
 #: ../data/desktop/classicmenu-indicator.desktop.in.h:1
 #: ../data/autostart/classicmenu-indicator.desktop.in.h:1
 msgid "ClassicMenu Indicator"
-msgstr "クラシックメニュー・インジケーター"
+msgstr ""
 
 #: ../data/desktop/classicmenu-indicator.desktop.in.h:2
 #: ../data/autostart/classicmenu-indicator.desktop.in.h:2
 msgid "Indicator applet to show the Gnome Classic main menu"
-msgstr "Gnomeクラシックメニューを表示するアプレット"
+msgstr ""

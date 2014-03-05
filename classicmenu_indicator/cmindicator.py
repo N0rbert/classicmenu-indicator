@@ -165,6 +165,24 @@ class ClassicMenuIndicator(object):
         root = tree.get_root_directory()    
         self.process_directory(menu, root)
 
+    def add_config_menu_items(self, menu):
+        
+        menu_item = gtk.CheckMenuItem(_('Use old icon'))
+        menu_item.set_active(settings.ICON == settings.OLD_ICON)
+        def callback(item, *args):
+            settings.set_use_old_icon(item.get_active())            
+        menu_item.connect('toggled', callback)        
+        menu.append(menu_item)
+
+        menu_item = gtk.CheckMenuItem(_('Show menu icons'))
+        menu_item.set_active(settings.USE_MENU_ICONS)
+        def callback(item, *args):
+            settings.set_use_menu_icons(item.get_active())
+        menu_item.connect('toggled', callback)        
+        menu.append(menu_item)
+
+        
+        
     def create_menu(self):
         menu = gtk.Menu()
 
@@ -180,6 +198,8 @@ class ClassicMenuIndicator(object):
         submenu = gtk.Menu()
         menu_item.set_submenu(submenu)
 
+        self.add_config_menu_items(submenu)
+        
         menu_item = gtk.SeparatorMenuItem()
         submenu.append(menu_item)
         
@@ -269,11 +289,20 @@ class ClassicMenuIndicator(object):
 
 
     def update_menu(self, recreate_trees=False):
+        old_icon = settings.ICON
+        self.indicator.set_icon(settings.BUSY_ICON)
+        print 'BUSY:', settings.BUSY_ICON
+        while gtk.events_pending():
+            gtk.main_iteration ()
+            print 'EVENT'
+        
         self.update_requested = False
         if recreate_trees:
             self.create_all_trees()
         self.indicator.set_menu(self.create_menu())
         print 'DONE'
+        self.indicator.set_icon(old_icon)
+        print 'OLD:', old_icon
         return False    # Don't run again
 
     def request_update(self, recreate_trees=False):
@@ -340,5 +369,8 @@ def parse_args():
 def main():
     parse_args()
     indicator = ClassicMenuIndicator()
-    indicator.run()   
+    indicator.run()
+
+
+    
 

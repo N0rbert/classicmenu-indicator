@@ -1,9 +1,9 @@
-classicmenu_indicator/_meta.py
 classicmenu_indicator/__init__.py
-classicmenu_indicator/_version.py
-classicmenu_indicator/cmindicator.py
 classicmenu_indicator/settings.py
+classicmenu_indicator/_version.py
+classicmenu_indicator/_meta.py
 classicmenu_indicator/config.py
 classicmenu_indicator/about.py
-data/autostart/classicmenu-indicator.desktop.in
+classicmenu_indicator/cmindicator.py
 data/desktop/classicmenu-indicator.desktop.in
+data/autostart/classicmenu-indicator.desktop.in

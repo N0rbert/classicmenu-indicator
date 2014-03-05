@@ -26,9 +26,13 @@ class Vars(object):
     CFG_FILE =  os.path.join(APP_CONFIG_HOME, 'config')
 
     def __init__(self):
-        self.cfg = config.Config(self.CFG_FILE)
+        self.cfg = config.Config(self.CFG_FILE, self.CFG_FILE)
 
 
+    OLD_ICON = 'start-here'
+    NEW_ICON = 'classicmenu-indicator'
+    BUSY_ICON = 'classicmenu-indicator-is-busy'
+    
     WEB_PAGE_ICON = 'go-jump'
 
     if os.path.isfile('.is-devel-dir'):
@@ -40,7 +44,7 @@ class Vars(object):
 
     @property
     def ICON(self):
-        return self.cfg.get('my_icon', 'classicmenu-indicator')
+        return self.cfg.get('my_icon', self.NEW_ICON)
 
     @property
     def ICON_SIZE(self):
@@ -80,4 +84,16 @@ class Vars(object):
     BUGREPORT_URL = 'https://bugs.launchpad.net/classicmenu-indicator/+filebug'
 
 
+    def set_use_old_icon(self, use_old):        
+        if use_old:
+            icon = self.OLD_ICON
+        else:
+            icon = self.NEW_ICON
+        self.cfg.set('my_icon', icon)
+        self.cfg.store()
+
+    def set_use_menu_icons(self, use_icons):
+        self.cfg.set('menu_icons', use_icons)
+        self.cfg.store()
+        
 vars = Vars()

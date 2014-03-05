@@ -7,10 +7,11 @@ import gio
 
 class Config(object):
 
-    def __init__(self,  *files):
+    def __init__(self, save_to, *files):
         self.files = files
+        self.save_to = save_to
         self.callback = None
-        self.section = 'config'
+        self.section = 'config'                
         self.monitors = [self.create_monitor(f) for f in files]
         self.load()
 
@@ -32,6 +33,17 @@ class Config(object):
             
         if self.callback is not None:
             self.callback()
+
+    def store(self):
+        try:
+            with open(self.save_to, 'w') as saveto:
+                self.parser.write(saveto)
+        except OSError as e:
+            print e
+                
+    def set(self, key, value):
+        value = str(value)
+        self.parser.set(self.section, key, value)
         
     def get(self, key, default, _type=None):
         if _type is None:            

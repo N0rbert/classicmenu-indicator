@@ -1,7 +1,7 @@
 # -*- makefile -*-
 
 PPA=diesch/testing
-DEBVERSION=0.08ubuntu2
+DEBVERSION=0.09pre1
 DISTRIBUTION=raring
 
-GPG_KEY=9613432A 
+GPG_KEY=B57F5641
