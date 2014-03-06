@@ -1,16 +1,16 @@
-# Turkish translation for classicmenu-indicator
-# Copyright (c) 2013 Rosetta Contributors and Canonical Ltd 2013
+# Norwegian Bokmal translation for classicmenu-indicator
+# Copyright (c) 2014 Rosetta Contributors and Canonical Ltd 2014
 # This file is distributed under the same license as the classicmenu-indicator package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2013.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: classicmenu-indicator\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2014-03-05 16:06+0100\n"
-"PO-Revision-Date: 2013-08-25 20:14+0000\n"
-"Last-Translator: Bilal <kira.gazerock@gmail.com>\n"
-"Language-Team: Turkish <tr@li.org>\n"
+"PO-Revision-Date: 2014-03-01 13:00+0000\n"
+"Last-Translator: Bjørn Håkon Mathisen <Unknown>\n"
+"Language-Team: Norwegian Bokmal <nb@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -21,7 +21,7 @@ msgstr ""
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
-"  Bilal https://launchpad.net/~kira-gazerock"
+"  Bjørn Håkon Mathisen https://launchpad.net/~bmathise"
 
 #: ../classicmenu_indicator/cmindicator.py:182
 msgid "Use old icon"
@@ -41,23 +41,23 @@ msgstr ""
 
 #: ../classicmenu_indicator/cmindicator.py:235
 msgid "Go to Web Page"
-msgstr "Web Sayfasına Git"
+msgstr "Gå til websiden"
 
 #: ../classicmenu_indicator/cmindicator.py:244
 msgid "Report a Bug"
-msgstr "Hata Bildir"
+msgstr "Rapporter en feil"
 
 #: ../classicmenu_indicator/cmindicator.py:250
 msgid "Help with Translations"
-msgstr "Çevirilere Yarım Et"
+msgstr "Hjelp til med å oversette"
 
 #: ../classicmenu_indicator/cmindicator.py:257
 msgid "Donate via Flattr"
-msgstr "Flattr yoluyla bağış"
+msgstr "Donér via Flattr"
 
 #: ../classicmenu_indicator/cmindicator.py:263
 msgid "Donate via PayPal"
-msgstr "PayPal yoluyla bağış yapın"
+msgstr "Donér via PayPal"
 
 #: ../classicmenu_indicator/cmindicator.py:319
 #, python-format
@@ -77,9 +77,9 @@ msgstr ""
 #: ../data/desktop/classicmenu-indicator.desktop.in.h:1
 #: ../data/autostart/classicmenu-indicator.desktop.in.h:1
 msgid "ClassicMenu Indicator"
-msgstr "KlasikMenü Belirteci"
+msgstr ""
 
 #: ../data/desktop/classicmenu-indicator.desktop.in.h:2
 #: ../data/autostart/classicmenu-indicator.desktop.in.h:2
 msgid "Indicator applet to show the Gnome Classic main menu"
-msgstr "Gnome Klasik ana menüsünü göstermek için belirteç uygulaması"
+msgstr "Indikator-miniprogram som viser den klassiske hovedmenyen for Gnome"

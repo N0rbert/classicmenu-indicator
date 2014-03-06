@@ -31,7 +31,6 @@ import textwrap
 import subprocess
 from optparse import OptionParser
 from urlparse import urlparse
-import pynotify
 
 import about
 
@@ -52,10 +51,6 @@ class ClassicMenuIndicator(object):
         gettext.textdomain(settings.GETTEXT_DOMAIN)
         gettext.bind_textdomain_codeset(settings.GETTEXT_DOMAIN, 'UTF-8')
 
-        self.have_notify = True
-        if not pynotify.init(settings.APP_NAME):
-            self.have_notify = False
-
         screen = gtk.gdk.screen_get_default()
         self.theme = gtk.icon_theme_get_for_screen(screen)
 
@@ -66,8 +61,6 @@ class ClassicMenuIndicator(object):
         self.create_all_trees()
         
         self.indicator.set_menu(self.create_menu())
-
-        settings.cfg.set_callback(self.on_config_changed)
         
     def run(self):
         try:
@@ -76,13 +69,6 @@ class ClassicMenuIndicator(object):
             pass
 
 
-    def notify(self, msg, type='Information'):
-        print 'NOTIFY:',  self.have_notify, settings.USE_NOTIFY
-        if self.have_notify and settings.USE_NOTIFY:
-            n = pynotify.Notification(type, msg)
-            if not n.show():
-                print "Failed to send notification"
-            
 
     def create_menu_item(self, entry):
         name = entry.get_name()
@@ -181,33 +167,27 @@ class ClassicMenuIndicator(object):
         
         menu_item = gtk.CheckMenuItem(_('Use old icon'))
         menu_item.set_active(settings.ICON == settings.OLD_ICON)
-        def callback(item, *args):
-            settings.set_use_old_icon(item.get_active())            
-        menu_item.connect('toggled', callback)        
+        menu_item.connect('toggled', self.on_menuitem_use_old_icon_activate)
         menu.append(menu_item)
 
         menu_item = gtk.CheckMenuItem(_('Show menu icons'))
         menu_item.set_active(settings.USE_MENU_ICONS)
-        def callback(item, *args):
-            settings.set_use_menu_icons(item.get_active())
-        menu_item.connect('toggled', callback)        
+        menu_item.connect('toggled', self.on_menuitem_show_menu_icons_activate)
         menu.append(menu_item)
         
-        menu_item = gtk.CheckMenuItem(_('Show notifications'))
-        menu_item.set_active(settings.USE_NOTIFY)
-        def callback(item, *args):
-            settings.set_use_notify(item.get_active())
-        menu_item.connect('toggled', callback)
+        menu_item = gtk.CheckMenuItem(_('Show hidden entries'))
+        menu_item.set_active(settings.INCLUDE_NODISPLAY)
+        menu_item.connect('toggled', self.on_menuitem_include_nodisplay_activate)
         menu.append(menu_item)
-
+        
         if self.is_unity():
             menu_item = gtk.CheckMenuItem(_('Use alternate menu'))
             menu_item.set_active(settings.USE_LENS_MENU)
-            def callback(item, *args):
-                settings.set_use_lens_menu(item.get_active())
-            menu_item.connect('toggled', callback)        
-            menu.append(menu_item) 
-        
+            menu_item.connect('toggled',
+                              self.on_menuitem_use_lens_menu_activate)
+            menu.append(menu_item)
+
+            
     def create_menu(self):
         menu = gtk.Menu()
 
@@ -269,6 +249,13 @@ class ClassicMenuIndicator(object):
 
         menu_item = gtk.SeparatorMenuItem()
         submenu.append(menu_item)
+        
+        menu_item = gtk.ImageMenuItem(gtk.STOCK_REFRESH)
+        menu_item.connect('activate', self.on_menuitem_reload_activate)
+        submenu.append(menu_item)
+        
+        menu_item = gtk.SeparatorMenuItem()
+        submenu.append(menu_item)
 
         menu_item = gtk.ImageMenuItem(gtk.STOCK_QUIT)
         menu_item.connect('activate', self.on_menuitem_quit_activate)
@@ -316,21 +303,20 @@ class ClassicMenuIndicator(object):
 
 
     def update_menu(self, recreate_trees=False):
-        self.notify(_('Updating %s menu. Please wait ...') % settings.APP_NAME)
         self.update_requested = False
         if recreate_trees:
             self.create_all_trees()
         self.indicator.set_menu(self.create_menu())
-        print 'DONE'
-        self.notify(_('%s is ready now.') % settings.APP_NAME)
         return False    # Don't run again
 
-    def request_update(self, recreate_trees=False):        
+    def request_update(self, recreate_trees=False, delayed=True):
         if not self.update_requested:
-            self.notify(_('Menu update for %s requested.') % settings.APP_NAME) 
             self.update_requested = True
-            gobject.timeout_add(settings.UPDATE_DELAY,
-                                lambda: self.update_menu(recreate_trees))
+            if delayed:
+                gobject.timeout_add(settings.UPDATE_DELAY,
+                                    lambda: self.update_menu(recreate_trees))
+            else:
+               self.update_menu(recreate_trees) 
             
     def quit(self):
         gtk.main_quit()
@@ -340,25 +326,45 @@ class ClassicMenuIndicator(object):
         u = urlparse(url)
         appinfo=gio.app_info_get_default_for_uri_scheme(u.scheme)
         appinfo.launch_uris([url])
+
+    def reload(self, delayed=True):
+        settings.reload()
+        self.indicator.set_icon(settings.ICON)
+        self.request_update(recreate_trees=True, delayed=delayed)
         
 #####################
 ## Signal-Behandlung
 #####################
 
-    def on_config_changed(self):
-        self.indicator.set_icon(settings.ICON)
-        self.request_update(recreate_trees=True)
+    def on_menu_file_changed(self, *args):
+        self.reload()
         
     def on_menuitem_activate(self, menuitem, entry):
         path = entry.get_desktop_file_path()
         appinfo = gio.unix.desktop_app_info_new_from_filename(path)
         appinfo.launch()
 
-    def on_menu_file_changed(self, tree):
-        self.request_update()
+    def on_menuitem_use_old_icon_activate(self, menuitem):
+        settings.set_use_old_icon(menuitem.get_active())
+        self.indicator.set_icon(settings.ICON)
         
+    def on_menuitem_show_menu_icons_activate(self, menuitem):
+        settings.set_use_menu_icons(menuitem.get_active())
+        self.reload(delayed=False)
+        
+    def on_menuitem_include_nodisplay_activate(self, menuitem):
+        settings.set_include_nodisplay(menuitem.get_active())
+        self.reload(delayed=False)
+          
+    def on_menuitem_use_lens_menu_activate(self, menuitem):
+        settings.set_use_lens_menu(menuitem.get_active())
+        self.reload(delayed=False)
+
     def on_menuitem_quit_activate(self, menuitem):
         self.quit()
+        
+    def on_menuitem_reload_activate(self, menuitem):
+        self.reload(delayed=False)
 
     def on_menuitem_about_activate(self, menuitem):
         about.show_about_dialog()

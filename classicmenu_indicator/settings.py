@@ -28,7 +28,9 @@ class Vars(object):
     def __init__(self):
         self.cfg = config.Config(self.CFG_FILE, self.CFG_FILE)
 
-
+    def reload(self):
+        self.cfg.load()
+        
     OLD_ICON = 'start-here'
     NEW_ICON = 'classicmenu-indicator'
     
@@ -55,7 +57,7 @@ class Vars(object):
 
     @property
     def UPDATE_DELAY(self):
-        return self.cfg.get('update_delay', 3000)
+        return self.cfg.get('update_delay', 5000)
 
     @property
     def USE_LENS_MENU(self):
@@ -65,10 +67,6 @@ class Vars(object):
     def INCLUDE_NODISPLAY(self):
         return self.cfg.get('include_nodisplay', False)
 
-    @property
-    def USE_NOTIFY(self):
-        return self.cfg.get('use_notify', False)
-    
     SYSTEM_MENUS = ['settings.menu',  
                     'classicmenuindicatorsystem.menu']
 
@@ -87,7 +85,7 @@ class Vars(object):
     BUGREPORT_URL = 'https://bugs.launchpad.net/classicmenu-indicator/+filebug'
 
 
-    def set_use_old_icon(self, use_old):        
+    def set_use_old_icon(self, use_old):
         if use_old:
             icon = self.OLD_ICON
         else:
@@ -99,12 +97,14 @@ class Vars(object):
         self.cfg.set('menu_icons', use_icons)
         self.cfg.store()
         
-    def set_use_lens_menu(self, use_lens_menu):
+    def set_use_lens_menu(self, use_lens_menu):        
         self.cfg.set('use_lens_menu', use_lens_menu)        
         self.cfg.store()
 
-    def set_use_notify(self, use_notify):
-        self.cfg.set('use_notify', use_notify)        
+    def set_include_nodisplay(self, include_nodisplay):
+        self.cfg.set('include_nodisplay', include_nodisplay)        
         self.cfg.store()
+ 
+
         
 vars = Vars()

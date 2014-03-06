@@ -3,7 +3,6 @@
 
 import ConfigParser
 import xdg.BaseDirectory
-import gio
 
 class Config(object):
 
@@ -11,18 +10,12 @@ class Config(object):
         self.files = files
         self.save_to = save_to
         self.callback = None
-        self.section = 'config'                
-        self.monitors = [self.create_monitor(f) for f in files]
+        self.section = 'config'
         self.load()
+
 
     def set_callback(self, callback):
         self.callback = callback
-        
-    def create_monitor(self, path):
-        gfile = gio.File(path)
-        monitor = gfile.monitor(0, None)
-        monitor.connect('changed', self.on_file_changed)
-        return monitor
         
     def load(self):
         try:
@@ -68,10 +61,6 @@ class Config(object):
             print e, type(e)
             return default
 
-    def on_file_changed(self, monitor, gfile, other, event):
-        if event in (gio.FILE_MONITOR_EVENT_CHANGES_DONE_HINT,
-                     gio.FILE_MONITOR_EVENT_DELETED):                
-            self.load()
     
 if __name__ == '__main__':
     import os.path
