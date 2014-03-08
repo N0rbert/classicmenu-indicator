@@ -6,15 +6,16 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: classicmenu-indicator\n"
-"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2014-03-05 16:06+0100\n"
-"PO-Revision-Date: 2013-08-25 20:14+0000\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-03-07 21:50+0100\n"
+"PO-Revision-Date: 2014-03-06 03:53+0000\n"
 "Last-Translator: Bilal <kira.gazerock@gmail.com>\n"
 "Language-Team: Turkish <tr@li.org>\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-03-05 20:36+0000\n"
+"X-Launchpad-Export-Date: 2014-03-06 17:24+0000\n"
 "X-Generator: Launchpad (build 16948)\n"
 
 #: ../classicmenu_indicator/about.py:18
@@ -23,56 +24,41 @@ msgstr ""
 "Launchpad Contributions:\n"
 "  Bilal https://launchpad.net/~kira-gazerock"
 
-#: ../classicmenu_indicator/cmindicator.py:182
+#: ../classicmenu_indicator/cmindicator.py:168
 msgid "Use old icon"
-msgstr ""
+msgstr "Eski ikonu kullan"
 
-#: ../classicmenu_indicator/cmindicator.py:189
+#: ../classicmenu_indicator/cmindicator.py:173
 msgid "Show menu icons"
+msgstr "Menü ikonlarını göster"
+
+#: ../classicmenu_indicator/cmindicator.py:178
+msgid "Show hidden entries"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:196
-msgid "Show notifications"
-msgstr ""
-
-#: ../classicmenu_indicator/cmindicator.py:204
+#: ../classicmenu_indicator/cmindicator.py:184
 msgid "Use alternate menu"
-msgstr ""
+msgstr "Alternatif menüyü kullan"
 
-#: ../classicmenu_indicator/cmindicator.py:235
+#: ../classicmenu_indicator/cmindicator.py:215
 msgid "Go to Web Page"
 msgstr "Web Sayfasına Git"
 
-#: ../classicmenu_indicator/cmindicator.py:244
+#: ../classicmenu_indicator/cmindicator.py:224
 msgid "Report a Bug"
 msgstr "Hata Bildir"
 
-#: ../classicmenu_indicator/cmindicator.py:250
+#: ../classicmenu_indicator/cmindicator.py:230
 msgid "Help with Translations"
 msgstr "Çevirilere Yarım Et"
 
-#: ../classicmenu_indicator/cmindicator.py:257
+#: ../classicmenu_indicator/cmindicator.py:237
 msgid "Donate via Flattr"
 msgstr "Flattr yoluyla bağış"
 
-#: ../classicmenu_indicator/cmindicator.py:263
+#: ../classicmenu_indicator/cmindicator.py:243
 msgid "Donate via PayPal"
 msgstr "PayPal yoluyla bağış yapın"
-
-#: ../classicmenu_indicator/cmindicator.py:319
-#, python-format
-msgid "Updating %s menu. Please wait ..."
-msgstr ""
-
-#: ../classicmenu_indicator/cmindicator.py:325
-#, python-format
-msgid "%s is ready now."
-msgstr ""
-
-#: ../classicmenu_indicator/cmindicator.py:330
-#, python-format
-msgid "Menu update for %s requested."
-msgstr ""
 
 #: ../data/desktop/classicmenu-indicator.desktop.in.h:1
 #: ../data/autostart/classicmenu-indicator.desktop.in.h:1
@@ -83,3 +69,15 @@ msgstr "KlasikMenü Belirteci"
 #: ../data/autostart/classicmenu-indicator.desktop.in.h:2
 msgid "Indicator applet to show the Gnome Classic main menu"
 msgstr "Gnome Klasik ana menüsünü göstermek için belirteç uygulaması"
+
+#~ msgid "Show notifications"
+#~ msgstr "Bildirimleri göster"
+
+#~ msgid "Updating %s menu. Please wait ..."
+#~ msgstr "Menünün %s yükleniyor. Lütfen bekleyin ..."
+
+#~ msgid "Menu update for %s requested."
+#~ msgstr "%s menü yüklemesi isteniyor."
+
+#~ msgid "%s is ready now."
+#~ msgstr "%s şimdi hazır."

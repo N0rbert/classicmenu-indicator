@@ -1,8 +1,11 @@
-classicmenu-indicator (0.09~pre1) UNRELEASED; urgency=low
+classicmenu-indicator (0.09) saucy; urgency=low
 
   * use $XDG_MENU_PREFIX (LP: #1228053)
   * use unity-lens-applications.menu for Unity
   * don't use gtk.image_new_from_stock (LP: #1220961)
+  * Added Arabic, Bulgarian, Catalan, Galician, Greek, Norwegian Bokmal,
+    Spanish, Swedish, Telugu, Turkish translations
+  * Added some menu items to change configuration
 
  -- Florian Diesch <devel@florian-diesch.de>  Fri, 17 Jan 2014 22:58:59 +0100
 

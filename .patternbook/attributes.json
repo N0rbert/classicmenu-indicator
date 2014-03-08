@@ -10,7 +10,7 @@
     "projecttitle": "ClassicMenu Indicator", 
     "pythonname": "classicmenu_indicator", 
     "short_desc": "classicmenu-indicator", 
-    "version": "0.09~pre1", 
+    "version": "0.09", 
     "web_prefix": "http://www.florian-diesch.de/software", 
     "web_url": "http://www.florian-diesch.de/software/classicmenu-indicator/"
 }

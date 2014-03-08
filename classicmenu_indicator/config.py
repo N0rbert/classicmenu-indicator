@@ -4,6 +4,8 @@
 import ConfigParser
 import xdg.BaseDirectory
 
+import os, os.path
+
 class Config(object):
 
     def __init__(self, save_to, *files):
@@ -28,6 +30,12 @@ class Config(object):
             self.callback()
 
     def store(self):
+        dir = os.path.dirname(self.save_to)
+        try:
+            os.makedirs(dir)
+        except OSError as e:
+            if e.errno not in (17,):
+                print e
         try:
             with open(self.save_to, 'w') as saveto:
                 self.parser.write(saveto)

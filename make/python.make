@@ -10,7 +10,7 @@ update_meta:
 	  echo "#-*- coding: utf-8 -*-" ;\
 	  echo "# This file is generated. All changes will be lost" ;\
 	  echo ;\
-	  echo 'VERSION="${VERSION}"' ;\
+	  echo 'VERSION="${PYTHON_VERSION}"' ;\
 	  echo 'TITLE="${TITLE}"' ;\
 	  echo 'NAME="${NAME}"' ;\
 	  echo 'AUTHOR_NAME="${AUTHOR_NAME}"' ;\
