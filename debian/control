@@ -3,7 +3,7 @@ Section: gnome
 Priority: optional
 Maintainer: Florian Diesch <devel@florian-diesch.de>
 Build-Depends: debhelper (>= 7.4.3),
-               python-all (>= 2.6.6-3),
+               python (>= 2.6.6-3),
                python-setuptools (>= 0.6b3),
 	       python-distutils-extra
 Standards-Version: 3.9.4
@@ -17,6 +17,7 @@ Depends: python-appindicator,
          python-gmenu,
          python-gobject,
          python-gtk2,
+	 python-xdg,
          ${misc:Depends},
          ${python:Depends}
 Breaks: ${python:Breaks}
