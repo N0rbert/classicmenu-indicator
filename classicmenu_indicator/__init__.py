@@ -19,7 +19,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-from cmindicator import main
+from classicmenu_indicator.cmindicator import main
 
 
 

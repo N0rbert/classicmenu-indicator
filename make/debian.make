@@ -12,7 +12,7 @@ update_version:
 	patternbook update  --yes
 
 sdeb: update_version sdist
-	cp dist/${NAME}-${VERSION}.tar.gz ../${NAME}_${DEBVERSION}.orig.tar.gz
+	cp dist/${NAME}-${VERSION}.tar.gz ../${NAME}_${VERSION}.orig.tar.gz
 	rm -r dist
 	python setup.py build_i18n
 	${DEBUILD} -S

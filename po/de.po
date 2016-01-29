@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: classicmenu-indicator\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-25 18:40+0200\n"
+"POT-Creation-Date: 2016-01-11 13:03+0100\n"
 "PO-Revision-Date: 2014-03-06 17:15+0000\n"
 "Last-Translator: Florian Diesch <diesch@spamfence.net>\n"
 "Language-Team: German <de@li.org>\n"
@@ -18,47 +18,44 @@ msgstr ""
 "X-Launchpad-Export-Date: 2014-03-06 17:24+0000\n"
 "X-Generator: Launchpad (build 16948)\n"
 
-#: ../classicmenu_indicator/about.py:18
+#: ../classicmenu_indicator/about.py:19
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
 "  Florian Diesch https://launchpad.net/~diesch"
 
-#: ../classicmenu_indicator/cmindicator.py:168
-msgid "Use old icon"
-msgstr "Benutze altes Symbol"
-
-#: ../classicmenu_indicator/cmindicator.py:173
-msgid "Show menu icons"
-msgstr "Zeige Symbole im Menü"
-
-#: ../classicmenu_indicator/cmindicator.py:178
-msgid "Show hidden entries"
-msgstr "Versteckte Einträge anzeigen"
-
-#: ../classicmenu_indicator/cmindicator.py:184
-msgid "Use alternate menu"
-msgstr "Benutze alternative Menu-Struktur"
-
-#: ../classicmenu_indicator/cmindicator.py:215
+#: ../classicmenu_indicator/cmindicator.py:213
 msgid "Go to Web Page"
 msgstr "Webseite besuchen"
 
-#: ../classicmenu_indicator/cmindicator.py:224
+#: ../classicmenu_indicator/cmindicator.py:221
 msgid "Report a Bug"
 msgstr "Einen Fehler melden"
 
-#: ../classicmenu_indicator/cmindicator.py:230
+#: ../classicmenu_indicator/cmindicator.py:227
 msgid "Help with Translations"
 msgstr "Bei der Übersetzung helfen"
 
-#: ../classicmenu_indicator/cmindicator.py:237
+#: ../classicmenu_indicator/cmindicator.py:233
 msgid "Donate via Flattr"
 msgstr "Spenden (Flattr)"
 
-#: ../classicmenu_indicator/cmindicator.py:243
+#: ../classicmenu_indicator/cmindicator.py:239
 msgid "Donate via PayPal"
 msgstr "Spenden (PayPal)"
+
+#: ../classicmenu_indicator/cmindicator.py:336
+#, fuzzy
+msgid "Updating menu..."
+msgstr "Aktualisiere %s menu. Bitte Warten ..."
+
+#: ../classicmenu_indicator/cmindicator.py:337
+msgid "Please wait"
+msgstr ""
+
+#: ../classicmenu_indicator/dialogs.py:128
+msgid "Any files"
+msgstr ""
 
 #: ../data/desktop/classicmenu-indicator.desktop.in.h:1
 #: ../data/autostart/classicmenu-indicator.desktop.in.h:1
@@ -70,8 +67,109 @@ msgstr "ClassicMenu Indicator"
 msgid "Indicator applet to show the Gnome Classic main menu"
 msgstr "Indikator, der ein Anwendungsmenü wie in Gnome Classic anzeigt"
 
-#~ msgid "Updating %s menu. Please wait ..."
-#~ msgstr "Aktualisiere %s menu. Bitte Warten ..."
+#: ../data/ui/preferences.ui.h:1
+msgid "Preferences"
+msgstr ""
+
+#: ../data/ui/preferences.ui.h:2
+msgid ""
+"ClassicMenu Indicator doesn't come with its own menu definition but uses "
+"standard menu definitions already present on most systems. You can modify "
+"this menu definitions using menu editors like Alacarte, MenuLibre or similar "
+"ones.\n"
+"\n"
+"You have to select at least one menu defintion in order to ClassicMenu "
+"Indicator displaying a menu. If you select more then one menu definition all "
+"definitions are used in the order they appear on the right."
+msgstr ""
+
+#: ../data/ui/preferences.ui.h:5
+msgid "\n"
+msgstr ""
+
+#: ../data/ui/preferences.ui.h:7
+#, fuzzy
+msgid "Use standard menu"
+msgstr "Benutze alternative Menu-Struktur"
+
+#: ../data/ui/preferences.ui.h:8
+msgid ">>>"
+msgstr ""
+
+#: ../data/ui/preferences.ui.h:9
+msgid "<<<"
+msgstr ""
+
+#: ../data/ui/preferences.ui.h:10
+msgid "Menus"
+msgstr ""
+
+#: ../data/ui/preferences.ui.h:11
+#, fuzzy
+msgid "Show menu icons:"
+msgstr "Zeige Symbole im Menü"
+
+#: ../data/ui/preferences.ui.h:12
+#, fuzzy
+msgid "Show hidden entries:"
+msgstr "Versteckte Einträge anzeigen"
+
+#: ../data/ui/preferences.ui.h:13
+msgid "Try to use tooltips:"
+msgstr ""
+
+#: ../data/ui/preferences.ui.h:14
+msgid "Icon:"
+msgstr ""
+
+#: ../data/ui/preferences.ui.h:15
+#, fuzzy
+msgid "Old icon"
+msgstr "Benutze altes Symbol"
+
+#: ../data/ui/preferences.ui.h:16
+msgid "New Icon (dark)"
+msgstr ""
+
+#: ../data/ui/preferences.ui.h:17
+msgid "New Icon (light)"
+msgstr ""
+
+#: ../data/ui/preferences.ui.h:18
+msgid "New Icon (auto)"
+msgstr ""
+
+#: ../data/ui/preferences.ui.h:19
+msgid "Custom"
+msgstr ""
+
+#: ../data/ui/preferences.ui.h:20
+msgid "<small>(not supported by most environments)</small>"
+msgstr ""
+
+#: ../data/ui/preferences.ui.h:21
+msgid ""
+"Some menu definition don't include extra menus like the ones used by Wine. \n"
+"Do you want ClassicMenu Indicator to add those extra menus?"
+msgstr ""
+
+#: ../data/ui/preferences.ui.h:23
+msgid "Add extra/Wine menus:"
+msgstr ""
+
+#: ../data/ui/preferences.ui.h:24
+msgid ""
+"Do you want an additional single menu that contains all apps in alphabetical "
+"order?"
+msgstr ""
+
+#: ../data/ui/preferences.ui.h:25
+msgid "Add menu with all apps:"
+msgstr ""
+
+#: ../data/ui/preferences.ui.h:26
+msgid "Settings"
+msgstr ""
 
 #~ msgid "%s is ready now."
 #~ msgstr "%s. ist jetzt bereit."

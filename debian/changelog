@@ -1,3 +1,9 @@
+classicmenu-indicator (0.10) wily; urgency=medium
+
+  * GTK§
+
+ -- Florian Diesch <devel@florian-diesch.de>  Sat, 24 Oct 2015 13:17:26 +0200
+
 classicmenu-indicator (0.09-1) trusty; urgency=medium
 
   * added 'python-xdg' as a dependency (LP: #1363891)

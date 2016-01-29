@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 #-*- coding: utf-8 -*-
 #
 # ClassicMenu Indicator - classicmenu-indicator
@@ -51,23 +51,25 @@ setup(
     long_description=read_from_file('README.txt'),
     data_files=[
         ('/usr/share/applications',
-            glob.glob('data/desktop/*.desktop')),
-        ('/etc/xdg/menus',
-            glob.glob('data/menu/*.menu')),
+         glob.glob('data/desktop/*.desktop')),
+        ('share/classicmenu-indicator/ui/',
+         glob.glob('data/ui/*.ui')),
+        ('share/classicmenu-indicator/',
+         glob.glob('data/menu/*.menu')),
         ('/usr/share/icons/hicolor/scalable/apps',
-            glob.glob('data/icons/hicolor/scalable/apps/*.svg')),
+         glob.glob('data/icons/hicolor/scalable/apps/*.svg')),
         ('/usr/share/icons/ubuntu-mono-light/status/22',
-            glob.glob('data/icons/ubuntu-mono-light/status/22/*.svg')),
+         glob.glob('data/icons/ubuntu-mono-light/status/22/*.svg')),
         ('/usr/share/icons/ubuntu-mono-light/status/24',
-            glob.glob('data/icons/ubuntu-mono-light/status/24/*.svg')),
+         glob.glob('data/icons/ubuntu-mono-light/status/24/*.svg')),
         ('/usr/share/icons/ubuntu-mono-light/status/16',
-            glob.glob('data/icons/ubuntu-mono-light/status/16/*.svg')),
+         glob.glob('data/icons/ubuntu-mono-light/status/16/*.svg')),
         ('/usr/share/icons/ubuntu-mono-dark/status/22',
-            glob.glob('data/icons/ubuntu-mono-dark/status/22/*.svg')),
+         glob.glob('data/icons/ubuntu-mono-dark/status/22/*.svg')),
         ('/usr/share/icons/ubuntu-mono-dark/status/24',
-            glob.glob('data/icons/ubuntu-mono-dark/status/24/*.svg')),
+         glob.glob('data/icons/ubuntu-mono-dark/status/24/*.svg')),
         ('/usr/share/icons/ubuntu-mono-dark/status/16',
-            glob.glob('data/icons/ubuntu-mono-dark/status/16/*.svg')),
+         glob.glob('data/icons/ubuntu-mono-dark/status/16/*.svg')),
         ],
     entry_points = {
         'console_scripts': ['classicmenu-indicator=classicmenu_indicator:main'],

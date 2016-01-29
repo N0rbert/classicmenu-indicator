@@ -1,0 +1,25 @@
+<!DOCTYPE Menu PUBLIC "-//freedesktop//DTD Menu 1.0//EN"
+ "http://www.freedesktop.org/standards/menu-spec/1.0/menu.dtd">
+
+<Menu>
+
+  <Name>Applications</Name>
+  <Directory>X-GNOME-Menu-Applications.directory</Directory>
+
+  <LegacyDir>/etc/X11/applnk</LegacyDir>
+  <LegacyDir>/usr/share/gnome/apps</LegacyDir>
+
+  <DefaultAppDirs/>
+  <DefaultDirectoryDirs/>
+
+  <Include>
+    <Filename>gnomecc.desktop</Filename>
+  </Include>
+  
+  <Menu>
+    <Name>All Applications</Name>
+    <Include>
+        <All/>
+    </Include>
+  </Menu>
+</Menu>

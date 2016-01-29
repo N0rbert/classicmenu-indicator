@@ -1,0 +1,18 @@
+<!DOCTYPE Menu PUBLIC "-//freedesktop//DTD Menu 1.0//EN"
+ "http://www.freedesktop.org/standards/menu-spec/1.0/menu.dtd">
+
+<Menu>
+  <Name>Applications</Name>
+  <Directory>X-GNOME-Menu-Applications.directory</Directory>
+
+  <!-- Scan legacy dirs first, as later items take priority -->
+  <LegacyDir>/etc/X11/applnk</LegacyDir>
+  <LegacyDir>/usr/share/gnome/apps</LegacyDir>
+
+  <!-- Read standard .directory and .desktop file locations -->
+  <DefaultAppDirs/>
+  <DefaultDirectoryDirs/>
+
+  <MergeDir>/etc/xdg/menus/applications-merged</MergeDir>
+
+</Menu>

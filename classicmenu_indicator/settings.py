@@ -1,11 +1,60 @@
 #-*- coding: utf-8 -*-
 
-import os, os.path
-import appindicator
-import xdg.BaseDirectory
+import os, os.path, json, glob
+from gi.repository import Gtk, Gdk, GdkPixbuf, Gio, GMenu, AppIndicator3
 
-import config
-import _meta
+
+from . import  _meta, dialogs
+
+_config_home = os.path.expanduser(os.path.join('~', '.config'))
+config_home = os.environ.get('XDG_CONFIG_HOME', _config_home)
+
+
+
+def get_all_menu_files():
+    dirs = os.environ.get('XDG_CONFIG_DIRS', '/etc/xdg')
+    result = set()
+    for d in dirs.split(':')+[config_home]:
+        for m in glob.glob(os.path.join(d, 'menus', '*.menu')):
+            result.add(os.path.basename(m))
+    return sorted(result)
+                               
+def get_default_menu_files():
+    no_prefix_menus = {
+        'MATE': 'mate-',
+        'kde-plasma': 'kde4-',
+        'cinnamon': 'cinnamon-',
+        }
+    
+    menu_prefix = os.getenv('XDG_MENU_PREFIX', '')
+    desktop = os.getenv('XDG_CURRENT_DESKTOP', '')
+
+    if menu_prefix =='' and desktop in no_prefix_menus:
+        menu_prefix = no_prefix_menus[desktop]
+    
+    menu = '{prefix}applications.menu'.format(prefix=menu_prefix)
+        
+    all_menus = set(get_all_menu_files())
+
+    result = []
+
+    fallback_menus = ( 
+        '{desktop}-applications.menu'.format(desktop=desktop),
+        'applications.menu', 
+        'gnome-applications.menu'
+    )
+    
+    
+    if menu in all_menus:
+        result.append(menu)
+    else:
+        for fm in fallback_menus:
+            if fm in all_menus:
+                result.append(fm)
+                break
+
+    return [m for m in result if m in all_menus]
+
 
 class Vars(object):
 
@@ -19,60 +68,130 @@ class Vars(object):
     AUTHOR_EMAIL = _meta.AUTHOR_EMAIL
     AUTHOR_NAME = _meta.AUTHOR_NAME
 
-    USER_CONFIG_HOME = xdg.BaseDirectory.xdg_config_home
-
+    USER_CONFIG_HOME = config_home
     APP_CONFIG_HOME = os.path.join(USER_CONFIG_HOME, app_name)
+    CFG_FILE =  os.path.join(APP_CONFIG_HOME, 'config.json')
 
-    CFG_FILE =  os.path.join(APP_CONFIG_HOME, 'config')
 
     def __init__(self):
-        self.cfg = config.Config(self.CFG_FILE, self.CFG_FILE)
+        try:
+            os.makedirs(self.APP_CONFIG_HOME)
+        except OSError as e:
+            print(e)
 
-    def reload(self):
-        self.cfg.load()
-        
-    OLD_ICON = 'start-here'
-    NEW_ICON = 'classicmenu-indicator'
+        self.load()
+
+
+    def load(self):
+        try:
+            with open(self.CFG_FILE) as input:
+                self.data = json.load(input)
+        except Exception as e:
+            self.data = {}
+
+    def save(self):
+        with open(self.CFG_FILE, 'w') as cfg:
+            json.dump(self.data, cfg, sort_keys=True, indent=4)
+
+
+    ICONS = {'old':  'start-here',
+             'dark': 'classicmenu-indicator-light', # for light theme
+             'light': 'classicmenu-indicator-dark', # for dark theme
+             'auto': 'classicmenu-indicator',
+             }
     
     WEB_PAGE_ICON = 'go-jump'
 
-    if os.path.isfile('.is-devel-dir'):
-        DATA_DIR = 'data'
-    else: 
-        DATA_DIR = '/usr/share/classicmenu-indicator'
+    DATA_DIR = '/usr/share/classicmenu-indicator'
 
     UI_DIR = os.path.join(DATA_DIR, 'ui')
+    
+    EXTRA_MENU = os.path.join(DATA_DIR, 'extra.menu')
+    ALL_APPS_MENU = os.path.join(DATA_DIR, 'all_apps.menu')
 
+    
     @property
     def ICON(self):
-        return self.cfg.get('my_icon', self.NEW_ICON)
+        return self.data.get('my_icon', self.ICONS['auto'])
+
+    @ICON.setter
+    def ICON(self, value):
+        self.data['my_icon'] = value
+
 
     @property
     def ICON_SIZE(self):
-        return self.cfg.get('icon_size', 22, int)
+        return self.data.get('icon_size', 20)
+
+    @ICON_SIZE.setter
+    def ICON_SIZE(self, value):
+        self.data['icon_size'] = value
+
 
     @property
     def USE_MENU_ICONS(self):
-        return self.cfg.get('menu_icons', True)
+        return self.data.get('menu_icons', True)
+
+    @USE_MENU_ICONS.setter
+    def USE_MENU_ICONS(self, value):
+        self.data['menu_icons'] = value
+
 
     @property
     def UPDATE_DELAY(self):
-        return self.cfg.get('update_delay', 5000)
+        return self.data.get('update_delay', 5000)
 
-    @property
-    def USE_LENS_MENU(self):
-        return self.cfg.get('use_lens_menu', True)
+    @UPDATE_DELAY.setter
+    def UPDATE_DELAY(self, value):
+        self.data['update_delay'] = value
+
 
     @property
     def INCLUDE_NODISPLAY(self):
-        return self.cfg.get('include_nodisplay', False)
+        return self.data.get('include_nodisplay', False)
 
-    SYSTEM_MENUS = ['settings.menu',  
-                    'classicmenuindicatorsystem.menu']
+    @INCLUDE_NODISPLAY.setter
+    def INCLUDE_NODISPLAY(self, value):
+        self.data['include_nodisplay'] = value
 
-    EXTRA_MENUS = []
 
-    category = appindicator.CATEGORY_SYSTEM_SERVICES
+    @property
+    def MENUS(self):
+        return self.data.get('menus', get_default_menu_files())
+
+    @MENUS.setter
+    def MENUS(self, value):
+        self.data['menus'] = value
+
+
+    @property
+    def USE_TOOLTIPS(self):
+        return self.data.get('use_tooltips', False)
+
+    @USE_TOOLTIPS.setter
+    def USE_TOOLTIPS(self, value):
+        self.data['use_tooltips'] = value
+
+
+    @property
+    def USE_EXTRA_MENUS(self):
+        return self.data.get('use_extra_menus', True)
+    
+    @USE_EXTRA_MENUS.setter
+    def USE_EXTRA_MENUS(self, value):
+        self.data['use_extra_menus'] = value
+
+        
+    @property
+    def USE_ALL_APPS_MENU(self):
+        return self.data.get('use_all_apps_menu', True)
+    
+    @USE_ALL_APPS_MENU.setter
+    def USE_ALL_APPS_MENU(self, value):
+        self.data['use_all_apps_menu'] = value
+
+        
+    category = AppIndicator3.IndicatorCategory.SYSTEM_SERVICES
 
     GETTEXT_DOMAIN = app_name
 
@@ -85,26 +204,6 @@ class Vars(object):
     BUGREPORT_URL = 'https://bugs.launchpad.net/classicmenu-indicator/+filebug'
 
 
-    def set_use_old_icon(self, use_old):
-        if use_old:
-            icon = self.OLD_ICON
-        else:
-            icon = self.NEW_ICON
-        self.cfg.set('my_icon', icon)
-        self.cfg.store()
-
-    def set_use_menu_icons(self, use_icons):
-        self.cfg.set('menu_icons', use_icons)
-        self.cfg.store()
-        
-    def set_use_lens_menu(self, use_lens_menu):        
-        self.cfg.set('use_lens_menu', use_lens_menu)        
-        self.cfg.store()
-
-    def set_include_nodisplay(self, include_nodisplay):
-        self.cfg.set('include_nodisplay', include_nodisplay)        
-        self.cfg.store()
- 
 
         
 vars = Vars()

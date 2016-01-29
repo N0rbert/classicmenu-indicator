@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 #-*- coding: utf-8 -*-
 #
 # ClassicMenu Indicator - an indicator applet for Unity, that 
@@ -23,101 +23,113 @@
 #
 
 
-import gmenu
-import gtk, glib, gobject, gio, gtk.gdk
-import appindicator
-import re, os
+from gi.repository import Gtk, Gdk, GLib, GObject, GdkPixbuf, Gio, GMenu, AppIndicator3
+
+import re, os, sys
 import textwrap
 import subprocess
 from optparse import OptionParser
-from urlparse import urlparse
 
-import about
+from . import about, preferencesdlg
 
-from settings import vars as settings
+from .settings import vars as settings
+
 
 from gettext import gettext as _
 import gettext
-import xdg.IconTheme as xdgicon
+
+
+def _add_menu_item(title, icon, callback, menu):        
+    menu_item = Gtk.ImageMenuItem(title)
+    menu_item.set_image(Gtk.Image.new_from_icon_name(
+        icon,
+        settings.ICON_SIZE))
+    menu_item.connect('activate', callback)
+    menu.append(menu_item)
+    
+
+def _add_stock_menu_item(stockid, callback, menu):
+    menu_item = Gtk.ImageMenuItem.new_from_stock(stockid)
+    menu_item.connect('activate', callback)
+    menu.append(menu_item)
+
+
+def _add_separator_menu_item(menu):
+     menu_item = Gtk.SeparatorMenuItem()
+     menu.append(menu_item)
+
 
 
 class ClassicMenuIndicator(object):
     def __init__(self):
-        self.indicator = appindicator.Indicator(settings.app_name,
-                                                settings.ICON,
-                                                settings.category)
+        self.indicator = AppIndicator3.Indicator.new(
+            settings.app_name,
+            settings.ICON,
+            settings.category)
 
         gettext.bindtextdomain(settings.GETTEXT_DOMAIN)
         gettext.textdomain(settings.GETTEXT_DOMAIN)
         gettext.bind_textdomain_codeset(settings.GETTEXT_DOMAIN, 'UTF-8')
 
-        screen = gtk.gdk.screen_get_default()
-        self.theme = gtk.icon_theme_get_for_screen(screen)
+        self.theme = Gtk.IconTheme.get_default()
 
         self.update_requested = False
 
-        self.indicator.set_status (appindicator.STATUS_ACTIVE)
+        self.indicator.set_status (
+            AppIndicator3.IndicatorStatus.ACTIVE)
 
         self.create_all_trees()
-        
         self.indicator.set_menu(self.create_menu())
+
         
     def run(self):
         try:
-            gtk.main()
+            Gtk.main()
         except KeyboardInterrupt:
             pass
 
 
-
     def create_menu_item(self, entry):
-        name = entry.get_name()
-        comment = entry.get_comment() 
+        try:
+            name = entry.get_app_info().get_name()
+        except AttributeError:
+            name = entry.get_name()
+        try:
+            comment = entry.get_app_info().get_description()
+        except AttributeError:
+            comment = entry.get_comment() 
 
-        menu_item = gtk.ImageMenuItem(name)
+        menu_item = Gtk.ImageMenuItem(name)
         
-        icon = entry.get_icon()
- 
-        img = None
-        if icon:
+        if settings.USE_MENU_ICONS:
             try:
-                if self.theme.lookup_icon(icon, settings.ICON_SIZE, 
-                                          gtk.ICON_LOOKUP_USE_BUILTIN):
-                    pixbuf = self.theme.load_icon(icon, settings.ICON_SIZE, 
-                                                  gtk.ICON_LOOKUP_USE_BUILTIN)
-                    if pixbuf.get_height() > settings.ICON_SIZE:
-                        scale = pixbuf.get_height() / float(settings.ICON_SIZE)
-                        width = int(pixbuf.get_width() * scale)
-                        pixbuf.scale_simple(width, settings.ICON_SIZE, 
-                                            gtk.gdk.INTERP_BILINEAR)
-                    img = gtk.image_new_from_pixbuf(pixbuf)
-                else:
-                    icon_path = xdgicon.getIconPath(icon)
-                    if icon_path:
-                        pixbuf = gtk.gdk.pixbuf_new_from_file_at_size(
-                            icon_path, 
-                            settings.ICON_SIZE,
-                            settings.ICON_SIZE)
-                        img = gtk.image_new_from_pixbuf(pixbuf)
-                    # else:
-                    #     img = gtk.Image()
-                    #     print 'FROM NAME'
-                    #     img.set_from_icon_name(icon, settings.ICON_SIZE)
+                icon = entry.get_icon()
+            except  AttributeError:
+                icon = entry.get_app_info().get_icon()
 
-            except glib.GError, e:
-                print '[%s] "%s": %s: %s'%(settings.APP_NAME, name, icon , e)
+            if icon and not self.theme.lookup_by_gicon(
+                    icon, settings.ICON_SIZE, 
+                    Gtk.IconLookupFlags.USE_BUILTIN):
+                icon = None
+
+            if icon:
+                img = Gtk.Image.new_from_gicon(
+                    icon, settings.ICON_SIZE)
+            else:
+                img = Gtk.Image.new_from_icon_name(
+                    'gtk-execute', settings.ICON_SIZE)
 
                 
-        if settings.USE_MENU_ICONS:
-            if img is None:
-                img = gtk.Image()
+            if img is None:  # is this possible?
+                img = Gtk.Image()
                 img.set_from_icon_name('gtk-execute', settings.ICON_SIZE)
-
             menu_item.set_image(img)
-            menu_item.set_label(name)
+
             menu_item.set_always_show_image(True)
+
+        menu_item.set_label(name)
            
-        if entry.get_type() ==  gmenu.TYPE_ENTRY:
+        if isinstance(entry, GMenu.TreeEntry):
             menu_item.connect('activate', self.on_menuitem_activate, entry)
 
         menu_item.set_use_underline(False)
@@ -127,180 +139,155 @@ class ClassicMenuIndicator(object):
         return menu_item
 
 
-
     def process_entry(self, menu, entry):
         menu.append(self.create_menu_item(entry))
 
     
     def process_directory(self, menu, dir):
         if dir:
-            for item in dir.get_contents():
-                type = item.get_type()
-                if type == gmenu.TYPE_ENTRY:
-                    self.process_entry(menu, item)
-                elif type == gmenu.TYPE_DIRECTORY:
-                    new_menu = gtk.Menu()
+            diter = dir.iter()
+            type = diter.next()
+            while type != GMenu.TreeItemType.INVALID:
+                if type == GMenu.TreeItemType.ENTRY :
+                    self.process_entry(menu, diter.get_entry())
+                elif type == GMenu.TreeItemType.DIRECTORY:
+                    new_menu = Gtk.Menu()
+                    item = diter.get_directory()
                     menu_item = self.create_menu_item(item)
                     menu_item.set_submenu(new_menu)
                     menu.append(menu_item)
                     menu_item.show()
                     self.process_directory(new_menu, item)
-                elif type == gmenu.TYPE_ALIAS:
-                    aliased = item.get_item()
-                    if aliased.get_type() == gmenu.TYPE_ENTRY:
+                elif type ==  GMenu.TreeItemType.ALIAS:
+                    item = diter.get_aliase() 
+                    #FIXME: other types
+                    aliased = item.get_aliased_entry()
+                    if aliased.get_type() == GMenu.TreeItemType.ENTRY:
                         self.process_entry(menu, aliased)
-                elif type == gmenu.TYPE_SEPARATOR:
-                    menu_item = gtk.SeparatorMenuItem()
+                elif type == GMenu.TreeItemType.SEPARATOR:
+                    menu_item = Gtk.SeparatorMenuItem()
                     menu.append(menu_item)
                     menu_item.show()
-                elif type in [ gmenu.TYPE_HEADER ]:
+                elif type in [ GMenu.TreeItemType.HEADER ]:
                     pass
                 else:
-                    print >> sys.stderr, 'Unsupported item type: %s' % type
-
+                    print('Unsupported item type: %s' % type)
+                type = diter.next()
 
     def add_to_menu(self, menu, tree):
         root = tree.get_root_directory()    
         self.process_directory(menu, root)
 
-    def add_config_menu_items(self, menu):
-        
-        menu_item = gtk.CheckMenuItem(_('Use old icon'))
-        menu_item.set_active(settings.ICON == settings.OLD_ICON)
-        menu_item.connect('toggled', self.on_menuitem_use_old_icon_activate)
-        menu.append(menu_item)
-
-        menu_item = gtk.CheckMenuItem(_('Show menu icons'))
-        menu_item.set_active(settings.USE_MENU_ICONS)
-        menu_item.connect('toggled', self.on_menuitem_show_menu_icons_activate)
-        menu.append(menu_item)
-        
-        menu_item = gtk.CheckMenuItem(_('Show hidden entries'))
-        menu_item.set_active(settings.INCLUDE_NODISPLAY)
-        menu_item.connect('toggled', self.on_menuitem_include_nodisplay_activate)
-        menu.append(menu_item)
-        
-        if self.is_unity():
-            menu_item = gtk.CheckMenuItem(_('Use alternate menu'))
-            menu_item.set_active(settings.USE_LENS_MENU)
-            menu_item.connect('toggled',
-                              self.on_menuitem_use_lens_menu_activate)
-            menu.append(menu_item)
-
-            
     def create_menu(self):
-        menu = gtk.Menu()
+        menu = Gtk.Menu()
 
         for t in self.trees:
             if t:
                 self.add_to_menu(menu, t)
-                menu_item = gtk.SeparatorMenuItem()
+                menu_item = Gtk.SeparatorMenuItem()
                 menu.append(menu_item)
 
-        menu_item = gtk.MenuItem('%s' % settings.APP_NAME)
+        menu_item = Gtk.MenuItem('%s' % settings.APP_NAME)
         menu.append(menu_item)
 
-        submenu = gtk.Menu()
+        submenu = Gtk.Menu()
         menu_item.set_submenu(submenu)
 
-        self.add_config_menu_items(submenu)
-        
-        menu_item = gtk.SeparatorMenuItem()
-        submenu.append(menu_item)
-        
-        menu_item = gtk.ImageMenuItem(gtk.STOCK_ABOUT)
-        menu_item.connect('activate', self.on_menuitem_about_activate)
-        submenu.append(menu_item)
+        _add_stock_menu_item(
+            Gtk.STOCK_PREFERENCES, 
+            self.on_menuitem_preferences_activate,
+            submenu)
 
-        menu_item = gtk.ImageMenuItem(_('Go to Web Page'))
-        menu_item.set_image(gtk.image_new_from_icon_name(settings.WEB_PAGE_ICON,
-                                                     settings.ICON_SIZE))
-        menu_item.connect('activate', self.on_menuitem_goto_webpage)
-        submenu.append(menu_item)
+        _add_stock_menu_item(
+            Gtk.STOCK_REFRESH,
+            self.on_menuitem_reload_activate,
+            submenu)
 
-        menu_item = gtk.SeparatorMenuItem()
-        submenu.append(menu_item)
+        _add_separator_menu_item(submenu)
+
+        _add_stock_menu_item(
+            Gtk.STOCK_ABOUT, 
+            self.on_menuitem_about_activate,
+            submenu)
+
+        _add_menu_item(_('Go to Web Page'),
+                       settings.WEB_PAGE_ICON,
+                       self.on_menuitem_goto_webpage,
+                       submenu)
+
+        _add_separator_menu_item(submenu)
+
+        _add_menu_item(
+            _('Report a Bug'),
+            settings.WEB_PAGE_ICON,
+            self.on_menuitem_bug,
+            submenu)
+            
+        _add_menu_item(
+            _('Help with Translations'),
+            settings.WEB_PAGE_ICON,
+            self.on_menuitem_translations,
+            submenu)
+            
+        _add_menu_item(
+            _('Donate via Flattr'),
+            settings.WEB_PAGE_ICON,
+            self.on_menuitem_flattr,
+            submenu)
         
-        menu_item = gtk.ImageMenuItem(_('Report a Bug'))
-        menu_item.set_image(gtk.image_new_from_icon_name(settings.WEB_PAGE_ICON, 
-                                                     settings.ICON_SIZE))
-        menu_item.connect('activate', self.on_menuitem_bug)
-        submenu.append(menu_item)
+        _add_menu_item(
+            _('Donate via PayPal'),
+            settings.WEB_PAGE_ICON,
+            self.on_menuitem_donate,
+            submenu)
+            
+        _add_separator_menu_item(submenu)
 
-        menu_item = gtk.ImageMenuItem(_('Help with Translations'))
-        menu_item.set_image(gtk.image_new_from_icon_name(settings.WEB_PAGE_ICON, 
-                                                     settings.ICON_SIZE))
-        menu_item.connect('activate', self.on_menuitem_translations)
-        
-        submenu.append(menu_item)
-        
-        menu_item = gtk.ImageMenuItem(_('Donate via Flattr'))
-        menu_item.set_image(gtk.image_new_from_icon_name(settings.WEB_PAGE_ICON, 
-                                                     settings.ICON_SIZE))
-        menu_item.connect('activate', self.on_menuitem_flattr)
-        submenu.append(menu_item)
-
-        menu_item = gtk.ImageMenuItem(_('Donate via PayPal'))
-        menu_item.set_image(gtk.image_new_from_icon_name(settings.WEB_PAGE_ICON, 
-                                                     settings.ICON_SIZE))
-        menu_item.connect('activate', self.on_menuitem_donate)
-        submenu.append(menu_item)
-
-
-        menu_item = gtk.SeparatorMenuItem()
-        submenu.append(menu_item)
-        
-        menu_item = gtk.ImageMenuItem(gtk.STOCK_REFRESH)
-        menu_item.connect('activate', self.on_menuitem_reload_activate)
-        submenu.append(menu_item)
-        
-        menu_item = gtk.SeparatorMenuItem()
-        submenu.append(menu_item)
-
-        menu_item = gtk.ImageMenuItem(gtk.STOCK_QUIT)
-        menu_item.connect('activate', self.on_menuitem_quit_activate)
-        submenu.append(menu_item)
+        _add_stock_menu_item(
+            Gtk.STOCK_QUIT,
+            self.on_menuitem_quit_activate,
+            submenu)
 
         menu.show_all()
         return menu;
 
-    def is_unity(self):
-        return os.getenv('XDG_CURRENT_DESKTOP', '') == 'Unity'
-    
+
     def create_all_trees(self):
         self.trees = []
-        if settings.USE_LENS_MENU and self.is_unity():
-            tree = self.create_tree('unity-lens-applications.menu')
-            self.trees.append(tree)
-        else:
-            menu_prefix = os.getenv('XDG_MENU_PREFIX', '')  
-            tree = self.create_tree('%sapplications.menu' % menu_prefix)
-            self.trees.append(tree)
-
-
-        for m in settings.SYSTEM_MENUS:
+        
+        if settings.USE_ALL_APPS_MENU:
+            tree = self.create_tree(settings.ALL_APPS_MENU)
+            if tree:
+                self.trees.append(tree)
+        for m in settings.MENUS:
             tree = self.create_tree(m)
             if tree:
                 self.trees.append(tree)
-                break
-
-        for m in settings.EXTRA_MENUS:
-            tree = self.create_tree(m)
+        if settings.USE_EXTRA_MENUS:
+            tree = self.create_tree(settings.EXTRA_MENU)
             if tree:
                 self.trees.append(tree)
-
+            
     
     def create_tree(self, name):
-        flags = gmenu.FLAGS_NONE
-        if settings.INCLUDE_NODISPLAY:
-            flags = flags | gmenu.FLAGS_INCLUDE_NODISPLAY
-        tree = gmenu.lookup_tree(name, flags)
-        if tree.get_root_directory():
-            tree.add_monitor(self.on_menu_file_changed)
-            return tree
-        else:
-            return None
+        flags = (GMenu.TreeFlags.SHOW_ALL_SEPARATORS | 
+                 GMenu.TreeFlags.SORT_DISPLAY_NAME)
 
+        if settings.INCLUDE_NODISPLAY:
+            flags = flags | GMenu.TreeFlags.INCLUDE_NODISPLAY
+
+        try:
+            if '/' in name:
+                tree = GMenu.Tree.new_for_path(name, flags)
+            else:
+                tree = GMenu.Tree.new(name, flags)
+            tree.load_sync()
+            tree.connect('changed', self.on_menu_file_changed)
+            return tree
+        # except GLib.Error as e:
+        except Exception as e:
+            print(type(e))
+            print('***', e)
 
     def update_menu(self, recreate_trees=False):
         self.update_requested = False
@@ -313,22 +300,20 @@ class ClassicMenuIndicator(object):
         if not self.update_requested:
             self.update_requested = True
             if delayed:
-                gobject.timeout_add(settings.UPDATE_DELAY,
+                GObject.timeout_add(settings.UPDATE_DELAY,
                                     lambda: self.update_menu(recreate_trees))
             else:
                self.update_menu(recreate_trees) 
             
     def quit(self):
-        gtk.main_quit()
+        Gtk.main_quit()
 
 
     def open_url(self, url):
-        u = urlparse(url)
-        appinfo=gio.app_info_get_default_for_uri_scheme(u.scheme)
-        appinfo.launch_uris([url])
+        appinfo=Gio.AppInfo.launch_default_for_uri(url, None)
 
     def reload(self, delayed=True):
-        settings.reload()
+        settings.load()
         self.indicator.set_icon(settings.ICON)
         self.request_update(recreate_trees=True, delayed=delayed)
         
@@ -339,26 +324,21 @@ class ClassicMenuIndicator(object):
     def on_menu_file_changed(self, *args):
         self.reload()
         
-    def on_menuitem_activate(self, menuitem, entry):
-        path = entry.get_desktop_file_path()
-        appinfo = gio.unix.desktop_app_info_new_from_filename(path)
+    def on_menuitem_activate(self, menuitem, entry):        
+        appinfo = entry.get_app_info()
         appinfo.launch()
 
-    def on_menuitem_use_old_icon_activate(self, menuitem):
-        settings.set_use_old_icon(menuitem.get_active())
-        self.indicator.set_icon(settings.ICON)
-        
-    def on_menuitem_show_menu_icons_activate(self, menuitem):
-        settings.set_use_menu_icons(menuitem.get_active())
-        self.reload(delayed=False)
-        
-    def on_menuitem_include_nodisplay_activate(self, menuitem):
-        settings.set_include_nodisplay(menuitem.get_active())
-        self.reload(delayed=False)
-          
-    def on_menuitem_use_lens_menu_activate(self, menuitem):
-        settings.set_use_lens_menu(menuitem.get_active())
-        self.reload(delayed=False)
+    def on_menuitem_preferences_activate(self, menuitem):
+        dlg = preferencesdlg.PreferencesDlg()
+        if dlg.run():
+            dlg = Gtk.MessageDialog(None, 0,  Gtk.MessageType.INFO,
+                                    Gtk.ButtonsType.NONE, 
+                                    _('Updating menu...'))
+            dlg.set_title(_('Please wait'))
+            GLib.timeout_add(500, lambda *args: dlg.destroy())
+            dlg.run()
+
+            self.reload(delayed=False)
 
     def on_menuitem_quit_activate(self, menuitem):
         self.quit()
@@ -386,6 +366,9 @@ class ClassicMenuIndicator(object):
 
     def on_menuitem_bug(self, menuitem):
         self.open_url(settings.BUGREPORT_URL)
+
+
+ 
 
 def parse_args():
     parser = OptionParser(version="%s %s"%(settings.APP_NAME, 

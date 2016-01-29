@@ -1,14 +1,15 @@
 #-*- coding: utf-8 -*-
 
-import gtk, glib
+from gi.repository import Gtk, Gdk, GdkPixbuf, Gio, GMenu, AppIndicator3
+
 from gettext import gettext as _
 import textwrap
 
-from settings import vars as settings
+from .settings import vars as settings
 
 
 def show_about_dialog():
-    dlg = gtk.AboutDialog()
+    dlg = Gtk.AboutDialog()
     dlg.set_program_name(settings.APP_NAME)
     dlg.set_version(settings.APP_VERSION)
     dlg.set_website(settings.WEB_URL)
