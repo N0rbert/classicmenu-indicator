@@ -124,7 +124,6 @@ class PreferencesDlg:
             fname = self['fcb_icon'].get_filename()
             if fname:
                 settings.ICON = fname
-        print('ICON:', settings.ICON, icon_mode)
         try:
             settings.save()
         except IOError as e:

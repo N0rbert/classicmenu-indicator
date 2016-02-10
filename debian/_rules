@@ -2,14 +2,15 @@
 # -*- makefile -*-
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
-export PYBUILD_NAME=classicmenu_indicator
 
 %:
-	dh $@ --with python3 --buildsystem=pybuild
+        dh $@ --with python3 --buildsystem=python_distutils
 
+override_dh_auto_clean:
+        python3 setup.py clean -a
 
+override_dh_auto_build:
+        python3 setup.py build
 
-{% if prefix %}
 override_dh_auto_install:
-        dh_auto_install -- --prefix="{{prefix}}"
-{% endif %}
+        python3 setup.py install --root=$(CURDIR)/debian/masna --install-layout=deb

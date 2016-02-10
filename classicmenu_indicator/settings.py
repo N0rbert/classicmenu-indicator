@@ -121,7 +121,7 @@ class Vars(object):
 
     @property
     def ICON_SIZE(self):
-        return self.data.get('icon_size', 20)
+        return self.data.get('icon_size', Gtk.IconSize.MENU)
 
     @ICON_SIZE.setter
     def ICON_SIZE(self, value):

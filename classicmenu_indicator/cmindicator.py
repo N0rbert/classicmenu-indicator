@@ -49,7 +49,7 @@ def _add_menu_item(title, icon, callback, menu):
     
 
 def _add_stock_menu_item(stockid, callback, menu):
-    menu_item = Gtk.ImageMenuItem.new_from_stock(stockid)
+    menu_item = Gtk.ImageMenuItem.new_from_stock(stockid, None)
     menu_item.connect('activate', callback)
     menu.append(menu_item)
 
@@ -121,6 +121,7 @@ class ClassicMenuIndicator(object):
 
                 
             if img is None:  # is this possible?
+                print('IMG is None')
                 img = Gtk.Image()
                 img.set_from_icon_name('gtk-execute', settings.ICON_SIZE)
             menu_item.set_image(img)
@@ -133,7 +134,8 @@ class ClassicMenuIndicator(object):
             menu_item.connect('activate', self.on_menuitem_activate, entry)
 
         menu_item.set_use_underline(False)
-        menu_item.set_tooltip_text(comment)
+        if comment is not None:
+            menu_item.set_tooltip_text(comment)
 
         menu_item.show()
         return menu_item

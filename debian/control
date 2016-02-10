@@ -16,13 +16,12 @@ Homepage: http://www.florian-diesch.de/software/classicmenu-indicator/
 Package: classicmenu-indicator
 Architecture: all
 Depends: ${misc:Depends},
-         ${python3:Depends},
+         python3,
          python3-gi,
 	 gir1.2-glib-2.0,
 	 gir1.2-gtk-3.0,
 	 gir1.2-gmenu-3.0,
 	 gir1.2-appindicator3-0.1,
-         python3-pkg-resources,
-	 python3-xdg,
+         python3-pkg-resources
 Description: indicator showing the main menu from Gnome Classic
  classicmenu-indicator displays the main menu from Gnome2/Gnome Classic
