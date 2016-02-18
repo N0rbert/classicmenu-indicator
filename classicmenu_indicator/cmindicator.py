@@ -23,6 +23,11 @@
 #
 
 
+import gi
+gi.require_version('Gtk', '3.0')
+gi.require_version('GMenu', '3.0')
+gi.require_version('AppIndicator3', '0.1')
+
 from gi.repository import Gtk, Gdk, GLib, GObject, GdkPixbuf, Gio, GMenu, AppIndicator3
 
 import re, os, sys
@@ -116,8 +121,13 @@ class ClassicMenuIndicator(object):
                 img = Gtk.Image.new_from_gicon(
                     icon, settings.ICON_SIZE)
             else:
-                img = Gtk.Image.new_from_icon_name(
-                    'gtk-execute', settings.ICON_SIZE)
+                icon_info = self.theme.choose_icon(
+                    ['applications-other', 'gtk-execute'],
+                    settings.ICON_SIZE,
+                    Gtk.IconLookupFlags.USE_BUILTIN)
+                pixbuf = icon_info.load_icon()
+                pixbuf.scale_simple(16, 16, GdkPixbuf.InterpType.BILINEAR)
+                img = Gtk.Image.new_from_pixbuf(pixbuf)
 
                 
             if img is None:  # is this possible?
