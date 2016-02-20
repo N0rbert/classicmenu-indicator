@@ -371,7 +371,7 @@ You have to select at least one menu defintion in order to ClassicMenu Indicator
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="xpad">6</property>
-                    <property name="label" translatable="yes">Try to use tooltips:</property>
+                    <property name="label" translatable="yes">Use tooltips:</property>
                     <property name="xalign">1</property>
                   </object>
                   <packing>
@@ -456,11 +456,11 @@ You have to select at least one menu defintion in order to ClassicMenu Indicator
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkLabel" id="label1">
+                      <object class="GtkLabel" id="l_tooltips_note">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="xpad">3</property>
-                        <property name="label" translatable="yes">&lt;small&gt;(not supported by most environments)&lt;/small&gt;</property>
+                        <property name="label" translatable="yes">&lt;small&gt;(doesn't work in some environments)&lt;/small&gt;</property>
                         <property name="use_markup">True</property>
                         <property name="ellipsize">end</property>
                         <property name="xalign">0</property>
@@ -475,20 +475,6 @@ You have to select at least one menu defintion in order to ClassicMenu Indicator
                   <packing>
                     <property name="left_attach">1</property>
                     <property name="top_attach">2</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkSwitch" id="sw_settings_extra_menus">
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="tooltip_text" translatable="yes">Some menu definition don't include extra menus like the ones used by Wine. 
-Do you want ClassicMenu Indicator to add those extra menus?</property>
-                    <property name="halign">start</property>
-                    <property name="margin_top">6</property>
-                  </object>
-                  <packing>
-                    <property name="left_attach">1</property>
-                    <property name="top_attach">4</property>
                   </packing>
                 </child>
                 <child>
@@ -530,6 +516,45 @@ Do you want ClassicMenu Indicator to add those extra menus?</property>
                   <packing>
                     <property name="left_attach">1</property>
                     <property name="top_attach">5</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkBox" id="box_extra_menus">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="margin_top">6</property>
+                    <child>
+                      <object class="GtkSwitch" id="sw_settings_extra_menus">
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="tooltip_text" translatable="yes">Some menu definition don't include extra menus like the ones used by Wine. 
+Do you want ClassicMenu Indicator to add those extra menus?</property>
+                        <property name="halign">start</property>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">True</property>
+                        <property name="position">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="l_extra_menus_note">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="xpad">3</property>
+                        <property name="label" translatable="yes">&lt;small&gt;(if available)&lt;/small&gt;</property>
+                        <property name="use_markup">True</property>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">True</property>
+                        <property name="position">1</property>
+                      </packing>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="top_attach">4</property>
                   </packing>
                 </child>
               </object>

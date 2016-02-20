@@ -5,3 +5,5 @@ include *.txt
 recursive-include data *.svg *.in *.menu
 recursive-include po *.po *.pot *.in
 recursive-include debian *
+recursive-exclude debian _*
+prune classicmenu_indicator/__pycache__

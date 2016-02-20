@@ -3,7 +3,9 @@
 
 DEBUILD=debuild -sa -v${DEBVERSION} -k${GPG_KEY} -i'.bzr|.patternbook'
 
-GARBAGE:=${GARBAGE} ../*.deb ../*.changes ../*.build ../${NAME}_${DEBVERSION}* debian/${NAME} __pycache__
+GARBAGE:=${GARBAGE} ../*.deb ../*.changes ../*.build ../${NAME}_${DEBVERSION}* debian/${NAME}
+
+PRE_BUILD_TARGETS:=update_version ${PRE_BUILD_TARGETS}
 
 
 update_version:

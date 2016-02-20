@@ -117,19 +117,23 @@ class ClassicMenuIndicator(object):
                     Gtk.IconLookupFlags.USE_BUILTIN):
                 icon = None
 
+            if hasattr(icon, 'get_file'):
+                gfile = icon.get_file()
+                if not gfile.query_exists(None):
+                    icon = None
             if icon:
-                img = Gtk.Image.new_from_gicon(
-                    icon, settings.ICON_SIZE)
+                    img = Gtk.Image.new_from_gicon(
+                        icon, settings.ICON_SIZE)
             else:
                 icon_info = self.theme.choose_icon(
-                    ['applications-other', 'gtk-execute'],
+                    ['gtk-execute', 'applications-other'],
                     settings.ICON_SIZE,
                     Gtk.IconLookupFlags.USE_BUILTIN)
                 pixbuf = icon_info.load_icon()
                 pixbuf.scale_simple(16, 16, GdkPixbuf.InterpType.BILINEAR)
                 img = Gtk.Image.new_from_pixbuf(pixbuf)
 
-                
+
             if img is None:  # is this possible?
                 print('IMG is None')
                 img = Gtk.Image()

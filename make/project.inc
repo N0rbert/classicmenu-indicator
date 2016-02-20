@@ -1,7 +1,7 @@
 NAME=classicmenu-indicator
 TITLE=ClassicMenu Indicator
-VERSION=0.10
+VERSION=0.10~pre1
 AUTHOR_NAME=Florian Diesch
 AUTHOR_EMAIL=devel@florian-diesch.de
 WEB_URL=http://www.florian-diesch.de/software/classicmenu-indicator/
-TIMESTAMP=2015-10-24T13:17:48
+TIMESTAMP=2016-02-20T19:17:55
