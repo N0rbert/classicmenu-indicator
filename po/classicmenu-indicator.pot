@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-11 13:03+0100\n"
+"POT-Creation-Date: 2016-02-20 21:01+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,31 +21,31 @@ msgstr ""
 msgid "translator-credits"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:213
+#: ../classicmenu_indicator/cmindicator.py:229
 msgid "Go to Web Page"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:221
+#: ../classicmenu_indicator/cmindicator.py:237
 msgid "Report a Bug"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:227
+#: ../classicmenu_indicator/cmindicator.py:243
 msgid "Help with Translations"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:233
+#: ../classicmenu_indicator/cmindicator.py:249
 msgid "Donate via Flattr"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:239
+#: ../classicmenu_indicator/cmindicator.py:255
 msgid "Donate via PayPal"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:336
+#: ../classicmenu_indicator/cmindicator.py:352
 msgid "Updating menu..."
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:337
+#: ../classicmenu_indicator/cmindicator.py:353
 msgid "Please wait"
 msgstr ""
 
@@ -108,7 +108,7 @@ msgid "Show hidden entries:"
 msgstr ""
 
 #: ../data/ui/preferences.ui.h:13
-msgid "Try to use tooltips:"
+msgid "Use tooltips:"
 msgstr ""
 
 #: ../data/ui/preferences.ui.h:14
@@ -136,7 +136,7 @@ msgid "Custom"
 msgstr ""
 
 #: ../data/ui/preferences.ui.h:20
-msgid "<small>(not supported by most environments)</small>"
+msgid "<small>(doesn't work in some environments)</small>"
 msgstr ""
 
 #: ../data/ui/preferences.ui.h:21
@@ -160,5 +160,9 @@ msgid "Add menu with all apps:"
 msgstr ""
 
 #: ../data/ui/preferences.ui.h:26
+msgid "<small>(if available)</small>"
+msgstr ""
+
+#: ../data/ui/preferences.ui.h:27
 msgid "Settings"
 msgstr ""

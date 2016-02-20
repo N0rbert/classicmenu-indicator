@@ -4,4 +4,4 @@ VERSION=0.10~pre1
 AUTHOR_NAME=Florian Diesch
 AUTHOR_EMAIL=devel@florian-diesch.de
 WEB_URL=http://www.florian-diesch.de/software/classicmenu-indicator/
-TIMESTAMP=2016-02-20T19:17:55
+TIMESTAMP=2016-02-20T21:01:02

@@ -7,7 +7,7 @@ Build-Depends: debhelper,
                python3-setuptools,
 	       python3-distutils-extra,
 	       intltool
-Standards-Version: 3.9.5
+Standards-Version: 3.9.6
 Homepage: http://www.florian-diesch.de/software/classicmenu-indicator/
 
 
