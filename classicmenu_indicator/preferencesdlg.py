@@ -162,6 +162,11 @@ class PreferencesDlg:
 ## Signal-Behandlung
 #####################
 
+    def on_b_set_defaults_clicked(self, *args):
+        settings.set_to_defaults()
+        self.load()
+        
+        
     def on_b_default_menus_clicked(self, *args):
         self.set_default_menus()
         

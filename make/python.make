@@ -20,10 +20,10 @@ update_meta:
 	) > ${PYTHON_DIR}/_meta.py 
 
 pypi:
-	python setup.py register
+	twine upload dist/${NAME}-${VERSION}.*	
 
 sdist: ${PRE_BUILD_TARGETS}
-	python setup.py sdist
+	python setup.py sdist bdist_wheel
 	mv dist/${NAME}-${PYTHON_VERSION}.tar.gz dist/${NAME}-${VERSION}.tar.gz || true
 
 

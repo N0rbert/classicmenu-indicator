@@ -81,13 +81,15 @@ class Vars(object):
 
         self.load()
 
+    def set_to_defaults(self):
+         self.data = {}
 
     def load(self):
         try:
             with open(self.CFG_FILE) as input:
                 self.data = json.load(input)
         except Exception as e:
-            self.data = {}
+            self.set_to_defaults()
 
     def save(self):
         with open(self.CFG_FILE, 'w') as cfg:
