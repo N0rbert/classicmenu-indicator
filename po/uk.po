@@ -1,0 +1,175 @@
+# Ukrainian translation for classicmenu-indicator
+# Copyright (c) 2015 Rosetta Contributors and Canonical Ltd 2015
+# This file is distributed under the same license as the classicmenu-indicator package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: classicmenu-indicator\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2016-02-23 16:08+0100\n"
+"PO-Revision-Date: 2016-02-06 12:14+0000\n"
+"Last-Translator: Микола Ткач <Stuartlittle1970@gmail.com>\n"
+"Language-Team: Ukrainian <uk@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2016-02-23 19:48+0000\n"
+"X-Generator: Launchpad (build 17925)\n"
+
+#: ../classicmenu_indicator/about.py:19
+msgid "translator-credits"
+msgstr ""
+"Launchpad Contributions:\n"
+"  Микола Ткач https://launchpad.net/~stuartlittle1970"
+
+#: ../classicmenu_indicator/cmindicator.py:229
+msgid "Go to Web Page"
+msgstr "Перейти на веб-сайт"
+
+#: ../classicmenu_indicator/cmindicator.py:237
+msgid "Report a Bug"
+msgstr "Повідомити про ваду"
+
+#: ../classicmenu_indicator/cmindicator.py:243
+msgid "Help with Translations"
+msgstr "Перекласти додаток"
+
+#: ../classicmenu_indicator/cmindicator.py:249
+msgid "Donate via Flattr"
+msgstr "Пожертвувати через Flattr"
+
+#: ../classicmenu_indicator/cmindicator.py:255
+msgid "Donate via PayPal"
+msgstr "Пожертвувати через PayPal"
+
+#: ../classicmenu_indicator/cmindicator.py:352
+msgid "Updating menu..."
+msgstr "Оновлення меню..."
+
+#: ../classicmenu_indicator/cmindicator.py:353
+msgid "Please wait"
+msgstr "Будь ласка, зачекайте"
+
+#: ../classicmenu_indicator/dialogs.py:128
+msgid "Any files"
+msgstr "Будь-які файли"
+
+#: ../data/desktop/classicmenu-indicator.desktop.in.h:1
+#: ../data/autostart/classicmenu-indicator.desktop.in.h:1
+msgid "ClassicMenu Indicator"
+msgstr "Індикатор класичного меню"
+
+#: ../data/desktop/classicmenu-indicator.desktop.in.h:2
+#: ../data/autostart/classicmenu-indicator.desktop.in.h:2
+msgid "Indicator applet to show the Gnome Classic main menu"
+msgstr "Аплет індикатора, який показує класичне головне меню Gnome"
+
+#: ../data/ui/preferences.ui.h:1
+msgid "Preferences"
+msgstr "Параметри"
+
+#: ../data/ui/preferences.ui.h:2
+msgid "Set to defaults"
+msgstr ""
+
+#: ../data/ui/preferences.ui.h:3
+msgid ""
+"ClassicMenu Indicator doesn't come with its own menu definition but uses "
+"standard menu definitions already present on most systems. You can modify "
+"this menu definitions using menu editors like Alacarte, MenuLibre or similar "
+"ones.\n"
+"\n"
+"You have to select at least one menu defintion in order to ClassicMenu "
+"Indicator displaying a menu. If you select more then one menu definition all "
+"definitions are used in the order they appear on the right."
+msgstr ""
+
+#: ../data/ui/preferences.ui.h:6
+msgid "\n"
+msgstr "\n"
+
+#: ../data/ui/preferences.ui.h:8
+msgid "Use standard menu"
+msgstr "Використовувати стандартне меню"
+
+#: ../data/ui/preferences.ui.h:9
+msgid ">>>"
+msgstr ">>>"
+
+#: ../data/ui/preferences.ui.h:10
+msgid "<<<"
+msgstr "<<<"
+
+#: ../data/ui/preferences.ui.h:11
+msgid "Menus"
+msgstr "Меню"
+
+#: ../data/ui/preferences.ui.h:12
+msgid "Show menu icons:"
+msgstr "Показати піктограми меню:"
+
+#: ../data/ui/preferences.ui.h:13
+msgid "Show hidden entries:"
+msgstr "Показати приховані записи:"
+
+#: ../data/ui/preferences.ui.h:14
+msgid "Use tooltips:"
+msgstr ""
+
+#: ../data/ui/preferences.ui.h:15
+msgid "Icon:"
+msgstr "Піктограма:"
+
+#: ../data/ui/preferences.ui.h:16
+msgid "Old icon"
+msgstr "Стара піктограма"
+
+#: ../data/ui/preferences.ui.h:17
+msgid "New Icon (dark)"
+msgstr "Нова піктограма (темна)"
+
+#: ../data/ui/preferences.ui.h:18
+msgid "New Icon (light)"
+msgstr "Нова піктограма (світла)"
+
+#: ../data/ui/preferences.ui.h:19
+msgid "New Icon (auto)"
+msgstr "Нова піктограма (автоматично)"
+
+#: ../data/ui/preferences.ui.h:20
+msgid "Custom"
+msgstr "Власна"
+
+#: ../data/ui/preferences.ui.h:21
+msgid "<small>(doesn't work in some environments)</small>"
+msgstr ""
+
+#: ../data/ui/preferences.ui.h:22
+msgid ""
+"Some menu definition don't include extra menus like the ones used by Wine. \n"
+"Do you want ClassicMenu Indicator to add those extra menus?"
+msgstr ""
+
+#: ../data/ui/preferences.ui.h:24
+msgid "Add extra/Wine menus:"
+msgstr ""
+
+#: ../data/ui/preferences.ui.h:25
+msgid ""
+"Do you want an additional single menu that contains all apps in alphabetical "
+"order?"
+msgstr ""
+"Бажаєте додаткове єдине меню, яке містить усі проґрами в алфавітному порядку?"
+
+#: ../data/ui/preferences.ui.h:26
+msgid "Add menu with all apps:"
+msgstr "Додати меню з усіма додатками:"
+
+#: ../data/ui/preferences.ui.h:27
+msgid "<small>(if available)</small>"
+msgstr ""
+
+#: ../data/ui/preferences.ui.h:28
+msgid "Settings"
+msgstr "Параметри"
