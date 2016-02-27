@@ -2,7 +2,7 @@ include *.py
 include COPYING 
 include setup.cfg
 include *.txt
-recursive-include data *.svg *.in *.menu
+recursive-include data *.svg *.in *.menu *.png *.xml *.ui
 recursive-include po *.po *.pot *.in
 prune debian
 prune classicmenu_indicator/__pycache__
