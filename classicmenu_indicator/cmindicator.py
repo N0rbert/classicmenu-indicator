@@ -214,8 +214,8 @@ class ClassicMenuIndicator(object):
             self.on_menuitem_preferences_activate,
             submenu)
 
-        _add_stock_menu_item(
-            Gtk.STOCK_REFRESH,
+        _add_menu_item(_('Reload menu'), 
+            'gtk-refresh',
             self.on_menuitem_reload_activate,
             submenu)
 
@@ -234,7 +234,7 @@ class ClassicMenuIndicator(object):
         _add_separator_menu_item(submenu)
 
         _add_menu_item(
-            _('Report a Bug'),
+            _('Report a bug in %s') % settings.APP_NAME,
             settings.WEB_PAGE_ICON,
             self.on_menuitem_bug,
             submenu)
@@ -259,7 +259,7 @@ class ClassicMenuIndicator(object):
             
         _add_separator_menu_item(submenu)
 
-        _add_stock_menu_item(
+        _add_menu_item(_('Quit %s') % settings.APP_NAME, 
             Gtk.STOCK_QUIT,
             self.on_menuitem_quit_activate,
             submenu)
@@ -332,7 +332,15 @@ class ClassicMenuIndicator(object):
         settings.load()
         self.indicator.set_icon(settings.ICON)
         self.request_update(recreate_trees=True, delayed=delayed)
-        
+
+    def show_reload_msg(self):
+         dlg = Gtk.MessageDialog(None, 0,  Gtk.MessageType.INFO,
+                                    Gtk.ButtonsType.NONE, 
+                                    _('Updating menu...'))
+         dlg.set_title(_('Please wait'))
+         GLib.timeout_add(500, lambda *args: dlg.destroy())
+         dlg.run()
+            
 #####################
 ## Signal-Behandlung
 #####################
@@ -347,19 +355,14 @@ class ClassicMenuIndicator(object):
     def on_menuitem_preferences_activate(self, menuitem):
         dlg = preferencesdlg.PreferencesDlg()
         if dlg.run():
-            dlg = Gtk.MessageDialog(None, 0,  Gtk.MessageType.INFO,
-                                    Gtk.ButtonsType.NONE, 
-                                    _('Updating menu...'))
-            dlg.set_title(_('Please wait'))
-            GLib.timeout_add(500, lambda *args: dlg.destroy())
-            dlg.run()
-
+            self.show_reload_msg()
             self.reload(delayed=False)
 
     def on_menuitem_quit_activate(self, menuitem):
         self.quit()
         
     def on_menuitem_reload_activate(self, menuitem):
+        self.show_reload_msg()
         self.reload(delayed=False)
 
     def on_menuitem_about_activate(self, menuitem):

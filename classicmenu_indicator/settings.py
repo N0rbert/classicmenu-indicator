@@ -108,7 +108,7 @@ class Vars(object):
 
     UI_DIR = os.path.join(DATA_DIR, 'ui')
     
-    EXTRA_MENU = os.path.join(DATA_DIR, 'extra.menu')
+    EXTRA_MENU = os.path.join(DATA_DIR, 'applications.menu')
     ALL_APPS_MENU = os.path.join(DATA_DIR, 'all_apps.menu')
 
     

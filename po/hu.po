@@ -6,11 +6,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: classicmenu-indicator\n"
-"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-02-23 16:08+0100\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-03-04 19:47+0100\n"
 "PO-Revision-Date: 2015-02-01 16:13+0000\n"
 "Last-Translator: Zsigri Gyula <zsigri@gmail.com>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
+"Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,12 +25,17 @@ msgstr ""
 "  Zsigri Gyula https://launchpad.net/~zsigri-2\n"
 "  mktiti https://launchpad.net/~markuskrisztian1"
 
+#: ../classicmenu_indicator/cmindicator.py:217
+msgid "Reload menu"
+msgstr ""
+
 #: ../classicmenu_indicator/cmindicator.py:229
 msgid "Go to Web Page"
 msgstr "Weboldal felkeresése"
 
 #: ../classicmenu_indicator/cmindicator.py:237
-msgid "Report a Bug"
+#, fuzzy, python-format
+msgid "Report a bug in %s"
 msgstr "Hiba jelentése"
 
 #: ../classicmenu_indicator/cmindicator.py:243
@@ -43,6 +49,11 @@ msgstr "Támogatás Flattr-rel"
 #: ../classicmenu_indicator/cmindicator.py:255
 msgid "Donate via PayPal"
 msgstr "Támogatás PayPallel"
+
+#: ../classicmenu_indicator/cmindicator.py:262
+#, python-format
+msgid "Quit %s"
+msgstr ""
 
 #: ../classicmenu_indicator/cmindicator.py:352
 msgid "Updating menu..."

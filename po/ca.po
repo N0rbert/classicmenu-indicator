@@ -7,48 +7,59 @@ msgid ""
 msgstr ""
 "Project-Id-Version: classicmenu-indicator\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-11 13:03+0100\n"
-"PO-Revision-Date: 2013-11-17 22:06+0000\n"
-"Last-Translator: Dàrent <Unknown>\n"
+"POT-Creation-Date: 2016-03-04 19:47+0100\n"
+"PO-Revision-Date: 2015-03-24 09:12+0000\n"
+"Last-Translator: Adolfo Jayme <fitoschido@gmail.com>\n"
 "Language-Team: Catalan <ca@li.org>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-03-06 17:24+0000\n"
-"X-Generator: Launchpad (build 16948)\n"
+"X-Launchpad-Export-Date: 2016-02-23 19:48+0000\n"
+"X-Generator: Launchpad (build 17925)\n"
 
 #: ../classicmenu_indicator/about.py:19
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
+"  Adolfo Jayme https://launchpad.net/~fitojb\n"
 "  Dàrent https://launchpad.net/~animaletdesequia"
 
-#: ../classicmenu_indicator/cmindicator.py:213
-msgid "Go to Web Page"
-msgstr "Ves a la Pàgina Web"
+#: ../classicmenu_indicator/cmindicator.py:217
+msgid "Reload menu"
+msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:221
-msgid "Report a Bug"
+#: ../classicmenu_indicator/cmindicator.py:229
+msgid "Go to Web Page"
+msgstr "Visiteu el lloc web"
+
+#: ../classicmenu_indicator/cmindicator.py:237
+#, fuzzy, python-format
+msgid "Report a bug in %s"
 msgstr "Informeu d'un problema"
 
-#: ../classicmenu_indicator/cmindicator.py:227
+#: ../classicmenu_indicator/cmindicator.py:243
 msgid "Help with Translations"
 msgstr "Ajudeu amb la Traducció"
 
-#: ../classicmenu_indicator/cmindicator.py:233
+#: ../classicmenu_indicator/cmindicator.py:249
 msgid "Donate via Flattr"
 msgstr "Doneu via Flattr"
 
-#: ../classicmenu_indicator/cmindicator.py:239
+#: ../classicmenu_indicator/cmindicator.py:255
 msgid "Donate via PayPal"
 msgstr "Doneu via PayPal"
 
-#: ../classicmenu_indicator/cmindicator.py:336
+#: ../classicmenu_indicator/cmindicator.py:262
+#, python-format
+msgid "Quit %s"
+msgstr ""
+
+#: ../classicmenu_indicator/cmindicator.py:352
 msgid "Updating menu..."
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:337
+#: ../classicmenu_indicator/cmindicator.py:353
 msgid "Please wait"
 msgstr ""
 
@@ -71,6 +82,10 @@ msgid "Preferences"
 msgstr ""
 
 #: ../data/ui/preferences.ui.h:2
+msgid "Set to defaults"
+msgstr ""
+
+#: ../data/ui/preferences.ui.h:3
 msgid ""
 "ClassicMenu Indicator doesn't come with its own menu definition but uses "
 "standard menu definitions already present on most systems. You can modify "
@@ -82,86 +97,90 @@ msgid ""
 "definitions are used in the order they appear on the right."
 msgstr ""
 
-#: ../data/ui/preferences.ui.h:5
+#: ../data/ui/preferences.ui.h:6
 msgid "\n"
 msgstr ""
 
-#: ../data/ui/preferences.ui.h:7
+#: ../data/ui/preferences.ui.h:8
 msgid "Use standard menu"
 msgstr ""
 
-#: ../data/ui/preferences.ui.h:8
+#: ../data/ui/preferences.ui.h:9
 msgid ">>>"
 msgstr ""
 
-#: ../data/ui/preferences.ui.h:9
+#: ../data/ui/preferences.ui.h:10
 msgid "<<<"
 msgstr ""
 
-#: ../data/ui/preferences.ui.h:10
+#: ../data/ui/preferences.ui.h:11
 msgid "Menus"
 msgstr ""
 
-#: ../data/ui/preferences.ui.h:11
+#: ../data/ui/preferences.ui.h:12
 msgid "Show menu icons:"
 msgstr ""
 
-#: ../data/ui/preferences.ui.h:12
+#: ../data/ui/preferences.ui.h:13
 msgid "Show hidden entries:"
 msgstr ""
 
-#: ../data/ui/preferences.ui.h:13
-msgid "Try to use tooltips:"
-msgstr ""
-
 #: ../data/ui/preferences.ui.h:14
-msgid "Icon:"
+msgid "Use tooltips:"
 msgstr ""
 
 #: ../data/ui/preferences.ui.h:15
-msgid "Old icon"
+msgid "Icon:"
 msgstr ""
 
 #: ../data/ui/preferences.ui.h:16
-msgid "New Icon (dark)"
+msgid "Old icon"
 msgstr ""
 
 #: ../data/ui/preferences.ui.h:17
-msgid "New Icon (light)"
+msgid "New Icon (dark)"
 msgstr ""
 
 #: ../data/ui/preferences.ui.h:18
-msgid "New Icon (auto)"
+msgid "New Icon (light)"
 msgstr ""
 
 #: ../data/ui/preferences.ui.h:19
-msgid "Custom"
+msgid "New Icon (auto)"
 msgstr ""
 
 #: ../data/ui/preferences.ui.h:20
-msgid "<small>(not supported by most environments)</small>"
+msgid "Custom"
 msgstr ""
 
 #: ../data/ui/preferences.ui.h:21
+msgid "<small>(doesn't work in some environments)</small>"
+msgstr ""
+
+#: ../data/ui/preferences.ui.h:22
 msgid ""
 "Some menu definition don't include extra menus like the ones used by Wine. \n"
 "Do you want ClassicMenu Indicator to add those extra menus?"
 msgstr ""
 
-#: ../data/ui/preferences.ui.h:23
+#: ../data/ui/preferences.ui.h:24
 msgid "Add extra/Wine menus:"
 msgstr ""
 
-#: ../data/ui/preferences.ui.h:24
+#: ../data/ui/preferences.ui.h:25
 msgid ""
 "Do you want an additional single menu that contains all apps in alphabetical "
 "order?"
 msgstr ""
 
-#: ../data/ui/preferences.ui.h:25
+#: ../data/ui/preferences.ui.h:26
 msgid "Add menu with all apps:"
 msgstr ""
 
-#: ../data/ui/preferences.ui.h:26
+#: ../data/ui/preferences.ui.h:27
+msgid "<small>(if available)</small>"
+msgstr ""
+
+#: ../data/ui/preferences.ui.h:28
 msgid "Settings"
 msgstr ""

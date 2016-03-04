@@ -12,7 +12,6 @@
   <!-- Read standard .directory and .desktop file locations -->
   <DefaultAppDirs/>
   <DefaultDirectoryDirs/>
-
-  <MergeDir>/etc/xdg/menus/applications-merged</MergeDir>
+  <DefaultMergeDirs/>
 
 </Menu>
