@@ -21,6 +21,7 @@ sdeb: update_version sdist
 
 deb: ${PRE_BUILD_TARGETS}
 	${DEBUILD} -b
+	gpg --output ../${NAME}_${VERSION}_all.deb.gpg --detach-sig  ../${NAME}_${VERSION}_all.deb
 
 
 ppa: sdeb

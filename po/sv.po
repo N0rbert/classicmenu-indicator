@@ -6,17 +6,16 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: classicmenu-indicator\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-03-04 19:47+0100\n"
-"PO-Revision-Date: 2014-09-08 12:16+0000\n"
+"PO-Revision-Date: 2016-03-06 05:44+0000\n"
 "Last-Translator: kristian <Unknown>\n"
 "Language-Team: Swedish <sv@li.org>\n"
-"Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-02-23 19:48+0000\n"
-"X-Generator: Launchpad (build 17925)\n"
+"X-Launchpad-Export-Date: 2016-03-16 13:32+0000\n"
+"X-Generator: Launchpad (build 17947)\n"
 
 #: ../classicmenu_indicator/about.py:19
 msgid "translator-credits"
@@ -26,16 +25,16 @@ msgstr ""
 
 #: ../classicmenu_indicator/cmindicator.py:217
 msgid "Reload menu"
-msgstr ""
+msgstr "Ladda om menyn"
 
 #: ../classicmenu_indicator/cmindicator.py:229
 msgid "Go to Web Page"
 msgstr "Gå till Hemsidan"
 
 #: ../classicmenu_indicator/cmindicator.py:237
-#, fuzzy, python-format
+#, python-format
 msgid "Report a bug in %s"
-msgstr "Rapportera en bugg"
+msgstr "Rapportera en bugg i %s"
 
 #: ../classicmenu_indicator/cmindicator.py:243
 msgid "Help with Translations"
@@ -52,19 +51,19 @@ msgstr "Donera via PayPal"
 #: ../classicmenu_indicator/cmindicator.py:262
 #, python-format
 msgid "Quit %s"
-msgstr ""
+msgstr "Avsluta %s"
 
 #: ../classicmenu_indicator/cmindicator.py:352
 msgid "Updating menu..."
-msgstr ""
+msgstr "Uppdaterar menyn..."
 
 #: ../classicmenu_indicator/cmindicator.py:353
 msgid "Please wait"
-msgstr ""
+msgstr "Var god vänta"
 
 #: ../classicmenu_indicator/dialogs.py:128
 msgid "Any files"
-msgstr ""
+msgstr "Alla filer"
 
 #: ../data/desktop/classicmenu-indicator.desktop.in.h:1
 #: ../data/autostart/classicmenu-indicator.desktop.in.h:1
@@ -74,15 +73,15 @@ msgstr "Klassisk Meny Indikator"
 #: ../data/desktop/classicmenu-indicator.desktop.in.h:2
 #: ../data/autostart/classicmenu-indicator.desktop.in.h:2
 msgid "Indicator applet to show the Gnome Classic main menu"
-msgstr "En indikator för att visa Gnomes Klassiska Huvudmeny"
+msgstr "En indikator för att visa Gnomes Klassiska huvudmeny"
 
 #: ../data/ui/preferences.ui.h:1
 msgid "Preferences"
-msgstr ""
+msgstr "Inställningar"
 
 #: ../data/ui/preferences.ui.h:2
 msgid "Set to defaults"
-msgstr ""
+msgstr "Återställ till förvalda värden"
 
 #: ../data/ui/preferences.ui.h:3
 msgid ""
@@ -95,91 +94,103 @@ msgid ""
 "Indicator displaying a menu. If you select more then one menu definition all "
 "definitions are used in the order they appear on the right."
 msgstr ""
+"KlassiskMeny Indikatorn kommer inte med sin egen menydefinition utan "
+"använder en standard menydefinition som redan finns tillgänglig på de flesta "
+"system. Du kan ställa in denna meny genom att använda andra menyredigerare "
+"som Alacarte, MenuLibre eller liknande.\n"
+"Du måste ha åtminstone en menydefinition för att KlassiskMeny Indikator ska "
+"visa en meny. Om du väljer att använda mer än en menydefinition så kommer "
+"alla menydefinitioner som används att visas i den ordning som dom är till "
+"höger."
 
 #: ../data/ui/preferences.ui.h:6
 msgid "\n"
-msgstr ""
+msgstr "\n"
 
 #: ../data/ui/preferences.ui.h:8
 msgid "Use standard menu"
-msgstr ""
+msgstr "Använd standardmeny"
 
 #: ../data/ui/preferences.ui.h:9
 msgid ">>>"
-msgstr ""
+msgstr ">>>"
 
 #: ../data/ui/preferences.ui.h:10
 msgid "<<<"
-msgstr ""
+msgstr "<<<"
 
 #: ../data/ui/preferences.ui.h:11
 msgid "Menus"
-msgstr ""
+msgstr "Menyer"
 
 #: ../data/ui/preferences.ui.h:12
 msgid "Show menu icons:"
-msgstr ""
+msgstr "Visa menyikoner:"
 
 #: ../data/ui/preferences.ui.h:13
 msgid "Show hidden entries:"
-msgstr ""
+msgstr "Visa dolda poster:"
 
 #: ../data/ui/preferences.ui.h:14
 msgid "Use tooltips:"
-msgstr ""
+msgstr "Använd verktygstips:"
 
 #: ../data/ui/preferences.ui.h:15
 msgid "Icon:"
-msgstr ""
+msgstr "Ikon:"
 
 #: ../data/ui/preferences.ui.h:16
 msgid "Old icon"
-msgstr ""
+msgstr "Gammal ikon"
 
 #: ../data/ui/preferences.ui.h:17
 msgid "New Icon (dark)"
-msgstr ""
+msgstr "Ny ikon (mörk)"
 
 #: ../data/ui/preferences.ui.h:18
 msgid "New Icon (light)"
-msgstr ""
+msgstr "Ny ikon (ljus)"
 
 #: ../data/ui/preferences.ui.h:19
 msgid "New Icon (auto)"
-msgstr ""
+msgstr "Ny ikon (auto)"
 
 #: ../data/ui/preferences.ui.h:20
 msgid "Custom"
-msgstr ""
+msgstr "Anpassad"
 
 #: ../data/ui/preferences.ui.h:21
 msgid "<small>(doesn't work in some environments)</small>"
-msgstr ""
+msgstr "<liten>(fungerar inte i vissa miljöer)</liten>"
 
 #: ../data/ui/preferences.ui.h:22
 msgid ""
 "Some menu definition don't include extra menus like the ones used by Wine. \n"
 "Do you want ClassicMenu Indicator to add those extra menus?"
 msgstr ""
+"Vissa menydefinitioner innehåller inte extra menyer som används av t.ex "
+"Wine. \n"
+"Vill du att KlassiskMeny Indikatorn ska lägga till dessa extra menyer?"
 
 #: ../data/ui/preferences.ui.h:24
 msgid "Add extra/Wine menus:"
-msgstr ""
+msgstr "Lägg till extra/Wine menyer:"
 
 #: ../data/ui/preferences.ui.h:25
 msgid ""
 "Do you want an additional single menu that contains all apps in alphabetical "
 "order?"
 msgstr ""
+"Vill du ha en ensam meny som innehåller alla program i alfabetisk ordning?"
 
 #: ../data/ui/preferences.ui.h:26
 msgid "Add menu with all apps:"
-msgstr ""
+msgstr "Lägg till meny med alla program:"
 
 #: ../data/ui/preferences.ui.h:27
 msgid "<small>(if available)</small>"
-msgstr ""
+msgstr "<liten>(om tillgänglig)</liten>"
 
 #: ../data/ui/preferences.ui.h:28
 msgid "Settings"
-msgstr ""
+msgstr "Inställningar"

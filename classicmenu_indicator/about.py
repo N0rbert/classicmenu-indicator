@@ -12,15 +12,16 @@ def show_about_dialog():
     dlg = Gtk.AboutDialog()
     dlg.set_program_name(settings.APP_NAME)
     dlg.set_version(settings.APP_VERSION)
+    dlg.set_logo_icon_name(settings.ICONS['auto'])
     dlg.set_website(settings.WEB_URL)
     dlg.set_authors([settings.AUTHOR_EMAIL])
     dlg.set_wrap_license(True)
-    dlg.set_copyright('Copyright (c) 2011 %s' %settings.AUTHOR_NAME)
+    dlg.set_copyright('Copyright (c) 2011-2016 %s' %settings.AUTHOR_NAME)
     dlg.set_translator_credits(_("translator-credits"));
     dlg.set_license(textwrap.dedent(
             """
             ClassicMenu Indicator - an indicator showing an app menu like in Gnome Classic
-            Copyright (c) 2011 Florian Diesch <devel@florian-diesch.de>
+            Copyright (c) 2011-2016 Florian Diesch <devel@florian-diesch.de>
            
             Homepage: http://www.florian-diesch.de/software/classicmenu-indicator/
                        
