@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: classicmenu-indicator\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-03-04 19:47+0100\n"
-"PO-Revision-Date: 2014-04-20 14:48+0000\n"
+"PO-Revision-Date: 2016-03-20 03:34+0000\n"
 "Last-Translator: Learner <muzaffar.habibullayev@yandex.ru>\n"
 "Language-Team: Uzbek <uz@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-03-16 13:32+0000\n"
+"X-Launchpad-Export-Date: 2016-03-21 13:08+0000\n"
 "X-Generator: Launchpad (build 17947)\n"
 
 #: ../classicmenu_indicator/about.py:19
@@ -25,7 +25,7 @@ msgstr ""
 
 #: ../classicmenu_indicator/cmindicator.py:217
 msgid "Reload menu"
-msgstr ""
+msgstr "Menyuni qayta yuklash"
 
 #: ../classicmenu_indicator/cmindicator.py:229
 msgid "Go to Web Page"
@@ -51,19 +51,19 @@ msgstr "PayPal орқали хайрия"
 #: ../classicmenu_indicator/cmindicator.py:262
 #, python-format
 msgid "Quit %s"
-msgstr ""
+msgstr "%s dan Chiqish"
 
 #: ../classicmenu_indicator/cmindicator.py:352
 msgid "Updating menu..."
-msgstr ""
+msgstr "Menyu yangilanmoqda..."
 
 #: ../classicmenu_indicator/cmindicator.py:353
 msgid "Please wait"
-msgstr ""
+msgstr "Iltimos kuting"
 
 #: ../classicmenu_indicator/dialogs.py:128
 msgid "Any files"
-msgstr ""
+msgstr "Har qanday fayllar"
 
 #: ../data/desktop/classicmenu-indicator.desktop.in.h:1
 #: ../data/autostart/classicmenu-indicator.desktop.in.h:1
@@ -77,11 +77,11 @@ msgstr "Gnome Classic асосий менюсини кўрсатувчи инд�
 
 #: ../data/ui/preferences.ui.h:1
 msgid "Preferences"
-msgstr ""
+msgstr "Afzalliklar"
 
 #: ../data/ui/preferences.ui.h:2
 msgid "Set to defaults"
-msgstr ""
+msgstr "Standartga qaytarish"
 
 #: ../data/ui/preferences.ui.h:3
 msgid ""
@@ -97,31 +97,31 @@ msgstr ""
 
 #: ../data/ui/preferences.ui.h:6
 msgid "\n"
-msgstr ""
+msgstr "\n"
 
 #: ../data/ui/preferences.ui.h:8
 msgid "Use standard menu"
-msgstr ""
+msgstr "Standart menyudan foydalanish"
 
 #: ../data/ui/preferences.ui.h:9
 msgid ">>>"
-msgstr ""
+msgstr ">>>"
 
 #: ../data/ui/preferences.ui.h:10
 msgid "<<<"
-msgstr ""
+msgstr "<<<"
 
 #: ../data/ui/preferences.ui.h:11
 msgid "Menus"
-msgstr ""
+msgstr "Menyular"
 
 #: ../data/ui/preferences.ui.h:12
 msgid "Show menu icons:"
-msgstr ""
+msgstr "Menyu nishonchalarini ko'rsatish"
 
 #: ../data/ui/preferences.ui.h:13
 msgid "Show hidden entries:"
-msgstr ""
+msgstr "Yashirin birliklarni ko'rsatish"
 
 #: ../data/ui/preferences.ui.h:14
 msgid "Use tooltips:"
@@ -129,27 +129,27 @@ msgstr ""
 
 #: ../data/ui/preferences.ui.h:15
 msgid "Icon:"
-msgstr ""
+msgstr "Nishoncha:"
 
 #: ../data/ui/preferences.ui.h:16
 msgid "Old icon"
-msgstr ""
+msgstr "Eski nishoncha"
 
 #: ../data/ui/preferences.ui.h:17
 msgid "New Icon (dark)"
-msgstr ""
+msgstr "Yangi nishoncha (qora)"
 
 #: ../data/ui/preferences.ui.h:18
 msgid "New Icon (light)"
-msgstr ""
+msgstr "Yangi nishoncha (oq)"
 
 #: ../data/ui/preferences.ui.h:19
 msgid "New Icon (auto)"
-msgstr ""
+msgstr "Yangi nishoncha (avto)"
 
 #: ../data/ui/preferences.ui.h:20
 msgid "Custom"
-msgstr ""
+msgstr "O'zgartirilgan"
 
 #: ../data/ui/preferences.ui.h:21
 msgid "<small>(doesn't work in some environments)</small>"
@@ -181,4 +181,4 @@ msgstr ""
 
 #: ../data/ui/preferences.ui.h:28
 msgid "Settings"
-msgstr ""
+msgstr "Moslamalar"

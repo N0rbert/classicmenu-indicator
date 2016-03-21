@@ -1,4 +1,11 @@
-classicmenu-indicator (0.10~rc3) wily; urgency=medium
+classicmenu-indicator (0.10-1) wily; urgency=medium
+
+   * Fixed calling of Gio.AppInfo.launch() for precise (LP: #1559253)
+   * Added Amharic translations
+
+ -- Florian Diesch <devel@florian-diesch.de>  Mon, 21 Mar 2016 14:24:45 +0100
+
+classicmenu-indicator (0.10) wily; urgency=medium
 
    * Ported to Python3, PyGObject and GTK3
    * Added Basque, Finnish, Hungarian, Italian, Korean, Dutch, Polish,

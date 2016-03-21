@@ -1,16 +1,16 @@
 {
     "author_email": "devel@florian-diesch.de", 
     "author_name": "Florian Diesch", 
-    "distribution": "raring", 
+    "distribution": "wily", 
     "license": "GPL-3.0+", 
-    "ppa": "diesch/experimental", 
+    "ppa": "diesch/testing", 
     "prefix": "", 
     "proglang": "Python", 
     "projectname": "classicmenu-indicator", 
     "projecttitle": "ClassicMenu Indicator", 
     "pythonname": "classicmenu_indicator", 
     "short_desc": "classicmenu-indicator", 
-    "version": "0.10~rc3", 
+    "version": "0.10-1", 
     "web_prefix": "http://www.florian-diesch.de/software", 
     "web_url": "http://www.florian-diesch.de/software/classicmenu-indicator/"
 }

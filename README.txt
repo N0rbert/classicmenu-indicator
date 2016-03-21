@@ -3,23 +3,28 @@
 ================================
 
 ClassicMenu Indicator is a notification area applet (application
-indicator) for the top panel of Ubuntu's `Unity desktop environment
-<http://unity.ubuntu.com/>`_. It provides a simple way to get a
-classic GNOME-style application menu for those who prefer this over
-the Unity dash menu. Like the classic GNOME menu, it includes Wine
-games and applications if you have those installed.
+indicator) for the top panel of Ubuntu’s Unity desktop environment and
+other environments that support the AppIndicator protocol.
+
+It provides a simple way to get a GNOME Classic-style application menu
+for those who prefer this over the Unity dash menu.
+
+If you use WINE applications or games they are available in
+ClassicMenu Indicator, too. Depending on your local settings you may
+have to open the Preferences dialog from the ClassicMenu Indicator
+submenu and activate the WINE menu there.
 
 ========
  Get it
 ========
 
-ClassicMenu Indicator ist available at `<http://www.florian-diesch.de/software/classicmenu-indicator/>`_
+ClassicMenu Indicator is available at `<http://www.florian-diesch.de/software/classicmenu-indicator/>`_
 
 ========
  Status
 ========
 
-ClassicMenu Indicator is beta software. It works for me and a lot of other users but may still have some bugs.  **Use it at your own risk.**
+As far as I know there aren't any critical bugs in ClassicMenu Indicator.
 
 If you find a bug in ClassicMenu Indicator please report it at the `bugtracker at Launchapd <https://bugs.launchpad.net/classicmenu-indicator/+filebug>`_
 so that I can fix it. Thank you.
@@ -29,14 +34,18 @@ so that I can fix it. Thank you.
  Requirements
 ==============
 
-ClassicMenu Indicator is developed and tested on Ubuntu 11.04 "Natty Narwhal"
+ClassicMenu Indicator is beeing developed on Ubuntu 15.10 “Wily
+Werewolf” and additionally tested on Ubuntu 16.04 “Xenial Xerus”,
+Ubuntu 12.04 “Precise Pangolin” and Ubuntu 14.04 “Trusty Tahr”.
 
 ClassicMenu Indicator needs the following packages from the software sources:
- 
-- python-gmenu
-- python-appindicator
-- python-gtk2
-- python-gobject
+
+* python3-gi
+* gir1.2-glib-2.0
+* gir1.2-gtk-3.0
+* gir1.2-gmenu-3.0
+* gir1.2-appindicator3-0.1
+* python3-pkg-resources
 
 If you install the .deb package this packages will be automatically
 installed if needed.

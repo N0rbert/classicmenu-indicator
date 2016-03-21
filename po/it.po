@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: classicmenu-indicator\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-03-04 19:47+0100\n"
-"PO-Revision-Date: 2014-05-09 11:06+0000\n"
+"PO-Revision-Date: 2016-03-18 08:42+0000\n"
 "Last-Translator: Raffaele <raffaelone@gmail.com>\n"
 "Language-Team: Italian <it@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-03-16 13:32+0000\n"
+"X-Launchpad-Export-Date: 2016-03-21 13:08+0000\n"
 "X-Generator: Launchpad (build 17947)\n"
 
 #: ../classicmenu_indicator/about.py:19
@@ -25,7 +25,7 @@ msgstr ""
 
 #: ../classicmenu_indicator/cmindicator.py:217
 msgid "Reload menu"
-msgstr ""
+msgstr "Aggiorna"
 
 #: ../classicmenu_indicator/cmindicator.py:229
 msgid "Go to Web Page"
@@ -34,7 +34,7 @@ msgstr "Visita il sito web"
 #: ../classicmenu_indicator/cmindicator.py:237
 #, python-format
 msgid "Report a bug in %s"
-msgstr ""
+msgstr "Segnala un bug di %s"
 
 #: ../classicmenu_indicator/cmindicator.py:243
 msgid "Help with Translations"
@@ -51,19 +51,19 @@ msgstr "Dona tramite PayPal"
 #: ../classicmenu_indicator/cmindicator.py:262
 #, python-format
 msgid "Quit %s"
-msgstr ""
+msgstr "Chiudi %s"
 
 #: ../classicmenu_indicator/cmindicator.py:352
 msgid "Updating menu..."
-msgstr ""
+msgstr "Aggiornamento in corso...."
 
 #: ../classicmenu_indicator/cmindicator.py:353
 msgid "Please wait"
-msgstr ""
+msgstr "Attendere prego"
 
 #: ../classicmenu_indicator/dialogs.py:128
 msgid "Any files"
-msgstr ""
+msgstr "Qualsiasi file"
 
 #: ../data/desktop/classicmenu-indicator.desktop.in.h:1
 #: ../data/autostart/classicmenu-indicator.desktop.in.h:1
@@ -77,11 +77,11 @@ msgstr "Indicatore che mostra il classico menù principale di GNOME"
 
 #: ../data/ui/preferences.ui.h:1
 msgid "Preferences"
-msgstr ""
+msgstr "Preferenze"
 
 #: ../data/ui/preferences.ui.h:2
 msgid "Set to defaults"
-msgstr ""
+msgstr "Imposta valori predefiniti"
 
 #: ../data/ui/preferences.ui.h:3
 msgid ""
@@ -97,69 +97,72 @@ msgstr ""
 
 #: ../data/ui/preferences.ui.h:6
 msgid "\n"
-msgstr ""
+msgstr "\n"
 
 #: ../data/ui/preferences.ui.h:8
 msgid "Use standard menu"
-msgstr ""
+msgstr "Utilizza menù standard"
 
 #: ../data/ui/preferences.ui.h:9
 msgid ">>>"
-msgstr ""
+msgstr ">>>"
 
 #: ../data/ui/preferences.ui.h:10
 msgid "<<<"
-msgstr ""
+msgstr "<<<"
 
 #: ../data/ui/preferences.ui.h:11
 msgid "Menus"
-msgstr ""
+msgstr "Menù"
 
 #: ../data/ui/preferences.ui.h:12
 msgid "Show menu icons:"
-msgstr ""
+msgstr "Visualizza icone del menù:"
 
 #: ../data/ui/preferences.ui.h:13
 msgid "Show hidden entries:"
-msgstr ""
+msgstr "Visualizza voci nascoste"
 
 #: ../data/ui/preferences.ui.h:14
 msgid "Use tooltips:"
-msgstr ""
+msgstr "Utilizza i suggerimenti:"
 
 #: ../data/ui/preferences.ui.h:15
 msgid "Icon:"
-msgstr ""
+msgstr "Icona:"
 
 #: ../data/ui/preferences.ui.h:16
 msgid "Old icon"
-msgstr ""
+msgstr "Icona classica"
 
 #: ../data/ui/preferences.ui.h:17
 msgid "New Icon (dark)"
-msgstr ""
+msgstr "Nuova Icona (dark)"
 
 #: ../data/ui/preferences.ui.h:18
 msgid "New Icon (light)"
-msgstr ""
+msgstr "Nuova Icona (light)"
 
 #: ../data/ui/preferences.ui.h:19
 msgid "New Icon (auto)"
-msgstr ""
+msgstr "Nuova Icona (auto)"
 
 #: ../data/ui/preferences.ui.h:20
 msgid "Custom"
-msgstr ""
+msgstr "Personalizzata"
 
 #: ../data/ui/preferences.ui.h:21
 msgid "<small>(doesn't work in some environments)</small>"
-msgstr ""
+msgstr "<small>(non funziona in alcuni sistemi )</small>"
 
 #: ../data/ui/preferences.ui.h:22
 msgid ""
 "Some menu definition don't include extra menus like the ones used by Wine. \n"
 "Do you want ClassicMenu Indicator to add those extra menus?"
 msgstr ""
+"Alcune definizioni non includono menu aggiuntivi come quelli utilizzati da "
+"Wine.\n"
+"Si desidera che ClassicMenu Indicator aggiunga questi menù aggiuntivi?"
 
 #: ../data/ui/preferences.ui.h:24
 msgid "Add extra/Wine menus:"

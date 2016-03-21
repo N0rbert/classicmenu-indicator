@@ -350,7 +350,7 @@ class ClassicMenuIndicator(object):
         
     def on_menuitem_activate(self, menuitem, entry):        
         appinfo = entry.get_app_info()
-        appinfo.launch()
+        appinfo.launch([], None)
 
     def on_menuitem_preferences_activate(self, menuitem):
         dlg = preferencesdlg.PreferencesDlg()
