@@ -1,4 +1,10 @@
-classicmenu-indicator (0.10-1) wily; urgency=medium
+classicmenu-indicator (0.10.2) wily; urgency=medium
+
+  * 
+
+ -- Florian Diesch <devel@florian-diesch.de>  Fri, 12 Aug 2016 01:52:09 +0200
+
+classicmenu-indicator (0.10.1) wily; urgency=medium
 
    * Fixed calling of Gio.AppInfo.launch() for precise (LP: #1559253)
    * Added Amharic translations

@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 #-*- coding: utf-8 -*-
 #
 # ClassicMenu Indicator - an indicator applet for Unity, that 
@@ -129,13 +128,13 @@ class ClassicMenuIndicator(object):
                     ['gtk-execute', 'applications-other'],
                     settings.ICON_SIZE,
                     Gtk.IconLookupFlags.USE_BUILTIN)
-                pixbuf = icon_info.load_icon()
-                pixbuf.scale_simple(16, 16, GdkPixbuf.InterpType.BILINEAR)
-                img = Gtk.Image.new_from_pixbuf(pixbuf)
+                if icon_info is not None:
+                    pixbuf = icon_info.load_icon()
+                    pixbuf.scale_simple(16, 16,
+                                            GdkPixbuf.InterpType.BILINEAR)
+                    img = Gtk.Image.new_from_pixbuf(pixbuf)
 
-
-            if img is None:  # is this possible?
-                print('IMG is None')
+            if img is None:
                 img = Gtk.Image()
                 img.set_from_icon_name('gtk-execute', settings.ICON_SIZE)
             menu_item.set_image(img)

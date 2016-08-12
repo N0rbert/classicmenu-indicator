@@ -21,5 +21,10 @@ Depends: ${misc:Depends},
 	 gir1.2-gmenu-3.0,
 	 gir1.2-appindicator3-0.1,
          python3-pkg-resources
-Description: indicator showing the main menu from Gnome Classic
- classicmenu-indicator displays the main menu from Gnome2/Gnome Classic
+Description: indicator showing a classic application menu
+ ClassicMenu Indicator is a notification area applet (application
+ indicator) for the top panel of Ubuntu’s Unity desktop environment
+ and other environments that support the AppIndicator protocol.
+ .
+ It provides a simple way to get a GNOME Classic-style application
+ menu for those who prefer this over the Unity dash menu.

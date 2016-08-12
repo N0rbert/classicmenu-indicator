@@ -3,6 +3,37 @@ NEWS for classicmenu-indicator
 ==============================
 
 
+
+0.10 (2016-03-17)
+=================
+
+* Ported to Python3, PyGObject and GTK3
+* Added configuration dialog
+* Added Basque, Finnish, Hungarian, Italian, Korean, Dutch, Polish,
+  Romanian, Scots, Ukrainian, Uzbek translations
+* Lots of bug fixes
+
+
+0.09-1 (2014-09-25)
+===================
+
+* added 'python-xdg' as a dependency (LP: #1363891)  Thanks to Graham Inggs
+* replaced build-deb 'python-all' with 'python'
+
+
+0.09 (2014-03-07)
+=================
+
+* Use desktop-specific menu if available (uses ``$XDG_MENU_PREFIX``). This fixes
+ the menu on e.g. Xubuntu (`bug 1228053 <https://bugs.launchpad.net/classicmenu-
+indicator/+bug/1228053>`__)
+* Fixed text for icons in ClassicMenu Indicator submenu (`bug #1220961 <https://
+bugs.launchpad.net/classicmenu-indicator/+bug/1220961>`__)
+* Added some menu items to change configuration
+* Added Arabic, Bulgarian, Catalan, Galician, Greek, Norwegian Bokmal,
+  Spanish, Swedish, Telugu, Turkish translations
+
+
 0.08  (2013-08-24)
 ==================
 
@@ -28,6 +59,7 @@ NEWS for classicmenu-indicator
 * Fixed a bug that under some circumstances could lead to an infinite
   loop after updating the menu file
 
+
 0.05  (2011-10-11)
 ==================
 
@@ -42,16 +74,21 @@ NEWS for classicmenu-indicator
 
 0.03  (2011-06-15)
 ==================
+
  * Aways show icons
  * Added "Settings" and "System Administration" menus
  * Using mono style icon
  * Added ``--help`` and ``--version`` command line options
 
+
 0.02  (2011-06-04)
 ==================
+
  * Bugfix: Don't wait for a started program to finish before start the 
    next one
 
+
 0.01  (2011-06-02)
 =================
+
  * Initial release

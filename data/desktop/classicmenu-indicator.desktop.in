@@ -1,9 +1,10 @@
 [Desktop Entry]
 _Name=ClassicMenu Indicator
 _Comment=Indicator applet to show the Gnome Classic main menu
-_GenericName=ClassicMenu Indicator
+_GenericName=Application Menu
 Categories=GNOME;Utility;
 Exec=classicmenu-indicator
 Icon=classicmenu-indicator-light
 Terminal=false
 Type=Application
+Keywords=Menu;Applications;Classic;Programs;Run;Start;

@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 #-*- coding: utf-8 -*-
 #
 # ClassicMenu Indicator - classicmenu-indicator
@@ -27,7 +27,7 @@ from setuptools import setup, find_packages
 try:
     from DistUtilsExtra.command import *
 except ImportError:
-    print >> sys.stderr, 'To build ClassicMenu Indicator you need https://launchpad.net/python-distutils-extra'
+    print('To build ClassicMenu Indicator you need https://launchpad.net/python-distutils-extra', file=sys.stderr)
     sys.exit(1)
 
 
@@ -50,6 +50,8 @@ setup(
     description='An Unity indicator applet that provides the classic GNOME application menu',
     long_description=read_from_file('README.txt'),
     data_files=[
+        ('/usr/share/man/man1',
+         glob.glob('data/man/*.1')),
         ('/usr/share/applications',
          glob.glob('data/desktop/*.desktop')),
         ('share/classicmenu-indicator/ui/',
@@ -86,7 +88,7 @@ setup(
         'Natural Language :: English',
         'Natural Language :: German',
         'Operating System :: POSIX :: Linux',
-        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3',
         'Topic :: Desktop Environment :: Gnome',
         'Topic :: Utilities',
         ],
