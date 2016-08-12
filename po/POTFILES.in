@@ -2,7 +2,6 @@ classicmenu_indicator/__init__.py
 classicmenu_indicator/settings.py
 classicmenu_indicator/_meta.py
 classicmenu_indicator/tvtools.py
-classicmenu_indicator/config.py
 classicmenu_indicator/about.py
 classicmenu_indicator/cmindicator.py
 classicmenu_indicator/preferencesdlg.py

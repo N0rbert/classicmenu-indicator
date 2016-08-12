@@ -104,6 +104,8 @@ class ClassicMenuIndicator(object):
             comment = entry.get_comment() 
 
         menu_item = Gtk.ImageMenuItem(name)
+
+        img = None
         
         if settings.USE_MENU_ICONS:
             try:

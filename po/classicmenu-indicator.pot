@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-12 01:52+0200\n"
+"POT-Creation-Date: 2016-08-13 01:15+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,41 +21,41 @@ msgstr ""
 msgid "translator-credits"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:216
+#: ../classicmenu_indicator/cmindicator.py:218
 msgid "Reload menu"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:228
+#: ../classicmenu_indicator/cmindicator.py:230
 msgid "Go to Web Page"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:236
+#: ../classicmenu_indicator/cmindicator.py:238
 #, python-format
 msgid "Report a bug in %s"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:242
+#: ../classicmenu_indicator/cmindicator.py:244
 msgid "Help with Translations"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:248
+#: ../classicmenu_indicator/cmindicator.py:250
 msgid "Donate via Flattr"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:254
+#: ../classicmenu_indicator/cmindicator.py:256
 msgid "Donate via PayPal"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:261
+#: ../classicmenu_indicator/cmindicator.py:263
 #, python-format
 msgid "Quit %s"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:338
+#: ../classicmenu_indicator/cmindicator.py:340
 msgid "Updating menu..."
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:339
+#: ../classicmenu_indicator/cmindicator.py:341
 msgid "Please wait"
 msgstr ""
 

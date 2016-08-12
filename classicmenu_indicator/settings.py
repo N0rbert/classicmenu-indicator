@@ -77,7 +77,8 @@ class Vars(object):
         try:
             os.makedirs(self.APP_CONFIG_HOME)
         except OSError as e:
-            print(e)
+            if e.errno != 17:  # dir exists
+                print(e)
 
         self.load()
 
