@@ -7,63 +7,64 @@ msgid ""
 msgstr ""
 "Project-Id-Version: classicmenu-indicator\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-03-04 19:47+0100\n"
-"PO-Revision-Date: 2014-05-02 18:49+0000\n"
-"Last-Translator: A.J. Baudrez <a.baudrez@gmail.com>\n"
+"POT-Creation-Date: 2016-08-13 01:15+0200\n"
+"PO-Revision-Date: 2016-06-20 11:03+0000\n"
+"Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
 "Language-Team: Dutch <nl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-03-21 13:08+0000\n"
-"X-Generator: Launchpad (build 17947)\n"
+"X-Launchpad-Export-Date: 2016-08-17 22:24+0000\n"
+"X-Generator: Launchpad (build 18169)\n"
 
-#: ../classicmenu_indicator/about.py:19
+#: ../classicmenu_indicator/about.py:20
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
+"  Heimen Stoffels https://launchpad.net/~vistaus\n"
 "  Johan https://launchpad.net/~johan-verhaeghe"
 
-#: ../classicmenu_indicator/cmindicator.py:217
+#: ../classicmenu_indicator/cmindicator.py:218
 msgid "Reload menu"
-msgstr ""
+msgstr "Menu herladen"
 
-#: ../classicmenu_indicator/cmindicator.py:229
+#: ../classicmenu_indicator/cmindicator.py:230
 msgid "Go to Web Page"
 msgstr "Ga naar webpagina"
 
-#: ../classicmenu_indicator/cmindicator.py:237
+#: ../classicmenu_indicator/cmindicator.py:238
 #, python-format
 msgid "Report a bug in %s"
-msgstr ""
+msgstr "Rapporteer een bug in %s"
 
-#: ../classicmenu_indicator/cmindicator.py:243
+#: ../classicmenu_indicator/cmindicator.py:244
 msgid "Help with Translations"
 msgstr "Help met vertalen"
 
-#: ../classicmenu_indicator/cmindicator.py:249
+#: ../classicmenu_indicator/cmindicator.py:250
 msgid "Donate via Flattr"
 msgstr "Doneren via Flattr"
 
-#: ../classicmenu_indicator/cmindicator.py:255
+#: ../classicmenu_indicator/cmindicator.py:256
 msgid "Donate via PayPal"
 msgstr "Doneren via PayPal"
 
-#: ../classicmenu_indicator/cmindicator.py:262
+#: ../classicmenu_indicator/cmindicator.py:263
 #, python-format
 msgid "Quit %s"
-msgstr ""
+msgstr "%s afsluiten"
 
-#: ../classicmenu_indicator/cmindicator.py:352
+#: ../classicmenu_indicator/cmindicator.py:340
 msgid "Updating menu..."
-msgstr ""
+msgstr "Bezig met bijwerken van menu..."
 
-#: ../classicmenu_indicator/cmindicator.py:353
+#: ../classicmenu_indicator/cmindicator.py:341
 msgid "Please wait"
-msgstr ""
+msgstr "Even geduld a.u.b."
 
 #: ../classicmenu_indicator/dialogs.py:128
 msgid "Any files"
-msgstr ""
+msgstr "Elk bestand"
 
 #: ../data/desktop/classicmenu-indicator.desktop.in.h:1
 #: ../data/autostart/classicmenu-indicator.desktop.in.h:1
@@ -75,13 +76,17 @@ msgstr "ClassicMenu Indicator"
 msgid "Indicator applet to show the Gnome Classic main menu"
 msgstr "Indicatorapplet om het klassieke Gnome Classic-hoofdmenu te tonen"
 
+#: ../data/desktop/classicmenu-indicator.desktop.in.h:3
+msgid "Application Menu"
+msgstr ""
+
 #: ../data/ui/preferences.ui.h:1
 msgid "Preferences"
-msgstr ""
+msgstr "Voorkeuren"
 
 #: ../data/ui/preferences.ui.h:2
 msgid "Set to defaults"
-msgstr ""
+msgstr "Stel in op de standaardwaarden"
 
 #: ../data/ui/preferences.ui.h:3
 msgid ""
@@ -97,73 +102,74 @@ msgstr ""
 
 #: ../data/ui/preferences.ui.h:6
 msgid "\n"
-msgstr ""
+msgstr "\n"
 
 #: ../data/ui/preferences.ui.h:8
 msgid "Use standard menu"
-msgstr ""
+msgstr "Standaardmenu gebruiken"
 
 #: ../data/ui/preferences.ui.h:9
 msgid ">>>"
-msgstr ""
+msgstr ">>>"
 
 #: ../data/ui/preferences.ui.h:10
 msgid "<<<"
-msgstr ""
+msgstr "<<<"
 
 #: ../data/ui/preferences.ui.h:11
 msgid "Menus"
-msgstr ""
+msgstr "Menu's"
 
 #: ../data/ui/preferences.ui.h:12
 msgid "Show menu icons:"
-msgstr ""
+msgstr "Menupictogrammen weergeven:"
 
 #: ../data/ui/preferences.ui.h:13
 msgid "Show hidden entries:"
-msgstr ""
+msgstr "Verborgen items weergeven:"
 
 #: ../data/ui/preferences.ui.h:14
 msgid "Use tooltips:"
-msgstr ""
+msgstr "Hulpballonnen gebruiken:"
 
 #: ../data/ui/preferences.ui.h:15
 msgid "Icon:"
-msgstr ""
+msgstr "Pictogram:"
 
 #: ../data/ui/preferences.ui.h:16
 msgid "Old icon"
-msgstr ""
+msgstr "Oude pictogram"
 
 #: ../data/ui/preferences.ui.h:17
 msgid "New Icon (dark)"
-msgstr ""
+msgstr "Nieuwe pictogram (donker)"
 
 #: ../data/ui/preferences.ui.h:18
 msgid "New Icon (light)"
-msgstr ""
+msgstr "Nieuwe pictogram (licht)"
 
 #: ../data/ui/preferences.ui.h:19
 msgid "New Icon (auto)"
-msgstr ""
+msgstr "Nieuwe pictogram (automatisch)"
 
 #: ../data/ui/preferences.ui.h:20
 msgid "Custom"
-msgstr ""
+msgstr "Aangepast"
 
 #: ../data/ui/preferences.ui.h:21
 msgid "<small>(doesn't work in some environments)</small>"
-msgstr ""
+msgstr "<small>(werkt niet in sommige werkomgevingen)</small>"
 
 #: ../data/ui/preferences.ui.h:22
 msgid ""
-"Some menu definition don't include extra menus like the ones used by Wine. \n"
-"Do you want ClassicMenu Indicator to add those extra menus?"
+"Some menu definitions don't include extra menus like the ones for Wine. \n"
+"ClassicMenu Indicator can add them. If your menu definitions include them, "
+"too, you will see them twice."
 msgstr ""
 
 #: ../data/ui/preferences.ui.h:24
 msgid "Add extra/Wine menus:"
-msgstr ""
+msgstr "Extra/Wine-menu's toevoegen:"
 
 #: ../data/ui/preferences.ui.h:25
 msgid ""
@@ -173,12 +179,18 @@ msgstr ""
 
 #: ../data/ui/preferences.ui.h:26
 msgid "Add menu with all apps:"
-msgstr ""
+msgstr "Menu met alle apps toevoegen:"
 
 #: ../data/ui/preferences.ui.h:27
+msgid ""
+"Some menu definition don't include extra menus like the ones used by Wine. \n"
+"Do you want ClassicMenu Indicator to add those extra menus?"
+msgstr ""
+
+#: ../data/ui/preferences.ui.h:29
 msgid "<small>(if available)</small>"
 msgstr ""
 
-#: ../data/ui/preferences.ui.h:28
+#: ../data/ui/preferences.ui.h:30
 msgid "Settings"
 msgstr ""

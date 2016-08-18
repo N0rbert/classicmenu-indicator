@@ -7,58 +7,58 @@ msgid ""
 msgstr ""
 "Project-Id-Version: classicmenu-indicator\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-03-04 19:47+0100\n"
+"POT-Creation-Date: 2016-08-13 01:15+0200\n"
 "PO-Revision-Date: 2015-02-01 16:13+0000\n"
 "Last-Translator: Zsigri Gyula <zsigri@gmail.com>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-03-21 13:08+0000\n"
-"X-Generator: Launchpad (build 17947)\n"
+"X-Launchpad-Export-Date: 2016-08-17 22:24+0000\n"
+"X-Generator: Launchpad (build 18169)\n"
 
-#: ../classicmenu_indicator/about.py:19
+#: ../classicmenu_indicator/about.py:20
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
 "  Zsigri Gyula https://launchpad.net/~zsigri-2\n"
 "  mktiti https://launchpad.net/~markuskrisztian1"
 
-#: ../classicmenu_indicator/cmindicator.py:217
+#: ../classicmenu_indicator/cmindicator.py:218
 msgid "Reload menu"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:229
+#: ../classicmenu_indicator/cmindicator.py:230
 msgid "Go to Web Page"
 msgstr "Weboldal felkeresése"
 
-#: ../classicmenu_indicator/cmindicator.py:237
+#: ../classicmenu_indicator/cmindicator.py:238
 #, python-format
 msgid "Report a bug in %s"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:243
+#: ../classicmenu_indicator/cmindicator.py:244
 msgid "Help with Translations"
 msgstr "Segítség a fordításban"
 
-#: ../classicmenu_indicator/cmindicator.py:249
+#: ../classicmenu_indicator/cmindicator.py:250
 msgid "Donate via Flattr"
 msgstr "Támogatás Flattr-rel"
 
-#: ../classicmenu_indicator/cmindicator.py:255
+#: ../classicmenu_indicator/cmindicator.py:256
 msgid "Donate via PayPal"
 msgstr "Támogatás PayPallel"
 
-#: ../classicmenu_indicator/cmindicator.py:262
+#: ../classicmenu_indicator/cmindicator.py:263
 #, python-format
 msgid "Quit %s"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:352
+#: ../classicmenu_indicator/cmindicator.py:340
 msgid "Updating menu..."
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:353
+#: ../classicmenu_indicator/cmindicator.py:341
 msgid "Please wait"
 msgstr ""
 
@@ -75,6 +75,10 @@ msgstr "ClassicMenu Indikátor"
 #: ../data/autostart/classicmenu-indicator.desktop.in.h:2
 msgid "Indicator applet to show the Gnome Classic main menu"
 msgstr "Indikátor alkalmazás a klasszikus Gnome főmenü megjelentéséhez"
+
+#: ../data/desktop/classicmenu-indicator.desktop.in.h:3
+msgid "Application Menu"
+msgstr ""
 
 #: ../data/ui/preferences.ui.h:1
 msgid "Preferences"
@@ -158,8 +162,9 @@ msgstr ""
 
 #: ../data/ui/preferences.ui.h:22
 msgid ""
-"Some menu definition don't include extra menus like the ones used by Wine. \n"
-"Do you want ClassicMenu Indicator to add those extra menus?"
+"Some menu definitions don't include extra menus like the ones for Wine. \n"
+"ClassicMenu Indicator can add them. If your menu definitions include them, "
+"too, you will see them twice."
 msgstr ""
 
 #: ../data/ui/preferences.ui.h:24
@@ -177,9 +182,15 @@ msgid "Add menu with all apps:"
 msgstr ""
 
 #: ../data/ui/preferences.ui.h:27
+msgid ""
+"Some menu definition don't include extra menus like the ones used by Wine. \n"
+"Do you want ClassicMenu Indicator to add those extra menus?"
+msgstr ""
+
+#: ../data/ui/preferences.ui.h:29
 msgid "<small>(if available)</small>"
 msgstr ""
 
-#: ../data/ui/preferences.ui.h:28
+#: ../data/ui/preferences.ui.h:30
 msgid "Settings"
 msgstr ""

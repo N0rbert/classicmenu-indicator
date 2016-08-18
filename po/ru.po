@@ -7,64 +7,68 @@ msgid ""
 msgstr ""
 "Project-Id-Version: classicmenu-indicator\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-03-04 19:47+0100\n"
-"PO-Revision-Date: 2014-05-04 14:42+0000\n"
-"Last-Translator: Павел <diablo_rider@mail.ru>\n"
+"POT-Creation-Date: 2016-08-13 01:15+0200\n"
+"PO-Revision-Date: 2016-08-15 08:15+0000\n"
+"Last-Translator: Vadim Polyakov <itpn@yandex.ru>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-03-21 13:08+0000\n"
-"X-Generator: Launchpad (build 17947)\n"
+"X-Launchpad-Export-Date: 2016-08-17 22:24+0000\n"
+"X-Generator: Launchpad (build 18169)\n"
 
-#: ../classicmenu_indicator/about.py:19
+#: ../classicmenu_indicator/about.py:20
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
+"  Alexander Myslivets https://launchpad.net/~alexander-myslivets\n"
+"  Denis https://launchpad.net/~denis2371\n"
 "  Eugene Marshal https://launchpad.net/~lowrider\n"
+"  Vadim Polyakov https://launchpad.net/~itpn\n"
+"  Евгений Козлов https://launchpad.net/~evgeny-kozlov-mailbox\n"
 "  Павел https://launchpad.net/~diablo-rider"
 
-#: ../classicmenu_indicator/cmindicator.py:217
+#: ../classicmenu_indicator/cmindicator.py:218
 msgid "Reload menu"
-msgstr ""
+msgstr "Перезагрузить меню"
 
-#: ../classicmenu_indicator/cmindicator.py:229
+#: ../classicmenu_indicator/cmindicator.py:230
 msgid "Go to Web Page"
 msgstr "Перейти на веб-сайт"
 
-#: ../classicmenu_indicator/cmindicator.py:237
+#: ../classicmenu_indicator/cmindicator.py:238
 #, python-format
 msgid "Report a bug in %s"
-msgstr ""
+msgstr "Сообщить об ошибке в %s"
 
-#: ../classicmenu_indicator/cmindicator.py:243
+#: ../classicmenu_indicator/cmindicator.py:244
 msgid "Help with Translations"
 msgstr "Помочь с переводом"
 
-#: ../classicmenu_indicator/cmindicator.py:249
+#: ../classicmenu_indicator/cmindicator.py:250
 msgid "Donate via Flattr"
 msgstr "Пожертвовать через Flattr"
 
-#: ../classicmenu_indicator/cmindicator.py:255
+#: ../classicmenu_indicator/cmindicator.py:256
 msgid "Donate via PayPal"
 msgstr "Пожертвовать через PayPal"
 
-#: ../classicmenu_indicator/cmindicator.py:262
+#: ../classicmenu_indicator/cmindicator.py:263
 #, python-format
 msgid "Quit %s"
-msgstr ""
+msgstr "Выйти из %s"
 
-#: ../classicmenu_indicator/cmindicator.py:352
+#: ../classicmenu_indicator/cmindicator.py:340
 msgid "Updating menu..."
-msgstr ""
+msgstr "Обновление меню"
 
-#: ../classicmenu_indicator/cmindicator.py:353
+#: ../classicmenu_indicator/cmindicator.py:341
 msgid "Please wait"
-msgstr ""
+msgstr "Подождите, пожалуйста"
 
 #: ../classicmenu_indicator/dialogs.py:128
 msgid "Any files"
-msgstr ""
+msgstr "Все файлы"
 
 #: ../data/desktop/classicmenu-indicator.desktop.in.h:1
 #: ../data/autostart/classicmenu-indicator.desktop.in.h:1
@@ -76,13 +80,17 @@ msgstr "Индикатор ClassicMenu"
 msgid "Indicator applet to show the Gnome Classic main menu"
 msgstr "Апплет для отображения главного меню Gnome Classic"
 
+#: ../data/desktop/classicmenu-indicator.desktop.in.h:3
+msgid "Application Menu"
+msgstr "Меню приложений"
+
 #: ../data/ui/preferences.ui.h:1
 msgid "Preferences"
-msgstr ""
+msgstr "Параметры"
 
 #: ../data/ui/preferences.ui.h:2
 msgid "Set to defaults"
-msgstr ""
+msgstr "Сброс по умолчанию"
 
 #: ../data/ui/preferences.ui.h:3
 msgid ""
@@ -95,91 +103,115 @@ msgid ""
 "Indicator displaying a menu. If you select more then one menu definition all "
 "definitions are used in the order they appear on the right."
 msgstr ""
+"Индикатор ClassicMenu не имеет своего собственного определения меню, "
+"пользуясь стандартными определениями меню уже присутствующими в большинстве "
+"систем. Вы можете править эти определения меню, пользуясь редакторами меню "
+"такими как Alacarte, MenuLibre и им подобными.\n"
+"\n"
+"Чтобы индикатор ClassicMenu мог отобразить меню, вам необходимо выбрать хотя "
+"бы одно из определений меню. При выборе более одного определения меню будут "
+"использоваться все определения в порядке, представленном справа."
 
 #: ../data/ui/preferences.ui.h:6
 msgid "\n"
-msgstr ""
+msgstr "\n"
 
 #: ../data/ui/preferences.ui.h:8
 msgid "Use standard menu"
-msgstr ""
+msgstr "Использовать стандартное меню"
 
 #: ../data/ui/preferences.ui.h:9
 msgid ">>>"
-msgstr ""
+msgstr ">>>"
 
 #: ../data/ui/preferences.ui.h:10
 msgid "<<<"
-msgstr ""
+msgstr "<<<"
 
 #: ../data/ui/preferences.ui.h:11
 msgid "Menus"
-msgstr ""
+msgstr "Меню"
 
 #: ../data/ui/preferences.ui.h:12
 msgid "Show menu icons:"
-msgstr ""
+msgstr "Показывать значки"
 
 #: ../data/ui/preferences.ui.h:13
 msgid "Show hidden entries:"
-msgstr ""
+msgstr "Показывать скрытые пункты"
 
 #: ../data/ui/preferences.ui.h:14
 msgid "Use tooltips:"
-msgstr ""
+msgstr "Использовать подсказки"
 
 #: ../data/ui/preferences.ui.h:15
 msgid "Icon:"
-msgstr ""
+msgstr "Значок:"
 
 #: ../data/ui/preferences.ui.h:16
 msgid "Old icon"
-msgstr ""
+msgstr "Старый значок"
 
 #: ../data/ui/preferences.ui.h:17
 msgid "New Icon (dark)"
-msgstr ""
+msgstr "Новый значок (темный)"
 
 #: ../data/ui/preferences.ui.h:18
 msgid "New Icon (light)"
-msgstr ""
+msgstr "Новый значок (светлый)"
 
 #: ../data/ui/preferences.ui.h:19
 msgid "New Icon (auto)"
-msgstr ""
+msgstr "Новый значок (авто)"
 
 #: ../data/ui/preferences.ui.h:20
 msgid "Custom"
-msgstr ""
+msgstr "По выбору"
 
 #: ../data/ui/preferences.ui.h:21
 msgid "<small>(doesn't work in some environments)</small>"
-msgstr ""
+msgstr "<small>(не работает в некоторых оболочках)</small>"
 
 #: ../data/ui/preferences.ui.h:22
 msgid ""
-"Some menu definition don't include extra menus like the ones used by Wine. \n"
-"Do you want ClassicMenu Indicator to add those extra menus?"
+"Some menu definitions don't include extra menus like the ones for Wine. \n"
+"ClassicMenu Indicator can add them. If your menu definitions include them, "
+"too, you will see them twice."
 msgstr ""
+"Некоторые определения меню не содержат дополнительных пунктов, например для "
+"Wine. \n"
+"Индикатор ClassicMenu может их добавить. Если они присутствуют также и в "
+"ваших определениях меню, вы увидите их дважды."
 
 #: ../data/ui/preferences.ui.h:24
 msgid "Add extra/Wine menus:"
-msgstr ""
+msgstr "Добавлять дополнительные/Wine меню"
 
 #: ../data/ui/preferences.ui.h:25
 msgid ""
 "Do you want an additional single menu that contains all apps in alphabetical "
 "order?"
 msgstr ""
+"Хотите дополнительный пункт меню, содержащий все программы в алфавитном "
+"порядке?"
 
 #: ../data/ui/preferences.ui.h:26
 msgid "Add menu with all apps:"
-msgstr ""
+msgstr "Добавить пункт со всеми программами:"
 
 #: ../data/ui/preferences.ui.h:27
-msgid "<small>(if available)</small>"
+msgid ""
+"Some menu definition don't include extra menus like the ones used by Wine. \n"
+"Do you want ClassicMenu Indicator to add those extra menus?"
 msgstr ""
+"Некоторые определения меню не имеют дополнительных пунктов, подобных тем, "
+"что использует Wine. \n"
+"Хотите, чтобы индикатор ClassicMenu добавил такие пункты?"
 
-#: ../data/ui/preferences.ui.h:28
+#: ../data/ui/preferences.ui.h:29
+msgid "<small>(if available)</small>"
+msgstr "<small>(если доступно)</small>"
+
+#: ../data/ui/preferences.ui.h:30
 msgid "Settings"
-msgstr ""
+msgstr "Настройки"

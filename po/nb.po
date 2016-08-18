@@ -7,81 +7,86 @@ msgid ""
 msgstr ""
 "Project-Id-Version: classicmenu-indicator\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-03-04 19:47+0100\n"
-"PO-Revision-Date: 2014-03-01 13:00+0000\n"
-"Last-Translator: Bjørn Håkon Mathisen <Unknown>\n"
+"POT-Creation-Date: 2016-08-13 01:15+0200\n"
+"PO-Revision-Date: 2016-04-22 15:34+0000\n"
+"Last-Translator: Henning Olsen <henia68@gmail.com>\n"
 "Language-Team: Norwegian Bokmal <nb@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-03-21 13:08+0000\n"
-"X-Generator: Launchpad (build 17947)\n"
+"X-Launchpad-Export-Date: 2016-08-17 22:24+0000\n"
+"X-Generator: Launchpad (build 18169)\n"
 
-#: ../classicmenu_indicator/about.py:19
+#: ../classicmenu_indicator/about.py:20
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
-"  Bjørn Håkon Mathisen https://launchpad.net/~bmathise"
+"  Bjørn Håkon Mathisen https://launchpad.net/~bmathise\n"
+"  Henning Olsen https://launchpad.net/~henia68"
 
-#: ../classicmenu_indicator/cmindicator.py:217
+#: ../classicmenu_indicator/cmindicator.py:218
 msgid "Reload menu"
-msgstr ""
+msgstr "Oppdater meny"
 
-#: ../classicmenu_indicator/cmindicator.py:229
+#: ../classicmenu_indicator/cmindicator.py:230
 msgid "Go to Web Page"
 msgstr "Gå til websiden"
 
-#: ../classicmenu_indicator/cmindicator.py:237
+#: ../classicmenu_indicator/cmindicator.py:238
 #, python-format
 msgid "Report a bug in %s"
-msgstr ""
+msgstr "Rapporter en feil %s"
 
-#: ../classicmenu_indicator/cmindicator.py:243
+#: ../classicmenu_indicator/cmindicator.py:244
 msgid "Help with Translations"
 msgstr "Hjelp til med å oversette"
 
-#: ../classicmenu_indicator/cmindicator.py:249
+#: ../classicmenu_indicator/cmindicator.py:250
 msgid "Donate via Flattr"
 msgstr "Donér via Flattr"
 
-#: ../classicmenu_indicator/cmindicator.py:255
+#: ../classicmenu_indicator/cmindicator.py:256
 msgid "Donate via PayPal"
 msgstr "Donér via PayPal"
 
-#: ../classicmenu_indicator/cmindicator.py:262
+#: ../classicmenu_indicator/cmindicator.py:263
 #, python-format
 msgid "Quit %s"
-msgstr ""
+msgstr "Avslutt %s"
 
-#: ../classicmenu_indicator/cmindicator.py:352
+#: ../classicmenu_indicator/cmindicator.py:340
 msgid "Updating menu..."
-msgstr ""
+msgstr "Oppdaterer menyen..."
 
-#: ../classicmenu_indicator/cmindicator.py:353
+#: ../classicmenu_indicator/cmindicator.py:341
 msgid "Please wait"
-msgstr ""
+msgstr "Vennligst vent"
 
 #: ../classicmenu_indicator/dialogs.py:128
 msgid "Any files"
-msgstr ""
+msgstr "Alle filer"
 
 #: ../data/desktop/classicmenu-indicator.desktop.in.h:1
 #: ../data/autostart/classicmenu-indicator.desktop.in.h:1
 msgid "ClassicMenu Indicator"
-msgstr ""
+msgstr "Klassisk meny indikator"
 
 #: ../data/desktop/classicmenu-indicator.desktop.in.h:2
 #: ../data/autostart/classicmenu-indicator.desktop.in.h:2
 msgid "Indicator applet to show the Gnome Classic main menu"
 msgstr "Indikator-miniprogram som viser den klassiske hovedmenyen for Gnome"
 
+#: ../data/desktop/classicmenu-indicator.desktop.in.h:3
+msgid "Application Menu"
+msgstr ""
+
 #: ../data/ui/preferences.ui.h:1
 msgid "Preferences"
-msgstr ""
+msgstr "Instillinger"
 
 #: ../data/ui/preferences.ui.h:2
 msgid "Set to defaults"
-msgstr ""
+msgstr "Sett til standard"
 
 #: ../data/ui/preferences.ui.h:3
 msgid ""
@@ -97,27 +102,27 @@ msgstr ""
 
 #: ../data/ui/preferences.ui.h:6
 msgid "\n"
-msgstr ""
+msgstr "\n"
 
 #: ../data/ui/preferences.ui.h:8
 msgid "Use standard menu"
-msgstr ""
+msgstr "Bruk standard meny"
 
 #: ../data/ui/preferences.ui.h:9
 msgid ">>>"
-msgstr ""
+msgstr ">>>"
 
 #: ../data/ui/preferences.ui.h:10
 msgid "<<<"
-msgstr ""
+msgstr "<<<"
 
 #: ../data/ui/preferences.ui.h:11
 msgid "Menus"
-msgstr ""
+msgstr "Menyer"
 
 #: ../data/ui/preferences.ui.h:12
 msgid "Show menu icons:"
-msgstr ""
+msgstr "Vis meny ikoner"
 
 #: ../data/ui/preferences.ui.h:13
 msgid "Show hidden entries:"
@@ -125,31 +130,31 @@ msgstr ""
 
 #: ../data/ui/preferences.ui.h:14
 msgid "Use tooltips:"
-msgstr ""
+msgstr "Bruk verktøytips"
 
 #: ../data/ui/preferences.ui.h:15
 msgid "Icon:"
-msgstr ""
+msgstr "Ikon:"
 
 #: ../data/ui/preferences.ui.h:16
 msgid "Old icon"
-msgstr ""
+msgstr "Gammelt ikon"
 
 #: ../data/ui/preferences.ui.h:17
 msgid "New Icon (dark)"
-msgstr ""
+msgstr "Nytt ikon (mørk)"
 
 #: ../data/ui/preferences.ui.h:18
 msgid "New Icon (light)"
-msgstr ""
+msgstr "Nytt ikon (lys)"
 
 #: ../data/ui/preferences.ui.h:19
 msgid "New Icon (auto)"
-msgstr ""
+msgstr "Nytt ikon (auto)"
 
 #: ../data/ui/preferences.ui.h:20
 msgid "Custom"
-msgstr ""
+msgstr "Egendefinert"
 
 #: ../data/ui/preferences.ui.h:21
 msgid "<small>(doesn't work in some environments)</small>"
@@ -157,28 +162,39 @@ msgstr ""
 
 #: ../data/ui/preferences.ui.h:22
 msgid ""
-"Some menu definition don't include extra menus like the ones used by Wine. \n"
-"Do you want ClassicMenu Indicator to add those extra menus?"
+"Some menu definitions don't include extra menus like the ones for Wine. \n"
+"ClassicMenu Indicator can add them. If your menu definitions include them, "
+"too, you will see them twice."
 msgstr ""
 
 #: ../data/ui/preferences.ui.h:24
 msgid "Add extra/Wine menus:"
-msgstr ""
+msgstr "Legg til ekstra/ Wine menyer:"
 
 #: ../data/ui/preferences.ui.h:25
 msgid ""
 "Do you want an additional single menu that contains all apps in alphabetical "
 "order?"
 msgstr ""
+"Vil du ha en enkel tilleggsmeny som inneholder alle apper i alfabetisk "
+"rekkefølge?"
 
 #: ../data/ui/preferences.ui.h:26
 msgid "Add menu with all apps:"
-msgstr ""
+msgstr "Legg til meny med alle apper:"
 
 #: ../data/ui/preferences.ui.h:27
-msgid "<small>(if available)</small>"
+msgid ""
+"Some menu definition don't include extra menus like the ones used by Wine. \n"
+"Do you want ClassicMenu Indicator to add those extra menus?"
 msgstr ""
+"Noen menydefinisjoner inkluderer ikke ekstra menyer som de i Wine.\n"
+"Vil du at ClassicMenu Indicator skal legge til disse ekstra menyene?"
 
-#: ../data/ui/preferences.ui.h:28
+#: ../data/ui/preferences.ui.h:29
+msgid "<small>(if available)</small>"
+msgstr "<smal>(Hvis tilgjengelig)</small>"
+
+#: ../data/ui/preferences.ui.h:30
 msgid "Settings"
-msgstr ""
+msgstr "Instillinger"

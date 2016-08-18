@@ -7,57 +7,58 @@ msgid ""
 msgstr ""
 "Project-Id-Version: classicmenu-indicator\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-03-04 19:47+0100\n"
-"PO-Revision-Date: 2016-03-18 08:42+0000\n"
-"Last-Translator: Raffaele <raffaelone@gmail.com>\n"
+"POT-Creation-Date: 2016-08-13 01:15+0200\n"
+"PO-Revision-Date: 2016-04-23 05:47+0000\n"
+"Last-Translator: venerdi <Unknown>\n"
 "Language-Team: Italian <it@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-03-21 13:08+0000\n"
-"X-Generator: Launchpad (build 17947)\n"
+"X-Launchpad-Export-Date: 2016-08-17 22:24+0000\n"
+"X-Generator: Launchpad (build 18169)\n"
 
-#: ../classicmenu_indicator/about.py:19
+#: ../classicmenu_indicator/about.py:20
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
-"  Raffaele https://launchpad.net/~raffaelone"
+"  Raffaele https://launchpad.net/~raffaelone\n"
+"  venerdi https://launchpad.net/~mendem"
 
-#: ../classicmenu_indicator/cmindicator.py:217
+#: ../classicmenu_indicator/cmindicator.py:218
 msgid "Reload menu"
 msgstr "Aggiorna"
 
-#: ../classicmenu_indicator/cmindicator.py:229
+#: ../classicmenu_indicator/cmindicator.py:230
 msgid "Go to Web Page"
 msgstr "Visita il sito web"
 
-#: ../classicmenu_indicator/cmindicator.py:237
+#: ../classicmenu_indicator/cmindicator.py:238
 #, python-format
 msgid "Report a bug in %s"
 msgstr "Segnala un bug di %s"
 
-#: ../classicmenu_indicator/cmindicator.py:243
+#: ../classicmenu_indicator/cmindicator.py:244
 msgid "Help with Translations"
 msgstr "Collabora alle traduzioni"
 
-#: ../classicmenu_indicator/cmindicator.py:249
+#: ../classicmenu_indicator/cmindicator.py:250
 msgid "Donate via Flattr"
 msgstr "Dona tramite Flattr"
 
-#: ../classicmenu_indicator/cmindicator.py:255
+#: ../classicmenu_indicator/cmindicator.py:256
 msgid "Donate via PayPal"
 msgstr "Dona tramite PayPal"
 
-#: ../classicmenu_indicator/cmindicator.py:262
+#: ../classicmenu_indicator/cmindicator.py:263
 #, python-format
 msgid "Quit %s"
 msgstr "Chiudi %s"
 
-#: ../classicmenu_indicator/cmindicator.py:352
+#: ../classicmenu_indicator/cmindicator.py:340
 msgid "Updating menu..."
 msgstr "Aggiornamento in corso...."
 
-#: ../classicmenu_indicator/cmindicator.py:353
+#: ../classicmenu_indicator/cmindicator.py:341
 msgid "Please wait"
 msgstr "Attendere prego"
 
@@ -74,6 +75,10 @@ msgstr "Indicatore per menù classico"
 #: ../data/autostart/classicmenu-indicator.desktop.in.h:2
 msgid "Indicator applet to show the Gnome Classic main menu"
 msgstr "Indicatore che mostra il classico menù principale di GNOME"
+
+#: ../data/desktop/classicmenu-indicator.desktop.in.h:3
+msgid "Application Menu"
+msgstr ""
 
 #: ../data/ui/preferences.ui.h:1
 msgid "Preferences"
@@ -94,6 +99,15 @@ msgid ""
 "Indicator displaying a menu. If you select more then one menu definition all "
 "definitions are used in the order they appear on the right."
 msgstr ""
+"ClassicMenu Indicator non arriva con la propria definizione di menu, ma "
+"utilizza le definizioni standard di menu già presenti sulla maggior parte "
+"dei sistemi. È possibile modificare queste definizioni di menu utilizzando "
+"editor di menu come Alacarte, MenuLibre o simili.\n"
+"\n"
+"È necessario selezionare almeno una definizione di menù affinché ClassicMenu "
+"Indicator visualizzi un menu. Se si seleziona più di una definizione di menu "
+"tutte le definizioni sono utilizzate nell'ordine in cui appaiono sulla "
+"destra."
 
 #: ../data/ui/preferences.ui.h:6
 msgid "\n"
@@ -157,6 +171,33 @@ msgstr "<small>(non funziona in alcuni sistemi )</small>"
 
 #: ../data/ui/preferences.ui.h:22
 msgid ""
+"Some menu definitions don't include extra menus like the ones for Wine. \n"
+"ClassicMenu Indicator can add them. If your menu definitions include them, "
+"too, you will see them twice."
+msgstr ""
+"Alcune definizioni del menu non includono i menu extra, come quelle per "
+"Wine.\n"
+"ClassicMenu Indicator li può aggiungere. Se anche le vostre definizioni di "
+"menu li includono, li vedrete due volte."
+
+#: ../data/ui/preferences.ui.h:24
+msgid "Add extra/Wine menus:"
+msgstr "Aggiungi un menu Wine extra"
+
+#: ../data/ui/preferences.ui.h:25
+msgid ""
+"Do you want an additional single menu that contains all apps in alphabetical "
+"order?"
+msgstr ""
+"Vuoi un menù aggiuntivo che contiene tutte le applicazioni in ordine "
+"alfabetico?"
+
+#: ../data/ui/preferences.ui.h:26
+msgid "Add menu with all apps:"
+msgstr "Aggiungi menu con tutte le applicazioni"
+
+#: ../data/ui/preferences.ui.h:27
+msgid ""
 "Some menu definition don't include extra menus like the ones used by Wine. \n"
 "Do you want ClassicMenu Indicator to add those extra menus?"
 msgstr ""
@@ -164,24 +205,10 @@ msgstr ""
 "Wine.\n"
 "Si desidera che ClassicMenu Indicator aggiunga questi menù aggiuntivi?"
 
-#: ../data/ui/preferences.ui.h:24
-msgid "Add extra/Wine menus:"
-msgstr ""
-
-#: ../data/ui/preferences.ui.h:25
-msgid ""
-"Do you want an additional single menu that contains all apps in alphabetical "
-"order?"
-msgstr ""
-
-#: ../data/ui/preferences.ui.h:26
-msgid "Add menu with all apps:"
-msgstr ""
-
-#: ../data/ui/preferences.ui.h:27
+#: ../data/ui/preferences.ui.h:29
 msgid "<small>(if available)</small>"
-msgstr ""
+msgstr "<small>(se disponibile)</small>"
 
-#: ../data/ui/preferences.ui.h:28
+#: ../data/ui/preferences.ui.h:30
 msgid "Settings"
-msgstr ""
+msgstr "Impostazioni"

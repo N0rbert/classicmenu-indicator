@@ -1,16 +1,16 @@
-# Greek translation for classicmenu-indicator
-# Copyright (c) 2013 Rosetta Contributors and Canonical Ltd 2013
+# Portuguese translation for classicmenu-indicator
+# Copyright (c) 2016 Rosetta Contributors and Canonical Ltd 2016
 # This file is distributed under the same license as the classicmenu-indicator package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2013.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: classicmenu-indicator\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-08-13 01:15+0200\n"
-"PO-Revision-Date: 2013-12-19 15:42+0000\n"
-"Last-Translator: thor <thor.stormlord@gmail.com>\n"
-"Language-Team: Greek <el@li.org>\n"
+"PO-Revision-Date: 2016-04-27 19:02+0000\n"
+"Last-Translator: Juan Carlos Oliveira Lamarão <juanlamarao@openmailbox.org>\n"
+"Language-Team: Portuguese <pt@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -21,45 +21,45 @@ msgstr ""
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
-"  thor https://launchpad.net/~thor-stormlord"
+"  Juan Carlos Oliveira Lamarão https://launchpad.net/~juanlamarao"
 
 #: ../classicmenu_indicator/cmindicator.py:218
 msgid "Reload menu"
-msgstr ""
+msgstr "Recarregar menu"
 
 #: ../classicmenu_indicator/cmindicator.py:230
 msgid "Go to Web Page"
-msgstr "Πήγαινε στη σελίδα"
+msgstr "Ir á Página Web"
 
 #: ../classicmenu_indicator/cmindicator.py:238
 #, python-format
 msgid "Report a bug in %s"
-msgstr ""
+msgstr "Reportar um erro no %s"
 
 #: ../classicmenu_indicator/cmindicator.py:244
 msgid "Help with Translations"
-msgstr "Βοήθεια με τη μετάφραση"
+msgstr "Ajude com a Tradução"
 
 #: ../classicmenu_indicator/cmindicator.py:250
 msgid "Donate via Flattr"
-msgstr "Δωρεά μέσω Flattr"
+msgstr "Doar via Flattr"
 
 #: ../classicmenu_indicator/cmindicator.py:256
 msgid "Donate via PayPal"
-msgstr "Δωρεά μέσω του Paypal"
+msgstr "Doar via PayPal"
 
 #: ../classicmenu_indicator/cmindicator.py:263
 #, python-format
 msgid "Quit %s"
-msgstr ""
+msgstr "Sair do %s"
 
 #: ../classicmenu_indicator/cmindicator.py:340
 msgid "Updating menu..."
-msgstr ""
+msgstr "Atualizando menu..."
 
 #: ../classicmenu_indicator/cmindicator.py:341
 msgid "Please wait"
-msgstr ""
+msgstr "Por favor aguarde"
 
 #: ../classicmenu_indicator/dialogs.py:128
 msgid "Any files"
@@ -68,12 +68,13 @@ msgstr ""
 #: ../data/desktop/classicmenu-indicator.desktop.in.h:1
 #: ../data/autostart/classicmenu-indicator.desktop.in.h:1
 msgid "ClassicMenu Indicator"
-msgstr "ClassicMenu Indicator"
+msgstr "Indicador do Menu Clássico"
 
 #: ../data/desktop/classicmenu-indicator.desktop.in.h:2
 #: ../data/autostart/classicmenu-indicator.desktop.in.h:2
 msgid "Indicator applet to show the Gnome Classic main menu"
-msgstr "Μικροεφαρμογή για την εμφάνιση του κλασσικού μενού του Gnome"
+msgstr ""
+"Miniaplicativo indicador para mostrar o menu principal do Gnome Clássico"
 
 #: ../data/desktop/classicmenu-indicator.desktop.in.h:3
 msgid "Application Menu"
@@ -81,7 +82,7 @@ msgstr ""
 
 #: ../data/ui/preferences.ui.h:1
 msgid "Preferences"
-msgstr ""
+msgstr "Preferências"
 
 #: ../data/ui/preferences.ui.h:2
 msgid "Set to defaults"
@@ -101,31 +102,31 @@ msgstr ""
 
 #: ../data/ui/preferences.ui.h:6
 msgid "\n"
-msgstr ""
+msgstr "\n"
 
 #: ../data/ui/preferences.ui.h:8
 msgid "Use standard menu"
-msgstr ""
+msgstr "Utilizar o menu padrão"
 
 #: ../data/ui/preferences.ui.h:9
 msgid ">>>"
-msgstr ""
+msgstr ">>>"
 
 #: ../data/ui/preferences.ui.h:10
 msgid "<<<"
-msgstr ""
+msgstr "<<<"
 
 #: ../data/ui/preferences.ui.h:11
 msgid "Menus"
-msgstr ""
+msgstr "Menus"
 
 #: ../data/ui/preferences.ui.h:12
 msgid "Show menu icons:"
-msgstr ""
+msgstr "Mostrar ícones do menu:"
 
 #: ../data/ui/preferences.ui.h:13
 msgid "Show hidden entries:"
-msgstr ""
+msgstr "Mostrar entradas ocultas"
 
 #: ../data/ui/preferences.ui.h:14
 msgid "Use tooltips:"
@@ -133,19 +134,19 @@ msgstr ""
 
 #: ../data/ui/preferences.ui.h:15
 msgid "Icon:"
-msgstr ""
+msgstr "Ícone:"
 
 #: ../data/ui/preferences.ui.h:16
 msgid "Old icon"
-msgstr ""
+msgstr "Ícone antigo"
 
 #: ../data/ui/preferences.ui.h:17
 msgid "New Icon (dark)"
-msgstr ""
+msgstr "Novo ícone (escuro)"
 
 #: ../data/ui/preferences.ui.h:18
 msgid "New Icon (light)"
-msgstr ""
+msgstr "Novo ícone (claro)"
 
 #: ../data/ui/preferences.ui.h:19
 msgid "New Icon (auto)"
@@ -153,7 +154,7 @@ msgstr ""
 
 #: ../data/ui/preferences.ui.h:20
 msgid "Custom"
-msgstr ""
+msgstr "Personalizado"
 
 #: ../data/ui/preferences.ui.h:21
 msgid "<small>(doesn't work in some environments)</small>"

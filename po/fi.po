@@ -7,63 +7,64 @@ msgid ""
 msgstr ""
 "Project-Id-Version: classicmenu-indicator\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-03-04 19:47+0100\n"
-"PO-Revision-Date: 2014-10-19 16:22+0000\n"
-"Last-Translator: Jiri Grönroos <Unknown>\n"
+"POT-Creation-Date: 2016-08-13 01:15+0200\n"
+"PO-Revision-Date: 2016-06-26 13:33+0000\n"
+"Last-Translator: Konsta Mäenpänen <maenpanen9@gmail.com>\n"
 "Language-Team: Finnish <fi@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-03-21 13:08+0000\n"
-"X-Generator: Launchpad (build 17947)\n"
+"X-Launchpad-Export-Date: 2016-08-17 22:24+0000\n"
+"X-Generator: Launchpad (build 18169)\n"
 
-#: ../classicmenu_indicator/about.py:19
+#: ../classicmenu_indicator/about.py:20
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
-"  Jiri Grönroos https://launchpad.net/~jiri-gronroos"
+"  Jiri Grönroos https://launchpad.net/~jiri-gronroos\n"
+"  Konsta Mäenpänen https://launchpad.net/~maenpanen9"
 
-#: ../classicmenu_indicator/cmindicator.py:217
+#: ../classicmenu_indicator/cmindicator.py:218
 msgid "Reload menu"
-msgstr ""
+msgstr "Lataa valikko uudelleen"
 
-#: ../classicmenu_indicator/cmindicator.py:229
+#: ../classicmenu_indicator/cmindicator.py:230
 msgid "Go to Web Page"
 msgstr "Käy verkkosivustolla"
 
-#: ../classicmenu_indicator/cmindicator.py:237
+#: ../classicmenu_indicator/cmindicator.py:238
 #, python-format
 msgid "Report a bug in %s"
-msgstr ""
+msgstr "Ilmoita virheestä kohteessa %s"
 
-#: ../classicmenu_indicator/cmindicator.py:243
+#: ../classicmenu_indicator/cmindicator.py:244
 msgid "Help with Translations"
 msgstr "Auta käännöksissä"
 
-#: ../classicmenu_indicator/cmindicator.py:249
+#: ../classicmenu_indicator/cmindicator.py:250
 msgid "Donate via Flattr"
 msgstr "Lahjoita Flattrin kautta"
 
-#: ../classicmenu_indicator/cmindicator.py:255
+#: ../classicmenu_indicator/cmindicator.py:256
 msgid "Donate via PayPal"
 msgstr "Lahjoita PayPalin kautta"
 
-#: ../classicmenu_indicator/cmindicator.py:262
+#: ../classicmenu_indicator/cmindicator.py:263
 #, python-format
 msgid "Quit %s"
-msgstr ""
+msgstr "Lopeta %s"
 
-#: ../classicmenu_indicator/cmindicator.py:352
+#: ../classicmenu_indicator/cmindicator.py:340
 msgid "Updating menu..."
-msgstr ""
+msgstr "Päivitetään valikkoa..."
 
-#: ../classicmenu_indicator/cmindicator.py:353
+#: ../classicmenu_indicator/cmindicator.py:341
 msgid "Please wait"
-msgstr ""
+msgstr "Odota hetki"
 
 #: ../classicmenu_indicator/dialogs.py:128
 msgid "Any files"
-msgstr ""
+msgstr "Kaikki tiedostot"
 
 #: ../data/desktop/classicmenu-indicator.desktop.in.h:1
 #: ../data/autostart/classicmenu-indicator.desktop.in.h:1
@@ -75,13 +76,17 @@ msgstr "ClassicMenu-ilmaisinsovellus"
 msgid "Indicator applet to show the Gnome Classic main menu"
 msgstr "Ilmaisinsovelma, joka näyttää Gnome Classic -päävalikon"
 
+#: ../data/desktop/classicmenu-indicator.desktop.in.h:3
+msgid "Application Menu"
+msgstr ""
+
 #: ../data/ui/preferences.ui.h:1
 msgid "Preferences"
-msgstr ""
+msgstr "Asetukset"
 
 #: ../data/ui/preferences.ui.h:2
 msgid "Set to defaults"
-msgstr ""
+msgstr "Palauta oletukset"
 
 #: ../data/ui/preferences.ui.h:3
 msgid ""
@@ -94,91 +99,116 @@ msgid ""
 "Indicator displaying a menu. If you select more then one menu definition all "
 "definitions are used in the order they appear on the right."
 msgstr ""
+"ClassicMenu Indicatorissa ei ole omaa valikkomäärittelyä, vaan se käyttää "
+"standardivalikkomäärittelyä, joka sisältyy oletuksena useimpiin "
+"käyttöjärjestelmiin. Voit muokata valikkomäärittelyjä niihin tarkoitetuilla "
+"sovelluksilla, kuten Alacarte tai MenuLibre.\n"
+"\n"
+"Sinun on valittava vähintään yksi valikkomäärittely, jotta ClassicMenu "
+"Indicator pystyy näyttämään valikon. Jos valitset useamman kuin yhden "
+"valikkomäärittelyn, niitä käytetään siinä järjestyksessä, kuin ne esiintyvät "
+"oikealla."
 
 #: ../data/ui/preferences.ui.h:6
 msgid "\n"
-msgstr ""
+msgstr "\n"
 
 #: ../data/ui/preferences.ui.h:8
 msgid "Use standard menu"
-msgstr ""
+msgstr "Käytä standardivalikkoa"
 
 #: ../data/ui/preferences.ui.h:9
 msgid ">>>"
-msgstr ""
+msgstr ">>>"
 
 #: ../data/ui/preferences.ui.h:10
 msgid "<<<"
-msgstr ""
+msgstr "<<<"
 
 #: ../data/ui/preferences.ui.h:11
 msgid "Menus"
-msgstr ""
+msgstr "Valikot"
 
 #: ../data/ui/preferences.ui.h:12
 msgid "Show menu icons:"
-msgstr ""
+msgstr "Näytä valikkokuvakkeet:"
 
 #: ../data/ui/preferences.ui.h:13
 msgid "Show hidden entries:"
-msgstr ""
+msgstr "Näytä piilotetut kohteet:"
 
 #: ../data/ui/preferences.ui.h:14
 msgid "Use tooltips:"
-msgstr ""
+msgstr "Käytä työkaluvinkkejä:"
 
 #: ../data/ui/preferences.ui.h:15
 msgid "Icon:"
-msgstr ""
+msgstr "Kuvake:"
 
 #: ../data/ui/preferences.ui.h:16
 msgid "Old icon"
-msgstr ""
+msgstr "Vanha kuvake"
 
 #: ../data/ui/preferences.ui.h:17
 msgid "New Icon (dark)"
-msgstr ""
+msgstr "Vanha kuvake (tumma)"
 
 #: ../data/ui/preferences.ui.h:18
 msgid "New Icon (light)"
-msgstr ""
+msgstr "Uusi kuvake (vaalea)"
 
 #: ../data/ui/preferences.ui.h:19
 msgid "New Icon (auto)"
-msgstr ""
+msgstr "Uusi kuvake (auto)"
 
 #: ../data/ui/preferences.ui.h:20
 msgid "Custom"
-msgstr ""
+msgstr "Mukautettu"
 
 #: ../data/ui/preferences.ui.h:21
 msgid "<small>(doesn't work in some environments)</small>"
-msgstr ""
+msgstr "<small>(ei toimi joissain käyttöympäristöissä)</small>"
 
 #: ../data/ui/preferences.ui.h:22
 msgid ""
-"Some menu definition don't include extra menus like the ones used by Wine. \n"
-"Do you want ClassicMenu Indicator to add those extra menus?"
+"Some menu definitions don't include extra menus like the ones for Wine. \n"
+"ClassicMenu Indicator can add them. If your menu definitions include them, "
+"too, you will see them twice."
 msgstr ""
+"Jotkut valikkomäärittelyt eivät sisällytä mukaan lisävalikkoja, joita on mm. "
+"Winessä.\n"
+"ClassicMenu Indicator voi lisätä ne, mutta jos ne sisältyvät myös "
+"valikkomäärittelyysi, ne näkyvät kahteen kertaan."
 
 #: ../data/ui/preferences.ui.h:24
 msgid "Add extra/Wine menus:"
-msgstr ""
+msgstr "Lisää lisä-/Wine-valikkoja:"
 
 #: ../data/ui/preferences.ui.h:25
 msgid ""
 "Do you want an additional single menu that contains all apps in alphabetical "
 "order?"
 msgstr ""
+"Haluatko lisäksi yhden valikon, johon on listattu kaikki sovellukset "
+"aakkosjärjestyksessä?"
 
 #: ../data/ui/preferences.ui.h:26
 msgid "Add menu with all apps:"
-msgstr ""
+msgstr "Lisää kaikkien sovellusten valikko:"
 
 #: ../data/ui/preferences.ui.h:27
-msgid "<small>(if available)</small>"
+msgid ""
+"Some menu definition don't include extra menus like the ones used by Wine. \n"
+"Do you want ClassicMenu Indicator to add those extra menus?"
 msgstr ""
+"Jotkut valikkomäärittelyt eivät sisällytä mukaan lisävalikkoja, joita on mm. "
+"Winessä.\n"
+"Haluatko, että ClassicMenu Indicator lisää nämä lisävalikot?"
 
-#: ../data/ui/preferences.ui.h:28
+#: ../data/ui/preferences.ui.h:29
+msgid "<small>(if available)</small>"
+msgstr "<small>(jos käytettävissä)</small>"
+
+#: ../data/ui/preferences.ui.h:30
 msgid "Settings"
-msgstr ""
+msgstr "Asetukset"
