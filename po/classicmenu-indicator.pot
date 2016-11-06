@@ -1,21 +1,28 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-13 01:15+0200\n"
+"POT-Creation-Date: 2016-11-06 18:27+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-08-17 22:24+0000\n"
-"X-Generator: Launchpad (build 18169)\n"
 "Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
 
 #: ../classicmenu_indicator/about.py:20
 msgid "translator-credits"
+msgstr ""
+
+#: ../classicmenu_indicator/dialogs.py:128
+msgid "Any files"
 msgstr ""
 
 #: ../classicmenu_indicator/cmindicator.py:218
@@ -56,17 +63,13 @@ msgstr ""
 msgid "Please wait"
 msgstr ""
 
-#: ../classicmenu_indicator/dialogs.py:128
-msgid "Any files"
-msgstr ""
-
-#: ../data/desktop/classicmenu-indicator.desktop.in.h:1
 #: ../data/autostart/classicmenu-indicator.desktop.in.h:1
+#: ../data/desktop/classicmenu-indicator.desktop.in.h:1
 msgid "ClassicMenu Indicator"
 msgstr ""
 
-#: ../data/desktop/classicmenu-indicator.desktop.in.h:2
 #: ../data/autostart/classicmenu-indicator.desktop.in.h:2
+#: ../data/desktop/classicmenu-indicator.desktop.in.h:2
 msgid "Indicator applet to show the Gnome Classic main menu"
 msgstr ""
 
@@ -89,9 +92,9 @@ msgid ""
 "this menu definitions using menu editors like Alacarte, MenuLibre or similar "
 "ones.\n"
 "\n"
-"You have to select at least one menu defintion in order to ClassicMenu "
-"Indicator displaying a menu. If you select more then one menu definition all "
-"definitions are used in the order they appear on the right."
+"You must select at least one menu definition for ClassicMenu Indicator to "
+"display a menu. If you select more then one menu definition all definitions "
+"are used in the order they appear on the right."
 msgstr ""
 
 #: ../data/ui/preferences.ui.h:6
