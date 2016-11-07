@@ -499,6 +499,7 @@ You must select at least one menu definition for ClassicMenu Indicator to displa
                     <property name="tooltip_text" translatable="yes">Some menu definitions don't include extra menus like the ones for Wine. 
 ClassicMenu Indicator can add them. If your menu definitions include them, too, you will see them twice.</property>
                     <property name="margin_right">6</property>
+                    <property name="xpad">6</property>
                     <property name="label" translatable="yes">Add extra/Wine menus:</property>
                     <property name="xalign">1</property>
                   </object>
@@ -513,8 +514,9 @@ ClassicMenu Indicator can add them. If your menu definitions include them, too, 
                     <property name="can_focus">False</property>
                     <property name="tooltip_text" translatable="yes">Do you want an additional single menu that contains all apps in alphabetical order?</property>
                     <property name="margin_right">6</property>
+                    <property name="xpad">6</property>
                     <property name="label" translatable="yes">Add menu with all apps:</property>
-                    <property name="xalign">0</property>
+                    <property name="xalign">1</property>
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
