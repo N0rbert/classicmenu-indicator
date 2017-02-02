@@ -194,6 +194,32 @@ class Vars(object):
         self.data['use_all_apps_menu'] = value
 
         
+    @property
+    def USE_FOLDER_MENU(self):
+        return self.data.get('use_folder_menu', True)
+    
+    @USE_FOLDER_MENU.setter
+    def USE_FOLDER_MENU(self, value):
+        self.data['use_folder_menu'] = value
+
+    @property
+    def FOLDER_MENU_NEEDS_TERMINAL(self):
+        return self.data.get('folder_menu_needs_terminal', True)
+    
+    @FOLDER_MENU_NEEDS_TERMINAL.setter
+    def FOLDER_MENU_NEEDS_TERMINAL(self, value):
+        self.data['folder_menu_needs_terminal'] = value
+        
+    @property
+    def FOLDER_MENU_ROOT(self):
+        return self.data.get('folder_menu_root',
+                            os.path.expanduser(os.path.join('~', 'bin')))
+    
+    @FOLDER_MENU_ROOT.setter
+    def FOLDER_MENU_ROOT(self, value):
+        self.data['folder_menu_root'] = value
+        
+        
     category = AppIndicator3.IndicatorCategory.SYSTEM_SERVICES
 
     GETTEXT_DOMAIN = app_name

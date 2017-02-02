@@ -45,9 +45,9 @@ import gettext
 
 def _add_menu_item(title, icon, callback, menu):        
     menu_item = Gtk.ImageMenuItem(title)
-    menu_item.set_image(Gtk.Image.new_from_icon_name(
-        icon,
-        settings.ICON_SIZE))
+    if icon is not None:
+        menu_item.set_image(Gtk.Image.new_from_icon_name(
+            icon, settings.ICON_SIZE))
     menu_item.connect('activate', callback)
     menu.append(menu_item)
     
@@ -62,8 +62,47 @@ def _add_separator_menu_item(menu):
      menu_item = Gtk.SeparatorMenuItem()
      menu.append(menu_item)
 
+class FolderMenuEntry:
+
+    def __init__(self, folder, filename=None):
+        self.folder = folder
+        if filename is None: # folder
+            self.filename = os.path.basename(folder)
+        else:
+            self.filename = filename
+        self.cmd = self._get_cmd()
+        self.appinfo = self._create_appinfo()
+
+    def _get_cmd(self):
+        return os.path.join(self.folder, self.filename)
+    
+    def _create_appinfo(self):
+        kf = GLib.KeyFile()
+        kf.set_string('Desktop Entry', 'Type', 'Application')
+        kf.set_string('Desktop Entry', 'Exec', self.cmd)
+        kf.set_string('Desktop Entry', 'Name', self.filename)
+        if settings.FOLDER_MENU_NEEDS_TERMINAL:
+            kf.set_string('Desktop Entry', 'Terminal', 'true')
+        return Gio.DesktopAppInfo.new_from_keyfile(kf)
+        
+    def get_name(self):
+        return self.filename
+
+    def get_comment(self):
+        return None
+
+    def get_icon(self):
+        return None
+
+    def get_app_info(self):
+        return self.appinfo
+        
+class FolderMenuItem(FolderMenuEntry): pass
+class FolderMenuFolder(FolderMenuEntry):
+     def _get_cmd(self): return '/bin/sh'
 
 
+    
 class ClassicMenuIndicator(object):
     def __init__(self):
         self.indicator = AppIndicator3.Indicator.new(
@@ -93,6 +132,46 @@ class ClassicMenuIndicator(object):
             pass
 
 
+    def add_folder_menu(self, menu):
+        if not settings.USE_FOLDER_MENU:
+            return
+
+        root = settings.FOLDER_MENU_ROOT
+        files = sorted((r, f) for r, ds, fs in os.walk(root) for f in fs)
+        submenus = {}
+        
+        for adir, afile in files:
+            cmd = os.path.join(adir, afile)
+            if (afile.endswith('~') or
+                afile.endswith('#') or
+                afile.startswith('.') or
+                not os.access(cmd, os.X_OK)
+                ): continue
+            if adir not in submenus:
+                new_menu = Gtk.Menu()
+                entry = FolderMenuFolder(adir)
+                menu_item = self.create_menu_item(entry)
+                menu_item.set_submenu(new_menu)
+                menu_item.show()
+                submenus[adir] = new_menu
+                if adir == root:
+                    menu.append(menu_item)
+                else:
+                    parent = os.path.dirname(adir)
+                    # insert after last menu in parent:
+                    children = submenus[parent].get_children()
+                    i=0
+                    for i, child in enumerate(children):
+                        if child.get_submenu() is None:
+                            break
+                    submenus[parent].insert(menu_item, i)
+            try:
+                entry = FolderMenuItem(adir, afile)
+            except TypeError: # can't create Gio.DesktopAppInfo
+                print('ERROR:', afile)
+                continue
+            submenus[adir].append(self.create_menu_item(entry))
+        
     def create_menu_item(self, entry):
         try:
             name = entry.get_app_info().get_name()
@@ -145,7 +224,7 @@ class ClassicMenuIndicator(object):
 
         menu_item.set_label(name)
            
-        if isinstance(entry, GMenu.TreeEntry):
+        if isinstance(entry, (GMenu.TreeEntry, FolderMenuItem)):
             menu_item.connect('activate', self.on_menuitem_activate, entry)
 
         menu_item.set_use_underline(False)
@@ -204,6 +283,8 @@ class ClassicMenuIndicator(object):
                 menu_item = Gtk.SeparatorMenuItem()
                 menu.append(menu_item)
 
+        self.add_folder_menu(menu)
+        
         menu_item = Gtk.MenuItem('%s' % settings.APP_NAME)
         menu.append(menu_item)
 
@@ -351,7 +432,9 @@ class ClassicMenuIndicator(object):
         
     def on_menuitem_activate(self, menuitem, entry):        
         appinfo = entry.get_app_info()
-        appinfo.launch([], None)
+        if appinfo is not None:
+            print('EXEC:', appinfo.get_commandline ())
+            appinfo.launch([], None)
 
     def on_menuitem_preferences_activate(self, menuitem):
         dlg = preferencesdlg.PreferencesDlg()
