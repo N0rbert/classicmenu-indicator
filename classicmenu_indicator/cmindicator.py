@@ -104,6 +104,7 @@ class FolderMenuEntry:
 class FolderMenuItem(FolderMenuEntry): pass
 class FolderMenuFolder(FolderMenuEntry):
      def _get_cmd(self): return '/bin/sh'
+     def get_icon(self): return Gio.ThemedIcon.new('gtk-directory')
 
 
     
