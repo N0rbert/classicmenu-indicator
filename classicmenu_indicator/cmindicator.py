@@ -62,6 +62,7 @@ def _add_separator_menu_item(menu):
      menu_item = Gtk.SeparatorMenuItem()
      menu.append(menu_item)
 
+    
 class FolderMenuEntry:
 
     def __init__(self, folder, filename=None):
@@ -78,9 +79,12 @@ class FolderMenuEntry:
     
     def _create_appinfo(self):
         kf = GLib.KeyFile()
-        kf.set_string('Desktop Entry', 'Type', 'Application')
-        kf.set_string('Desktop Entry', 'Exec', self.cmd)
-        kf.set_string('Desktop Entry', 'Name', self.filename)
+        try:
+            kf.set_string('Desktop Entry', 'Type', 'Application')
+            kf.set_string('Desktop Entry', 'Exec', self.cmd)
+            kf.set_string('Desktop Entry', 'Name', self.filename)
+        except Exception as e:
+            raise TypeError(str(e))
         if settings.FOLDER_MENU_NEEDS_TERMINAL:
             kf.set_string('Desktop Entry', 'Terminal', 'true')
         return Gio.DesktopAppInfo.new_from_keyfile(kf)
@@ -137,27 +141,23 @@ class ClassicMenuIndicator(object):
             return
 
         root = settings.FOLDER_MENU_ROOT
-        files = sorted((r, f) for r, ds, fs in os.walk(root) for f in fs)
+        files = sorted((r, f) for r, ds, fs in os.walk(root) for f in fs+ds)
         submenus = {}
         
         for adir, afile in files:
             cmd = os.path.join(adir, afile)
-            if (afile.endswith('~') or
-                afile.endswith('#') or
-                afile.startswith('.') or
-                not os.access(cmd, os.X_OK)
-                ): continue
             if adir not in submenus:
-                new_menu = Gtk.Menu()
-                entry = FolderMenuFolder(adir)
-                menu_item = self.create_menu_item(entry)
-                menu_item.set_submenu(new_menu)
-                menu_item.show()
+                try:
+                    entry = FolderMenuFolder(adir)
+                except TypeError as e:
+                    print(e)
+                new_menu, menu_item = self.create_sub_menu_for_entry(entry)
                 submenus[adir] = new_menu
                 if adir == root:
                     menu.append(menu_item)
                 else:
                     parent = os.path.dirname(adir)
+ 
                     # insert after last menu in parent:
                     children = submenus[parent].get_children()
                     i=0
@@ -165,12 +165,24 @@ class ClassicMenuIndicator(object):
                         if child.get_submenu() is None:
                             break
                     submenus[parent].insert(menu_item, i)
-            try:
-                entry = FolderMenuItem(adir, afile)
-            except TypeError: # can't create Gio.DesktopAppInfo
-                print('ERROR:', afile)
-                continue
-            submenus[adir].append(self.create_menu_item(entry))
+            if not (afile.endswith('~') or
+                afile.endswith('#') or
+                afile.startswith('.') or
+                not os.access(cmd, os.X_OK)
+                ):
+   
+                try:
+                    entry = FolderMenuItem(adir, afile)
+                except TypeError: # can't create Gio.DesktopAppInfo
+                    continue
+                submenus[adir].append(self.create_menu_item(entry))
+            
+    def create_sub_menu_for_entry(self, entry):
+        new_menu = Gtk.Menu()
+        menu_item = self.create_menu_item(entry)
+        menu_item.set_submenu(new_menu)
+        menu_item.show()
+        return new_menu, menu_item
         
     def create_menu_item(self, entry):
         try:

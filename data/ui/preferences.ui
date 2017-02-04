@@ -414,6 +414,7 @@ You must select at least one menu definition for ClassicMenu Indicator to displa
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
                         <property name="margin_left">6</property>
+                        <signal name="clicked" handler="on_b_folder_menu_root_clicked" swapped="no"/>
                       </object>
                       <packing>
                         <property name="expand">False</property>

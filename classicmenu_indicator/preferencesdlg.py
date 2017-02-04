@@ -101,6 +101,10 @@ class PreferencesDlg:
         self['sw_settings_all_apps_menu'].set_active(settings.USE_ALL_APPS_MENU)
         self['sw_settings_tooltips'].set_active(settings.USE_TOOLTIPS)
 
+        self['sw_folder_menu_use'].set_active(settings.USE_FOLDER_MENU)
+        self['sw_folder_menu_needs_terminal'].set_active(settings.FOLDER_MENU_NEEDS_TERMINAL)
+        self['e_folder_menu_root'].set_text(settings.FOLDER_MENU_ROOT)
+        
         _icons = {v:k for k,v in settings.ICONS.items()}
         if  settings.ICON in _icons:
             self['cbox_icon'].set_active_id(_icons[settings.ICON])
@@ -116,6 +120,10 @@ class PreferencesDlg:
         settings.USE_EXTRA_MENUS = self['sw_settings_extra_menus'].get_active()
         settings.USE_ALL_APPS_MENU = self['sw_settings_all_apps_menu'].get_active()
         settings.USE_TOOLTIPS = self['sw_settings_tooltips'].get_active()
+        settings.USE_FOLDER_MENU = self['sw_folder_menu_use'].get_active()
+        settings.FOLDER_MENU_NEEDS_TERMINAL =  self['sw_folder_menu_needs_terminal'].get_active()
+        settings.FOLDER_MENU_ROOT = self['e_folder_menu_root'].get_text()
+
         icon_mode = self['cbox_icon'].get_active_id()
         if icon_mode in settings.ICONS:
             settings.ICON = settings.ICONS[icon_mode]
@@ -203,3 +211,19 @@ class PreferencesDlg:
         fcb = self['fcb_icon']
         cbox_id = cbox.get_active_id()
         fcb.set_sensitive(cbox_id == 'custom')
+
+    def on_b_folder_menu_root_clicked(self, *args):
+        dialog = Gtk.FileChooserDialog(
+            _('Select folder'), self['dialog'],
+             Gtk.FileChooserAction.SELECT_FOLDER,
+             (Gtk.STOCK_CANCEL, 
+              Gtk.ResponseType.CANCEL,
+              Gtk.STOCK_OPEN, 
+              Gtk.ResponseType.OK))
+        response = dialog.run()
+        path = dialog.get_filename()
+        dialog.destroy()
+        if response != Gtk.ResponseType.OK:
+            return
+        self['e_folder_menu_root'].set_text(path)
+
