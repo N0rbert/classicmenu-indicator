@@ -1,0 +1,6 @@
+#!/bin/bash
+
+dbus-send --session --print-reply --type=method_call \
+         --dest=de.florian_diesch.classicmenu_indicator \
+         /de/florian_diesch/classicmenu_indicator \
+         de.florian_diesch.classicmenu_indicator.OpenMenu.OpenMenu
