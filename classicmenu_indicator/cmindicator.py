@@ -76,7 +76,7 @@ class MonitorDBus(dbus.service.Object):
         bus_name = dbus.service.BusName(BUS_NAME, bus=bus)
         dbus.service.Object.__init__(self, bus_name, OPATH)
 
-    @dbus.service.method(dbus_interface=IFACE + ".OpenMenu",
+    @dbus.service.method(dbus_interface=IFACE,
                          in_signature="", out_signature="")
     def OpenMenu(self):
         mainmenu.popup(None, None, None, None, 0, Gtk.get_current_event_time())
@@ -158,7 +158,7 @@ class ClassicMenuIndicator(object):
         mainmenu = self.menu
 
         self.indicator.set_menu(self.menu)
-        
+
     def run(self):
         monitor = MonitorDBus()
         try:
@@ -524,13 +524,21 @@ class ClassicMenuIndicator(object):
 def parse_args():
     parser = OptionParser(version="%s %s"%(settings.APP_NAME, 
                                            settings.APP_VERSION))
-    (options, args) = parser.parse_args()
+    parser.add_option('-m', '--show-menu', action="store_true",
+                          dest='show_menu', default=False)
+    options, args = parser.parse_args()
+    return options, args 
     
 
 def main():
-    parse_args()
-    indicator = ClassicMenuIndicator()
-    indicator.run()
+    options, args = parse_args()
+    if options.show_menu:
+        api = dbus.Interface(dbus.SessionBus().get_object(
+            IFACE, OPATH), BUS_NAME)
+        api.OpenMenu()
+    else:
+        indicator = ClassicMenuIndicator()
+        indicator.run()
 
 
     
