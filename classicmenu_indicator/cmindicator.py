@@ -42,6 +42,7 @@ from .settings import vars as settings
 from gettext import gettext as _
 import gettext
 
+import gobject, dbus, dbus.service
 
 def _add_menu_item(title, icon, callback, menu):        
     menu_item = Gtk.ImageMenuItem(title)
@@ -57,6 +58,30 @@ def _add_stock_menu_item(stockid, callback, menu):
     menu_item.connect('activate', callback)
     menu.append(menu_item)
 
+######################################################################
+
+mainmenu = None
+
+from dbus.mainloop.glib import DBusGMainLoop
+DBusGMainLoop(set_as_default=True)
+
+OPATH = "/de/florian_diesch/classicmenu_indicator"
+IFACE = "de.florian_diesch.classicmenu_indicator"
+BUS_NAME = "de.florian_diesch.classicmenu_indicator"
+
+class MonitorDBus(dbus.service.Object):
+    def __init__(self):
+        bus = dbus.SessionBus()
+        bus.request_name(BUS_NAME)
+        bus_name = dbus.service.BusName(BUS_NAME, bus=bus)
+        dbus.service.Object.__init__(self, bus_name, OPATH)
+
+    @dbus.service.method(dbus_interface=IFACE,
+                         in_signature="", out_signature="")
+    def OpenMenu(self):
+        mainmenu.popup(None, None, None, None, 0, Gtk.get_current_event_time())
+
+######################################################################
 
 def _add_separator_menu_item(menu):
      menu_item = Gtk.SeparatorMenuItem()
@@ -127,10 +152,15 @@ class ClassicMenuIndicator(object):
             AppIndicator3.IndicatorStatus.ACTIVE)
 
         self.create_all_trees()
-        self.indicator.set_menu(self.create_menu())
+        self.menu = self.create_menu()
 
-        
+        global mainmenu
+        mainmenu = self.menu
+
+        self.indicator.set_menu(self.menu)
+
     def run(self):
+        monitor = MonitorDBus()
         try:
             Gtk.main()
         except KeyboardInterrupt:
@@ -404,7 +434,12 @@ class ClassicMenuIndicator(object):
         self.update_requested = False
         if recreate_trees:
             self.create_all_trees()
-        self.indicator.set_menu(self.create_menu())
+
+        new_menu = self.create_menu()
+        global mainmenu
+        mainmenu = new_menu
+
+        self.indicator.set_menu(new_menu)
         return False    # Don't run again
 
     def request_update(self, recreate_trees=False, delayed=True):
@@ -489,13 +524,27 @@ class ClassicMenuIndicator(object):
 def parse_args():
     parser = OptionParser(version="%s %s"%(settings.APP_NAME, 
                                            settings.APP_VERSION))
-    (options, args) = parser.parse_args()
+    parser.add_option('-m', '--show-menu', action="store_true",
+                          dest='show_menu', default=False)
+    options, args = parser.parse_args()
+    return options, args 
     
 
 def main():
-    parse_args()
-    indicator = ClassicMenuIndicator()
-    indicator.run()
+    options, args = parse_args()
+    if options.show_menu:
+        try:
+            api = dbus.Interface(dbus.SessionBus().get_object(
+                IFACE, OPATH), BUS_NAME)
+            api.OpenMenu()
+        except Exception as e:
+            print(_("Can't connect to a running %s instance:\n%s\n")%(
+                settings.APP_NAME, e))
+            print(_("Maybe you need to start %s first.")% settings.APP_NAME)
+            sys.exit(1)
+    else:
+        indicator = ClassicMenuIndicator()
+        indicator.run()
 
 
     
