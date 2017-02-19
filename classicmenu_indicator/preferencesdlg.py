@@ -23,6 +23,7 @@ from gettext import gettext as _
 from .settings import vars as settings, get_all_menu_files,  get_default_menu_files
 from . import tvtools, dialogs
 
+
 class PreferencesDlg:
 
     def __init__(self):
@@ -101,7 +102,6 @@ class PreferencesDlg:
         self['sw_settings_all_apps_menu'].set_active(settings.USE_ALL_APPS_MENU)
         self['sw_settings_tooltips'].set_active(settings.USE_TOOLTIPS)
 
-        self['sw_folder_menu_use'].set_active(settings.USE_FOLDER_MENU)
         self['sw_folder_menu_needs_terminal'].set_active(settings.FOLDER_MENU_NEEDS_TERMINAL)
         self['e_folder_menu_root'].set_text(settings.FOLDER_MENU_ROOT)
         
@@ -120,7 +120,6 @@ class PreferencesDlg:
         settings.USE_EXTRA_MENUS = self['sw_settings_extra_menus'].get_active()
         settings.USE_ALL_APPS_MENU = self['sw_settings_all_apps_menu'].get_active()
         settings.USE_TOOLTIPS = self['sw_settings_tooltips'].get_active()
-        settings.USE_FOLDER_MENU = self['sw_folder_menu_use'].get_active()
         settings.FOLDER_MENU_NEEDS_TERMINAL =  self['sw_folder_menu_needs_terminal'].get_active()
         settings.FOLDER_MENU_ROOT = self['e_folder_menu_root'].get_text()
 

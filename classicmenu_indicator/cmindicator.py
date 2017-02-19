@@ -36,8 +36,7 @@ from optparse import OptionParser
 
 from . import about, preferencesdlg
 
-from .settings import vars as settings
-
+from .settings import vars as settings, FOLDERMENU
 
 from gettext import gettext as _
 import gettext
@@ -138,9 +137,6 @@ class ClassicMenuIndicator(object):
 
 
     def add_folder_menu(self, menu):
-        if not settings.USE_FOLDER_MENU:
-            return
-
         root = settings.FOLDER_MENU_ROOT
         files = sorted((r, f) for r, ds, fs in os.walk(root) for f in fs+ds)
         submenus = {}
@@ -291,13 +287,13 @@ class ClassicMenuIndicator(object):
         menu = Gtk.Menu()
 
         for t in self.trees:
-            if t:
+            if t == FOLDERMENU:
+                self.add_folder_menu(menu)
+            elif t:
                 self.add_to_menu(menu, t)
                 menu_item = Gtk.SeparatorMenuItem()
                 menu.append(menu_item)
 
-        self.add_folder_menu(menu)
-        
         menu_item = Gtk.MenuItem('%s' % settings.APP_NAME)
         menu.append(menu_item)
 
@@ -371,7 +367,10 @@ class ClassicMenuIndicator(object):
             if tree:
                 self.trees.append(tree)
         for m in settings.MENUS:
-            tree = self.create_tree(m)
+            if m == FOLDERMENU:
+                tree = FOLDERMENU
+            else:
+                tree = self.create_tree(m)
             if tree:
                 self.trees.append(tree)
         if settings.USE_EXTRA_MENUS:
