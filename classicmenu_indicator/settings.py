@@ -2,6 +2,7 @@
 
 import os, os.path, json, glob
 from gi.repository import Gtk, Gdk, GdkPixbuf, Gio, GMenu, AppIndicator3
+from gettext import gettext as _
 
 
 from . import  _meta, dialogs
@@ -9,11 +10,11 @@ from . import  _meta, dialogs
 _config_home = os.path.expanduser(os.path.join('~', '.config'))
 config_home = os.environ.get('XDG_CONFIG_HOME', _config_home)
 
-
+FOLDERMENU= _('*Folder Menu*')
 
 def get_all_menu_files():
     dirs = os.environ.get('XDG_CONFIG_DIRS', '/etc/xdg')
-    result = set()
+    result = set([FOLDERMENU])
     for d in dirs.split(':')+[config_home]:
         for m in glob.glob(os.path.join(d, 'menus', '*.menu')):
             result.add(os.path.basename(m))
@@ -36,7 +37,7 @@ def get_default_menu_files():
         
     all_menus = set(get_all_menu_files())
 
-    result = []
+    result = [FOLDERMENU]
 
     fallback_menus = ( 
         '{desktop}-applications.menu'.format(desktop=desktop),
@@ -192,15 +193,6 @@ class Vars(object):
     @USE_ALL_APPS_MENU.setter
     def USE_ALL_APPS_MENU(self, value):
         self.data['use_all_apps_menu'] = value
-
-        
-    @property
-    def USE_FOLDER_MENU(self):
-        return self.data.get('use_folder_menu', True)
-    
-    @USE_FOLDER_MENU.setter
-    def USE_FOLDER_MENU(self, value):
-        self.data['use_folder_menu'] = value
 
     @property
     def FOLDER_MENU_NEEDS_TERMINAL(self):
