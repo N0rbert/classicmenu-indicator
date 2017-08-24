@@ -160,6 +160,15 @@ class Vars(object):
 
 
     @property
+    def REMOVE_DUPLICATES(self):
+         return self.data.get('remove_duplicates', False)
+
+    @REMOVE_DUPLICATES.setter
+    def REMOVE_DUPLICATES(self, value):
+        self.data['remove_duplicates'] = value
+
+        
+    @property
     def MENUS(self):
         return self.data.get('menus', get_default_menu_files())
 

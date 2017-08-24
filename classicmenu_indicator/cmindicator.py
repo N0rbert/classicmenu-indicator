@@ -79,7 +79,7 @@ class MonitorDBus(dbus.service.Object):
                          in_signature="", out_signature="")
     def OpenMenu(self):
         mainmenu.popup(None, None, None, None, 0, Gtk.get_current_event_time())
-
+        
 ######################################################################
 
 def _add_separator_menu_item(menu):
@@ -146,6 +146,7 @@ class ClassicMenuIndicator(object):
         self.theme = Gtk.IconTheme.get_default()
 
         self.update_requested = False
+        self.entries = set()  # for removing duplicates
 
         self.indicator.set_status (
             AppIndicator3.IndicatorStatus.ACTIVE)
@@ -158,6 +159,8 @@ class ClassicMenuIndicator(object):
 
         self.indicator.set_menu(self.menu)
 
+
+        
     def run(self):
         monitor = MonitorDBus()
         try:
@@ -193,9 +196,9 @@ class ClassicMenuIndicator(object):
                             break
                     submenus[parent].insert(menu_item, i)
             if not (afile.endswith('~') or
-                afile.endswith('#') or
-                afile.startswith('.') or
-                not os.access(cmd, os.X_OK)
+                    afile.endswith('#') or
+                    afile.startswith('.') or
+                    not os.access(cmd, os.X_OK)
                 ):
    
                 try:
@@ -275,6 +278,18 @@ class ClassicMenuIndicator(object):
 
 
     def process_entry(self, menu, entry):
+        try:
+            appinfo = entry.get_app_info()
+            cmd = appinfo.get_commandline()
+        except AttributeError: # Can this happen?
+            cmd = None
+
+        if (settings.REMOVE_DUPLICATES and
+            cmd is not None and
+            cmd in self.entries):
+            return
+        else:
+            self.entries.add(cmd)
         menu.append(self.create_menu_item(entry))
 
     
@@ -310,6 +325,7 @@ class ClassicMenuIndicator(object):
                 type = diter.next()
 
     def add_to_menu(self, menu, tree):
+        self.entries = set()
         root = tree.get_root_directory()    
         self.process_directory(menu, root)
 
@@ -480,7 +496,6 @@ class ClassicMenuIndicator(object):
     def on_menuitem_activate(self, menuitem, entry):        
         appinfo = entry.get_app_info()
         if appinfo is not None:
-            print('EXEC:', appinfo.get_commandline ())
             appinfo.launch([], None)
 
     def on_menuitem_preferences_activate(self, menuitem):
@@ -525,26 +540,33 @@ def parse_args():
                                            settings.APP_VERSION))
     parser.add_option('-m', '--show-menu', action="store_true",
                           dest='show_menu', default=False)
+    parser.add_option('-i', '--ignore-duplicate', action="store_true",
+                          dest='ignore', default=False)
     options, args = parser.parse_args()
     return options, args 
     
 
 def main():
     options, args = parse_args()
+    open_menu = False
     if options.show_menu:
         try:
-            api = dbus.Interface(dbus.SessionBus().get_object(
-                IFACE, OPATH), BUS_NAME)
+            api = dbus.Interface(dbus.SessionBus().get_object(IFACE, OPATH), BUS_NAME)
             api.OpenMenu()
-        except Exception as e:
+        except Exception as e:            
             print(_("Can't connect to a running %s instance:\n%s\n")%(
                 settings.APP_NAME, e))
             print(_("Maybe you need to start %s first.")% settings.APP_NAME)
             sys.exit(1)
     else:
+        if not options.ignore:
+            try:  # CMI alread running?
+                api = dbus.Interface(dbus.SessionBus().get_object(IFACE, OPATH), BUS_NAME)
+                print(_('%s already running. Not starting another one.'%settings.APP_NAME))
+                sys.exit(2)
+            except Exception as e:
+                pass
+
+        
         indicator = ClassicMenuIndicator()
         indicator.run()
-
-
-    
-
