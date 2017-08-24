@@ -22,10 +22,16 @@ It provides a simple way to get a GNOME Classic-style application menu for those
 show this help message and exit
 .It Fl -version
 show program's version number and exit
+.It Fl m , Fl -show-menu
+Show menu at mouse pointer location. This requires an                        already running instance of ClassicMenu Indicator
+.It Fl i , Fl -ignore-running
+Start a new instance of ClassicMenu Indicator, even if
+there alread is one running
 .El
 .sp
 .Sh FILES
 .Pa $HOME/.config/classicmenu-indicator
+Folder containing the onfiguration files
 .sp
 .Sh AUTHOR
 Florian Diesch <devel@florian-diesch.de>
