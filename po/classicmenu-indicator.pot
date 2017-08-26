@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-24 22:57+0200\n"
+"POT-Creation-Date: 2017-08-25 02:09+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../classicmenu_indicator/settings.py:13
+#: ../classicmenu_indicator/settings.py:14
 msgid "*Folder Menu*"
 msgstr ""
 
@@ -25,66 +25,78 @@ msgstr ""
 msgid "translator-credits"
 msgstr ""
 
-#: ../classicmenu_indicator/dialogs.py:128
+#: ../classicmenu_indicator/dialogs.py:131
 msgid "Any files"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:354
+#: ../classicmenu_indicator/cmindicator.py:363
 msgid "Reload menu"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:366
+#: ../classicmenu_indicator/cmindicator.py:375
 msgid "Go to Web Page"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:374
+#: ../classicmenu_indicator/cmindicator.py:383
 #, python-format
 msgid "Report a bug in %s"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:380
+#: ../classicmenu_indicator/cmindicator.py:389
 msgid "Help with Translations"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:386
+#: ../classicmenu_indicator/cmindicator.py:395
 msgid "Donate via Flattr"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:392
+#: ../classicmenu_indicator/cmindicator.py:401
 msgid "Donate via PayPal"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:399
+#: ../classicmenu_indicator/cmindicator.py:409
 #, python-format
 msgid "Quit %s"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:484
+#: ../classicmenu_indicator/cmindicator.py:491
 msgid "Updating menu..."
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:485
+#: ../classicmenu_indicator/cmindicator.py:492
 msgid "Please wait"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:557
+#: ../classicmenu_indicator/cmindicator.py:547
+#, python-format
+msgid ""
+"Show menu at mouse pointer location. This requires an already running "
+"instance of %s"
+msgstr ""
+
+#: ../classicmenu_indicator/cmindicator.py:553
+#, python-format
+msgid "Start a new instance of %s, even if there alread is onerunning"
+msgstr ""
+
+#: ../classicmenu_indicator/cmindicator.py:571
 #, python-format
 msgid ""
 "Can't connect to a running %s instance:\n"
 "%s\n"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:559
+#: ../classicmenu_indicator/cmindicator.py:573
 #, python-format
 msgid "Maybe you need to start %s first."
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:565
+#: ../classicmenu_indicator/cmindicator.py:580
 #, python-format
 msgid "%s already running. Not starting another one."
 msgstr ""
 
-#: ../classicmenu_indicator/preferencesdlg.py:218
+#: ../classicmenu_indicator/preferencesdlg.py:209
 msgid "Select folder"
 msgstr ""
 

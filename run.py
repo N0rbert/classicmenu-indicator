@@ -1,16 +1,17 @@
-#!/usr/bin/python3
-#-*- coding: utf-8 -*-
+#! /usr/bin/python3
+# -*- coding: utf-8 -*-
 #
 
-import os.path, sys
+import classicmenu_indicator
+import classicmenu_indicator.settings
+import os.path
+import sys
 
 fullpath = os.path.abspath(__file__)
 path = os.path.split(fullpath)[0]
-sys.path=[path]+sys.path
+sys.path = [path] + sys.path
 
-import classicmenu_indicator, classicmenu_indicator.settings
-
-DATA_DIR=os.path.normpath(os.path.join(path, 'data'))
+DATA_DIR = os.path.normpath(os.path.join(path, 'data'))
 
 classicmenu_indicator.settings.Vars.DATA_DIR = DATA_DIR
 classicmenu_indicator.settings.Vars.UI_DIR = os.path.join(DATA_DIR, 'ui')

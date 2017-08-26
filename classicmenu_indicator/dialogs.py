@@ -1,4 +1,4 @@
-#-*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 #
 # Dalp - dalp
 # http://www.florian-diesch.de/software/dalp/
@@ -21,12 +21,13 @@
 #
 
 
-from gi.repository import Gtk, Gio, Gdk, GdkPixbuf, GLib
+from gi.repository import Gtk
 
 from gettext import gettext as _
 
-def yes_no_cancel_question(title, text, parent):    
-    dlg = Gtk.MessageDialog(parent, 0,  Gtk.MessageType.QUESTION,
+
+def yes_no_cancel_question(title, text, parent):
+    dlg = Gtk.MessageDialog(parent, 0, Gtk.MessageType.QUESTION,
                             Gtk.ButtonsType.NONE,
                             text
                             )
@@ -34,29 +35,30 @@ def yes_no_cancel_question(title, text, parent):
     dlg.add_buttons(
         Gtk.STOCK_YES, Gtk.ResponseType.YES,
         Gtk.STOCK_NO, Gtk.ResponseType.NO,
-        Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL,                    
-        )
+        Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL,
+    )
     result = dlg.run()
     dlg.destroy()
     return result
 
-def confirm(title, text, parent):    
-    dlg = Gtk.MessageDialog(parent, 0,  Gtk.MessageType.QUESTION,
+
+def confirm(title, text, parent):
+    dlg = Gtk.MessageDialog(parent, 0, Gtk.MessageType.QUESTION,
                             Gtk.ButtonsType.NONE,
                             text
                             )
     dlg.set_title(title)
     dlg.add_buttons(
         Gtk.STOCK_OK, Gtk.ResponseType.OK,
-        Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL,                    
-        )
+        Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL,
+    )
     result = dlg.run()
     dlg.destroy()
     return result == Gtk.ResponseType.OK
 
 
-def information(parent, title, text):    
-    dlg = Gtk.MessageDialog(parent, 0,  Gtk.MessageType.INFO,
+def information(parent, title, text):
+    dlg = Gtk.MessageDialog(parent, 0, Gtk.MessageType.INFO,
                             Gtk.ButtonsType.OK,
                             text
                             )
@@ -65,32 +67,33 @@ def information(parent, title, text):
     dlg.destroy()
     return result
 
-def error(parent, title, text):    
-    dlg = Gtk.MessageDialog(parent, 0,  Gtk.MessageType.ERROR,
+
+def error(parent, title, text):
+    dlg = Gtk.MessageDialog(parent, 0, Gtk.MessageType.ERROR,
                             Gtk.ButtonsType.OK,
                             text
                             )
     dlg.set_title(title)
     result = dlg.run()
     dlg.destroy()
-    return result    
+    return result
 
 
 def ask_for_value(parent, title, msg, default):
     dlg = Gtk.Dialog(title=title)
     dlg.add_buttons(
         Gtk.STOCK_OK, Gtk.ResponseType.OK,
-        Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL,                    
+        Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL,
     )
     box = Gtk.HBox()
-    dlg.get_content_area ().pack_start(box, True, True, 0)
+    dlg.get_content_area().pack_start(box, True, True, 0)
     label = Gtk.Label('{}: '.format(msg))
     box.pack_start(label, True, True, 0)
     entry = Gtk.Entry()
     box.pack_end(entry, True, True, 0)
     entry.set_text(default)
     box.show_all()
-    
+
     response = dlg.run()
     text = entry.get_text()
     dlg.destroy()
@@ -99,29 +102,29 @@ def ask_for_value(parent, title, msg, default):
         return text
     else:
         return default
-    
 
-def ask_for_file_name(title, parent, 
-                      action=Gtk.FileChooserAction.SAVE, 
-                      default_ext=None, 
+
+def ask_for_file_name(title, parent,
+                      action=Gtk.FileChooserAction.SAVE,
+                      default_ext=None,
                       overwrite_confirmation=True,
                       filters=()):
     if action == Gtk.FileChooserAction.SAVE:
         ok_button = Gtk.STOCK_SAVE
     elif action == Gtk.FileChooserAction.OPEN:
         ok_button = Gtk.STOCK_OPEN
-    else: # CREATE_FOLDER, SELECT_FOLDER
+    else:  # CREATE_FOLDER, SELECT_FOLDER
         ok_button = Gtk.STOCK_OPEN
-    
+
     dialog = Gtk.FileChooserDialog(title, parent, action,
-                                       (Gtk.STOCK_CANCEL, 
-                                        Gtk.ResponseType.CANCEL,
-                                        ok_button, 
-                                        Gtk.ResponseType.OK))
+                                   (Gtk.STOCK_CANCEL,
+                                    Gtk.ResponseType.CANCEL,
+                                    ok_button,
+                                    Gtk.ResponseType.OK))
     for name, ext in filters:
         filter = Gtk.FileFilter()
         filter.set_name(name)
-        filter.add_pattern('*.%s'%ext)
+        filter.add_pattern('*.%s' % ext)
         dialog.add_filter(filter)
 
     filter = Gtk.FileFilter()
@@ -137,7 +140,7 @@ def ask_for_file_name(title, parent,
     if response != Gtk.ResponseType.OK:
         return
 
-    if  default_ext is not None and '.' not in path:
+    if default_ext is not None and '.' not in path:
             path = '.'.join((path, default_ext))
 
     return path

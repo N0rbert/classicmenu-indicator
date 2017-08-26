@@ -1,4 +1,4 @@
-#-*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 #
 # Dalp - dalp
 # http://www.florian-diesch.de/software/dalp/
@@ -21,16 +21,15 @@
 #
 
 
-
-from gi.repository import Gtk, Gdk, GdkPixbuf, GLib, Gio
+from gi.repository import Gtk
 
 
 def add_cell_renderer(control, col_no=0, renderer=None, attr='text'):
     if renderer is None:
-        renderer=Gtk.CellRendererText()
+        renderer = Gtk.CellRendererText()
     control.pack_start(renderer, True)
     control.add_attribute(renderer, attr, col_no)
-    
+
 
 def create_treeview_column(widget, title, col_no, renderer=None,
                            attr='text', activatable=False):
@@ -38,8 +37,7 @@ def create_treeview_column(widget, title, col_no, renderer=None,
     widget.append_column(column)
     if activatable:
         renderer.set_activatable(True)
-    add_cell_renderer(column, col_no, renderer,  attr)
-
+    add_cell_renderer(column, col_no, renderer, attr)
 
 
 def get_current_row(treeview):
@@ -50,18 +48,20 @@ def get_current_row(treeview):
 
 
 def set_current_row(treeview, row):
-    path, column = treeview.get_cursor()    
+    path, column = treeview.get_cursor()
     if path is None:
         append_row(treeview, row)
     else:
         model = treeview.get_model()
-        model[path]=row
+        model[path] = row
+
 
 def del_current_row(treeview):
     path, column = treeview.get_cursor()
     if path is not None:
         model = treeview.get_model()
         del model[path]
+
 
 def append_row(treeview, row):
     model = treeview.get_model()

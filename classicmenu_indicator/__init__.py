@@ -1,4 +1,4 @@
-#-*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 # classicmenu-indicator - an indicator showing the main menu from Gnome Classic
 #
 # Copyright (C) 2011 Florian Diesch <devel@florian-diesch.de>
@@ -19,7 +19,4 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-from classicmenu_indicator.cmindicator import main
-
-
-
+from classicmenu_indicator.cmindicator import main  # noqa
