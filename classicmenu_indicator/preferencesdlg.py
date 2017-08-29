@@ -114,16 +114,25 @@ class PreferencesDlg:
 
     def save(self):
         settings.MENUS = self.get_used_menus()
-        settings.USE_MENU_ICONS = self['sw_settings_icons'].get_active()
-        settings.INCLUDE_NODISPLAY = self['sw_settings_show_hidden'].get_active()
-        settings.USE_EXTRA_MENUS = self['sw_settings_extra_menus'].get_active()
-        settings.USE_ALL_APPS_MENU = self['sw_settings_all_apps_menu'].get_active()
-        settings.USE_TOOLTIPS = self['sw_settings_tooltips'].get_active()
-        settings.REMOVE_DUPLICATES = self['sw_settings_remove_duplicates'].get_active()
-        settings.FOLDER_MENU_NEEDS_TERMINAL = self['sw_folder_menu_needs_terminal'].get_active()
-        settings.FOLDER_MENU_ROOT = self['e_folder_menu_root'].get_text()
+        settings.USE_MENU_ICONS = self[
+            'sw_settings_icons'].get_active()
+        settings.INCLUDE_NODISPLAY = self[
+            'sw_settings_show_hidden'].get_active()
+        settings.USE_EXTRA_MENUS = self[
+            'sw_settings_extra_menus'].get_active()
+        settings.USE_ALL_APPS_MENU = self[
+            'sw_settings_all_apps_menu'].get_active()
+        settings.USE_TOOLTIPS = self[
+            'sw_settings_tooltips'].get_active()
+        settings.REMOVE_DUPLICATES = self[
+            'sw_settings_remove_duplicates'].get_active()
+        settings.FOLDER_MENU_NEEDS_TERMINAL = self[
+            'sw_folder_menu_needs_terminal'].get_active()
+        settings.FOLDER_MENU_ROOT = self[
+            'e_folder_menu_root'].get_text()
+        icon_mode = self[
+            'cbox_icon'].get_active_id()
 
-        icon_mode = self['cbox_icon'].get_active_id()
         if icon_mode in settings.ICONS:
             settings.ICON = settings.ICONS[icon_mode]
         else:
@@ -158,10 +167,6 @@ class PreferencesDlg:
             if menu not in model_b:
                 model_b.append([menu])
                 tvtools.del_current_row(tv_a)
-
-#####################
-## Signal-Behandlung
-#####################
 
     def on_b_set_defaults_clicked(self, *args):
         settings.set_to_defaults()
