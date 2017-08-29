@@ -493,10 +493,6 @@ class ClassicMenuIndicator(object):
         GLib.timeout_add(500, lambda *args: dlg.destroy())
         dlg.run()
 
-#####################
-## Signal-Behandlung
-#####################
-
     def on_menu_file_changed(self, *args):
         self.reload()
 
@@ -568,7 +564,7 @@ def main():
                 dbus.SessionBus().get_object(IFACE, OPATH), BUS_NAME)
             api.OpenMenu()
         except Exception as e:
-            print(_("Can't connect to a running %s instance:\n%s\n") % (
+            print(_("Can't connect to %s:\n%s\n") % (
                 settings.APP_NAME, e))
             print(_("Maybe you need to start %s first.") % settings.APP_NAME)
             sys.exit(1)
@@ -577,7 +573,9 @@ def main():
             try:  # CMI alread running?
                 api = dbus.Interface(dbus.SessionBus().get_object(
                     IFACE, OPATH), BUS_NAME)
-                print(_('%s already running. Not starting another one.'
+                print(_('%s already running. Not starting another one.\n'
+                        'Use the "--ignore-running" option if you want to '
+                        'start more than one instance.'
                         % settings.APP_NAME))
                 sys.exit(2)
             except Exception as e:
