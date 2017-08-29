@@ -115,7 +115,7 @@ You must select at least one menu definition for ClassicMenu Indicator to displa
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="margin_bottom">12</property>
-                        <property name="label" translatable="yes">"*Folder Menu*" is a special menu created from a folder where subfolders are used to create submenus and executable files are the menu items. See the "Folder menu" tab for some settings.</property>
+                        <property name="label" translatable="yes">"*Simple Menu*" is a special menu created from a folder where subfolders are used to create submenus and executable files are the menu items. See the "Simple menu" tab for some settings.</property>
                         <property name="wrap">True</property>
                       </object>
                       <packing>
@@ -433,7 +433,7 @@ You must select at least one menu definition for ClassicMenu Indicator to displa
               <object class="GtkLabel" id="l_folder_menu">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">Folder menu</property>
+                <property name="label" translatable="yes">Simple menu</property>
               </object>
               <packing>
                 <property name="position">1</property>
@@ -453,6 +453,7 @@ You must select at least one menu definition for ClassicMenu Indicator to displa
                   <object class="GtkLabel" id="l_settings_icons">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
+                    <property name="tooltip_text" translatable="yes">Show icons on menu folders and entries. If enabled ClassicMenuIndicator will use more memory and start up slower.</property>
                     <property name="xpad">6</property>
                     <property name="label" translatable="yes">Show menu icons:</property>
                     <property name="xalign">1</property>
@@ -466,6 +467,7 @@ You must select at least one menu definition for ClassicMenu Indicator to displa
                   <object class="GtkLabel" id="l_settings_show_hidden">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
+                    <property name="tooltip_text" translatable="yes">Show menu entries marked as "hidden".</property>
                     <property name="xpad">6</property>
                     <property name="label" translatable="yes">Show hidden entries:</property>
                     <property name="xalign">1</property>
@@ -476,21 +478,10 @@ You must select at least one menu definition for ClassicMenu Indicator to displa
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkSwitch" id="sw_settings_icons">
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="halign">start</property>
-                    <property name="valign">center</property>
-                  </object>
-                  <packing>
-                    <property name="left_attach">1</property>
-                    <property name="top_attach">0</property>
-                  </packing>
-                </child>
-                <child>
                   <object class="GtkSwitch" id="sw_settings_show_hidden">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="tooltip_text" translatable="yes">Show menu entries marked as "hidden".</property>
                     <property name="halign">start</property>
                     <property name="valign">center</property>
                   </object>
@@ -503,6 +494,7 @@ You must select at least one menu definition for ClassicMenu Indicator to displa
                   <object class="GtkLabel" id="l_settings_tooltips">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
+                    <property name="tooltip_text" translatable="yes">Show tooltips on menu items</property>
                     <property name="xpad">6</property>
                     <property name="label" translatable="yes">Use tooltips:</property>
                     <property name="xalign">1</property>
@@ -580,6 +572,7 @@ You must select at least one menu definition for ClassicMenu Indicator to displa
                       <object class="GtkSwitch" id="sw_settings_tooltips">
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
+                        <property name="tooltip_text" translatable="yes">Show tooltips on menu items</property>
                         <property name="halign">start</property>
                       </object>
                       <packing>
@@ -662,8 +655,8 @@ ClassicMenu Indicator can add them. If your menu definitions include them, too, 
                       <object class="GtkSwitch" id="sw_settings_extra_menus">
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
-                        <property name="tooltip_text" translatable="yes">Some menu definition don't include extra menus like the ones used by Wine. 
-Do you want ClassicMenu Indicator to add those extra menus?</property>
+                        <property name="tooltip_text" translatable="yes">SSome menu definitions don't include extra menus like the ones for Wine. 
+ClassicMenu Indicator can add them. If your menu definitions include them, too, you will see them twice.</property>
                         <property name="halign">start</property>
                       </object>
                       <packing>
@@ -696,8 +689,9 @@ Do you want ClassicMenu Indicator to add those extra menus?</property>
                   <object class="GtkLabel" id="l_settings_remove_duplicates">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
+                    <property name="tooltip_text" translatable="yes">Don't show menu items with the same command as another item from the same menu definition</property>
                     <property name="margin_right">6</property>
-                    <property name="label" translatable="yes">Remove duplicate entries:</property>
+                    <property name="label" translatable="yes">Ignore duplicate entries:</property>
                     <property name="xalign">1</property>
                   </object>
                   <packing>
@@ -709,6 +703,7 @@ Do you want ClassicMenu Indicator to add those extra menus?</property>
                   <object class="GtkSwitch" id="sw_settings_remove_duplicates">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="tooltip_text" translatable="yes">Don't show menu items with the same command as another item from the same menu definition</property>
                     <property name="halign">start</property>
                   </object>
                   <packing>
@@ -717,10 +712,17 @@ Do you want ClassicMenu Indicator to add those extra menus?</property>
                   </packing>
                 </child>
                 <child>
-                  <placeholder/>
-                </child>
-                <child>
-                  <placeholder/>
+                  <object class="GtkSwitch" id="sw_settings_icons">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="tooltip_text" translatable="yes">Show icons on menu folders and entries. If enabled ClassicMenuIndicator will use more memory and start up slower.</property>
+                    <property name="halign">start</property>
+                    <property name="valign">center</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="top_attach">0</property>
+                  </packing>
                 </child>
               </object>
               <packing>
