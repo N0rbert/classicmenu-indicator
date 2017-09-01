@@ -137,7 +137,7 @@ class FolderMenuFolder(FolderMenuEntry):
         return '/bin/sh'
 
     def get_icon(self):
-        return Gio.ThemedIcon.new('gtk-directory')
+        return Gio.ThemedIcon.new('applications-other')
 
 
 class ClassicMenuIndicator(object):
@@ -254,7 +254,8 @@ class ClassicMenuIndicator(object):
                         icon, settings.ICON_SIZE)
             else:
                 icon_info = self.theme.choose_icon(
-                    ['gtk-execute', 'applications-other'],
+                    ['gtk-execute', 'application-x-executable',
+                     'applications-other'],
                     settings.ICON_SIZE,
                     Gtk.IconLookupFlags.USE_BUILTIN)
                 if icon_info is not None:
@@ -267,7 +268,9 @@ class ClassicMenuIndicator(object):
 
             if img is None:
                 img = Gtk.Image()
-                img.set_from_icon_name('gtk-execute', settings.ICON_SIZE)
+                img.set_from_icon_name(
+                    'application-x-executable',
+                    settings.ICON_SIZE)
             menu_item.set_image(img)
 
             menu_item.set_always_show_image(True)
