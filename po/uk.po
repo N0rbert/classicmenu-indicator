@@ -7,63 +7,104 @@ msgid ""
 msgstr ""
 "Project-Id-Version: classicmenu-indicator\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-08-13 01:15+0200\n"
-"PO-Revision-Date: 2016-04-11 17:36+0000\n"
-"Last-Translator: Микола Ткач <Stuartlittle1970@gmail.com>\n"
+"POT-Creation-Date: 2017-08-29 20:57+0200\n"
+"PO-Revision-Date: 2016-12-28 09:00+0000\n"
+"Last-Translator: Lysenko Denis <Unknown>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-08-17 22:24+0000\n"
-"X-Generator: Launchpad (build 18169)\n"
+"X-Launchpad-Export-Date: 2017-09-03 17:12+0000\n"
+"X-Generator: Launchpad (build 18446)\n"
+
+#: ../classicmenu_indicator/dialogs.py:131
+msgid "Any files"
+msgstr "Будь-які файли"
+
+#: ../classicmenu_indicator/preferencesdlg.py:214
+msgid "Select folder"
+msgstr ""
+
+#: ../classicmenu_indicator/settings.py:14
+msgid "*Folder Menu*"
+msgstr ""
 
 #: ../classicmenu_indicator/about.py:20
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
-"  Микола Ткач https://launchpad.net/~stuartlittle1970"
+"  Lysenko Denis https://launchpad.net/~pharmasolin\n"
+"  stuartlittle https://launchpad.net/~stuartlittle1970"
 
-#: ../classicmenu_indicator/cmindicator.py:218
+#: ../classicmenu_indicator/cmindicator.py:363
 msgid "Reload menu"
 msgstr "Перезавантажити меню"
 
-#: ../classicmenu_indicator/cmindicator.py:230
+#: ../classicmenu_indicator/cmindicator.py:375
 msgid "Go to Web Page"
 msgstr "Перейти на веб-сайт"
 
-#: ../classicmenu_indicator/cmindicator.py:238
+#: ../classicmenu_indicator/cmindicator.py:383
 #, python-format
 msgid "Report a bug in %s"
-msgstr "Звітувати про ваду %s"
+msgstr "Звітувати про баг в %s"
 
-#: ../classicmenu_indicator/cmindicator.py:244
+#: ../classicmenu_indicator/cmindicator.py:389
 msgid "Help with Translations"
-msgstr "Перекласти додаток"
+msgstr "Допомогти з перекладом"
 
-#: ../classicmenu_indicator/cmindicator.py:250
+#: ../classicmenu_indicator/cmindicator.py:395
 msgid "Donate via Flattr"
 msgstr "Пожертвувати через Flattr"
 
-#: ../classicmenu_indicator/cmindicator.py:256
+#: ../classicmenu_indicator/cmindicator.py:401
 msgid "Donate via PayPal"
 msgstr "Пожертвувати через PayPal"
 
-#: ../classicmenu_indicator/cmindicator.py:263
+#: ../classicmenu_indicator/cmindicator.py:409
 #, python-format
 msgid "Quit %s"
 msgstr "Вийти з %s"
 
-#: ../classicmenu_indicator/cmindicator.py:340
+#: ../classicmenu_indicator/cmindicator.py:491
 msgid "Updating menu..."
 msgstr "Оновлення меню..."
 
-#: ../classicmenu_indicator/cmindicator.py:341
+#: ../classicmenu_indicator/cmindicator.py:492
 msgid "Please wait"
 msgstr "Будь ласка, зачекайте"
 
-#: ../classicmenu_indicator/dialogs.py:128
-msgid "Any files"
-msgstr "Будь-які файли"
+#: ../classicmenu_indicator/cmindicator.py:543
+#, python-format
+msgid ""
+"Show menu at mouse pointer location. This requires an already running "
+"instance of %s"
+msgstr ""
+
+#: ../classicmenu_indicator/cmindicator.py:549
+#, python-format
+msgid "Start a new instance of %s, even if there alread is onerunning"
+msgstr ""
+
+#: ../classicmenu_indicator/cmindicator.py:567
+#, python-format
+msgid ""
+"Can't connect to %s:\n"
+"%s\n"
+msgstr ""
+
+#: ../classicmenu_indicator/cmindicator.py:569
+#, python-format
+msgid "Maybe you need to start %s first."
+msgstr ""
+
+#: ../classicmenu_indicator/cmindicator.py:576
+#, python-format
+msgid ""
+"%s already running. Not starting another one.\n"
+"Use the \"--ignore-running\" option if you want to start more than one "
+"instance."
+msgstr ""
 
 #: ../data/desktop/classicmenu-indicator.desktop.in.h:1
 #: ../data/autostart/classicmenu-indicator.desktop.in.h:1
@@ -77,7 +118,7 @@ msgstr "Аплет індикатора, який показує класичн�
 
 #: ../data/desktop/classicmenu-indicator.desktop.in.h:3
 msgid "Application Menu"
-msgstr ""
+msgstr "Меню програми"
 
 #: ../data/ui/preferences.ui.h:1
 msgid "Preferences"
@@ -85,7 +126,7 @@ msgstr "Параметри"
 
 #: ../data/ui/preferences.ui.h:2
 msgid "Set to defaults"
-msgstr ""
+msgstr "Встановити за замовчуванням"
 
 #: ../data/ui/preferences.ui.h:3
 msgid ""
@@ -94,103 +135,151 @@ msgid ""
 "this menu definitions using menu editors like Alacarte, MenuLibre or similar "
 "ones.\n"
 "\n"
-"You have to select at least one menu defintion in order to ClassicMenu "
-"Indicator displaying a menu. If you select more then one menu definition all "
-"definitions are used in the order they appear on the right."
+"You must select at least one menu definition for ClassicMenu Indicator to "
+"display a menu. If you select more then one menu definition all definitions "
+"are used in the order they appear on the right.\n"
 msgstr ""
 
-#: ../data/ui/preferences.ui.h:6
+#: ../data/ui/preferences.ui.h:7
+msgid ""
+"\"*Simple Menu*\" is a special menu created from a folder where subfolders "
+"are used to create submenus and executable files are the menu items. See the "
+"\"Simple menu\" tab for some settings."
+msgstr ""
+
+#: ../data/ui/preferences.ui.h:8
 msgid "\n"
 msgstr "\n"
 
-#: ../data/ui/preferences.ui.h:8
+#: ../data/ui/preferences.ui.h:10
 msgid "Use standard menu"
 msgstr "Використовувати стандартне меню"
 
-#: ../data/ui/preferences.ui.h:9
+#: ../data/ui/preferences.ui.h:11
 msgid ">>>"
 msgstr ">>>"
 
-#: ../data/ui/preferences.ui.h:10
+#: ../data/ui/preferences.ui.h:12
 msgid "<<<"
 msgstr "<<<"
 
-#: ../data/ui/preferences.ui.h:11
+#: ../data/ui/preferences.ui.h:13
 msgid "Menus"
 msgstr "Меню"
 
-#: ../data/ui/preferences.ui.h:12
-msgid "Show menu icons:"
-msgstr "Показати піктограми меню:"
-
-#: ../data/ui/preferences.ui.h:13
-msgid "Show hidden entries:"
-msgstr "Показати приховані записи:"
-
 #: ../data/ui/preferences.ui.h:14
-msgid "Use tooltips:"
+msgid "Run programs in terminal:"
 msgstr ""
 
 #: ../data/ui/preferences.ui.h:15
+msgid "Root folder:"
+msgstr ""
+
+#: ../data/ui/preferences.ui.h:16
+msgid "Browse..."
+msgstr ""
+
+#: ../data/ui/preferences.ui.h:17
+msgid "Simple menu"
+msgstr ""
+
+#: ../data/ui/preferences.ui.h:18
+msgid ""
+"Show icons on menu folders and entries. If enabled ClassicMenuIndicator will "
+"use more memory and start up slower."
+msgstr ""
+
+#: ../data/ui/preferences.ui.h:19
+msgid "Show menu icons:"
+msgstr "Показати піктограми меню:"
+
+#: ../data/ui/preferences.ui.h:20
+msgid "Show menu entries marked as \"hidden\"."
+msgstr ""
+
+#: ../data/ui/preferences.ui.h:21
+msgid "Show hidden entries:"
+msgstr "Показати приховані записи:"
+
+#: ../data/ui/preferences.ui.h:22
+msgid "Show tooltips on menu items"
+msgstr ""
+
+#: ../data/ui/preferences.ui.h:23
+msgid "Use tooltips:"
+msgstr "Використовувати підсказки"
+
+#: ../data/ui/preferences.ui.h:24
 msgid "Icon:"
 msgstr "Піктограма:"
 
-#: ../data/ui/preferences.ui.h:16
+#: ../data/ui/preferences.ui.h:25
 msgid "Old icon"
 msgstr "Стара піктограма"
 
-#: ../data/ui/preferences.ui.h:17
+#: ../data/ui/preferences.ui.h:26
 msgid "New Icon (dark)"
 msgstr "Нова піктограма (темна)"
 
-#: ../data/ui/preferences.ui.h:18
+#: ../data/ui/preferences.ui.h:27
 msgid "New Icon (light)"
 msgstr "Нова піктограма (світла)"
 
-#: ../data/ui/preferences.ui.h:19
+#: ../data/ui/preferences.ui.h:28
 msgid "New Icon (auto)"
 msgstr "Нова піктограма (автоматично)"
 
-#: ../data/ui/preferences.ui.h:20
+#: ../data/ui/preferences.ui.h:29
 msgid "Custom"
 msgstr "Власна"
 
-#: ../data/ui/preferences.ui.h:21
+#: ../data/ui/preferences.ui.h:30
 msgid "<small>(doesn't work in some environments)</small>"
-msgstr ""
+msgstr "<small>(не працює в деяких середовищах)</small>"
 
-#: ../data/ui/preferences.ui.h:22
+#: ../data/ui/preferences.ui.h:31
 msgid ""
 "Some menu definitions don't include extra menus like the ones for Wine. \n"
 "ClassicMenu Indicator can add them. If your menu definitions include them, "
 "too, you will see them twice."
 msgstr ""
 
-#: ../data/ui/preferences.ui.h:24
+#: ../data/ui/preferences.ui.h:33
 msgid "Add extra/Wine menus:"
-msgstr ""
+msgstr "Додати екстра/Wine меню"
 
-#: ../data/ui/preferences.ui.h:25
+#: ../data/ui/preferences.ui.h:34
 msgid ""
 "Do you want an additional single menu that contains all apps in alphabetical "
 "order?"
 msgstr ""
 "Бажаєте додаткове єдине меню, яке містить усі проґрами в алфавітному порядку?"
 
-#: ../data/ui/preferences.ui.h:26
+#: ../data/ui/preferences.ui.h:35
 msgid "Add menu with all apps:"
 msgstr "Додати меню з усіма додатками:"
 
-#: ../data/ui/preferences.ui.h:27
+#: ../data/ui/preferences.ui.h:36
 msgid ""
-"Some menu definition don't include extra menus like the ones used by Wine. \n"
-"Do you want ClassicMenu Indicator to add those extra menus?"
+"SSome menu definitions don't include extra menus like the ones for Wine. \n"
+"ClassicMenu Indicator can add them. If your menu definitions include them, "
+"too, you will see them twice."
 msgstr ""
 
-#: ../data/ui/preferences.ui.h:29
+#: ../data/ui/preferences.ui.h:38
 msgid "<small>(if available)</small>"
+msgstr "<small>(якщо доступно)</small>"
+
+#: ../data/ui/preferences.ui.h:39
+msgid ""
+"Don't show menu items with the same command as another item from the same "
+"menu definition"
 msgstr ""
 
-#: ../data/ui/preferences.ui.h:30
+#: ../data/ui/preferences.ui.h:40
+msgid "Ignore duplicate entries:"
+msgstr ""
+
+#: ../data/ui/preferences.ui.h:41
 msgid "Settings"
 msgstr "Параметри"

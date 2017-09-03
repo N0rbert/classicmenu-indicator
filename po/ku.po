@@ -1,16 +1,16 @@
-# Polish translation for classicmenu-indicator
-# Copyright (c) 2014 Rosetta Contributors and Canonical Ltd 2014
+# Kurdish translation for classicmenu-indicator
+# Copyright (c) 2017 Rosetta Contributors and Canonical Ltd 2017
 # This file is distributed under the same license as the classicmenu-indicator package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2017.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: classicmenu-indicator\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2017-08-29 20:57+0200\n"
-"PO-Revision-Date: 2017-01-31 17:18+0000\n"
-"Last-Translator: kenny <kenny@onet.eu>\n"
-"Language-Team: Polish <pl@li.org>\n"
+"PO-Revision-Date: 2017-02-19 00:23+0000\n"
+"Last-Translator: Rokar ✌ <Unknown>\n"
+"Language-Team: Kurdish <ku@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,7 +19,7 @@ msgstr ""
 
 #: ../classicmenu_indicator/dialogs.py:131
 msgid "Any files"
-msgstr "Wszystkie pliki"
+msgstr ""
 
 #: ../classicmenu_indicator/preferencesdlg.py:214
 msgid "Select folder"
@@ -33,45 +33,45 @@ msgstr ""
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
-"  kenny https://launchpad.net/~kenny-onet"
+"  Rokar ✌ https://launchpad.net/~rokarali"
 
 #: ../classicmenu_indicator/cmindicator.py:363
 msgid "Reload menu"
-msgstr "Przeładuj menu"
+msgstr ""
 
 #: ../classicmenu_indicator/cmindicator.py:375
 msgid "Go to Web Page"
-msgstr "Idź do strony WWW"
+msgstr ""
 
 #: ../classicmenu_indicator/cmindicator.py:383
 #, python-format
 msgid "Report a bug in %s"
-msgstr "Zgłoś błąd w %s"
+msgstr ""
 
 #: ../classicmenu_indicator/cmindicator.py:389
 msgid "Help with Translations"
-msgstr "Pomóż tłumaczyć"
+msgstr ""
 
 #: ../classicmenu_indicator/cmindicator.py:395
 msgid "Donate via Flattr"
-msgstr "Wspomóż przez Flattr"
+msgstr ""
 
 #: ../classicmenu_indicator/cmindicator.py:401
 msgid "Donate via PayPal"
-msgstr "Wspomóż przez PayPal"
+msgstr ""
 
 #: ../classicmenu_indicator/cmindicator.py:409
 #, python-format
 msgid "Quit %s"
-msgstr "Wyjście %s"
+msgstr ""
 
 #: ../classicmenu_indicator/cmindicator.py:491
 msgid "Updating menu..."
-msgstr "Aktualizacja menu..."
+msgstr ""
 
 #: ../classicmenu_indicator/cmindicator.py:492
 msgid "Please wait"
-msgstr "Proszę czekać"
+msgstr ""
 
 #: ../classicmenu_indicator/cmindicator.py:543
 #, python-format
@@ -108,24 +108,24 @@ msgstr ""
 #: ../data/desktop/classicmenu-indicator.desktop.in.h:1
 #: ../data/autostart/classicmenu-indicator.desktop.in.h:1
 msgid "ClassicMenu Indicator"
-msgstr "Klasyczne Menu"
+msgstr ""
 
 #: ../data/desktop/classicmenu-indicator.desktop.in.h:2
 #: ../data/autostart/classicmenu-indicator.desktop.in.h:2
 msgid "Indicator applet to show the Gnome Classic main menu"
-msgstr "Klasyczne menu główne Gnome dostępne pod ikonką"
+msgstr ""
 
 #: ../data/desktop/classicmenu-indicator.desktop.in.h:3
 msgid "Application Menu"
-msgstr "Menu Aplikacji"
+msgstr ""
 
 #: ../data/ui/preferences.ui.h:1
 msgid "Preferences"
-msgstr "Preferencje"
+msgstr "Vebijêrk"
 
 #: ../data/ui/preferences.ui.h:2
 msgid "Set to defaults"
-msgstr "Ustaw domyślne"
+msgstr ""
 
 #: ../data/ui/preferences.ui.h:3
 msgid ""
@@ -152,7 +152,7 @@ msgstr "\n"
 
 #: ../data/ui/preferences.ui.h:10
 msgid "Use standard menu"
-msgstr "Użyj standardowego menu"
+msgstr ""
 
 #: ../data/ui/preferences.ui.h:11
 msgid ">>>"
@@ -160,11 +160,11 @@ msgstr ">>>"
 
 #: ../data/ui/preferences.ui.h:12
 msgid "<<<"
-msgstr "<<<"
+msgstr ""
 
 #: ../data/ui/preferences.ui.h:13
 msgid "Menus"
-msgstr "Menu"
+msgstr "Pêşek"
 
 #: ../data/ui/preferences.ui.h:14
 msgid "Run programs in terminal:"
@@ -190,7 +190,7 @@ msgstr ""
 
 #: ../data/ui/preferences.ui.h:19
 msgid "Show menu icons:"
-msgstr "Pokaż ikony menu:"
+msgstr ""
 
 #: ../data/ui/preferences.ui.h:20
 msgid "Show menu entries marked as \"hidden\"."
@@ -198,7 +198,7 @@ msgstr ""
 
 #: ../data/ui/preferences.ui.h:21
 msgid "Show hidden entries:"
-msgstr "Pokaż ukryte wpisy:"
+msgstr ""
 
 #: ../data/ui/preferences.ui.h:22
 msgid "Show tooltips on menu items"
@@ -206,35 +206,35 @@ msgstr ""
 
 #: ../data/ui/preferences.ui.h:23
 msgid "Use tooltips:"
-msgstr "Użyj podpowiedzi:"
+msgstr ""
 
 #: ../data/ui/preferences.ui.h:24
 msgid "Icon:"
-msgstr "Ikony:"
+msgstr "Îkon:"
 
 #: ../data/ui/preferences.ui.h:25
 msgid "Old icon"
-msgstr "Stare ikony"
+msgstr ""
 
 #: ../data/ui/preferences.ui.h:26
 msgid "New Icon (dark)"
-msgstr "Nowe Ikony (Ciemne)"
+msgstr ""
 
 #: ../data/ui/preferences.ui.h:27
 msgid "New Icon (light)"
-msgstr "Nowe Ikony (jasne)"
+msgstr ""
 
 #: ../data/ui/preferences.ui.h:28
 msgid "New Icon (auto)"
-msgstr "Nowe Ikony (auto)"
+msgstr ""
 
 #: ../data/ui/preferences.ui.h:29
 msgid "Custom"
-msgstr "Własne"
+msgstr "Taybet"
 
 #: ../data/ui/preferences.ui.h:30
 msgid "<small>(doesn't work in some environments)</small>"
-msgstr "<small>(nie działa w niektórych środowiskach)</small>"
+msgstr ""
 
 #: ../data/ui/preferences.ui.h:31
 msgid ""
@@ -245,7 +245,7 @@ msgstr ""
 
 #: ../data/ui/preferences.ui.h:33
 msgid "Add extra/Wine menus:"
-msgstr "Dodaj extra/menu Wine:"
+msgstr ""
 
 #: ../data/ui/preferences.ui.h:34
 msgid ""
@@ -255,7 +255,7 @@ msgstr ""
 
 #: ../data/ui/preferences.ui.h:35
 msgid "Add menu with all apps:"
-msgstr "Dodaj menu ze wszystkimi aplikacjami:"
+msgstr ""
 
 #: ../data/ui/preferences.ui.h:36
 msgid ""
@@ -266,7 +266,7 @@ msgstr ""
 
 #: ../data/ui/preferences.ui.h:38
 msgid "<small>(if available)</small>"
-msgstr "<small>(jeśli dostępne)</small>"
+msgstr ""
 
 #: ../data/ui/preferences.ui.h:39
 msgid ""
@@ -280,4 +280,4 @@ msgstr ""
 
 #: ../data/ui/preferences.ui.h:41
 msgid "Settings"
-msgstr "Ustawienia"
+msgstr "Mîheng"

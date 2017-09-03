@@ -7,15 +7,27 @@ msgid ""
 msgstr ""
 "Project-Id-Version: classicmenu-indicator\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-08-13 01:15+0200\n"
+"POT-Creation-Date: 2017-08-29 20:57+0200\n"
 "PO-Revision-Date: 2015-02-01 16:13+0000\n"
 "Last-Translator: Zsigri Gyula <zsigri@gmail.com>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-08-17 22:24+0000\n"
-"X-Generator: Launchpad (build 18169)\n"
+"X-Launchpad-Export-Date: 2017-09-03 17:12+0000\n"
+"X-Generator: Launchpad (build 18446)\n"
+
+#: ../classicmenu_indicator/dialogs.py:131
+msgid "Any files"
+msgstr ""
+
+#: ../classicmenu_indicator/preferencesdlg.py:214
+msgid "Select folder"
+msgstr ""
+
+#: ../classicmenu_indicator/settings.py:14
+msgid "*Folder Menu*"
+msgstr ""
 
 #: ../classicmenu_indicator/about.py:20
 msgid "translator-credits"
@@ -24,46 +36,74 @@ msgstr ""
 "  Zsigri Gyula https://launchpad.net/~zsigri-2\n"
 "  mktiti https://launchpad.net/~markuskrisztian1"
 
-#: ../classicmenu_indicator/cmindicator.py:218
+#: ../classicmenu_indicator/cmindicator.py:363
 msgid "Reload menu"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:230
+#: ../classicmenu_indicator/cmindicator.py:375
 msgid "Go to Web Page"
 msgstr "Weboldal felkeresése"
 
-#: ../classicmenu_indicator/cmindicator.py:238
+#: ../classicmenu_indicator/cmindicator.py:383
 #, python-format
 msgid "Report a bug in %s"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:244
+#: ../classicmenu_indicator/cmindicator.py:389
 msgid "Help with Translations"
 msgstr "Segítség a fordításban"
 
-#: ../classicmenu_indicator/cmindicator.py:250
+#: ../classicmenu_indicator/cmindicator.py:395
 msgid "Donate via Flattr"
 msgstr "Támogatás Flattr-rel"
 
-#: ../classicmenu_indicator/cmindicator.py:256
+#: ../classicmenu_indicator/cmindicator.py:401
 msgid "Donate via PayPal"
 msgstr "Támogatás PayPallel"
 
-#: ../classicmenu_indicator/cmindicator.py:263
+#: ../classicmenu_indicator/cmindicator.py:409
 #, python-format
 msgid "Quit %s"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:340
+#: ../classicmenu_indicator/cmindicator.py:491
 msgid "Updating menu..."
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:341
+#: ../classicmenu_indicator/cmindicator.py:492
 msgid "Please wait"
 msgstr ""
 
-#: ../classicmenu_indicator/dialogs.py:128
-msgid "Any files"
+#: ../classicmenu_indicator/cmindicator.py:543
+#, python-format
+msgid ""
+"Show menu at mouse pointer location. This requires an already running "
+"instance of %s"
+msgstr ""
+
+#: ../classicmenu_indicator/cmindicator.py:549
+#, python-format
+msgid "Start a new instance of %s, even if there alread is onerunning"
+msgstr ""
+
+#: ../classicmenu_indicator/cmindicator.py:567
+#, python-format
+msgid ""
+"Can't connect to %s:\n"
+"%s\n"
+msgstr ""
+
+#: ../classicmenu_indicator/cmindicator.py:569
+#, python-format
+msgid "Maybe you need to start %s first."
+msgstr ""
+
+#: ../classicmenu_indicator/cmindicator.py:576
+#, python-format
+msgid ""
+"%s already running. Not starting another one.\n"
+"Use the \"--ignore-running\" option if you want to start more than one "
+"instance."
 msgstr ""
 
 #: ../data/desktop/classicmenu-indicator.desktop.in.h:1
@@ -95,102 +135,150 @@ msgid ""
 "this menu definitions using menu editors like Alacarte, MenuLibre or similar "
 "ones.\n"
 "\n"
-"You have to select at least one menu defintion in order to ClassicMenu "
-"Indicator displaying a menu. If you select more then one menu definition all "
-"definitions are used in the order they appear on the right."
+"You must select at least one menu definition for ClassicMenu Indicator to "
+"display a menu. If you select more then one menu definition all definitions "
+"are used in the order they appear on the right.\n"
 msgstr ""
 
-#: ../data/ui/preferences.ui.h:6
-msgid "\n"
+#: ../data/ui/preferences.ui.h:7
+msgid ""
+"\"*Simple Menu*\" is a special menu created from a folder where subfolders "
+"are used to create submenus and executable files are the menu items. See the "
+"\"Simple menu\" tab for some settings."
 msgstr ""
 
 #: ../data/ui/preferences.ui.h:8
-msgid "Use standard menu"
-msgstr ""
-
-#: ../data/ui/preferences.ui.h:9
-msgid ">>>"
+msgid "\n"
 msgstr ""
 
 #: ../data/ui/preferences.ui.h:10
-msgid "<<<"
+msgid "Use standard menu"
 msgstr ""
 
 #: ../data/ui/preferences.ui.h:11
-msgid "Menus"
+msgid ">>>"
 msgstr ""
 
 #: ../data/ui/preferences.ui.h:12
-msgid "Show menu icons:"
+msgid "<<<"
 msgstr ""
 
 #: ../data/ui/preferences.ui.h:13
-msgid "Show hidden entries:"
+msgid "Menus"
 msgstr ""
 
 #: ../data/ui/preferences.ui.h:14
-msgid "Use tooltips:"
+msgid "Run programs in terminal:"
 msgstr ""
 
 #: ../data/ui/preferences.ui.h:15
-msgid "Icon:"
+msgid "Root folder:"
 msgstr ""
 
 #: ../data/ui/preferences.ui.h:16
-msgid "Old icon"
+msgid "Browse..."
 msgstr ""
 
 #: ../data/ui/preferences.ui.h:17
-msgid "New Icon (dark)"
+msgid "Simple menu"
 msgstr ""
 
 #: ../data/ui/preferences.ui.h:18
-msgid "New Icon (light)"
+msgid ""
+"Show icons on menu folders and entries. If enabled ClassicMenuIndicator will "
+"use more memory and start up slower."
 msgstr ""
 
 #: ../data/ui/preferences.ui.h:19
-msgid "New Icon (auto)"
+msgid "Show menu icons:"
 msgstr ""
 
 #: ../data/ui/preferences.ui.h:20
-msgid "Custom"
+msgid "Show menu entries marked as \"hidden\"."
 msgstr ""
 
 #: ../data/ui/preferences.ui.h:21
-msgid "<small>(doesn't work in some environments)</small>"
+msgid "Show hidden entries:"
 msgstr ""
 
 #: ../data/ui/preferences.ui.h:22
+msgid "Show tooltips on menu items"
+msgstr ""
+
+#: ../data/ui/preferences.ui.h:23
+msgid "Use tooltips:"
+msgstr ""
+
+#: ../data/ui/preferences.ui.h:24
+msgid "Icon:"
+msgstr ""
+
+#: ../data/ui/preferences.ui.h:25
+msgid "Old icon"
+msgstr ""
+
+#: ../data/ui/preferences.ui.h:26
+msgid "New Icon (dark)"
+msgstr ""
+
+#: ../data/ui/preferences.ui.h:27
+msgid "New Icon (light)"
+msgstr ""
+
+#: ../data/ui/preferences.ui.h:28
+msgid "New Icon (auto)"
+msgstr ""
+
+#: ../data/ui/preferences.ui.h:29
+msgid "Custom"
+msgstr ""
+
+#: ../data/ui/preferences.ui.h:30
+msgid "<small>(doesn't work in some environments)</small>"
+msgstr ""
+
+#: ../data/ui/preferences.ui.h:31
 msgid ""
 "Some menu definitions don't include extra menus like the ones for Wine. \n"
 "ClassicMenu Indicator can add them. If your menu definitions include them, "
 "too, you will see them twice."
 msgstr ""
 
-#: ../data/ui/preferences.ui.h:24
+#: ../data/ui/preferences.ui.h:33
 msgid "Add extra/Wine menus:"
 msgstr ""
 
-#: ../data/ui/preferences.ui.h:25
+#: ../data/ui/preferences.ui.h:34
 msgid ""
 "Do you want an additional single menu that contains all apps in alphabetical "
 "order?"
 msgstr ""
 
-#: ../data/ui/preferences.ui.h:26
+#: ../data/ui/preferences.ui.h:35
 msgid "Add menu with all apps:"
 msgstr ""
 
-#: ../data/ui/preferences.ui.h:27
+#: ../data/ui/preferences.ui.h:36
 msgid ""
-"Some menu definition don't include extra menus like the ones used by Wine. \n"
-"Do you want ClassicMenu Indicator to add those extra menus?"
+"SSome menu definitions don't include extra menus like the ones for Wine. \n"
+"ClassicMenu Indicator can add them. If your menu definitions include them, "
+"too, you will see them twice."
 msgstr ""
 
-#: ../data/ui/preferences.ui.h:29
+#: ../data/ui/preferences.ui.h:38
 msgid "<small>(if available)</small>"
 msgstr ""
 
-#: ../data/ui/preferences.ui.h:30
+#: ../data/ui/preferences.ui.h:39
+msgid ""
+"Don't show menu items with the same command as another item from the same "
+"menu definition"
+msgstr ""
+
+#: ../data/ui/preferences.ui.h:40
+msgid "Ignore duplicate entries:"
+msgstr ""
+
+#: ../data/ui/preferences.ui.h:41
 msgid "Settings"
 msgstr ""

@@ -7,64 +7,105 @@ msgid ""
 msgstr ""
 "Project-Id-Version: classicmenu-indicator\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-08-13 01:15+0200\n"
-"PO-Revision-Date: 2016-04-15 03:48+0000\n"
-"Last-Translator: Spacetime <shaxonrey@outlook.com>\n"
+"POT-Creation-Date: 2017-08-29 20:57+0200\n"
+"PO-Revision-Date: 2016-12-18 11:03+0000\n"
+"Last-Translator: carl <Unknown>\n"
 "Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-08-17 22:24+0000\n"
-"X-Generator: Launchpad (build 18169)\n"
+"X-Launchpad-Export-Date: 2017-09-03 17:12+0000\n"
+"X-Generator: Launchpad (build 18446)\n"
+
+#: ../classicmenu_indicator/dialogs.py:131
+msgid "Any files"
+msgstr "任意文件"
+
+#: ../classicmenu_indicator/preferencesdlg.py:214
+msgid "Select folder"
+msgstr ""
+
+#: ../classicmenu_indicator/settings.py:14
+msgid "*Folder Menu*"
+msgstr ""
 
 #: ../classicmenu_indicator/about.py:20
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
 "  Spacetime https://launchpad.net/~shaxonrey\n"
-"  Wang Dianjin https://launchpad.net/~tuhaihe"
+"  Wang Dianjin https://launchpad.net/~tuhaihe\n"
+"  iwill48693 https://launchpad.net/~iwill48693"
 
-#: ../classicmenu_indicator/cmindicator.py:218
+#: ../classicmenu_indicator/cmindicator.py:363
 msgid "Reload menu"
 msgstr "重新加载菜单"
 
-#: ../classicmenu_indicator/cmindicator.py:230
+#: ../classicmenu_indicator/cmindicator.py:375
 msgid "Go to Web Page"
 msgstr "前往网页"
 
-#: ../classicmenu_indicator/cmindicator.py:238
+#: ../classicmenu_indicator/cmindicator.py:383
 #, python-format
 msgid "Report a bug in %s"
 msgstr "给%s报告一个错误"
 
-#: ../classicmenu_indicator/cmindicator.py:244
+#: ../classicmenu_indicator/cmindicator.py:389
 msgid "Help with Translations"
 msgstr "帮助翻译"
 
-#: ../classicmenu_indicator/cmindicator.py:250
+#: ../classicmenu_indicator/cmindicator.py:395
 msgid "Donate via Flattr"
 msgstr "通过 Flattr 捐助"
 
-#: ../classicmenu_indicator/cmindicator.py:256
+#: ../classicmenu_indicator/cmindicator.py:401
 msgid "Donate via PayPal"
 msgstr "通过 PayPal 捐赠"
 
-#: ../classicmenu_indicator/cmindicator.py:263
+#: ../classicmenu_indicator/cmindicator.py:409
 #, python-format
 msgid "Quit %s"
 msgstr "退出 %s"
 
-#: ../classicmenu_indicator/cmindicator.py:340
+#: ../classicmenu_indicator/cmindicator.py:491
 msgid "Updating menu..."
 msgstr "更新菜单中……"
 
-#: ../classicmenu_indicator/cmindicator.py:341
+#: ../classicmenu_indicator/cmindicator.py:492
 msgid "Please wait"
 msgstr "请稍等"
 
-#: ../classicmenu_indicator/dialogs.py:128
-msgid "Any files"
-msgstr "任意文件"
+#: ../classicmenu_indicator/cmindicator.py:543
+#, python-format
+msgid ""
+"Show menu at mouse pointer location. This requires an already running "
+"instance of %s"
+msgstr ""
+
+#: ../classicmenu_indicator/cmindicator.py:549
+#, python-format
+msgid "Start a new instance of %s, even if there alread is onerunning"
+msgstr ""
+
+#: ../classicmenu_indicator/cmindicator.py:567
+#, python-format
+msgid ""
+"Can't connect to %s:\n"
+"%s\n"
+msgstr ""
+
+#: ../classicmenu_indicator/cmindicator.py:569
+#, python-format
+msgid "Maybe you need to start %s first."
+msgstr ""
+
+#: ../classicmenu_indicator/cmindicator.py:576
+#, python-format
+msgid ""
+"%s already running. Not starting another one.\n"
+"Use the \"--ignore-running\" option if you want to start more than one "
+"instance."
+msgstr ""
 
 #: ../data/desktop/classicmenu-indicator.desktop.in.h:1
 #: ../data/autostart/classicmenu-indicator.desktop.in.h:1
@@ -78,7 +119,7 @@ msgstr "指示器工具以显示 Gnome 经典主菜单"
 
 #: ../data/desktop/classicmenu-indicator.desktop.in.h:3
 msgid "Application Menu"
-msgstr ""
+msgstr "应用程序菜单"
 
 #: ../data/ui/preferences.ui.h:1
 msgid "Preferences"
@@ -95,75 +136,109 @@ msgid ""
 "this menu definitions using menu editors like Alacarte, MenuLibre or similar "
 "ones.\n"
 "\n"
-"You have to select at least one menu defintion in order to ClassicMenu "
-"Indicator displaying a menu. If you select more then one menu definition all "
-"definitions are used in the order they appear on the right."
+"You must select at least one menu definition for ClassicMenu Indicator to "
+"display a menu. If you select more then one menu definition all definitions "
+"are used in the order they appear on the right.\n"
 msgstr ""
-"经典菜单指示器使用操作系统内置的菜单分类方案。你可以通过Alacarte、MenuLibre或其他类似的程序来修改这些分类方案。\n"
-"\n"
-"请至少选择一种分类方案。如果选择多种分类方案，将按照右边已选择方案的顺序来显示。"
 
-#: ../data/ui/preferences.ui.h:6
+#: ../data/ui/preferences.ui.h:7
+msgid ""
+"\"*Simple Menu*\" is a special menu created from a folder where subfolders "
+"are used to create submenus and executable files are the menu items. See the "
+"\"Simple menu\" tab for some settings."
+msgstr ""
+
+#: ../data/ui/preferences.ui.h:8
 msgid "\n"
 msgstr "\n"
 
-#: ../data/ui/preferences.ui.h:8
+#: ../data/ui/preferences.ui.h:10
 msgid "Use standard menu"
 msgstr "使用标准菜单"
 
-#: ../data/ui/preferences.ui.h:9
+#: ../data/ui/preferences.ui.h:11
 msgid ">>>"
 msgstr ">>>"
 
-#: ../data/ui/preferences.ui.h:10
+#: ../data/ui/preferences.ui.h:12
 msgid "<<<"
 msgstr "<<<"
 
-#: ../data/ui/preferences.ui.h:11
+#: ../data/ui/preferences.ui.h:13
 msgid "Menus"
 msgstr "菜单"
 
-#: ../data/ui/preferences.ui.h:12
+#: ../data/ui/preferences.ui.h:14
+msgid "Run programs in terminal:"
+msgstr ""
+
+#: ../data/ui/preferences.ui.h:15
+msgid "Root folder:"
+msgstr ""
+
+#: ../data/ui/preferences.ui.h:16
+msgid "Browse..."
+msgstr ""
+
+#: ../data/ui/preferences.ui.h:17
+msgid "Simple menu"
+msgstr ""
+
+#: ../data/ui/preferences.ui.h:18
+msgid ""
+"Show icons on menu folders and entries. If enabled ClassicMenuIndicator will "
+"use more memory and start up slower."
+msgstr ""
+
+#: ../data/ui/preferences.ui.h:19
 msgid "Show menu icons:"
 msgstr "显示菜单图标"
 
-#: ../data/ui/preferences.ui.h:13
+#: ../data/ui/preferences.ui.h:20
+msgid "Show menu entries marked as \"hidden\"."
+msgstr ""
+
+#: ../data/ui/preferences.ui.h:21
 msgid "Show hidden entries:"
 msgstr "显示隐藏的项目："
 
-#: ../data/ui/preferences.ui.h:14
+#: ../data/ui/preferences.ui.h:22
+msgid "Show tooltips on menu items"
+msgstr ""
+
+#: ../data/ui/preferences.ui.h:23
 msgid "Use tooltips:"
 msgstr "使用气泡提示："
 
-#: ../data/ui/preferences.ui.h:15
+#: ../data/ui/preferences.ui.h:24
 msgid "Icon:"
 msgstr "图标："
 
-#: ../data/ui/preferences.ui.h:16
+#: ../data/ui/preferences.ui.h:25
 msgid "Old icon"
 msgstr "旧图标"
 
-#: ../data/ui/preferences.ui.h:17
+#: ../data/ui/preferences.ui.h:26
 msgid "New Icon (dark)"
 msgstr "新图标（黑暗）"
 
-#: ../data/ui/preferences.ui.h:18
+#: ../data/ui/preferences.ui.h:27
 msgid "New Icon (light)"
 msgstr "新图标（明亮）"
 
-#: ../data/ui/preferences.ui.h:19
+#: ../data/ui/preferences.ui.h:28
 msgid "New Icon (auto)"
 msgstr "新图标（默认）"
 
-#: ../data/ui/preferences.ui.h:20
+#: ../data/ui/preferences.ui.h:29
 msgid "Custom"
 msgstr "自定义"
 
-#: ../data/ui/preferences.ui.h:21
+#: ../data/ui/preferences.ui.h:30
 msgid "<small>(doesn't work in some environments)</small>"
 msgstr "<small>（在某些系统环境下无效）</small>"
 
-#: ../data/ui/preferences.ui.h:22
+#: ../data/ui/preferences.ui.h:31
 msgid ""
 "Some menu definitions don't include extra menus like the ones for Wine. \n"
 "ClassicMenu Indicator can add them. If your menu definitions include them, "
@@ -172,32 +247,41 @@ msgstr ""
 "一些菜单没有扩展分类，比如通过Wine运行的程序。 \n"
 "经典菜单指示器可以添加扩展分类。如果你的菜单定义已经包括了这些扩展分类，它们将重复显示。"
 
-#: ../data/ui/preferences.ui.h:24
+#: ../data/ui/preferences.ui.h:33
 msgid "Add extra/Wine menus:"
 msgstr "添加扩展/Wine菜单："
 
-#: ../data/ui/preferences.ui.h:25
+#: ../data/ui/preferences.ui.h:34
 msgid ""
 "Do you want an additional single menu that contains all apps in alphabetical "
 "order?"
 msgstr "是否添加一个按字母顺序排列的简单菜单？"
 
-#: ../data/ui/preferences.ui.h:26
+#: ../data/ui/preferences.ui.h:35
 msgid "Add menu with all apps:"
 msgstr "添加包含所有程序的菜单："
 
-#: ../data/ui/preferences.ui.h:27
+#: ../data/ui/preferences.ui.h:36
 msgid ""
-"Some menu definition don't include extra menus like the ones used by Wine. \n"
-"Do you want ClassicMenu Indicator to add those extra menus?"
+"SSome menu definitions don't include extra menus like the ones for Wine. \n"
+"ClassicMenu Indicator can add them. If your menu definitions include them, "
+"too, you will see them twice."
 msgstr ""
-"一些菜单没有扩展分类，比如通过Wine运行的程序。  \n"
-"是否让经典菜单指示器添加这些扩展分类？"
 
-#: ../data/ui/preferences.ui.h:29
+#: ../data/ui/preferences.ui.h:38
 msgid "<small>(if available)</small>"
 msgstr "<small>（如果可用）</small>"
 
-#: ../data/ui/preferences.ui.h:30
+#: ../data/ui/preferences.ui.h:39
+msgid ""
+"Don't show menu items with the same command as another item from the same "
+"menu definition"
+msgstr ""
+
+#: ../data/ui/preferences.ui.h:40
+msgid "Ignore duplicate entries:"
+msgstr ""
+
+#: ../data/ui/preferences.ui.h:41
 msgid "Settings"
 msgstr "设置"
