@@ -11,7 +11,7 @@ from . import _meta
 _config_home = os.path.expanduser(os.path.join('~', '.config'))
 config_home = os.environ.get('XDG_CONFIG_HOME', _config_home)
 
-FOLDERMENU = _('*Folder Menu*')
+FOLDERMENU = _('*Simple Menu*')
 
 
 def get_all_menu_files():

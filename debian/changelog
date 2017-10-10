@@ -1,6 +1,11 @@
-classicmenu-indicator (0.10.2) wily; urgency=medium
+classicmenu-indicator (0.11~pre1) zesty; urgency=medium
 
-  *  kjhlkjh
+   * Added manpage
+   * Added Kurdish, Portuguese, Serbian, Sorani translations
+   * Fixed text in config dialog. Thanks to A. Richard Miller.
+   * Added Simple Menu
+   * Added keyboard activation. Thanks to Todd Eigenschink (LP:  #1656612)
+   * Fixes for flake8 errors and warnings. Thanks to Anari Jalakas
 
  -- Florian Diesch <devel@florian-diesch.de>  Fri, 12 Aug 2016 01:52:09 +0200
 

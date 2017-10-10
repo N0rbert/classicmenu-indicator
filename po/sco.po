@@ -6,11 +6,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: classicmenu-indicator\n"
-"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2017-08-29 20:57+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-10-10 21:50+0200\n"
 "PO-Revision-Date: 2016-02-11 23:58+0000\n"
 "Last-Translator: Marco Cafolla <Cobradabest@aol.com>\n"
 "Language-Team: Scots <sco@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -26,7 +27,7 @@ msgid "Select folder"
 msgstr ""
 
 #: ../classicmenu_indicator/settings.py:14
-msgid "*Folder Menu*"
+msgid "*Simple Menu*"
 msgstr ""
 
 #: ../classicmenu_indicator/about.py:20
@@ -35,69 +36,69 @@ msgstr ""
 "Launchpad Contributions:\n"
 "  Marco Cafolla https://launchpad.net/~cobradabest"
 
-#: ../classicmenu_indicator/cmindicator.py:363
+#: ../classicmenu_indicator/cmindicator.py:366
 msgid "Reload menu"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:375
+#: ../classicmenu_indicator/cmindicator.py:378
 msgid "Go to Web Page"
 msgstr "Gae tae Wab Page"
 
-#: ../classicmenu_indicator/cmindicator.py:383
+#: ../classicmenu_indicator/cmindicator.py:386
 #, python-format
 msgid "Report a bug in %s"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:389
+#: ../classicmenu_indicator/cmindicator.py:392
 msgid "Help with Translations"
 msgstr "Help wi Owersettins"
 
-#: ../classicmenu_indicator/cmindicator.py:395
+#: ../classicmenu_indicator/cmindicator.py:398
 msgid "Donate via Flattr"
 msgstr "Donate wi Flattr"
 
-#: ../classicmenu_indicator/cmindicator.py:401
+#: ../classicmenu_indicator/cmindicator.py:404
 msgid "Donate via PayPal"
 msgstr "Donate wi PayPal"
 
-#: ../classicmenu_indicator/cmindicator.py:409
+#: ../classicmenu_indicator/cmindicator.py:412
 #, python-format
 msgid "Quit %s"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:491
+#: ../classicmenu_indicator/cmindicator.py:494
 msgid "Updating menu..."
 msgstr "Updatin menu..."
 
-#: ../classicmenu_indicator/cmindicator.py:492
+#: ../classicmenu_indicator/cmindicator.py:495
 msgid "Please wait"
 msgstr "Please wait"
 
-#: ../classicmenu_indicator/cmindicator.py:543
+#: ../classicmenu_indicator/cmindicator.py:546
 #, python-format
 msgid ""
 "Show menu at mouse pointer location. This requires an already running "
 "instance of %s"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:549
+#: ../classicmenu_indicator/cmindicator.py:552
 #, python-format
 msgid "Start a new instance of %s, even if there alread is onerunning"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:567
+#: ../classicmenu_indicator/cmindicator.py:570
 #, python-format
 msgid ""
 "Can't connect to %s:\n"
 "%s\n"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:569
+#: ../classicmenu_indicator/cmindicator.py:572
 #, python-format
 msgid "Maybe you need to start %s first."
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:576
+#: ../classicmenu_indicator/cmindicator.py:579
 #, python-format
 msgid ""
 "%s already running. Not starting another one.\n"
@@ -260,26 +261,19 @@ msgid "Add menu with all apps:"
 msgstr "Add menu wi aw apps:"
 
 #: ../data/ui/preferences.ui.h:36
-msgid ""
-"SSome menu definitions don't include extra menus like the ones for Wine. \n"
-"ClassicMenu Indicator can add them. If your menu definitions include them, "
-"too, you will see them twice."
-msgstr ""
-
-#: ../data/ui/preferences.ui.h:38
 msgid "<small>(if available)</small>"
 msgstr ""
 
-#: ../data/ui/preferences.ui.h:39
+#: ../data/ui/preferences.ui.h:37
 msgid ""
 "Don't show menu items with the same command as another item from the same "
 "menu definition"
 msgstr ""
 
-#: ../data/ui/preferences.ui.h:40
+#: ../data/ui/preferences.ui.h:38
 msgid "Ignore duplicate entries:"
 msgstr ""
 
-#: ../data/ui/preferences.ui.h:41
+#: ../data/ui/preferences.ui.h:39
 msgid "Settings"
 msgstr "Settins"

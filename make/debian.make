@@ -16,7 +16,7 @@ update_version:
 sdeb: update_version sdist
 	cp dist/${NAME}-${VERSION}.tar.gz ../${NAME}_${VERSION}.orig.tar.gz
 	rm -r dist
-	python setup.py build_i18n
+	python3 setup.py build_i18n
 	${DEBUILD} -S
 
 deb: ${PRE_BUILD_TARGETS}

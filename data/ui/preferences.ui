@@ -655,7 +655,7 @@ ClassicMenu Indicator can add them. If your menu definitions include them, too, 
                       <object class="GtkSwitch" id="sw_settings_extra_menus">
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
-                        <property name="tooltip_text" translatable="yes">SSome menu definitions don't include extra menus like the ones for Wine. 
+                        <property name="tooltip_text" translatable="yes">Some menu definitions don't include extra menus like the ones for Wine. 
 ClassicMenu Indicator can add them. If your menu definitions include them, too, you will see them twice.</property>
                         <property name="halign">start</property>
                       </object>

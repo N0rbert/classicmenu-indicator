@@ -4,14 +4,14 @@
     "distribution": "wily", 
     "gpg_key": "B57F5641", 
     "license": "GPL-3.0+", 
-    "ppa": "diesch/testing", 
+    "ppa": "diesch/experimental", 
     "prefix": "", 
     "proglang": "Python", 
     "projectname": "classicmenu-indicator", 
     "projecttitle": "ClassicMenu Indicator", 
     "pythonname": "classicmenu_indicator", 
     "short_desc": "classicmenu-indicator", 
-    "version": "0.10.2", 
+    "version": "0.11~pre1", 
     "web_prefix": "http://www.florian-diesch.de/software", 
     "web_url": "http://www.florian-diesch.de/software/classicmenu-indicator/"
 }

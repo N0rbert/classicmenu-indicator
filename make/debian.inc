@@ -1,7 +1,7 @@
 # -*- makefile -*-
 
-PPA=diesch/testing
-DEBVERSION=0.10.2
+PPA=diesch/experimental
+DEBVERSION=0.11~pre1
 DISTRIBUTION=wily
 
 GPG_KEY=B57F5641

@@ -6,11 +6,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: classicmenu-indicator\n"
-"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2017-08-29 20:57+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-10-10 21:50+0200\n"
 "PO-Revision-Date: 2016-12-18 11:03+0000\n"
 "Last-Translator: carl <Unknown>\n"
 "Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -26,7 +27,7 @@ msgid "Select folder"
 msgstr ""
 
 #: ../classicmenu_indicator/settings.py:14
-msgid "*Folder Menu*"
+msgid "*Simple Menu*"
 msgstr ""
 
 #: ../classicmenu_indicator/about.py:20
@@ -37,69 +38,69 @@ msgstr ""
 "  Wang Dianjin https://launchpad.net/~tuhaihe\n"
 "  iwill48693 https://launchpad.net/~iwill48693"
 
-#: ../classicmenu_indicator/cmindicator.py:363
+#: ../classicmenu_indicator/cmindicator.py:366
 msgid "Reload menu"
 msgstr "重新加载菜单"
 
-#: ../classicmenu_indicator/cmindicator.py:375
+#: ../classicmenu_indicator/cmindicator.py:378
 msgid "Go to Web Page"
 msgstr "前往网页"
 
-#: ../classicmenu_indicator/cmindicator.py:383
+#: ../classicmenu_indicator/cmindicator.py:386
 #, python-format
 msgid "Report a bug in %s"
 msgstr "给%s报告一个错误"
 
-#: ../classicmenu_indicator/cmindicator.py:389
+#: ../classicmenu_indicator/cmindicator.py:392
 msgid "Help with Translations"
 msgstr "帮助翻译"
 
-#: ../classicmenu_indicator/cmindicator.py:395
+#: ../classicmenu_indicator/cmindicator.py:398
 msgid "Donate via Flattr"
 msgstr "通过 Flattr 捐助"
 
-#: ../classicmenu_indicator/cmindicator.py:401
+#: ../classicmenu_indicator/cmindicator.py:404
 msgid "Donate via PayPal"
 msgstr "通过 PayPal 捐赠"
 
-#: ../classicmenu_indicator/cmindicator.py:409
+#: ../classicmenu_indicator/cmindicator.py:412
 #, python-format
 msgid "Quit %s"
 msgstr "退出 %s"
 
-#: ../classicmenu_indicator/cmindicator.py:491
+#: ../classicmenu_indicator/cmindicator.py:494
 msgid "Updating menu..."
 msgstr "更新菜单中……"
 
-#: ../classicmenu_indicator/cmindicator.py:492
+#: ../classicmenu_indicator/cmindicator.py:495
 msgid "Please wait"
 msgstr "请稍等"
 
-#: ../classicmenu_indicator/cmindicator.py:543
+#: ../classicmenu_indicator/cmindicator.py:546
 #, python-format
 msgid ""
 "Show menu at mouse pointer location. This requires an already running "
 "instance of %s"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:549
+#: ../classicmenu_indicator/cmindicator.py:552
 #, python-format
 msgid "Start a new instance of %s, even if there alread is onerunning"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:567
+#: ../classicmenu_indicator/cmindicator.py:570
 #, python-format
 msgid ""
 "Can't connect to %s:\n"
 "%s\n"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:569
+#: ../classicmenu_indicator/cmindicator.py:572
 #, python-format
 msgid "Maybe you need to start %s first."
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:576
+#: ../classicmenu_indicator/cmindicator.py:579
 #, python-format
 msgid ""
 "%s already running. Not starting another one.\n"
@@ -245,7 +246,8 @@ msgid ""
 "too, you will see them twice."
 msgstr ""
 "一些菜单没有扩展分类，比如通过Wine运行的程序。 \n"
-"经典菜单指示器可以添加扩展分类。如果你的菜单定义已经包括了这些扩展分类，它们将重复显示。"
+"经典菜单指示器可以添加扩展分类。如果你的菜单定义已经包括了这些扩展分类，它们"
+"将重复显示。"
 
 #: ../data/ui/preferences.ui.h:33
 msgid "Add extra/Wine menus:"
@@ -262,26 +264,19 @@ msgid "Add menu with all apps:"
 msgstr "添加包含所有程序的菜单："
 
 #: ../data/ui/preferences.ui.h:36
-msgid ""
-"SSome menu definitions don't include extra menus like the ones for Wine. \n"
-"ClassicMenu Indicator can add them. If your menu definitions include them, "
-"too, you will see them twice."
-msgstr ""
-
-#: ../data/ui/preferences.ui.h:38
 msgid "<small>(if available)</small>"
 msgstr "<small>（如果可用）</small>"
 
-#: ../data/ui/preferences.ui.h:39
+#: ../data/ui/preferences.ui.h:37
 msgid ""
 "Don't show menu items with the same command as another item from the same "
 "menu definition"
 msgstr ""
 
-#: ../data/ui/preferences.ui.h:40
+#: ../data/ui/preferences.ui.h:38
 msgid "Ignore duplicate entries:"
 msgstr ""
 
-#: ../data/ui/preferences.ui.h:41
+#: ../data/ui/preferences.ui.h:39
 msgid "Settings"
 msgstr "设置"
