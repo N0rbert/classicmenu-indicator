@@ -215,7 +215,6 @@ class Vars(object):
 
     LOCAL_DOCS_URL = None
     PAYPAL_URL = 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=DJCGEPS4746PU'  # noqa
-    FLATTR_URL = 'http://flattr.com/thing/420221/ClassicMenu-Indicator'
 
     TRANSLATIONS_URL = 'https://translations.launchpad.net/classicmenu-indicator'  # noqa
 

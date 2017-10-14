@@ -395,12 +395,6 @@ class ClassicMenuIndicator(object):
             submenu)
 
         _add_menu_item(
-            _('Donate via Flattr'),
-            settings.WEB_PAGE_ICON,
-            self.on_menuitem_flattr,
-            submenu)
-
-        _add_menu_item(
             _('Donate via PayPal'),
             settings.WEB_PAGE_ICON,
             self.on_menuitem_donate,
@@ -528,9 +522,6 @@ class ClassicMenuIndicator(object):
 
     def on_menuitem_donate(self, menuitem):
         self.open_url(settings.PAYPAL_URL)
-
-    def on_menuitem_flattr(self, menuitem):
-        self.open_url(settings.FLATTR_URL)
 
     def on_menuitem_translations(self, menuitem):
         self.open_url(settings.TRANSLATIONS_URL)

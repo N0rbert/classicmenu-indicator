@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-13 02:15+0200\n"
+"POT-Creation-Date: 2017-10-14 15:01+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -51,51 +51,47 @@ msgid "Help with Translations"
 msgstr ""
 
 #: ../classicmenu_indicator/cmindicator.py:398
-msgid "Donate via Flattr"
-msgstr ""
-
-#: ../classicmenu_indicator/cmindicator.py:404
 msgid "Donate via PayPal"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:412
+#: ../classicmenu_indicator/cmindicator.py:406
 #, python-format
 msgid "Quit %s"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:494
+#: ../classicmenu_indicator/cmindicator.py:488
 msgid "Updating menu..."
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:495
+#: ../classicmenu_indicator/cmindicator.py:489
 msgid "Please wait"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:546
+#: ../classicmenu_indicator/cmindicator.py:537
 #, python-format
 msgid ""
 "Show menu at mouse pointer location. This requires an already running "
 "instance of %s"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:552
+#: ../classicmenu_indicator/cmindicator.py:543
 #, python-format
 msgid "Start a new instance of %s, even if there alread is onerunning"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:570
+#: ../classicmenu_indicator/cmindicator.py:561
 #, python-format
 msgid ""
 "Can't connect to %s:\n"
 "%s\n"
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:572
+#: ../classicmenu_indicator/cmindicator.py:563
 #, python-format
 msgid "Maybe you need to start %s first."
 msgstr ""
 
-#: ../classicmenu_indicator/cmindicator.py:579
+#: ../classicmenu_indicator/cmindicator.py:570
 #, python-format
 msgid ""
 "%s already running. Not starting another one.\n"
