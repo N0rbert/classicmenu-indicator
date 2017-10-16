@@ -138,8 +138,6 @@ You must select at least one menu definition for ClassicMenu Indicator to displa
                             <property name="halign">start</property>
                             <property name="valign">center</property>
                             <property name="xpad">6</property>
-                            <property name="label" translatable="yes">
-</property>
                             <property name="wrap">True</property>
                             <property name="selectable">True</property>
                             <property name="xalign">0</property>
