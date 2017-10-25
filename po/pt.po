@@ -7,33 +7,34 @@ msgid ""
 msgstr ""
 "Project-Id-Version: classicmenu-indicator\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2017-10-10 21:50+0200\n"
-"PO-Revision-Date: 2016-04-27 19:02+0000\n"
-"Last-Translator: Juan Carlos Oliveira Lamarão <juanlamarao@openmailbox.org>\n"
+"POT-Creation-Date: 2017-10-14 15:01+0200\n"
+"PO-Revision-Date: 2017-10-22 11:08+0000\n"
+"Last-Translator: Tiago Sá <Unknown>\n"
 "Language-Team: Portuguese <pt@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-10-12 21:48+0000\n"
-"X-Generator: Launchpad (build 18474)\n"
+"X-Launchpad-Export-Date: 2017-10-25 14:40+0000\n"
+"X-Generator: Launchpad (build 18484)\n"
 
 #: ../classicmenu_indicator/dialogs.py:131
 msgid "Any files"
-msgstr ""
+msgstr "Quaisquer ficheiros"
 
 #: ../classicmenu_indicator/preferencesdlg.py:214
 msgid "Select folder"
-msgstr ""
+msgstr "Selecionar Pasta"
 
 #: ../classicmenu_indicator/settings.py:14
 msgid "*Simple Menu*"
-msgstr ""
+msgstr "*Menu Simples*"
 
 #: ../classicmenu_indicator/about.py:20
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
-"  Juan Carlos Oliveira Lamarão https://launchpad.net/~juanlamarao"
+"  Juan Carlos Oliveira Lamarão https://launchpad.net/~juanlamarao\n"
+"  Tiago Sá https://launchpad.net/~tiagossa1"
 
 #: ../classicmenu_indicator/cmindicator.py:366
 msgid "Reload menu"
@@ -53,62 +54,64 @@ msgid "Help with Translations"
 msgstr "Ajude com a Tradução"
 
 #: ../classicmenu_indicator/cmindicator.py:398
-msgid "Donate via Flattr"
-msgstr "Doar via Flattr"
-
-#: ../classicmenu_indicator/cmindicator.py:404
 msgid "Donate via PayPal"
 msgstr "Doar via PayPal"
 
-#: ../classicmenu_indicator/cmindicator.py:412
+#: ../classicmenu_indicator/cmindicator.py:406
 #, python-format
 msgid "Quit %s"
 msgstr "Sair do %s"
 
-#: ../classicmenu_indicator/cmindicator.py:494
+#: ../classicmenu_indicator/cmindicator.py:488
 msgid "Updating menu..."
-msgstr "Atualizando menu..."
+msgstr "A atualizar o menu..."
 
-#: ../classicmenu_indicator/cmindicator.py:495
+#: ../classicmenu_indicator/cmindicator.py:489
 msgid "Please wait"
-msgstr "Por favor aguarde"
+msgstr "Por favor, aguarde"
 
-#: ../classicmenu_indicator/cmindicator.py:546
+#: ../classicmenu_indicator/cmindicator.py:537
 #, python-format
 msgid ""
 "Show menu at mouse pointer location. This requires an already running "
 "instance of %s"
 msgstr ""
+"Mostrar o menu na localização do ponteiro do rato. Isso requer uma instância "
+"já em execução de %s"
 
-#: ../classicmenu_indicator/cmindicator.py:552
+#: ../classicmenu_indicator/cmindicator.py:543
 #, python-format
 msgid "Start a new instance of %s, even if there alread is onerunning"
-msgstr ""
+msgstr "Inicar uma nova instancia %s, mesmo se estiver já a correr"
 
-#: ../classicmenu_indicator/cmindicator.py:570
+#: ../classicmenu_indicator/cmindicator.py:561
 #, python-format
 msgid ""
 "Can't connect to %s:\n"
 "%s\n"
 msgstr ""
+"Não é possivel conectar a  %s:\n"
+"%s\n"
 
-#: ../classicmenu_indicator/cmindicator.py:572
+#: ../classicmenu_indicator/cmindicator.py:563
 #, python-format
 msgid "Maybe you need to start %s first."
-msgstr ""
+msgstr "Talvez tens de iniciar %s primeiro."
 
-#: ../classicmenu_indicator/cmindicator.py:579
+#: ../classicmenu_indicator/cmindicator.py:570
 #, python-format
 msgid ""
 "%s already running. Not starting another one.\n"
 "Use the \"--ignore-running\" option if you want to start more than one "
 "instance."
 msgstr ""
+"%s já está a correr.\n"
+"Usa \"--ingnore-running\" se queres iniciar outro."
 
 #: ../data/desktop/classicmenu-indicator.desktop.in.h:1
 #: ../data/autostart/classicmenu-indicator.desktop.in.h:1
 msgid "ClassicMenu Indicator"
-msgstr "Indicador do Menu Clássico"
+msgstr "ClassicMenu Indicator"
 
 #: ../data/desktop/classicmenu-indicator.desktop.in.h:2
 #: ../data/autostart/classicmenu-indicator.desktop.in.h:2
@@ -118,15 +121,15 @@ msgstr ""
 
 #: ../data/desktop/classicmenu-indicator.desktop.in.h:3
 msgid "Application Menu"
-msgstr ""
+msgstr "Menu de aplicações"
 
 #: ../data/ui/preferences.ui.h:1
 msgid "Preferences"
-msgstr "Preferências"
+msgstr "Definições"
 
 #: ../data/ui/preferences.ui.h:2
 msgid "Set to defaults"
-msgstr ""
+msgstr "Voltar a configuração padrão"
 
 #: ../data/ui/preferences.ui.h:3
 msgid ""
@@ -139,6 +142,14 @@ msgid ""
 "display a menu. If you select more then one menu definition all definitions "
 "are used in the order they appear on the right.\n"
 msgstr ""
+"O indicador ClassicMenu não vem com sua própria definição de menu, mas usa "
+"definições de menu padrão já presentes na maioria dos sistemas. Podes "
+"modificar estas definições de menu usando editores de menu como Alacarte, "
+"MenuLibre ou similares.\n"
+"\n"
+"Deves selecionar pelo menos uma definição de menu para o Indicador "
+"ClassicMenu para exibir um menu. Se selecionares mais de uma definição de "
+"menu, todas as definições são usadas na ordem em que aparecem à direita.\n"
 
 #: ../data/ui/preferences.ui.h:7
 msgid ""
@@ -146,6 +157,9 @@ msgid ""
 "are used to create submenus and executable files are the menu items. See the "
 "\"Simple menu\" tab for some settings."
 msgstr ""
+"\"*Menu Simples*\" é um menu especial criado a partir de uma pasta onde as "
+"subpastas são usadas para criar submenus e os ficheiros executáveis ​​são os "
+"itens do menu. Consulta a guia \"Menu simples\" para algumas configurações."
 
 #: ../data/ui/preferences.ui.h:8
 msgid "\n"
@@ -169,25 +183,27 @@ msgstr "Menus"
 
 #: ../data/ui/preferences.ui.h:14
 msgid "Run programs in terminal:"
-msgstr ""
+msgstr "Abrir programas no terminal:"
 
 #: ../data/ui/preferences.ui.h:15
 msgid "Root folder:"
-msgstr ""
+msgstr "Pasta root:"
 
 #: ../data/ui/preferences.ui.h:16
 msgid "Browse..."
-msgstr ""
+msgstr "Procurar..."
 
 #: ../data/ui/preferences.ui.h:17
 msgid "Simple menu"
-msgstr ""
+msgstr "Menu simples"
 
 #: ../data/ui/preferences.ui.h:18
 msgid ""
 "Show icons on menu folders and entries. If enabled ClassicMenuIndicator will "
 "use more memory and start up slower."
 msgstr ""
+"Mostrar ícones nas pastas e entradas do menu. Se ativado, o "
+"ClassicMenuIndicator usará mais memória e terá um inicio mais lento."
 
 #: ../data/ui/preferences.ui.h:19
 msgid "Show menu icons:"
@@ -195,7 +211,7 @@ msgstr "Mostrar ícones do menu:"
 
 #: ../data/ui/preferences.ui.h:20
 msgid "Show menu entries marked as \"hidden\"."
-msgstr ""
+msgstr "Mostrar menus marcados como \"escondidos\"."
 
 #: ../data/ui/preferences.ui.h:21
 msgid "Show hidden entries:"
@@ -203,11 +219,11 @@ msgstr "Mostrar entradas ocultas"
 
 #: ../data/ui/preferences.ui.h:22
 msgid "Show tooltips on menu items"
-msgstr ""
+msgstr "Mostrar dicas de ferramentas em itens de menu"
 
 #: ../data/ui/preferences.ui.h:23
 msgid "Use tooltips:"
-msgstr ""
+msgstr "Utilizar dicas de ferramentas:"
 
 #: ../data/ui/preferences.ui.h:24
 msgid "Icon:"
@@ -227,7 +243,7 @@ msgstr "Novo ícone (claro)"
 
 #: ../data/ui/preferences.ui.h:28
 msgid "New Icon (auto)"
-msgstr ""
+msgstr "Novo ícone (auto)"
 
 #: ../data/ui/preferences.ui.h:29
 msgid "Custom"
@@ -235,7 +251,7 @@ msgstr "Personalizado"
 
 #: ../data/ui/preferences.ui.h:30
 msgid "<small>(doesn't work in some environments)</small>"
-msgstr ""
+msgstr "<small>(não funciona em alguns ambientes)</small>"
 
 #: ../data/ui/preferences.ui.h:31
 msgid ""
@@ -243,35 +259,42 @@ msgid ""
 "ClassicMenu Indicator can add them. If your menu definitions include them, "
 "too, you will see them twice."
 msgstr ""
+"Algumas definições do menu não incluem menus extras como os de Wine.\n"
+"O ClassicMenu Indicator pode adicioná-los. Se as definições do menu incluí-"
+"las, também as verá duas vezes."
 
 #: ../data/ui/preferences.ui.h:33
 msgid "Add extra/Wine menus:"
-msgstr ""
+msgstr "Adicionar menus extra/Wine:"
 
 #: ../data/ui/preferences.ui.h:34
 msgid ""
 "Do you want an additional single menu that contains all apps in alphabetical "
 "order?"
 msgstr ""
+"Queres um menu único adicional que contenha todas as aplicações em ordem "
+"alfabética?"
 
 #: ../data/ui/preferences.ui.h:35
 msgid "Add menu with all apps:"
-msgstr ""
+msgstr "Adicionar menu com todas as aplicações:"
 
 #: ../data/ui/preferences.ui.h:36
 msgid "<small>(if available)</small>"
-msgstr ""
+msgstr "<small>(se disponível)</small>"
 
 #: ../data/ui/preferences.ui.h:37
 msgid ""
 "Don't show menu items with the same command as another item from the same "
 "menu definition"
 msgstr ""
+"Não mostrar itens de menu com o mesmo comando que outro item da mesma "
+"definição de menu"
 
 #: ../data/ui/preferences.ui.h:38
 msgid "Ignore duplicate entries:"
-msgstr ""
+msgstr "Ignoras duplas entradas:"
 
 #: ../data/ui/preferences.ui.h:39
 msgid "Settings"
-msgstr ""
+msgstr "Definições"
