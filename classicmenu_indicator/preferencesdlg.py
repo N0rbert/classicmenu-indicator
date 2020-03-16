@@ -111,6 +111,7 @@ class PreferencesDlg:
         else:
             self['cbox_icon'].set_active_id('custom')
             self['fcb_icon'].set_filename(settings.ICON)
+        self['cbox_mode'].set_active_id(settings.MODE)
 
     def save(self):
         settings.MENUS = self.get_used_menus()
@@ -130,9 +131,9 @@ class PreferencesDlg:
             'sw_folder_menu_needs_terminal'].get_active()
         settings.FOLDER_MENU_ROOT = self[
             'e_folder_menu_root'].get_text()
-        icon_mode = self[
-            'cbox_icon'].get_active_id()
-
+        icon_mode = self['cbox_icon'].get_active_id()
+        settings.MODE = self['cbox_mode'].get_active_id()
+        
         if icon_mode in settings.ICONS:
             settings.ICON = settings.ICONS[icon_mode]
         else:

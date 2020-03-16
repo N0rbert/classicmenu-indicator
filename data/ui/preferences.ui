@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.20.0 -->
+<!-- Generated with glade 3.22.1 -->
 <interface>
   <requires lib="gtk+" version="3.4"/>
   <object class="GtkDialog" id="dialog">
@@ -8,6 +8,9 @@
     <property name="default_width">855</property>
     <property name="default_height">570</property>
     <property name="type_hint">dialog</property>
+    <child>
+      <placeholder/>
+    </child>
     <child internal-child="vbox">
       <object class="GtkBox" id="dialog-vbox">
         <property name="can_focus">False</property>
@@ -458,7 +461,7 @@ You must select at least one menu definition for ClassicMenu Indicator to displa
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
-                    <property name="top_attach">0</property>
+                    <property name="top_attach">1</property>
                   </packing>
                 </child>
                 <child>
@@ -472,7 +475,7 @@ You must select at least one menu definition for ClassicMenu Indicator to displa
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
-                    <property name="top_attach">1</property>
+                    <property name="top_attach">2</property>
                   </packing>
                 </child>
                 <child>
@@ -485,7 +488,7 @@ You must select at least one menu definition for ClassicMenu Indicator to displa
                   </object>
                   <packing>
                     <property name="left_attach">1</property>
-                    <property name="top_attach">1</property>
+                    <property name="top_attach">2</property>
                   </packing>
                 </child>
                 <child>
@@ -499,7 +502,7 @@ You must select at least one menu definition for ClassicMenu Indicator to displa
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
-                    <property name="top_attach">3</property>
+                    <property name="top_attach">4</property>
                   </packing>
                 </child>
                 <child>
@@ -514,7 +517,7 @@ You must select at least one menu definition for ClassicMenu Indicator to displa
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
-                    <property name="top_attach">4</property>
+                    <property name="top_attach">5</property>
                   </packing>
                 </child>
                 <child>
@@ -559,7 +562,7 @@ You must select at least one menu definition for ClassicMenu Indicator to displa
                   </object>
                   <packing>
                     <property name="left_attach">1</property>
-                    <property name="top_attach">4</property>
+                    <property name="top_attach">5</property>
                   </packing>
                 </child>
                 <child>
@@ -598,7 +601,7 @@ You must select at least one menu definition for ClassicMenu Indicator to displa
                   </object>
                   <packing>
                     <property name="left_attach">1</property>
-                    <property name="top_attach">3</property>
+                    <property name="top_attach">4</property>
                   </packing>
                 </child>
                 <child>
@@ -614,7 +617,7 @@ ClassicMenu Indicator can add them. If your menu definitions include them, too, 
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
-                    <property name="top_attach">5</property>
+                    <property name="top_attach">6</property>
                   </packing>
                 </child>
                 <child>
@@ -629,7 +632,7 @@ ClassicMenu Indicator can add them. If your menu definitions include them, too, 
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
-                    <property name="top_attach">6</property>
+                    <property name="top_attach">7</property>
                   </packing>
                 </child>
                 <child>
@@ -641,7 +644,7 @@ ClassicMenu Indicator can add them. If your menu definitions include them, too, 
                   </object>
                   <packing>
                     <property name="left_attach">1</property>
-                    <property name="top_attach">6</property>
+                    <property name="top_attach">7</property>
                   </packing>
                 </child>
                 <child>
@@ -680,7 +683,7 @@ ClassicMenu Indicator can add them. If your menu definitions include them, too, 
                   </object>
                   <packing>
                     <property name="left_attach">1</property>
-                    <property name="top_attach">5</property>
+                    <property name="top_attach">6</property>
                   </packing>
                 </child>
                 <child>
@@ -694,7 +697,7 @@ ClassicMenu Indicator can add them. If your menu definitions include them, too, 
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
-                    <property name="top_attach">2</property>
+                    <property name="top_attach">3</property>
                   </packing>
                 </child>
                 <child>
@@ -706,7 +709,7 @@ ClassicMenu Indicator can add them. If your menu definitions include them, too, 
                   </object>
                   <packing>
                     <property name="left_attach">1</property>
-                    <property name="top_attach">2</property>
+                    <property name="top_attach">3</property>
                   </packing>
                 </child>
                 <child>
@@ -716,6 +719,35 @@ ClassicMenu Indicator can add them. If your menu definitions include them, too, 
                     <property name="tooltip_text" translatable="yes">Show icons on menu folders and entries. If enabled ClassicMenuIndicator will use more memory and start up slower.</property>
                     <property name="halign">start</property>
                     <property name="valign">center</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="top_attach">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="margin_right">6</property>
+                    <property name="label" translatable="yes">Mode:</property>
+                    <property name="xalign">1</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">0</property>
+                    <property name="top_attach">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkComboBoxText" id="cbox_mode">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="halign">start</property>
+                    <property name="active">0</property>
+                    <items>
+                      <item id="appindicator" translatable="yes">AppIndicator</item>
+                      <item id="hidden" translatable="yes">Hidden</item>
+                    </items>
                   </object>
                   <packing>
                     <property name="left_attach">1</property>
