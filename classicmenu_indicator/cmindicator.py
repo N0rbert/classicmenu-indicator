@@ -32,14 +32,13 @@ from dbus.mainloop.glib import DBusGMainLoop
 from gettext import gettext as _
 from optparse import OptionParser
 
-gi.require_version('Gtk', '3.0')
-gi.require_version('GMenu', '3.0')
-gi.require_version('AppIndicator3', '0.1')
-from gi.repository import (Gtk, GLib, GObject, GdkPixbuf, Gio, GMenu, # noqa
-                           AppIndicator3)   # noqa
-
-from . import about, preferencesdlg   # noqa
 from .settings import vars as settings, FOLDERMENU   # noqa
+from . import about, preferencesdlg   # noqa
+
+from gi.repository import Gtk, GLib, GObject, GdkPixbuf, Gio, GMenu
+from gi.repository import AppIndicator3
+    
+
 
 
 def _add_menu_item(title, icon, callback, menu):

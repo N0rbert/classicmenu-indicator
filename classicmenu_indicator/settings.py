@@ -4,7 +4,19 @@ import glob
 import json
 import os
 import os.path
-from gi.repository import Gtk, AppIndicator3
+
+import gi
+try:
+    gi.require_version('AppIndicator3', '0.1')
+    from gi.repository import AppIndicator3
+    HAVE_APPINDICATOR = True
+except:
+    HAVE_APPINDICATOR = False
+    
+gi.require_version('GMenu', '3.0')
+gi.require_version('Gtk', '3.0')
+from gi.repository import Gtk
+
 from gettext import gettext as _
 from . import _meta
 
@@ -209,7 +221,23 @@ class Vars(object):
     def FOLDER_MENU_ROOT(self, value):
         self.data['folder_menu_root'] = value
 
-    category = AppIndicator3.IndicatorCategory.SYSTEM_SERVICES
+    @property
+    def MODE(self):
+        if HAVE_APPINDICATOR:
+            return self.data.get('mode', 'appindicator')
+        else:
+            return 'hidden'
+        
+    @MODE.setter
+    def MODE(self, value):
+        self.data['mode'] = value
+        
+    @property
+    def CATEGORY(self):
+        if self.MODE == 'appindicator':
+            return AppIndicator3.IndicatorCategory.SYSTEM_SERVICES
+        else:
+            return None
 
     GETTEXT_DOMAIN = app_name
 
