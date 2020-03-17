@@ -145,10 +145,13 @@ class FolderMenuFolder(FolderMenuEntry):
 
 class ClassicMenuApp(object):
     def __init__(self):
-        self.indicator = AppIndicator3.Indicator.new(
-            settings.app_name,
-            settings.ICON,
-            settings.category)
+        if settings.MODE == 'appindicator':
+            self.indicator = AppIndicator3.Indicator.new(
+                settings.app_name,
+                settings.ICON,
+                settings.CATEGORY)
+        else:
+            self.indicator = None
 
         gettext.bindtextdomain(settings.GETTEXT_DOMAIN)
         gettext.textdomain(settings.GETTEXT_DOMAIN)
@@ -159,8 +162,9 @@ class ClassicMenuApp(object):
         self.update_requested = False
         self.entries = set()  # for removing duplicates
 
-        self.indicator.set_status(
-            AppIndicator3.IndicatorStatus.ACTIVE)
+        if self.indicator:
+            self.indicator.set_status(
+                AppIndicator3.IndicatorStatus.ACTIVE)
 
         self.create_all_trees()
         self.menu = self.create_menu()
@@ -168,7 +172,8 @@ class ClassicMenuApp(object):
         global mainmenu
         mainmenu = self.menu
 
-        self.indicator.set_menu(self.menu)
+        if self.indicator:
+            self.indicator.set_menu(self.menu)
 
     def run(self):
         MonitorDBus()
@@ -209,7 +214,6 @@ class ClassicMenuApp(object):
                 afile.startswith('.') or
                 not os.access(cmd, os.X_OK)
             ):
-
                 try:
                     entry = FolderMenuItem(adir, afile)
                 except TypeError:  # can't create Gio.DesktopAppInfo
@@ -462,7 +466,8 @@ class ClassicMenuApp(object):
         global mainmenu
         mainmenu = new_menu
 
-        self.indicator.set_menu(new_menu)
+        if self.indicator:
+            self.indicator.set_menu(new_menu)
         return False    # Don't run again
 
     def request_update(self, recreate_trees=False, delayed=True):
@@ -482,7 +487,8 @@ class ClassicMenuApp(object):
 
     def reload(self, delayed=True):
         settings.load()
-        self.indicator.set_icon(settings.ICON)
+        if self.indicator:
+            self.indicator.set_icon(settings.ICON)
         self.request_update(recreate_trees=True, delayed=delayed)
 
     def show_reload_msg(self):
