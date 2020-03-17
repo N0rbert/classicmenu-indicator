@@ -79,7 +79,11 @@ class MonitorDBus(dbus.service.Object):
                          in_signature="", out_signature="")
     def OpenMenu(self):
         mainmenu.popup(None, None, None, None, 0, Gtk.get_current_event_time())
-
+    @dbus.service.method(dbus_interface=IFACE,
+                         in_signature="", out_signature="")
+    def Quit(self):
+        Gtk.main_quit()
+        
 ######################################################################
 
 
@@ -545,6 +549,11 @@ def parse_args():
                       dest='ignore', default=False,
                       help=help)
 
+    help = _('Quit a running instance of %s' % settings.APP_NAME)
+    parser.add_option('-q', '--quit', action="store_true",
+                      dest='quit', default=False,
+                      help=help)
+    
     options, args = parser.parse_args()
     return options, args
 
@@ -561,6 +570,14 @@ def main():
                 settings.APP_NAME, e))
             print(_("Maybe you need to start %s first.") % settings.APP_NAME)
             sys.exit(1)
+    elif options.quit:
+        try:
+            api = dbus.Interface(
+                dbus.SessionBus().get_object(IFACE, OPATH), BUS_NAME)
+            api.Quit()
+        except Exception as e:
+            print(_("Can't connect to %s:\n%s\n") % (
+                settings.APP_NAME, e))
     else:
         if not options.ignore:
             try:  # CMI alread running?
