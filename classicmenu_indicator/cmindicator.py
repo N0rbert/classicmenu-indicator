@@ -143,7 +143,7 @@ class FolderMenuFolder(FolderMenuEntry):
         return Gio.ThemedIcon.new('applications-other')
 
 
-class ClassicMenuIndicator(object):
+class ClassicMenuApp(object):
     def __init__(self):
         self.indicator = AppIndicator3.Indicator.new(
             settings.app_name,
@@ -591,5 +591,5 @@ def main():
             except Exception as e:
                 pass
 
-        indicator = ClassicMenuIndicator()
-        indicator.run()
+        app = ClassicMenuApp()
+        app.run()
