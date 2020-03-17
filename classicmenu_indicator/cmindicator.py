@@ -560,6 +560,10 @@ def parse_args():
                       dest='quit', default=False,
                       help=help)
     
+    help = _('Check if an instance of %s is running' % settings.APP_NAME)
+    parser.add_option('-p', '--ping', action="store_true",
+                      dest='ping', default=False,
+                      help=help)
     options, args = parser.parse_args()
     return options, args
 
@@ -584,6 +588,16 @@ def main():
         except Exception as e:
             print(_("Can't connect to %s:\n%s\n") % (
                 settings.APP_NAME, e))
+            
+    elif options.ping:
+        try:
+            api = dbus.Interface(
+                dbus.SessionBus().get_object(IFACE, OPATH), BUS_NAME)
+        except Exception as e:
+            print(_('%s not running.') % settings.APP_NAME)
+            sys.exit(1)
+        print(_('%s running.') % settings.APP_NAME)
+        sys.exit(0)
     else:
         if not options.ignore:
             try:  # CMI alread running?
