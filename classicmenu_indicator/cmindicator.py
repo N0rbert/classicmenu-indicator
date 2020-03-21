@@ -32,8 +32,7 @@ from dbus.mainloop.glib import DBusGMainLoop
 from gettext import gettext as _
 from optparse import OptionParser
 
-from .settings import vars as settings, FOLDERMENU   # noqa
-from . import about, preferencesdlg   # noqa
+from . import settings, about, preferencesdlg   # noqa
 
 from gi.repository import Gtk, GLib, GObject, GdkPixbuf, Gio, GMenu
 from gi.repository import AppIndicator3
@@ -45,7 +44,7 @@ def _add_menu_item(title, icon, callback, menu):
     menu_item = Gtk.ImageMenuItem(title)
     if icon is not None:
         menu_item.set_image(Gtk.Image.new_from_icon_name(
-            icon, settings.ICON_SIZE))
+            icon, settings.vars.ICON_SIZE))
     menu_item.connect('activate', callback)
     menu.append(menu_item)
 
@@ -114,7 +113,7 @@ class FolderMenuEntry:
             kf.set_string('Desktop Entry', 'Name', self.filename)
         except Exception as e:
             raise TypeError(str(e))
-        if settings.FOLDER_MENU_NEEDS_TERMINAL:
+        if settings.vars.FOLDER_MENU_NEEDS_TERMINAL:
             kf.set_string('Desktop Entry', 'Terminal', 'true')
         return Gio.DesktopAppInfo.new_from_keyfile(kf)
 
@@ -150,12 +149,18 @@ class ClassicMenuApp(object):
                 settings.app_name,
                 settings.ICON,
                 settings.CATEGORY)
+                settings.vars.app_name,
+                settings.vars.ICON,
+                settings.vars.CATEGORY)
         else:
             self.indicator = None
 
         gettext.bindtextdomain(settings.GETTEXT_DOMAIN)
         gettext.textdomain(settings.GETTEXT_DOMAIN)
         gettext.bind_textdomain_codeset(settings.GETTEXT_DOMAIN, 'UTF-8')
+        gettext.bindtextdomain(settings.vars.GETTEXT_DOMAIN)
+        gettext.textdomain(settings.vars.GETTEXT_DOMAIN)
+        gettext.bind_textdomain_codeset(settings.vars.GETTEXT_DOMAIN, 'UTF-8')
 
         self.theme = Gtk.IconTheme.get_default()
 
@@ -183,7 +188,7 @@ class ClassicMenuApp(object):
             pass
 
     def add_folder_menu(self, menu):
-        root = settings.FOLDER_MENU_ROOT
+        root = settings.vars.FOLDER_MENU_ROOT
         files = sorted((r, f) for r, ds, fs in os.walk(root) for f in fs + ds)
         submenus = {}
 
@@ -241,14 +246,14 @@ class ClassicMenuApp(object):
 
         img = None
 
-        if settings.USE_MENU_ICONS:
+        if settings.vars.USE_MENU_ICONS:
             try:
                 icon = entry.get_icon()
             except AttributeError:
                 icon = entry.get_app_info().get_icon()
 
             if icon and not self.theme.lookup_by_gicon(
-                    icon, settings.ICON_SIZE,
+                    icon, settings.vars.ICON_SIZE,
                     Gtk.IconLookupFlags.USE_BUILTIN):
                 icon = None
 
@@ -258,12 +263,12 @@ class ClassicMenuApp(object):
                     icon = None
             if icon:
                     img = Gtk.Image.new_from_gicon(
-                        icon, settings.ICON_SIZE)
+                        icon, settings.vars.ICON_SIZE)
             else:
                 icon_info = self.theme.choose_icon(
                     ['gtk-execute', 'application-x-executable',
                      'applications-other'],
-                    settings.ICON_SIZE,
+                    settings.vars.ICON_SIZE,
                     Gtk.IconLookupFlags.USE_BUILTIN)
                 if icon_info is not None:
                     pixbuf = icon_info.load_icon()
@@ -277,7 +282,7 @@ class ClassicMenuApp(object):
                 img = Gtk.Image()
                 img.set_from_icon_name(
                     'application-x-executable',
-                    settings.ICON_SIZE)
+                    settings.vars.ICON_SIZE)
             menu_item.set_image(img)
 
             menu_item.set_always_show_image(True)
@@ -302,7 +307,7 @@ class ClassicMenuApp(object):
             cmd = None
 
         if (
-            settings.REMOVE_DUPLICATES and
+            settings.vars.REMOVE_DUPLICATES and
             cmd is not None and
             cmd in self.entries
            ):
@@ -351,14 +356,14 @@ class ClassicMenuApp(object):
         menu = Gtk.Menu()
 
         for t in self.trees:
-            if t == FOLDERMENU:
+            if t == settings.FOLDERMENU:
                 self.add_folder_menu(menu)
             elif t:
                 self.add_to_menu(menu, t)
                 menu_item = Gtk.SeparatorMenuItem()
                 menu.append(menu_item)
 
-        menu_item = Gtk.MenuItem('%s' % settings.APP_NAME)
+        menu_item = Gtk.MenuItem('%s' % settings.vars.APP_NAME)
         menu.append(menu_item)
 
         submenu = Gtk.Menu()
@@ -383,34 +388,34 @@ class ClassicMenuApp(object):
             submenu)
 
         _add_menu_item(_('Go to Web Page'),
-                       settings.WEB_PAGE_ICON,
+                       settings.vars.WEB_PAGE_ICON,
                        self.on_menuitem_goto_webpage,
                        submenu)
 
         _add_separator_menu_item(submenu)
 
         _add_menu_item(
-            _('Report a bug in %s') % settings.APP_NAME,
-            settings.WEB_PAGE_ICON,
+            _('Report a bug in %s') % settings.vars.APP_NAME,
+            settings.vars.WEB_PAGE_ICON,
             self.on_menuitem_bug,
             submenu)
 
         _add_menu_item(
             _('Help with Translations'),
-            settings.WEB_PAGE_ICON,
+            settings.vars.WEB_PAGE_ICON,
             self.on_menuitem_translations,
             submenu)
 
         _add_menu_item(
             _('Donate via PayPal'),
-            settings.WEB_PAGE_ICON,
+            settings.vars.WEB_PAGE_ICON,
             self.on_menuitem_donate,
             submenu)
 
         _add_separator_menu_item(submenu)
 
         _add_menu_item(
-            _('Quit %s') % settings.APP_NAME,
+            _('Quit %s') % settings.vars.APP_NAME,
             Gtk.STOCK_QUIT,
             self.on_menuitem_quit_activate,
             submenu)
@@ -421,19 +426,19 @@ class ClassicMenuApp(object):
     def create_all_trees(self):
         self.trees = []
 
-        if settings.USE_ALL_APPS_MENU:
-            tree = self.create_tree(settings.ALL_APPS_MENU)
+        if settings.vars.USE_ALL_APPS_MENU:
+            tree = self.create_tree(settings.vars.ALL_APPS_MENU)
             if tree:
                 self.trees.append(tree)
-        for m in settings.MENUS:
-            if m == FOLDERMENU:
-                tree = FOLDERMENU
+        for m in settings.vars.MENUS:
+            if m == settings.FOLDERMENU:
+                tree = settings.FOLDERMENU
             else:
                 tree = self.create_tree(m)
             if tree:
                 self.trees.append(tree)
-        if settings.USE_EXTRA_MENUS:
-            tree = self.create_tree(settings.EXTRA_MENU)
+        if settings.vars.USE_EXTRA_MENUS:
+            tree = self.create_tree(settings.vars.EXTRA_MENU)
             if tree:
                 self.trees.append(tree)
 
@@ -441,7 +446,7 @@ class ClassicMenuApp(object):
         flags = (GMenu.TreeFlags.SHOW_ALL_SEPARATORS |
                  GMenu.TreeFlags.SORT_DISPLAY_NAME)
 
-        if settings.INCLUDE_NODISPLAY:
+        if settings.vars.INCLUDE_NODISPLAY:
             flags = flags | GMenu.TreeFlags.INCLUDE_NODISPLAY
 
         try:
@@ -474,7 +479,7 @@ class ClassicMenuApp(object):
         if not self.update_requested:
             self.update_requested = True
             if delayed:
-                GObject.timeout_add(settings.UPDATE_DELAY,
+                GObject.timeout_add(settings.vars.UPDATE_DELAY,
                                     lambda: self.update_menu(recreate_trees))
             else:
                 self.update_menu(recreate_trees)
@@ -486,9 +491,9 @@ class ClassicMenuApp(object):
         Gio.AppInfo.launch_default_for_uri(url, None)
 
     def reload(self, delayed=True):
-        settings.load()
+        settings.vars.load()
         if self.indicator:
-            self.indicator.set_icon(settings.ICON)
+            self.indicator.set_icon(settings.vars.ICON)
         self.request_update(recreate_trees=True, delayed=delayed)
 
     def show_reload_msg(self):
@@ -524,43 +529,43 @@ class ClassicMenuApp(object):
         about.show_about_dialog()
 
     def on_menuitem_docs(self, menuitem):
-        self.open_url(settings.LOCAL_DOCS_URL)
+        self.open_url(settings.vars.LOCAL_DOCS_URL)
 
     def on_menuitem_goto_webpage(self, menuitem):
-        self.open_url(settings.WEB_URL)
+        self.open_url(settings.vars.WEB_URL)
 
     def on_menuitem_donate(self, menuitem):
-        self.open_url(settings.PAYPAL_URL)
+        self.open_url(settings.vars.PAYPAL_URL)
 
     def on_menuitem_translations(self, menuitem):
-        self.open_url(settings.TRANSLATIONS_URL)
+        self.open_url(settings.vars.TRANSLATIONS_URL)
 
     def on_menuitem_bug(self, menuitem):
-        self.open_url(settings.BUGREPORT_URL)
+        self.open_url(settings.vars.BUGREPORT_URL)
 
 
 def parse_args():
-    parser = OptionParser(version="%s %s" % (settings.APP_NAME,
-                                             settings.APP_VERSION))
+    parser = OptionParser(version="%s %s" % (settings.vars.APP_NAME,
+                                             settings.vars.APP_VERSION))
 
     help = _('Show menu at mouse pointer location. This requires an '
-             'already running instance of %s' % settings.APP_NAME)
+             'already running instance of %s' % settings.vars.APP_NAME)
     parser.add_option('-m', '--show-menu', action="store_true",
                       dest='show_menu', default=False,
                       help=help)
 
     help = _('Start a new instance of %s, even if there alread is one'
-             'running' % settings.APP_NAME)
+             'running' % settings.vars.APP_NAME)
     parser.add_option('-i', '--ignore-running', action="store_true",
                       dest='ignore', default=False,
                       help=help)
 
-    help = _('Quit a running instance of %s' % settings.APP_NAME)
+    help = _('Quit a running instance of %s' % settings.vars.APP_NAME)
     parser.add_option('-q', '--quit', action="store_true",
                       dest='quit', default=False,
                       help=help)
     
-    help = _('Check if an instance of %s is running' % settings.APP_NAME)
+    help = _('Check if an instance of %s is running' % settings.vars.APP_NAME)
     parser.add_option('-p', '--ping', action="store_true",
                       dest='ping', default=False,
                       help=help)
@@ -577,8 +582,8 @@ def main():
             api.OpenMenu()
         except Exception as e:
             print(_("Can't connect to %s:\n%s\n") % (
-                settings.APP_NAME, e))
-            print(_("Maybe you need to start %s first.") % settings.APP_NAME)
+                settings.vars.APP_NAME, e))
+            print(_("Maybe you need to start %s first.") % settings.vars.APP_NAME)
             sys.exit(1)
     elif options.quit:
         try:
@@ -587,16 +592,16 @@ def main():
             api.Quit()
         except Exception as e:
             print(_("Can't connect to %s:\n%s\n") % (
-                settings.APP_NAME, e))
+                settings.vars.APP_NAME, e))
             
     elif options.ping:
         try:
             api = dbus.Interface(
                 dbus.SessionBus().get_object(IFACE, OPATH), BUS_NAME)
         except Exception as e:
-            print(_('%s not running.') % settings.APP_NAME)
+            print(_('%s not running.') % settings.vars.APP_NAME)
             sys.exit(1)
-        print(_('%s running.') % settings.APP_NAME)
+        print(_('%s running.') % settings.vars.APP_NAME)
         sys.exit(0)
     else:
         if not options.ignore:
@@ -606,7 +611,7 @@ def main():
                 print(_('%s already running. Not starting another one.\n'
                         'Use the "--ignore-running" option if you want to '
                         'start more than one instance.'
-                        % settings.APP_NAME))
+                        % settings.vars.APP_NAME))
                 sys.exit(2)
             except Exception as e:
                 pass
