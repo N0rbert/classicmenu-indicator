@@ -143,21 +143,18 @@ class FolderMenuFolder(FolderMenuEntry):
 
 
 class ClassicMenuApp(object):
-    def __init__(self):
-        if settings.MODE == 'appindicator':
+    def __init__(self, mode=None):
+        if mode is None:
+            mode = settings.vars.MODE
+            
+        if mode == settings.Mode.APPINDICATOR:
             self.indicator = AppIndicator3.Indicator.new(
-                settings.app_name,
-                settings.ICON,
-                settings.CATEGORY)
                 settings.vars.app_name,
                 settings.vars.ICON,
                 settings.vars.CATEGORY)
         else:
             self.indicator = None
 
-        gettext.bindtextdomain(settings.GETTEXT_DOMAIN)
-        gettext.textdomain(settings.GETTEXT_DOMAIN)
-        gettext.bind_textdomain_codeset(settings.GETTEXT_DOMAIN, 'UTF-8')
         gettext.bindtextdomain(settings.vars.GETTEXT_DOMAIN)
         gettext.textdomain(settings.vars.GETTEXT_DOMAIN)
         gettext.bind_textdomain_codeset(settings.vars.GETTEXT_DOMAIN, 'UTF-8')
@@ -569,6 +566,14 @@ def parse_args():
     parser.add_option('-p', '--ping', action="store_true",
                       dest='ping', default=False,
                       help=help)
+
+    _modes = [settings.Mode.APPINDICATOR, settings.Mode.HIDDEN]
+    help = _('Start %s in mode MODE' % settings.vars.APP_NAME)
+    parser.add_option('-M', '--mode', choices=_modes,
+                        default=None, dest='mode',
+                        metavar='MODE', help=help)
+
+    
     options, args = parser.parse_args()
     return options, args
 
@@ -616,5 +621,5 @@ def main():
             except Exception as e:
                 pass
 
-        app = ClassicMenuApp()
+        app = ClassicMenuApp(options.mode)
         app.run()

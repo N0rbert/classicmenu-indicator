@@ -25,6 +25,11 @@ config_home = os.environ.get('XDG_CONFIG_HOME', _config_home)
 
 FOLDERMENU = _('*Simple Menu*')
 
+class Mode:
+    APPINDICATOR = 'appindicator'
+    HIDDEN = 'hidden'
+    
+
 
 def get_all_menu_files():
     dirs = os.environ.get('XDG_CONFIG_DIRS', '/etc/xdg')
@@ -224,9 +229,9 @@ class Vars(object):
     @property
     def MODE(self):
         if HAVE_APPINDICATOR:
-            return self.data.get('mode', 'appindicator')
+            return self.data.get('mode', Mode.APPINDICATOR)
         else:
-            return 'hidden'
+            return Mode.hidden
         
     @MODE.setter
     def MODE(self, value):
@@ -234,7 +239,7 @@ class Vars(object):
         
     @property
     def CATEGORY(self):
-        if self.MODE == 'appindicator':
+        if self.MODE == Mode.APPINDICATOR:
             return AppIndicator3.IndicatorCategory.SYSTEM_SERVICES
         else:
             return None
