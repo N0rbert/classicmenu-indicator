@@ -66,6 +66,10 @@ OPATH = "/de/florian_diesch/classicmenu_indicator"
 IFACE = "de.florian_diesch.classicmenu_indicator"
 BUS_NAME = "de.florian_diesch.classicmenu_indicator"
 
+def show_menu():
+    if mainmenu:
+        mainmenu.popup(None, None, None, None, 0,
+                       Gtk.get_current_event_time()) 
 
 class MonitorDBus(dbus.service.Object):
     def __init__(self):
@@ -77,7 +81,8 @@ class MonitorDBus(dbus.service.Object):
     @dbus.service.method(dbus_interface=IFACE,
                          in_signature="", out_signature="")
     def OpenMenu(self):
-        mainmenu.popup(None, None, None, None, 0, Gtk.get_current_event_time())
+        show_menu()
+        
     @dbus.service.method(dbus_interface=IFACE,
                          in_signature="", out_signature="")
     def Quit(self):
@@ -144,39 +149,64 @@ class FolderMenuFolder(FolderMenuEntry):
 
 class ClassicMenuApp(object):
     def __init__(self, mode=None):
+
         if mode is None:
             mode = settings.vars.MODE
             
-        if mode == settings.Mode.APPINDICATOR:
-            self.indicator = AppIndicator3.Indicator.new(
-                settings.vars.app_name,
-                settings.vars.ICON,
-                settings.vars.CATEGORY)
-        else:
-            self.indicator = None
-
         gettext.bindtextdomain(settings.vars.GETTEXT_DOMAIN)
         gettext.textdomain(settings.vars.GETTEXT_DOMAIN)
-        gettext.bind_textdomain_codeset(settings.vars.GETTEXT_DOMAIN, 'UTF-8')
+        gettext.bind_textdomain_codeset(settings.vars.GETTEXT_DOMAIN,
+                                        'UTF-8')
 
         self.theme = Gtk.IconTheme.get_default()
 
         self.update_requested = False
         self.entries = set()  # for removing duplicates
 
-        if self.indicator:
-            self.indicator.set_status(
-                AppIndicator3.IndicatorStatus.ACTIVE)
-
         self.create_all_trees()
-        self.menu = self.create_menu()
 
         global mainmenu
-        mainmenu = self.menu
+        mainmenu = self.create_menu()
 
-        if self.indicator:
-            self.indicator.set_menu(self.menu)
+        self.update_tray_icon(mode)
+   
 
+    def enable_appindicator(self):
+        self.indicator = AppIndicator3.Indicator.new(
+            settings.vars.app_name,
+            settings.vars.ICON,
+            settings.vars.CATEGORY)
+        self.indicator.set_status(
+                AppIndicator3.IndicatorStatus.ACTIVE)
+        self.indicator.set_menu(mainmenu)
+        
+    def disable_appindicator(self):
+        if hasattr(self, 'indicator'):
+            del self.indicator
+        self.indicator = None
+
+    def enable_xembed(self):        
+        self.xembed = Gtk.StatusIcon.new_from_icon_name(settings.vars.ICON)
+        self.xembed.connect('activate', lambda *args: show_menu())
+
+    def disable_xembed(self):
+        if hasattr(self, 'xembed'):
+            del self.xembed
+        self.xembed = None
+   
+        
+    def update_tray_icon(self, mode):
+        if mode == settings.Mode.APPINDICATOR:
+            self.enable_appindicator()
+        else:
+            self.disable_appindicator()
+            
+        if mode == settings.Mode.XEMBED:
+            self.enable_xembed()
+        else:
+            self.disable_xembed()
+        
+            
     def run(self):
         MonitorDBus()
         try:
@@ -489,6 +519,7 @@ class ClassicMenuApp(object):
 
     def reload(self, delayed=True):
         settings.vars.load()
+        self.update_tray_icon(settings.vars.MODE)
         if self.indicator:
             self.indicator.set_icon(settings.vars.ICON)
         self.request_update(recreate_trees=True, delayed=delayed)

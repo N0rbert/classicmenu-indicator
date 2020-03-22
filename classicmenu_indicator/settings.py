@@ -28,6 +28,7 @@ FOLDERMENU = _('*Simple Menu*')
 class Mode:
     APPINDICATOR = 'appindicator'
     HIDDEN = 'hidden'
+    XEMBED = 'xembed'
     
 
 
