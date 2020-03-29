@@ -30,7 +30,7 @@ classicmenu-indicator (0.09-1) trusty; urgency=medium
   * added 'python-xdg' as a dependency (LP: #1363891)
     Thanks to Graham Inggs
   * replaced build-deb 'python-all' with 'python'
-	
+
  -- Florian Diesch <devel@florian-diesch.de>  Thu, 25 Sep 2014 17:45:29 +0200
 
 classicmenu-indicator (0.09) saucy; urgency=low
@@ -66,7 +66,7 @@ classicmenu-indicator (0.08) precise; urgency=low
   * added Estonian, French, Croatian, Japanese, Malay, Brazilian
     Portuguese, Russian, Chinese (Simplified) language support
   * changed the way commands are run
-   
+
 
  -- Florian Diesch <devel@florian-diesch.de>  Sat, 08 Sep 2012 00:16:13 +0200
 
@@ -74,14 +74,14 @@ classicmenu-indicator (0.07) oneiric; urgency=low
 
   * cmdindicator.py:
     - Fixed bug in handling of missing/unusable icons
-    - Added own menu if settings.menu doesn't exist 
+    - Added own menu if settings.menu doesn't exist
 
  -- Florian Diesch <debian@florian-diesch.de>  Sat, 07 Jan 2012 13:26:09 +0100
 
 classicmenu-indicator (0.06) natty; urgency=low
 
-  * cmdindicator.py: 
-    -  Fixed bug that caused an infitite loop after menu file update 
+  * cmdindicator.py:
+    -  Fixed bug that caused an infitite loop after menu file update
        under some circumstances
 
 
@@ -108,7 +108,7 @@ classicmenu-indicator (0.03) natty; urgency=low
      - create_indicator: use mono style icon (LP: #792780). Thanks to Sander van Noort
      - create_menu: Added "Settings" and "System Administration" menus
      - main: Added ``--help`` and ``--version`` command line options
-	
+
  -- Florian Diesch <debian@florian-diesch.de>  Sat, 04 Jun 2011 16:32:01 +0200
 
 classicmenu-indicator (0.02) natty; urgency=low
