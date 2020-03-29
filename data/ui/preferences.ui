@@ -5,8 +5,7 @@
   <object class="GtkDialog" id="dialog">
     <property name="can_focus">False</property>
     <property name="title" translatable="yes">Preferences</property>
-    <property name="default_width">855</property>
-    <property name="default_height">570</property>
+    <property name="default_width">700</property>
     <property name="type_hint">dialog</property>
     <child>
       <placeholder/>
@@ -93,7 +92,7 @@
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="tooltip_text" translatable="yes">Show icons on menu folders and entries. If enabled ClassicMenuIndicator will use more memory and start up slower.</property>
-                    <property name="xpad">6</property>
+                    <property name="margin_right">6</property>
                     <property name="label" translatable="yes">Show menu icons:</property>
                     <property name="xalign">1</property>
                   </object>
@@ -107,7 +106,7 @@
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="tooltip_text" translatable="yes">Show menu entries marked as "hidden".</property>
-                    <property name="xpad">6</property>
+                    <property name="margin_right">6</property>
                     <property name="label" translatable="yes">Show hidden entries:</property>
                     <property name="xalign">1</property>
                   </object>
@@ -134,7 +133,7 @@
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="tooltip_text" translatable="yes">Show tooltips on menu items</property>
-                    <property name="xpad">6</property>
+                    <property name="margin_right">6</property>
                     <property name="label" translatable="yes">Use tooltips:</property>
                     <property name="xalign">1</property>
                   </object>
@@ -147,8 +146,8 @@
                   <object class="GtkLabel" id="l_icon">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
+                    <property name="margin_right">6</property>
                     <property name="margin_top">6</property>
-                    <property name="xpad">6</property>
                     <property name="label" translatable="yes">Icon:</property>
                     <property name="ellipsize">end</property>
                     <property name="xalign">1</property>
@@ -249,7 +248,6 @@
                     <property name="tooltip_text" translatable="yes">Some menu definitions don't include extra menus like the ones for Wine. 
 ClassicMenu Indicator can add them. If your menu definitions include them, too, you will see them twice.</property>
                     <property name="margin_right">6</property>
-                    <property name="xpad">6</property>
                     <property name="label" translatable="yes">Add extra/Wine menus:</property>
                     <property name="xalign">1</property>
                   </object>
@@ -264,7 +262,6 @@ ClassicMenu Indicator can add them. If your menu definitions include them, too, 
                     <property name="can_focus">False</property>
                     <property name="tooltip_text" translatable="yes">Do you want an additional single menu that contains all apps in alphabetical order?</property>
                     <property name="margin_right">6</property>
-                    <property name="xpad">6</property>
                     <property name="label" translatable="yes">Add menu with all apps:</property>
                     <property name="xalign">1</property>
                   </object>
@@ -377,16 +374,39 @@ ClassicMenu Indicator can add them. If your menu definitions include them, too, 
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkComboBoxText" id="cbox_mode">
+                  <object class="GtkBox">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="halign">start</property>
-                    <property name="active">0</property>
-                    <items>
-                      <item id="appindicator" translatable="yes">AppIndicator</item>
-                      <item id="hidden" translatable="yes">Hidden</item>
-                      <item id="xembed" translatable="yes">XEmbed</item>
-                    </items>
+                    <child>
+                      <object class="GtkComboBoxText" id="cbox_mode">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="halign">start</property>
+                        <property name="active">0</property>
+                        <items>
+                          <item id="hidden" translatable="yes">Hidden</item>
+                          <item id="xembed" translatable="yes">XEmbed</item>
+                        </items>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">True</property>
+                        <property name="position">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="l_appindicator_support">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="margin_left">12</property>
+                        <property name="use_markup">True</property>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">True</property>
+                        <property name="position">1</property>
+                      </packing>
+                    </child>
                   </object>
                   <packing>
                     <property name="left_attach">1</property>
@@ -427,12 +447,12 @@ ClassicMenu Indicator can add them. If your menu definitions include them, too, 
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="hexpand">True</property>
-                        <property name="xpad">6</property>
                         <property name="label" translatable="yes">ClassicMenu Indicator doesn't come with its own menu definition but uses standard menu definitions already present on most systems. You can modify this menu definitions using menu editors like Alacarte, MenuLibre or similar ones.
 
 You must select at least one menu definition for ClassicMenu Indicator to display a menu. If you select more then one menu definition all definitions are used in the order they appear on the right.
 </property>
                         <property name="wrap">True</property>
+                        <property name="width_chars">55</property>
                         <property name="xalign">0</property>
                         <property name="yalign">0</property>
                       </object>
@@ -449,6 +469,8 @@ You must select at least one menu definition for ClassicMenu Indicator to displa
                         <property name="margin_bottom">12</property>
                         <property name="label" translatable="yes">"*Simple Menu*" is a special menu created from a folder where subfolders are used to create submenus and executable files are the menu items. See the "Simple menu" tab for some settings.</property>
                         <property name="wrap">True</property>
+                        <property name="width_chars">55</property>
+                        <property name="xalign">0</property>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -469,9 +491,10 @@ You must select at least one menu definition for ClassicMenu Indicator to displa
                             <property name="can_focus">False</property>
                             <property name="halign">start</property>
                             <property name="valign">center</property>
-                            <property name="xpad">6</property>
+                            <property name="margin_top">12</property>
                             <property name="wrap">True</property>
                             <property name="selectable">True</property>
+                            <property name="width_chars">55</property>
                             <property name="xalign">0</property>
                             <property name="yalign">0</property>
                           </object>

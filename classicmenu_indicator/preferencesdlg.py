@@ -36,7 +36,12 @@ class PreferencesDlg:
 
         self.setup_tvs()
         self.setup_menus_intro()
-
+        if settings.HAVE_APPINDICATOR:
+            self['cbox_mode'].prepend_text('AppIndicator')
+        else:
+            self['l_appindicator_support'].set_text(
+                _('<small>AppIndicator not supported.</small>'))
+ 
     def setup_tvs(self):
         tv = self['tv_menus_avail']
         model_avail = Gtk.ListStore(str)
