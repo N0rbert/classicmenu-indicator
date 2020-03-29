@@ -35,7 +35,9 @@ from optparse import OptionParser
 from . import settings, about, preferencesdlg   # noqa
 
 from gi.repository import Gtk, GLib, GObject, GdkPixbuf, Gio, GMenu
-from gi.repository import AppIndicator3
+
+if settings.HAVE_APPINDICATOR:
+    from gi.repository import AppIndicator3
     
 
 
