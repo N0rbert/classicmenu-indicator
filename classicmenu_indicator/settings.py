@@ -2,8 +2,12 @@
 
 import glob
 import json
+import sys
 import os
 import os.path
+
+from . import _meta, xdgdirs
+from gettext import gettext as _
 
 import gi
 try:
@@ -22,11 +26,6 @@ except ValueError:
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk
 
-from gettext import gettext as _
-from . import _meta
-
-_config_home = os.path.expanduser(os.path.join('~', '.config'))
-config_home = os.environ.get('XDG_CONFIG_HOME', _config_home)
 
 FOLDERMENU = _('*Simple Menu*')
 
@@ -38,9 +37,9 @@ class Mode:
 
 
 def get_all_menu_files():
-    dirs = os.environ.get('XDG_CONFIG_DIRS', '/etc/xdg')
+    dirs = xdgdirs.XDG_CONFIG_DIRS
     result = set([FOLDERMENU])
-    for d in dirs.split(':') + [config_home]:
+    for d in dirs + [xdgdirs.XDG_CONFIG_HOME]:
         for m in glob.glob(os.path.join(d, 'menus', '*.menu')):
             result.add(os.path.basename(m))
     return sorted(result)
@@ -93,8 +92,7 @@ class Vars(object):
     AUTHOR_EMAIL = _meta.AUTHOR_EMAIL
     AUTHOR_NAME = _meta.AUTHOR_NAME
 
-    USER_CONFIG_HOME = config_home
-    APP_CONFIG_HOME = os.path.join(USER_CONFIG_HOME, app_name)
+    APP_CONFIG_HOME = os.path.join(xdgdirs.XDG_CONFIG_HOME, app_name)
     CFG_FILE = os.path.join(APP_CONFIG_HOME, 'config.json')
 
     def __init__(self):
@@ -127,8 +125,11 @@ class Vars(object):
              }
 
     WEB_PAGE_ICON = 'go-jump'
+    
+    DIR_PREFIX = os.path.abspath(
+        os.path.dirname(os.path.dirname(sys.argv[0])))
 
-    DATA_DIR = '/usr/share/classicmenu-indicator'
+    DATA_DIR = os.path.join(DIR_PREFIX, 'share', app_name )
 
     UI_DIR = os.path.join(DATA_DIR, 'ui')
 
