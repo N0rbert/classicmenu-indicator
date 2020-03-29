@@ -20,18 +20,17 @@ import os
 import os.path
 from gettext import gettext as _
 from gi.repository import Gtk
-from .settings import (vars as settings, get_all_menu_files,
-                       get_default_menu_files)
-from . import tvtools, dialogs
+
+from . import settings, tvtools, dialogs
 
 
 class PreferencesDlg:
 
     def __init__(self):
         self.builder = Gtk.Builder()
-        self.builder.set_translation_domain(settings.GETTEXT_DOMAIN)
+        self.builder.set_translation_domain(settings.vars.GETTEXT_DOMAIN)
 
-        gladefile = os.path.join(settings.UI_DIR, 'preferences.ui')
+        gladefile = os.path.join(settings.vars.UI_DIR, 'preferences.ui')
         self.builder.add_from_file(gladefile)
         self.builder.connect_signals(self)
 
@@ -53,7 +52,7 @@ class PreferencesDlg:
         self.load()
 
     def setup_menus_intro(self):
-        default = get_default_menu_files()
+        default = settings.get_default_menu_files()
         if default:
             intro = 'Your standard menu seems to be "{default}".'
 
@@ -81,67 +80,68 @@ class PreferencesDlg:
             model.append([m])
 
         model = self['tv_menus_avail'].get_model()
-        unused = [m for m in get_all_menu_files() if m not in menus]
+        unused = [m for m in settings.get_all_menu_files()
+                  if m not in menus]
         model.clear()
         for m in unused:
             model.append([m])
 
     def set_default_menus(self):
-        default_menu = get_default_menu_files()
+        default_menu = settings.get_default_menu_files()
         self.set_used_menus(default_menu)
 
     def load(self):
-        self.set_used_menus(settings.MENUS)
-        self['sw_settings_icons'].set_active(settings.USE_MENU_ICONS)
-        self['sw_settings_show_hidden'].set_active(settings.INCLUDE_NODISPLAY)
-        self['sw_settings_extra_menus'].set_active(settings.USE_EXTRA_MENUS)
+        self.set_used_menus(settings.vars.MENUS)
+        self['sw_settings_icons'].set_active(settings.vars.USE_MENU_ICONS)
+        self['sw_settings_show_hidden'].set_active(settings.vars.INCLUDE_NODISPLAY)
+        self['sw_settings_extra_menus'].set_active(settings.vars.USE_EXTRA_MENUS)
         self['sw_settings_all_apps_menu'].set_active(
-            settings.USE_ALL_APPS_MENU)
-        self['sw_settings_tooltips'].set_active(settings.USE_TOOLTIPS)
+            settings.vars.USE_ALL_APPS_MENU)
+        self['sw_settings_tooltips'].set_active(settings.vars.USE_TOOLTIPS)
         self['sw_settings_remove_duplicates'].set_active(
-            settings.REMOVE_DUPLICATES)
+            settings.vars.REMOVE_DUPLICATES)
 
         self['sw_folder_menu_needs_terminal'].set_active(
-            settings.FOLDER_MENU_NEEDS_TERMINAL)
-        self['e_folder_menu_root'].set_text(settings.FOLDER_MENU_ROOT)
+            settings.vars.FOLDER_MENU_NEEDS_TERMINAL)
+        self['e_folder_menu_root'].set_text(settings.vars.FOLDER_MENU_ROOT)
 
-        _icons = {v: k for k, v in settings.ICONS.items()}
-        if settings.ICON in _icons:
-            self['cbox_icon'].set_active_id(_icons[settings.ICON])
+        _icons = {v: k for k, v in settings.vars.ICONS.items()}
+        if settings.vars.ICON in _icons:
+            self['cbox_icon'].set_active_id(_icons[settings.vars.ICON])
         else:
             self['cbox_icon'].set_active_id('custom')
-            self['fcb_icon'].set_filename(settings.ICON)
-        self['cbox_mode'].set_active_id(settings.MODE)
+            self['fcb_icon'].set_filename(settings.vars.ICON)
+        self['cbox_mode'].set_active_id(settings.vars.MODE)
 
     def save(self):
-        settings.MENUS = self.get_used_menus()
-        settings.USE_MENU_ICONS = self[
+        settings.vars.MENUS = self.get_used_menus()
+        settings.vars.USE_MENU_ICONS = self[
             'sw_settings_icons'].get_active()
-        settings.INCLUDE_NODISPLAY = self[
+        settings.vars.INCLUDE_NODISPLAY = self[
             'sw_settings_show_hidden'].get_active()
-        settings.USE_EXTRA_MENUS = self[
+        settings.vars.USE_EXTRA_MENUS = self[
             'sw_settings_extra_menus'].get_active()
-        settings.USE_ALL_APPS_MENU = self[
+        settings.vars.USE_ALL_APPS_MENU = self[
             'sw_settings_all_apps_menu'].get_active()
-        settings.USE_TOOLTIPS = self[
+        settings.vars.USE_TOOLTIPS = self[
             'sw_settings_tooltips'].get_active()
-        settings.REMOVE_DUPLICATES = self[
+        settings.vars.REMOVE_DUPLICATES = self[
             'sw_settings_remove_duplicates'].get_active()
-        settings.FOLDER_MENU_NEEDS_TERMINAL = self[
+        settings.vars.FOLDER_MENU_NEEDS_TERMINAL = self[
             'sw_folder_menu_needs_terminal'].get_active()
-        settings.FOLDER_MENU_ROOT = self[
+        settings.vars.FOLDER_MENU_ROOT = self[
             'e_folder_menu_root'].get_text()
         icon_mode = self['cbox_icon'].get_active_id()
-        settings.MODE = self['cbox_mode'].get_active_id()
+        settings.vars.MODE = self['cbox_mode'].get_active_id()
         
-        if icon_mode in settings.ICONS:
-            settings.ICON = settings.ICONS[icon_mode]
+        if icon_mode in settings.vars.ICONS:
+            settings.vars.ICON = settings.vars.ICONS[icon_mode]
         else:
             fname = self['fcb_icon'].get_filename()
             if fname:
-                settings.ICON = fname
+                settings.vars.ICON = fname
         try:
-            settings.save()
+            settings.vars.save()
         except IOError as e:
             dialogs.error(self['dialog'], "Can't save preferences",
                           str(e))
@@ -170,7 +170,7 @@ class PreferencesDlg:
                 tvtools.del_current_row(tv_a)
 
     def on_b_set_defaults_clicked(self, *args):
-        settings.set_to_defaults()
+        settings.vars.set_to_defaults()
         self.load()
 
     def on_b_default_menus_clicked(self, *args):
