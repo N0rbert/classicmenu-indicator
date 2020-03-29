@@ -1,1 +1,0 @@
-classicmenu_indicator/_meta.py
