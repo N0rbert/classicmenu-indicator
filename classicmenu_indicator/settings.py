@@ -232,7 +232,7 @@ class Vars(object):
         if HAVE_APPINDICATOR:
             return self.data.get('mode', Mode.APPINDICATOR)
         else:
-            return Mode.hidden
+            return Mode.XEMBED
         
     @MODE.setter
     def MODE(self, value):

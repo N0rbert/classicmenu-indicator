@@ -151,7 +151,6 @@ class FolderMenuFolder(FolderMenuEntry):
 
 class ClassicMenuApp(object):
     def __init__(self, mode=None):
-
         if mode is None:
             mode = settings.vars.MODE
             
@@ -600,7 +599,8 @@ def parse_args():
                       dest='ping', default=False,
                       help=help)
 
-    _modes = [settings.Mode.APPINDICATOR, settings.Mode.HIDDEN]
+    _modes = [settings.Mode.APPINDICATOR, settings.Mode.HIDDEN,
+              settings.Mode.XEMBED]
     help = _('Start %s in mode MODE' % settings.vars.APP_NAME)
     parser.add_option('-M', '--mode', choices=_modes,
                         default=None, dest='mode',
