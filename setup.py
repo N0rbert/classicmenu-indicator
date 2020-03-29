@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 #
 # ClassicMenu Indicator - classicmenu-indicator
-#                    http://www.florian-diesch.de/software/classicmenu-indicator/
+# http://www.florian-diesch.de/software/classicmenu-indicator/
 #
 # Copyright (C) 2013 Florian Diesch <devel@florian-diesch.de>
 #
@@ -21,33 +21,12 @@
 #
 
 import glob
-import _meta
-import sys
 from setuptools import setup, find_packages
-
-try:
-    from DistUtilsExtra.command import *  # noqa: F401, F403
-except ImportError:
-    print('To build ClassicMenu Indicator you need https://launchpad.net/python-distutils-extra', file=sys.stderr)
-    sys.exit(1)
-
-
-def read_from_file(path):
-    with open(path) as input:
-        return input.read()
 
 
 setup(
-    name='classicmenu-indicator',
-    version=_meta.VERSION,
     packages=find_packages(),
     include_package_data=True,
-    maintainer='Florian Diesch',
-    maintainer_email='devel@florian-diesch.de',
-    author="Florian Diesch",
-    author_email="devel@florian-diesch.de",
-    description='An Unity indicator applet that provides the classic GNOME application menu',
-    long_description=read_from_file('README.txt'),
     data_files=[
         ('/usr/share/man/man1',
          glob.glob('data/man/*.1')),
@@ -75,25 +54,22 @@ setup(
     entry_points={
         'console_scripts': ['classicmenu-indicator=classicmenu_indicator:main'],
     },
-    license='GPLv3',
-    url='http://www.florian-diesch.de/software/classicmenu-indicator/',
-    download_url='http://www.florian-diesch.de/software/classicmenu-indicator/',
-    keywords="Ubuntu, Unity, Indicator, Applet, Gnome, Classic Menu",
+    keywords="Ubuntu, Unity, Indicator, Menu, System Tray, Tray Icon, Applet, Classic Menu",
+    python_requires=">=3.0",
+    zip_safe=False,
     classifiers=[
-        'Development Status :: 4 - Beta',
+        'Development Status :: 6 - Mature',
         'Environment :: X11 Applications :: Gnome',
+        'Environment :: X11 Applications :: GTK',
         'Intended Audience :: End Users/Desktop',
-        'License :: OSI Approved :: GNU General Public License (GPL)',
+        'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
         'Natural Language :: English',
         'Natural Language :: German',
         'Operating System :: POSIX :: Linux',
         'Programming Language :: Python :: 3',
-        'Topic :: Desktop Environment :: Gnome',
+        'Programming Language :: Python :: 3 :: Only',
+        'Programming Language :: Python :: Implementation :: CPython',
+        'Topic :: Desktop Environment',
         'Topic :: Utilities',
     ],
-    # cmdclass = { "build" : build_extra.build_extra,
-    #              "build_i18n" :  build_i18n.build_i18n,
-    #              "build_help" :  build_help.build_help,
-    #              "build_icons" :  build_icons.build_icons }
-
 )
