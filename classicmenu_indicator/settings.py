@@ -13,7 +13,12 @@ try:
 except:
     HAVE_APPINDICATOR = False
     
-gi.require_version('GMenu', '3.0')
+try:
+    gi.require_version('GMenu', '3.0')
+except ValueError:
+    print(_("{app} needs GObject introspection data for GMenu. \nOn Debian based distros please install the package 'gir1.2-gmenu-3.0'.").format(app=_meta.TITLE))
+    sys.exit(1)
+    
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk
 
