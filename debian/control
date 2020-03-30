@@ -1,6 +1,7 @@
 Source: classicmenu-indicator
 Section: gnome
 Priority: optional
+Rules-Requires-Root: no
 Maintainer: Florian Diesch <devel@florian-diesch.de>
 Build-Depends: debhelper (>=12),
 	       dh-python,
