@@ -5,7 +5,7 @@ Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 XSBC-Original-Maintainer: Florian Diesch <devel@florian-diesch.de>
 Build-Depends: debhelper-compat (= 12),
                dh-python,
-               gir1.2-appindicator3-0.1,
+               gir1.2-ayatanaappindicator3-0.1,
                gir1.2-glib-2.0,
                gir1.2-gmenu-3.0,
                gir1.2-gtk-3.0,
@@ -21,7 +21,7 @@ Homepage: https://www.florian-diesch.de/software/classicmenu-indicator/
 
 Package: classicmenu-indicator
 Architecture: all
-Depends: gir1.2-appindicator3-0.1,
+Depends: gir1.2-ayatanaappindicator3-0.1,
          gir1.2-glib-2.0,
          gir1.2-gmenu-3.0,
          gir1.2-gtk-3.0,

@@ -1,7 +1,13 @@
+classicmenu-indicator (0.11.1) bookworm; urgency=medium
+
+  * Adapted for Debian Bookworm 12, switched to Ayatana Indicators
+
+ -- Norbert X <nrbrtx@gmail.com>  Wed, 19 Mar 2025 18:37:37 +0000
+
 classicmenu-indicator (0.11-0ubuntu2) noble; urgency=medium
 
   * Fix FTBFS on Ubuntu Noble 24.04 LTS
-  
+
  -- Norbert X <nrbrtx@gmail.com>  Wed, 19 Mar 2025 17:37:37 +0000
 
 classicmenu-indicator (0.11-0ubuntu1) focal; urgency=medium

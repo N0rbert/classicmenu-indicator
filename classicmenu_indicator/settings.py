@@ -4,7 +4,7 @@ import glob
 import json
 import os
 import os.path
-from gi.repository import Gtk, AppIndicator3
+from gi.repository import Gtk, AyatanaAppIndicator3 as AppIndicator3
 from gettext import gettext as _
 from . import _meta
 
