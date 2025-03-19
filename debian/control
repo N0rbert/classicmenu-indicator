@@ -1,27 +1,36 @@
 Source: classicmenu-indicator
 Section: gnome
 Priority: optional
-Maintainer: Florian Diesch <devel@florian-diesch.de>
-Build-Depends: debhelper, 
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+XSBC-Original-Maintainer: Florian Diesch <devel@florian-diesch.de>
+Build-Depends: debhelper-compat (= 12),
+               dh-python,
+               gir1.2-appindicator3-0.1,
+               gir1.2-glib-2.0,
+               gir1.2-gmenu-3.0,
+               gir1.2-gtk-3.0,
                python3,
-               python3-setuptools,
-	       python3-distutils-extra,
-	       intltool
-Standards-Version: 3.9.6
-Homepage: http://www.florian-diesch.de/software/classicmenu-indicator/
-
+               python3-dbus,
+               python3-distutils-extra,
+               python3-gi,
+               python3-pkg-resources,
+               python3-setuptools
+Standards-Version: 4.4.1
+Rules-Requires-Root: no
+Homepage: https://www.florian-diesch.de/software/classicmenu-indicator/
 
 Package: classicmenu-indicator
 Architecture: all
-Depends: ${misc:Depends},
-         python3,
+Depends: gir1.2-appindicator3-0.1,
+         gir1.2-glib-2.0,
+         gir1.2-gmenu-3.0,
+         gir1.2-gtk-3.0,
+         python3-dbus,
          python3-gi,
-	 gir1.2-glib-2.0,
-	 gir1.2-gtk-3.0,
-	 gir1.2-gmenu-3.0,
-	 gir1.2-appindicator3-0.1,
-         python3-pkg-resources
-Description: indicator showing a classic application menu
+         python3-pkg-resources,
+         ${misc:Depends},
+         ${python3:Depends}
+Description: indicator showing the main menu from GNOME Classic
  ClassicMenu Indicator is a notification area applet (application
  indicator) for the top panel of Ubuntu’s Unity desktop environment
  and other environments that support the AppIndicator protocol.

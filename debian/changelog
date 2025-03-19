@@ -1,93 +1,67 @@
-classicmenu-indicator (0.11) artful; urgency=medium
+classicmenu-indicator (0.11-0ubuntu1) focal; urgency=medium
 
-   * Added manpage
-   * Added Kurdish, Portuguese, Serbian, Sorani translations
-   * Fixed text in config dialog. Thanks to A. Richard Miller.
-   * Added Simple Menu
-   * Added keyboard activation. Thanks to Todd Eigenschink (LP:  #1656612)
-   * Fixes for flake8 errors and warnings. Thanks to Anari Jalakas
+  * New upstream release
+    - Added manpage
+    - Added Kurdish, Portuguese, Serbian, Sorani translations
+    - Fixed text in config dialog. Thanks to A. Richard Miller.
+    - Added Simple Menu
+    - Added keyboard activation. Thanks to Todd Eigenschink (LP:  #1656612)
+    - Fixes for flake8 errors and warnings. Thanks to Anari Jalakas
+  * Add (build-)dependencies gir1.2-glib-2.0, python3-dbus and
+    python3-pkg-resources
+  * Update debian/copyright
+  * Use HTTPS for upstream URLs
+  * Remove trailing whitespace from debian/changelog
+  * Switch to debhelper 12
+  * Set Rules-Requires-Root: no
+  * Bump Standards-Version to 4.4.1, no changes
 
- -- Florian Diesch <devel@florian-diesch.de>  Fri, 12 Aug 2016 01:52:09 +0200
+ -- Graham Inggs <ginggs@ubuntu.com>  Wed, 27 Nov 2019 11:45:40 +0000
 
-classicmenu-indicator (0.10.1) wily; urgency=medium
+classicmenu-indicator (0.10.1-0ubuntu1) xenial; urgency=medium
 
-   * Fixed calling of Gio.AppInfo.launch() for precise (LP: #1559253)
-   * Added Amharic translations
+  * New upstream release
+    - Ported to Python3, PyGObject and GTK3 (LP: #1544160)
+    - Added Basque, Finnish, Hungarian, Italian, Korean, Dutch, Polish,
+      Romanian, Scots, Ukrainian, Uzbek translations
+    - Added configuration dialog
+    - Fixed calling of Gio.AppInfo.launch() for precise (LP: #1559253)
+    - Added Amharic translations
 
- -- Florian Diesch <devel@florian-diesch.de>  Mon, 21 Mar 2016 14:24:45 +0100
+ -- Graham Inggs <ginggs@ubuntu.com>  Wed, 23 Mar 2016 10:32:39 +0200
 
-classicmenu-indicator (0.10) wily; urgency=medium
+classicmenu-indicator (0.07-0ubuntu2) wily; urgency=medium
 
-   * Ported to Python3, PyGObject and GTK3
-   * Added Basque, Finnish, Hungarian, Italian, Korean, Dutch, Polish,
-     Romanian, Scots, Ukrainian, Uzbek translations
-   * Addded configuration dialog
+  * Use gio.appinfo.launch() to start programs (LP: #1456574).
+  * Use python-setuptools instead of distribute_setup.py.
+    (fixes FTBFS in recent Ubuntu releases)
 
- -- Florian Diesch <devel@florian-diesch.de>  Sat, 24 Oct 2015 13:17:26 +0200
+ -- Graham Inggs <graham@nerve.org.za>  Mon, 08 Jun 2015 19:32:06 +0200
 
-classicmenu-indicator (0.09-1) trusty; urgency=medium
+classicmenu-indicator (0.07-0ubuntu1) raring; urgency=low
 
-  * added 'python-xdg' as a dependency (LP: #1363891)
-    Thanks to Graham Inggs
-  * replaced build-deb 'python-all' with 'python'
-	
- -- Florian Diesch <devel@florian-diesch.de>  Thu, 25 Sep 2014 17:45:29 +0200
+  * Initial release into Ubuntu proper (LP: #1055435).
 
-classicmenu-indicator (0.09) saucy; urgency=low
-
-  * use $XDG_MENU_PREFIX (LP: #1228053)
-  * use unity-lens-applications.menu for Unity
-  * don't use gtk.image_new_from_stock (LP: #1220961)
-  * Added Arabic, Bulgarian, Catalan, Galician, Greek, Norwegian Bokmal,
-    Spanish, Swedish, Telugu, Turkish translations
-  * Added some menu items to change configuration
-
- -- Florian Diesch <devel@florian-diesch.de>  Fri, 17 Jan 2014 22:58:59 +0100
-
-classicmenu-indicator (0.08ubuntu2) precise; urgency=low
-
-  * added symlink for _meta.py
-
- -- Florian Diesch <devel@florian-diesch.de>  Sat, 24 Aug 2013 19:01:12 +0200
-
-classicmenu-indicator (0.08ubuntu1) precise; urgency=low
-
-  * added  python-distutils-extra to build dependencies
-
- -- Florian Diesch <devel@florian-diesch.de>  Sat, 24 Aug 2013 16:14:40 +0200
-
-classicmenu-indicator (0.08) precise; urgency=low
-
-  * code cleanup
-  * ClassicMenu Indicator has its own icon now
-  * added support for some configuration options
-  * improved handling of missing/unusable icons
-  * extended "ClassicMenu Indicator" submenu
-  * added Estonian, French, Croatian, Japanese, Malay, Brazilian
-    Portuguese, Russian, Chinese (Simplified) language support
-  * changed the way commands are run
-   
-
- -- Florian Diesch <devel@florian-diesch.de>  Sat, 08 Sep 2012 00:16:13 +0200
+ -- Graham Inggs <graham@nerve.org.za>  Sat, 16 Mar 2013 13:30:56 +0200
 
 classicmenu-indicator (0.07) oneiric; urgency=low
 
   * cmdindicator.py:
     - Fixed bug in handling of missing/unusable icons
-    - Added own menu if settings.menu doesn't exist 
+    - Added own menu if settings.menu doesn't exist
 
  -- Florian Diesch <debian@florian-diesch.de>  Sat, 07 Jan 2012 13:26:09 +0100
 
 classicmenu-indicator (0.06) natty; urgency=low
 
-  * cmdindicator.py: 
-    -  Fixed bug that caused an infitite loop after menu file update 
+  * cmdindicator.py:
+    -  Fixed bug that caused an infitite loop after menu file update
        under some circumstances
-
 
  -- Florian Diesch <debian@florian-diesch.de>  Fri, 14 Oct 2011 23:28:57 +0200
 
 classicmenu-indicator (0.05) natty; urgency=low
+
   * cmdindicator.py:
     - Fixed icon size when run in an environment other than Unity
 
@@ -108,7 +82,7 @@ classicmenu-indicator (0.03) natty; urgency=low
      - create_indicator: use mono style icon (LP: #792780). Thanks to Sander van Noort
      - create_menu: Added "Settings" and "System Administration" menus
      - main: Added ``--help`` and ``--version`` command line options
-	
+
  -- Florian Diesch <debian@florian-diesch.de>  Sat, 04 Jun 2011 16:32:01 +0200
 
 classicmenu-indicator (0.02) natty; urgency=low

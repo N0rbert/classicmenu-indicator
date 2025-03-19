@@ -1,8 +1,0 @@
-# -*- makefile -*-
-
-PPA={{ppa}}
-DEBVERSION={{version}}
-DISTRIBUTION={{distribution}}
-
-GPG_KEY={{gpg_key}}
-
