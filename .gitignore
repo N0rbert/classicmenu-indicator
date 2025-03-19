@@ -1,0 +1,15 @@
+build/*
+classicmenu_indicator.egg-info/entry_points.txt
+classicmenu_indicator.egg-info/PKG-INFO
+debian/classicmenu-indicator/
+debian/classicmenu-indicator.postinst.debhelper
+debian/classicmenu-indicator.postrm.debhelper
+debian/classicmenu-indicator.prerm.debhelper
+debian/classicmenu-indicator.substvars
+debian/.debhelper/*
+debian/debhelper-build-stamp
+debian/files
+po/classicmenu-indicator.pot
+po/classicmenu-indicator.pot
+.pybuild/*
+__pycache__/*

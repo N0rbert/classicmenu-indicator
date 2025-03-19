@@ -130,7 +130,7 @@ class Vars(object):
 
     @property
     def USE_MENU_ICONS(self):
-        return self.data.get('menu_icons', False)
+        return self.data.get('menu_icons', True)
 
     @USE_MENU_ICONS.setter
     def USE_MENU_ICONS(self, value):

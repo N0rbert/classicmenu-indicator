@@ -149,7 +149,10 @@ class ClassicMenuIndicator(object):
 
         gettext.bindtextdomain(settings.GETTEXT_DOMAIN)
         gettext.textdomain(settings.GETTEXT_DOMAIN)
-        gettext.bind_textdomain_codeset(settings.GETTEXT_DOMAIN, 'UTF-8')
+        try:
+            gettext.bind_textdomain_codeset(settings.GETTEXT_DOMAIN, 'UTF-8')
+        except AttributeError:
+            pass
 
         self.theme = Gtk.IconTheme.get_default()
 
